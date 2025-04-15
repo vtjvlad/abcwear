@@ -22,18 +22,18 @@ const Product = mongoose.model('Products', productSchema);
 const app = express();
 
 // Настройка middleware
-app.use(express.static(path.join(__dirname, './product_page')));
+app.use(express.static(path.join(__dirname, './public')));
 
 // Главная страница
 app.get('/w', (req, res) => {
-    res.sendFile(path.join(__dirname, 'product_page', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
-
+ 
 // API endpoint для получения продуктов
 app.get('/api/products', async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1;
-        const limit = parseInt(req.query.limit) || 10;
+        const limit = parseInt(req.query.limit) || 100;
         const skip = (page - 1) * limit;
         const { search, minPrice, maxPrice, productType, color, isNew } = req.query;
 
@@ -81,7 +81,7 @@ app.get('/api/products', async (req, res) => {
 
 // Обработка всех остальных маршрутов - отдаем index.html
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'product_page', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 const PORT = 3000;
