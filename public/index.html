@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Wear - Products</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>ABC Wear</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="filters">
+            <input type="text" id="search" placeholder="Search products...">
+            <select id="sort">
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="name-asc">Name: A to Z</option>
+                <option value="name-desc">Name: Z to A</option>
+            </select>
+        </div>
+
+        <div class="products-grid" id="products-container">
+            <!-- Products will be loaded here dynamically -->
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p>Loading more products...</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ABC Wear. All rights reserved.</p>
+    </footer>
+
+    <script src="/static/script.js"></script>
+</body>
+</html> 
