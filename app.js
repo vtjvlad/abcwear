@@ -95,14 +95,14 @@ app.get('/api/filters/names', async (req, res) => {
 
 app.get('/api/products', async (req, res) => {
     try {
-        console.log('Received request with query:', req.query);
-        
         const page = parseInt(req.query.page) || 1;
         const limit = parseInt(req.query.limit) || 10;
         const skip = (page - 1) * limit;
 
-        // Создаем объект фильтра
-        const filter = {};
+        // Формируем объект фильтра
+        const filter = {
+            'pid.groupKey': { $exists: true }
+        };
 
         // Фильтр по цвету
         if (req.query.color) {
@@ -149,33 +149,51 @@ app.get('/api/products', async (req, res) => {
                 sort[req.query.sortField] = req.query.sortOrder === 'asc' ? 1 : -1;
             }
         } else {
-            sort.createdAt = -1; // Сортировка по умолчанию
+            sort.createdAt = -1;
         }
 
-        console.log('Using filter:', JSON.stringify(filter, null, 2));
-        console.log('Using sort:', JSON.stringify(sort, null, 2));
+        // Шаг 1: Получаем уникальные groupKey с учетом фильтров и пагинации
+        const groupKeysResult = await Product.aggregate([
+            { $match: filter },
+            { $group: { _id: '$pid.groupKey' } },
+            { $sort: sort },
+            { $skip: skip },
+            { $limit: limit }
+        ]);
 
-        // Получаем общее количество продуктов
-        const totalProducts = await Product.countDocuments(filter);
-        console.log('Total products found:', totalProducts);
+        const groupKeys = groupKeysResult.map(result => result._id);
 
-        // Получаем продукты с пагинацией
-        const products = await Product.find(filter)
-            .sort(sort)
-            .skip(skip)
-            .limit(limit)
-            .lean();
-
-        console.log('Found products:', products.length);
-        if (products.length > 0) {
-            console.log('First product:', JSON.stringify(products[0], null, 2));
+        if (!groupKeys.length) {
+            return res.json({
+                products: [],
+                total: 0,
+                currentPage: page,
+                totalPages: 0
+            });
         }
+
+        // Шаг 2: Получаем продукты для этих groupKey
+        const products = await Product.find({
+            'pid.groupKey': { $in: groupKeys }
+        }).select('info.name info.subtitle info.color price.self.UAH.currentPrice price.self.UAH.initialPrice imageData.imgMain imageData.images links.url sizes pid.groupKey');
+
+        // Шаг 3: Группируем продукты по groupKey
+        const groupedProducts = groupKeys.map(groupKey => {
+            return products.filter(p => p.pid && p.pid.groupKey === groupKey);
+        });
+
+        // Шаг 4: Подсчитываем общее количество уникальных groupKey
+        const totalGroupsResult = await Product.aggregate([
+            { $match: filter },
+            { $group: { _id: '$pid.groupKey' } }
+        ]);
+        const totalGroups = totalGroupsResult.length;
 
         res.json({
-            products,
+            products: groupedProducts,
+            total: totalGroups,
             currentPage: page,
-            totalPages: Math.ceil(totalProducts / limit),
-            totalProducts
+            totalPages: Math.ceil(totalGroups / limit)
         });
     } catch (error) {
         console.error('Error in /api/products:', error);

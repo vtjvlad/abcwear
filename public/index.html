@@ -249,6 +249,48 @@
             color: #e53935;
         }
 
+        /* Стили для сгруппированных товаров */
+        .product-variants {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f8f8f8;
+            border-radius: 4px;
+        }
+
+        .variant-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .variant-item:last-child {
+            border-bottom: none;
+        }
+
+        .variant-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+        }
+
+        .variant-info {
+            flex: 1;
+        }
+
+        .variant-name {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .variant-price {
+            font-size: 14px;
+            color: #e53935;
+            font-weight: bold;
+        }
+
         @media (max-width: 768px) {
             .filters {
                 flex-direction: column;
@@ -386,6 +428,112 @@
         .noUi-handle:before,
         .noUi-handle:after {
             display: none;
+        }
+
+        /* Добавляем новые стили для переключателей цвета */
+        .color-switchers {
+            display: flex;
+            gap: 8px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        .color-switcher {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            position: relative;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            background-color: #fff;
+        }
+
+        .color-switcher::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+        }
+
+        .color-switcher.active {
+            border-color: #2196F3;
+            transform: scale(1.1);
+        }
+
+        .color-switcher:hover {
+            transform: scale(1.1);
+        }
+
+        .color-switcher.white {
+            background-color: #fff;
+        }
+
+        .color-switcher.black {
+            background-color: #000;
+        }
+
+        /* Добавляем стили для выбора размера */
+        .size-selector {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            margin: 10px 0;
+            background-color: white;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+        }
+
+        .size-selector:focus {
+            outline: none;
+            border-color: #2196F3;
+        }
+
+        /* Стили для кнопок действий */
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .action-button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .details-button {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .details-button:hover {
+            background-color: #1976D2;
+        }
+
+        .cart-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .cart-button:hover {
+            background-color: #388E3C;
         }
     </style>
 </head>
