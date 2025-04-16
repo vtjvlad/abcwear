@@ -21,7 +21,42 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('Connected to MongoDB'))
+  .then(async () => {
+    console.log('Connected to MongoDB');
+    
+    // Проверяем, есть ли товары в базе
+    const count = await Product.countDocuments({});
+    if (count === 0) {
+      console.log('No products found, creating a test product...');
+      const testProduct = new Product({
+        info: {
+          name: 'Тестовый товар',
+          subtitle: 'Описание тестового товара',
+          discription: 'Подробное описание тестового товара',
+          color: {
+            labelColor: 'Красный',
+            hex: '#FF0000',
+            colorDescription: 'Яркий красный'
+          }
+        },
+        price: {
+          self: {
+            UAH: {
+              initialPrice: 1000,
+              currentPrice: 800
+            }
+          }
+        },
+        imageData: {
+          imgMain: 'https://via.placeholder.com/300',
+          images: ['https://via.placeholder.com/300']
+        }
+      });
+      
+      await testProduct.save();
+      console.log('Test product created');
+    }
+  })
   .catch(err => console.error('MongoDB connection error:', err));
 
 // Import Product model
@@ -60,6 +95,8 @@ app.get('/api/filters/names', async (req, res) => {
 
 app.get('/api/products', async (req, res) => {
     try {
+        console.log('Received request with query:', req.query);
+        
         const page = parseInt(req.query.page) || 1;
         const limit = parseInt(req.query.limit) || 10;
         const skip = (page - 1) * limit;
@@ -69,48 +106,58 @@ app.get('/api/products', async (req, res) => {
 
         // Фильтр по цвету
         if (req.query.color) {
-            filter.color = req.query.color;
+            filter['info.color.labelColor'] = req.query.color;
         }
 
         // Фильтр по категории
         if (req.query.category) {
-            filter.category = req.query.category;
+            filter['data.productType'] = req.query.category;
         }
 
         // Фильтр по названию
         if (req.query.name) {
-            filter.name = req.query.name;
+            filter['info.name'] = req.query.name;
         }
 
         // Фильтр по поисковому запросу
         if (req.query.search) {
             filter.$or = [
-                { name: { $regex: req.query.search, $options: 'i' } },
-                { description: { $regex: req.query.search, $options: 'i' } }
+                { 'info.name': { $regex: req.query.search, $options: 'i' } },
+                { 'info.discription': { $regex: req.query.search, $options: 'i' } }
             ];
         }
 
         // Фильтр по цене
         if (req.query.minPrice || req.query.maxPrice) {
-            filter.price = {};
+            filter['price.self.UAH.currentPrice'] = {};
             if (req.query.minPrice) {
-                filter.price.$gte = parseFloat(req.query.minPrice);
+                filter['price.self.UAH.currentPrice'].$gte = parseFloat(req.query.minPrice);
             }
             if (req.query.maxPrice) {
-                filter.price.$lte = parseFloat(req.query.maxPrice);
+                filter['price.self.UAH.currentPrice'].$lte = parseFloat(req.query.maxPrice);
             }
         }
 
         // Создаем объект сортировки
         const sort = {};
         if (req.query.sortField) {
-            sort[req.query.sortField] = req.query.sortOrder === 'asc' ? 1 : -1;
+            if (req.query.sortField === 'price') {
+                sort['price.self.UAH.currentPrice'] = req.query.sortOrder === 'asc' ? 1 : -1;
+            } else if (req.query.sortField === 'name') {
+                sort['info.name'] = req.query.sortOrder === 'asc' ? 1 : -1;
+            } else {
+                sort[req.query.sortField] = req.query.sortOrder === 'asc' ? 1 : -1;
+            }
         } else {
             sort.createdAt = -1; // Сортировка по умолчанию
         }
 
+        console.log('Using filter:', JSON.stringify(filter, null, 2));
+        console.log('Using sort:', JSON.stringify(sort, null, 2));
+
         // Получаем общее количество продуктов
         const totalProducts = await Product.countDocuments(filter);
+        console.log('Total products found:', totalProducts);
 
         // Получаем продукты с пагинацией
         const products = await Product.find(filter)
@@ -119,6 +166,11 @@ app.get('/api/products', async (req, res) => {
             .limit(limit)
             .lean();
 
+        console.log('Found products:', products.length);
+        if (products.length > 0) {
+            console.log('First product:', JSON.stringify(products[0], null, 2));
+        }
+
         res.json({
             products,
             currentPage: page,
@@ -126,8 +178,11 @@ app.get('/api/products', async (req, res) => {
             totalProducts
         });
     } catch (error) {
-        console.error('Error fetching products:', error);
-        res.status(500).json({ error: 'Ошибка при получении списка продуктов' });
+        console.error('Error in /api/products:', error);
+        res.status(500).json({ 
+            error: 'Ошибка при получении списка продуктов',
+            details: error.message 
+        });
     }
 });
 
@@ -140,6 +195,48 @@ app.get('/api/products/:id', async (req, res) => {
         res.json(product);
     } catch (error) {
         res.status(500).json({ message: error.message });
+    }
+});
+
+app.get('/api/products/filter-counts', async (req, res) => {
+    try {
+        const [colors, categories, names] = await Promise.all([
+            Product.distinct('color').count(),
+            Product.distinct('category').count(),
+            Product.distinct('name').count()
+        ]);
+
+        res.json({
+            colors,
+            categories,
+            names
+        });
+    } catch (error) {
+        console.error('Error fetching filter counts:', error);
+        res.status(500).json({ error: 'Ошибка при получении количества фильтров' });
+    }
+});
+
+app.get('/api/status', async (req, res) => {
+    try {
+        const totalProducts = await Product.countDocuments({});
+        const sampleProduct = await Product.findOne({});
+        
+        res.json({
+            databaseConnected: mongoose.connection.readyState === 1,
+            totalProducts,
+            sampleProduct: sampleProduct ? {
+                _id: sampleProduct._id,
+                name: sampleProduct.name,
+                price: sampleProduct.price
+            } : null
+        });
+    } catch (error) {
+        console.error('Error checking database status:', error);
+        res.status(500).json({ 
+            error: 'Ошибка при проверке статуса базы данных',
+            details: error.message
+        });
     }
 });
 

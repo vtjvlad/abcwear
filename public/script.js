@@ -26,6 +26,82 @@ document.addEventListener('DOMContentLoaded', () => {
         sortOrder: 'desc'
     };
 
+    // Initialize noUiSlider for price range
+    const priceSlider = document.getElementById('price-slider');
+    noUiSlider.create(priceSlider, {
+        start: [0, 10000],
+        connect: true,
+        range: {
+            'min': 0,
+            'max': 10000
+        }
+    });
+
+    // Update price inputs when slider changes
+    priceSlider.noUiSlider.on('update', (values) => {
+        minPriceInput.value = Math.round(values[0]);
+        maxPriceInput.value = Math.round(values[1]);
+        currentFilters.minPrice = minPriceInput.value;
+        currentFilters.maxPrice = maxPriceInput.value;
+        fetchProducts(1);
+    });
+
+    // Update slider when price inputs change
+    const updatePriceSlider = debounce(() => {
+        const min = parseInt(minPriceInput.value) || 0;
+        const max = parseInt(maxPriceInput.value) || 10000;
+        priceSlider.noUiSlider.set([min, max]);
+        currentFilters.minPrice = minPriceInput.value;
+        currentFilters.maxPrice = maxPriceInput.value;
+        fetchProducts(1);
+    }, 500);
+
+    minPriceInput.addEventListener('input', updatePriceSlider);
+    maxPriceInput.addEventListener('input', updatePriceSlider);
+
+    // URL state management
+    function updateURL() {
+        const params = new URLSearchParams();
+        Object.entries(currentFilters).forEach(([key, value]) => {
+            if (value) params.set(key, value);
+        });
+        window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+    }
+
+    function loadFromURL() {
+        const params = new URLSearchParams(window.location.search);
+        Object.keys(currentFilters).forEach(key => {
+            const value = params.get(key);
+            if (value) {
+                currentFilters[key] = value;
+                const element = document.getElementById(`${key}-filter`) || document.getElementById(key);
+                if (element) element.value = value;
+            }
+        });
+    }
+
+    // Filter counts
+    async function updateFilterCounts() {
+        try {
+            const response = await fetch('/api/products/filter-counts');
+            const counts = await response.json();
+            
+            document.getElementById('color-count').textContent = `(${counts.colors} цветов)`;
+            document.getElementById('category-count').textContent = `(${counts.categories} категорий)`;
+            document.getElementById('name-count').textContent = `(${counts.names} названий)`;
+        } catch (error) {
+            console.error('Error updating filter counts:', error);
+        }
+    }
+
+    // Enhanced filter handling
+    function handleFilterChange(type, value) {
+        currentFilters[type] = value;
+        updateURL();
+        updateActiveFilters();
+        fetchProducts(1);
+    }
+
     // Загрузка фильтров
     async function loadFilters() {
         try {
@@ -186,11 +262,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 ...filters
             });
 
+            console.log('Fetching products with params:', queryParams.toString());
             const response = await fetch(`/api/products?${queryParams.toString()}`);
+            
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
+            
             const data = await response.json();
+            console.log('Received data:', data);
             
             if (page === 1) {
                 productsContainer.innerHTML = '';
@@ -198,7 +278,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (!data.products || data.products.length === 0) {
                 if (page === 1) {
-                    productsContainer.innerHTML = '<div class="no-products">Товары не найдены</div>';
+                    productsContainer.innerHTML = `
+                        <div class="no-products">
+                            <p>Товары не найдены</p>
+                            <p>Попробуйте изменить параметры поиска</p>
+                        </div>
+                    `;
                 }
                 hasMore = false;
                 return;
@@ -213,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     }
                 } catch (error) {
-                    console.error('Error creating product card:', error);
+                    console.error('Error creating product card:', error, product);
                 }
             });
 
@@ -223,7 +308,12 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Error fetching products:', error);
             if (page === 1) {
-                productsContainer.innerHTML = '<div class="error-message">Ошибка загрузки товаров. Пожалуйста, попробуйте позже.</div>';
+                productsContainer.innerHTML = `
+                    <div class="error-message">
+                        <p>Ошибка загрузки товаров</p>
+                        <p>${error.message}</p>
+                    </div>
+                `;
             }
         } finally {
             isLoading = false;
@@ -345,45 +435,29 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Обработчики событий
+    // Event listeners for filters
     searchInput.addEventListener('input', debounce(() => {
-        currentFilters.search = searchInput.value;
-        fetchProducts(1);
+        handleFilterChange('search', searchInput.value);
     }, 500));
 
     colorFilter.addEventListener('change', () => {
-        currentFilters.color = colorFilter.value;
-        fetchProducts(1);
+        handleFilterChange('color', colorFilter.value);
     });
 
     categoryFilter.addEventListener('change', () => {
-        currentFilters.category = categoryFilter.value;
-        fetchProducts(1);
+        handleFilterChange('category', categoryFilter.value);
     });
 
     nameFilter.addEventListener('change', () => {
-        currentFilters.name = nameFilter.value;
-        fetchProducts(1);
+        handleFilterChange('name', nameFilter.value);
     });
 
-    minPriceInput.addEventListener('input', debounce(() => {
-        currentFilters.minPrice = minPriceInput.value;
-        fetchProducts(1);
-    }, 500));
-
-    maxPriceInput.addEventListener('input', debounce(() => {
-        currentFilters.maxPrice = maxPriceInput.value;
-        fetchProducts(1);
-    }, 500));
-
     sortFieldSelect.addEventListener('change', () => {
-        currentFilters.sortField = sortFieldSelect.value;
-        fetchProducts(1);
+        handleFilterChange('sortField', sortFieldSelect.value);
     });
 
     sortOrderSelect.addEventListener('change', () => {
-        currentFilters.sortOrder = sortOrderSelect.value;
-        fetchProducts(1);
+        handleFilterChange('sortOrder', sortOrderSelect.value);
     });
 
     // Функция debounce для оптимизации частых вызовов
@@ -399,8 +473,10 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Инициализация
+    // Initialize
+    loadFromURL();
     loadFilters();
+    updateFilterCounts();
     fetchProducts(1);
 
     // Обновление активных фильтров при изменении

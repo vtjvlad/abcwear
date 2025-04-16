@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC Wear - Интернет магазин</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -309,6 +311,7 @@
             align-items: center;
             gap: 5px;
             cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .filter-tag:hover {
@@ -318,6 +321,7 @@
         .filter-tag .remove {
             font-size: 14px;
             font-weight: bold;
+            padding: 0 5px;
         }
 
         .clear-filters {
@@ -328,10 +332,60 @@
             border-radius: 4px;
             cursor: pointer;
             font-size: 12px;
+            transition: background-color 0.3s ease;
         }
 
         .clear-filters:hover {
             background: #d32f2f;
+        }
+
+        .filter-count {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .price-slider-container {
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .price-inputs {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .price-inputs input {
+            width: 100px;
+        }
+
+        .noUi-target {
+            background: #ddd;
+            border: none;
+            box-shadow: none;
+            height: 4px;
+        }
+
+        .noUi-connect {
+            background: #2196F3;
+        }
+
+        .noUi-handle {
+            width: 18px;
+            height: 18px;
+            right: -9px;
+            top: -7px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid #2196F3;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .noUi-handle:before,
+        .noUi-handle:after {
+            display: none;
         }
     </style>
 </head>
@@ -346,25 +400,33 @@
                     <select id="color-filter">
                         <option value="">Все цвета</option>
                     </select>
+                    <div class="filter-count" id="color-count"></div>
                 </div>
                 <div class="filter-group">
                     <select id="category-filter">
                         <option value="">Все категории</option>
                     </select>
+                    <div class="filter-count" id="category-count"></div>
                 </div>
                 <div class="filter-group">
                     <select id="name-filter">
                         <option value="">Все названия</option>
                     </select>
+                    <div class="filter-count" id="name-count"></div>
                 </div>
             </div>
 
             <div class="filters-row">
                 <div class="filter-group">
                     <div class="price-range">
-                        <input type="number" id="min-price" placeholder="Мин. цена">
-                        <span>-</span>
-                        <input type="number" id="max-price" placeholder="Макс. цена">
+                        <div class="price-slider-container">
+                            <div id="price-slider"></div>
+                            <div class="price-inputs">
+                                <input type="number" id="min-price" placeholder="Мин. цена">
+                                <span>-</span>
+                                <input type="number" id="max-price" placeholder="Макс. цена">
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="filter-group">
