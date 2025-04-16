@@ -255,11 +255,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Создаем контейнер для изображения
         const imageContainer = document.createElement('div');
-        imageContainer.className = 'product-image-container';
+        imageContainer.className = 'product-image-container loading';
+
+        // Создаем индикатор загрузки изображения
+        const imageLoading = document.createElement('div');
+        imageLoading.className = 'image-loading';
+        imageLoading.innerHTML = '<div class="spinner"></div>';
+        imageContainer.appendChild(imageLoading);
 
         // Создаем основное изображение
         const mainImage = document.createElement('img');
-        mainImage.className = 'product-image';
+        mainImage.className = 'product-image loading';
+        mainImage.addEventListener('load', () => {
+            imageContainer.classList.remove('loading');
+            mainImage.classList.remove('loading');
+            imageLoading.style.display = 'none';
+        });
+        mainImage.addEventListener('error', () => {
+            imageContainer.classList.remove('loading');
+            mainImage.classList.remove('loading');
+            imageLoading.style.display = 'none';
+            mainImage.src = 'placeholder.jpg'; // Замените на путь к вашему изображению-заглушке
+        });
         mainImage.src = product.imageData?.imgMain || product.imageData?.images?.[0] || '';
         mainImage.alt = product.info?.name || '';
 
@@ -311,10 +328,14 @@ document.addEventListener('DOMContentLoaded', () => {
             // Добавляем основной цвет
             const mainColorSwitcher = document.createElement('div');
             mainColorSwitcher.className = 'color-switcher active';
-            mainColorSwitcher.style.backgroundColor = product.info?.color?.hex || '#fff';
+            const mainHexColor = product.info?.color?.hex || '#FFFFFF';
+            mainColorSwitcher.style.backgroundColor = mainHexColor.startsWith('#') ? mainHexColor : `#${mainHexColor}`;
             mainColorSwitcher.title = product.info?.color?.labelColor || '';
             mainColorSwitcher.addEventListener('click', () => {
                 updateActiveColor(colorSwitchers, mainColorSwitcher);
+                imageContainer.classList.add('loading');
+                imageLoading.style.display = 'flex';
+                mainImage.classList.add('loading');
                 mainImage.src = product.imageData?.imgMain || product.imageData?.images?.[0] || '';
                 updatePrice(priceContainer, product.price?.self?.UAH);
             });
@@ -324,10 +345,14 @@ document.addEventListener('DOMContentLoaded', () => {
             product.variants.forEach(variant => {
                 const colorSwitcher = document.createElement('div');
                 colorSwitcher.className = 'color-switcher';
-                colorSwitcher.style.backgroundColor = variant.info?.color?.hex || '#fff';
+                const hexColor = variant.info?.color?.hex || '#FFFFFF';
+                colorSwitcher.style.backgroundColor = hexColor.startsWith('#') ? hexColor : `#${hexColor}`;
                 colorSwitcher.title = variant.info?.color?.labelColor || '';
                 colorSwitcher.addEventListener('click', () => {
                     updateActiveColor(colorSwitchers, colorSwitcher);
+                    imageContainer.classList.add('loading');
+                    imageLoading.style.display = 'flex';
+                    mainImage.classList.add('loading');
                     mainImage.src = variant.imageData?.imgMain || variant.imageData?.images?.[0] || '';
                     updatePrice(priceContainer, variant.price?.self?.UAH);
                 });
@@ -404,8 +429,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Обновляем функцию fetchProducts для обработки сгруппированных товаров
     async function fetchProducts(page = 1) {
+        if (isLoading) return;
+        isLoading = true;
+        
+        // Показываем индикатор загрузки
         loadingIndicator.style.display = 'block';
-        productsContainer.innerHTML = '';
+        
+        // Очищаем контейнер только если это первая страница
+        if (page === 1) {
+            productsContainer.innerHTML = '';
+            hasMore = true;
+        }
 
         try {
             const queryParams = new URLSearchParams({
@@ -432,25 +466,34 @@ document.addEventListener('DOMContentLoaded', () => {
                     const card = createProductCard(productWithVariants);
                     productsContainer.appendChild(card);
                 });
-            } else {
+
+                // Обновляем состояние пагинации
+                currentPage = page;
+                hasMore = page < data.totalPages;
+            } else if (page === 1) {
                 productsContainer.innerHTML = '<div class="no-products">Товары не найдены</div>';
+                hasMore = false;
             }
         } catch (error) {
             console.error('Error fetching products:', error);
-            productsContainer.innerHTML = '<div class="error-message">Ошибка загрузки товаров</div>';
+            if (page === 1) {
+                productsContainer.innerHTML = '<div class="error-message">Ошибка загрузки товаров</div>';
+            }
+            hasMore = false;
         } finally {
+            isLoading = false;
             loadingIndicator.style.display = 'none';
         }
     }
 
-    // Обработка прокрутки
+    // Обновляем обработчик прокрутки
     function handleScroll() {
         if (isLoading || !hasMore) return;
 
         const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
         
-        if (scrollTop + clientHeight >= scrollHeight - 100) {
-            fetchProducts(currentPage + 1, currentFilters);
+        if (scrollTop + clientHeight >= scrollHeight - 500) {
+            fetchProducts(currentPage + 1);
         }
     }
 

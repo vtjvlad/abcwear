@@ -232,8 +232,23 @@
             display: none;
             text-align: center;
             padding: 20px;
-            font-size: 18px;
+            width: 100%;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #2196F3;
+            animation: spin 1s linear infinite;
+            margin-bottom: 10px;
+        }
+
+        .loading-text {
             color: #666;
+            font-size: 14px;
         }
 
         .no-products, .error-message {
@@ -430,18 +445,18 @@
             display: none;
         }
 
-        /* Добавляем новые стили для переключателей цвета */
+        /* Обновляем стили для переключателей цвета */
         .color-switchers {
             display: flex;
-            gap: 8px;
-            margin: 10px 0;
+            gap: 12px;
+            margin: 15px 0;
             flex-wrap: wrap;
         }
 
         .color-switcher {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
             cursor: pointer;
             position: relative;
             border: 2px solid transparent;
@@ -456,17 +471,17 @@
             left: 0;
             right: 0;
             bottom: 0;
-            border-radius: 50%;
+            border-radius: 6px;
             border: 1px solid #ddd;
         }
 
         .color-switcher.active {
             border-color: #2196F3;
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .color-switcher:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .color-switcher.white {
@@ -535,6 +550,55 @@
         .cart-button:hover {
             background-color: #388E3C;
         }
+
+        /* Стили для индикатора загрузки изображений */
+        .image-loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .image-loading .spinner {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 2px solid #2196F3;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Добавляем состояние загрузки для контейнера изображения */
+        .product-image-container.loading::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #f8f8f8;
+            z-index: 1;
+        }
+
+        .product-image {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-image.loading {
+            opacity: 0;
+        }
     </style>
 </head>
 <body>
@@ -597,7 +661,10 @@
         </div>
 
         <div id="products-container" class="products-grid"></div>
-        <div id="loading">Загрузка...</div>
+        <div id="loading">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Загрузка товаров...</div>
+        </div>
     </div>
 
     <script src="script.js"></script>
