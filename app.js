@@ -20,44 +20,49 @@ app.use((req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGO_URI)
-  .then(async () => {
-    console.log('Connected to MongoDB');
-    
-    // Проверяем, есть ли товары в базе
-    const count = await Product.countDocuments({});
-    if (count === 0) {
-      console.log('No products found, creating a test product...');
-      const testProduct = new Product({
-        info: {
-          name: 'Тестовый товар',
-          subtitle: 'Описание тестового товара',
-          discription: 'Подробное описание тестового товара',
-          color: {
-            labelColor: 'Красный',
-            hex: '#FF0000',
-            colorDescription: 'Яркий красный'
-          }
-        },
-        price: {
-          self: {
-            UAH: {
-              initialPrice: 1000,
-              currentPrice: 800
-            }
-          }
-        },
-        imageData: {
-          imgMain: 'https://via.placeholder.com/300',
-          images: ['https://via.placeholder.com/300']
+const initializeDatabase = async () => {
+    try {
+        await mongoose.connect(process.env.MONGO_URI);
+        console.log('Connected to MongoDB');
+
+        const count = await Product.countDocuments({});
+        if (count === 0) {
+            console.log('No products found, creating a test product...');
+            const testProduct = new Product({
+                info: {
+                    name: 'Тестовый товар',
+                    subtitle: 'Описание тестового товара',
+                    discription: 'Подробное описание тестового товара',
+                    color: {
+                        labelColor: 'Красный',
+                        hex: '#FF0000',
+                        colorDescription: 'Яркий красный'
+                    }
+                },
+                price: {
+                    self: {
+                        UAH: {
+                            initialPrice: 1000,
+                            currentPrice: 800
+                        }
+                    }
+                },
+                imageData: {
+                    imgMain: 'https://via.placeholder.com/300',
+                    images: ['https://via.placeholder.com/300']
+                }
+            });
+
+            await testProduct.save();
+            console.log('Test product created');
         }
-      });
-      
-      await testProduct.save();
-      console.log('Test product created');
+    } catch (err) {
+        console.error('MongoDB connection error:', err);
     }
-  })
-  .catch(err => console.error('MongoDB connection error:', err));
+};
+
+// Вызов функции
+initializeDatabase();
 
 // Import Product model
 const Product = mongoose.model('Product', require('./model.js'));
