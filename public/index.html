@@ -193,6 +193,40 @@
             margin-bottom: 10px;
         }
 
+        /* Стили для форматированного описания товара */
+        .product-description {
+            margin: 10px 0;
+            color: #666;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .product-description p {
+            margin-bottom: 8px;
+        }
+
+        .product-features {
+            list-style: none;
+            padding-left: 5px;
+            margin: 8px 0;
+        }
+
+        .product-features li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 6px;
+            line-height: 1.4;
+            font-size: 13px;
+        }
+
+        .product-features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #2196F3;
+            font-weight: bold;
+        }
+
         .price-container {
             margin-bottom: 10px;
             display: flex;
@@ -598,6 +632,72 @@
 
         .product-image.loading {
             opacity: 0;
+        }
+
+        /* Стили для placeholder изображения */
+        .product-image-container.no-image::before {
+            content: 'ABC';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #ccc;
+            font-weight: bold;
+            background: #f8f8f8;
+            z-index: 1;
+        }
+
+        /* Стили для отображения размеров */
+        .sizes-container {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .sizes-label {
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .sizes-value {
+            color: #333;
+        }
+
+        .variant-price {
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        
+        /* Стили для форматированного описания */
+        .product-description {
+            margin-top: 10px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        
+        .product-description p {
+            margin-bottom: 8px;
+        }
+        
+        .product-features {
+            padding-left: 20px;
+            margin: 8px 0;
+        }
+        
+        .product-features li {
+            margin-bottom: 5px;
+        }
+        
+        .product-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
         }
     </style>
 </head>

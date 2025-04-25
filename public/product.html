@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Wear - Детали товара</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2196F3;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2196F3;
+        }
+
+        .product-container {
+            display: flex;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .product-gallery {
+            flex: 1;
+            padding: 30px;
+            background: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-image-container {
+            position: relative;
+            padding-bottom: 100%;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-radius: 8px;
+            background: white;
+        }
+
+        .main-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: opacity 0.3s;
+        }
+
+        .image-loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .image-loading .spinner {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 2px solid #2196F3;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .thumbnails {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            cursor: pointer;
+            object-fit: cover;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.05);
+        }
+
+        .thumbnail.active {
+            border-color: #2196F3;
+        }
+
+        .product-info {
+            flex: 1;
+            padding: 30px;
+        }
+
+        .product-title {
+            font-size: 28px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .product-subtitle {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .current-price {
+            font-size: 28px;
+            font-weight: bold;
+            color: #e53935;
+        }
+
+        .initial-price {
+            font-size: 18px;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 15px;
+        }
+
+        .discount-badge {
+            background: #e53935;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 14px;
+            margin-left: 15px;
+        }
+
+        .product-description {
+            margin-bottom: 25px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .product-description p {
+            margin-bottom: 15px;
+        }
+
+        .product-description p:last-child {
+            margin-bottom: 0;
+        }
+
+        .product-features {
+            list-style: none;
+            padding-left: 5px;
+            margin: 10px 0;
+        }
+
+        .product-features li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .product-features li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #2196F3;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .color-switchers {
+            margin-bottom: 25px;
+        }
+
+        .color-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 12px;
+        }
+
+        .color-switcher {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .color-switcher::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .color-switcher.active {
+            border-color: #2196F3;
+            transform: scale(1.05);
+        }
+
+        .color-switcher:hover {
+            transform: scale(1.05);
+        }
+
+        .size-selection {
+            margin-bottom: 25px;
+        }
+
+        .size-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .size-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .size-option {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .size-option:hover {
+            background: #f5f5f5;
+        }
+
+        .size-option.active {
+            border-color: #2196F3;
+            background: #e3f2fd;
+            color: #2196F3;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .action-button {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .cart-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .cart-button:hover {
+            background-color: #388E3C;
+        }
+
+        .wishlist-button {
+            background-color: #f8f8f8;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .wishlist-button:hover {
+            background-color: #eee;
+        }
+
+        .details-section {
+            margin-top: 30px;
+        }
+
+        .detail-tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+
+        .detail-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .detail-tab.active {
+            color: #2196F3;
+            font-weight: bold;
+        }
+
+        .detail-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #2196F3;
+        }
+
+        .detail-content {
+            display: none;
+            padding: 20px 0;
+        }
+
+        .detail-content.active {
+            display: block;
+        }
+
+        .specifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .spec-item {
+            display: flex;
+            margin-bottom: 10px;
+        }
+
+        .spec-label {
+            flex: 1;
+            font-weight: bold;
+            color: #666;
+        }
+
+        .spec-value {
+            flex: 2;
+        }
+
+        @media (max-width: 768px) {
+            .product-container {
+                flex-direction: column;
+            }
+
+            .main-image-container {
+                height: 300px;
+            }
+
+            .thumbnail {
+                width: 60px;
+                height: 60px;
+            }
+        }
+
+        /* Стили для placeholder изображения */
+        .main-image-container.no-image::before {
+            content: 'ABC';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            color: #ccc;
+            font-weight: bold;
+            background: #f8f8f8;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="/" class="logo">ABC Wear</a>
+            <div class="nav-links">
+                <a href="/">Главная</a>
+                <a href="/catalog">Каталог</a>
+                <a href="/cart">Корзина</a>
+                <a href="/account">Аккаунт</a>
+            </div>
+        </header>
+
+        <div class="product-container">
+            <div class="product-gallery">
+                <div class="main-image-container">
+                    <div class="image-loading">
+                        <div class="spinner"></div>
+                    </div>
+                    <img id="main-product-image" class="main-image" src="" alt="Изображение товара">
+                </div>
+                <div class="thumbnails" id="thumbnails-container">
+                    <!-- Thumbnails will be added here by JavaScript -->
+                </div>
+            </div>
+
+            <div class="product-info">
+                <h1 class="product-title" id="product-title"></h1>
+                <p class="product-subtitle" id="product-subtitle"></p>
+
+                <div class="price-container">
+                    <span class="current-price" id="current-price"></span>
+                    <span class="initial-price" id="initial-price"></span>
+                    <span class="discount-badge" id="discount-badge"></span>
+                </div>
+
+                <div class="product-description" id="product-description">
+                    <!-- Product description will be added here by JavaScript -->
+                </div>
+
+                <div class="color-selection">
+                    <span class="color-label">Цвет: <span id="selected-color-name"></span></span>
+                    <div class="color-options" id="color-options">
+                        <!-- Color options will be added here by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="size-selection">
+                    <span class="size-label">Размер:</span>
+                    <div class="size-options" id="size-options">
+                        <!-- Size options will be added here by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="product-actions">
+                    <button class="action-button cart-button">Добавить в корзину</button>
+                    <button class="action-button wishlist-button">В избранное</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-section">
+            <div class="detail-tabs">
+                <div class="detail-tab active" data-tab="description">Описание</div>
+                <div class="detail-tab" data-tab="specifications">Характеристики</div>
+                <div class="detail-tab" data-tab="delivery">Доставка</div>
+            </div>
+
+            <div class="detail-content active" id="description-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+
+            <div class="detail-content" id="specifications-content">
+                <div class="specifications">
+                    <div class="spec-item">
+                        <div class="spec-label">Материал:</div>
+                        <div class="spec-value">Хлопок 95%, Эластан 5%</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Страна производства:</div>
+                        <div class="spec-value">Украина</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Уход:</div>
+                        <div class="spec-value">Машинная стирка при 30°C</div>
+                    </div>
+                    <div class="spec-item">
+                        <div class="spec-label">Артикул:</div>
+                        <div class="spec-value" id="product-code"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-content" id="delivery-content">
+                <p>Доставка по Украине осуществляется через "Новую Почту" или "Укрпочту". Стоимость доставки рассчитывается при оформлении заказа.</p>
+                <p>Сроки доставки: 1-3 рабочих дня.</p>
+                <p>Оплата возможна наличными при получении, картой Visa/MasterCard или через систему Privat24.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get product ID from URL
+            const productId = window.location.pathname.split('/').pop();
+            
+            console.log('Product ID from URL:', productId);
+            
+            // Validate product ID
+            if (!productId || productId === 'product') {
+                showErrorMessage('Не указан ID товара');
+                return;
+            }
+            
+            // Tabs functionality
+            const tabs = document.querySelectorAll('.detail-tab');
+            const contents = document.querySelectorAll('.detail-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const tabId = tab.getAttribute('data-tab');
+                    
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    tab.classList.add('active');
+                    document.getElementById(`${tabId}-content`).classList.add('active');
+                });
+            });
+            
+            // Fetch product data
+            fetchProductDetails(productId);
+        });
+        
+        // Helper to show error message
+        function showErrorMessage(message) {
+            document.querySelector('.product-container').innerHTML = `
+                <div class="error-message" style="padding: 30px; text-align: center;">
+                    <h2>Товар не найден</h2>
+                    <p>${message}</p>
+                    <a href="/" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background: #2196F3; color: white; text-decoration: none; border-radius: 5px;">Вернуться на главную</a>
+                </div>
+            `;
+        }
+        
+        async function fetchProductDetails(productId) {
+            try {
+                console.log('Fetching details for product:', productId);
+                const response = await fetch(`/api/products/${productId}`);
+                
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || 'Product not found');
+                }
+                
+                const product = await response.json();
+                console.log('Product data received:', product);
+                
+                if (!product || !product._id) {
+                    throw new Error('Invalid product data received');
+                }
+                
+                renderProductDetails(product);
+                
+                // Fetch variants if they exist
+                if (product.pid && product.pid.groupKey) {
+                    fetchProductVariants(product.pid.groupKey, product._id);
+                }
+            } catch (error) {
+                console.error('Error fetching product details:', error);
+                showErrorMessage('К сожалению, запрашиваемый товар не существует или был удален.');
+            }
+        }
+        
+        async function fetchProductVariants(groupKey, currentProductId) {
+            try {
+                console.log('Fetching variants with groupKey:', groupKey);
+                const response = await fetch(`/api/products?groupKey=${groupKey}`);
+                if (!response.ok) throw new Error('Failed to fetch variants');
+                
+                const data = await response.json();
+                console.log('Variants data:', data);
+                
+                if (data.products && data.products.length > 0 && Array.isArray(data.products[0])) {
+                    // Flatten the nested array structure if needed
+                    const variants = data.products[0].flat ? data.products[0].flat() : data.products[0];
+                    console.log('Processing variants:', variants);
+                    
+                    renderColorOptions(variants, currentProductId);
+                }
+            } catch (error) {
+                console.error('Error fetching product variants:', error);
+            }
+        }
+        
+        function renderProductDetails(product) {
+            // Set product title and subtitle
+            document.getElementById('product-title').textContent = product.info?.name || '';
+            document.getElementById('product-subtitle').textContent = product.info?.subtitle || '';
+            document.getElementById('product-code').textContent = product.pid?.productCode || '';
+            
+            // Set product description
+            if (product.info?.discription) {
+                // Преобразуем символы новой строки в HTML-теги <br> или <p>
+                const formattedDescription = product.info.discription
+                    .split('\n\n')
+                    .map(paragraph => {
+                        // Обработка маркированных списков
+                        if (paragraph.includes('• ')) {
+                            const listItems = paragraph.split('• ').filter(item => item.trim());
+                            return `<ul class="product-features">
+                                ${listItems.map(item => `<li>${item.trim()}</li>`).join('')}
+                            </ul>`;
+                        }
+                        return `<p>${paragraph}</p>`;
+                    })
+                    .join('');
+                
+                document.getElementById('product-description').innerHTML = formattedDescription;
+                
+                // Также обновляем вкладку с описанием
+                document.getElementById('description-content').innerHTML = formattedDescription;
+            }
+            
+            // Set product price
+            const currentPrice = product.price?.self?.UAH?.currentPrice || 0;
+            const initialPrice = product.price?.self?.UAH?.initialPrice || 0;
+            
+            document.getElementById('current-price').textContent = `${currentPrice} ₴`;
+            
+            if (initialPrice > currentPrice) {
+                document.getElementById('initial-price').textContent = `${initialPrice} ₴`;
+                const discountPercent = Math.round((initialPrice - currentPrice) / initialPrice * 100);
+                document.getElementById('discount-badge').textContent = `-${discountPercent}%`;
+            } else {
+                document.getElementById('initial-price').style.display = 'none';
+                document.getElementById('discount-badge').style.display = 'none';
+            }
+            
+            // Set selected color name
+            if (product.info?.color?.labelColor) {
+                document.getElementById('selected-color-name').textContent = product.info.color.labelColor;
+            }
+            
+            // Set main product image
+            const mainImage = document.getElementById('main-product-image');
+            const imageLoading = document.querySelector('.image-loading');
+            const mainImageContainer = document.querySelector('.main-image-container');
+            
+            mainImage.addEventListener('load', () => {
+                imageLoading.style.display = 'none';
+                mainImageContainer.classList.remove('no-image');
+            });
+            
+            mainImage.addEventListener('error', () => {
+                imageLoading.style.display = 'none';
+                mainImageContainer.classList.add('no-image');
+            });
+            
+            mainImage.src = product.imageData?.imgMain || '';
+            
+            // Render thumbnails
+            const thumbnailsContainer = document.getElementById('thumbnails-container');
+            thumbnailsContainer.innerHTML = ''; // Clear existing thumbnails
+            
+            if (product.imageData?.images && product.imageData.images.length > 0) {
+                const images = Array.isArray(product.imageData.images) 
+                    ? product.imageData.images 
+                    : [product.imageData.images];
+                    
+                images.forEach((image, index) => {
+                    const thumbnail = document.createElement('img');
+                    thumbnail.className = 'thumbnail' + (index === 0 ? ' active' : '');
+                    thumbnail.src = image;
+                    thumbnail.alt = `${product.info?.name || ''} - изображение ${index + 1}`;
+                    
+                    thumbnail.addEventListener('click', () => {
+                        // Update main image
+                        imageLoading.style.display = 'flex';
+                        mainImageContainer.classList.remove('no-image');
+                        mainImage.src = image;
+                        
+                        // Update active state
+                        document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+                        thumbnail.classList.add('active');
+                    });
+                    
+                    thumbnailsContainer.appendChild(thumbnail);
+                });
+            }
+            
+            // Render size options if available
+            const sizeContainer = document.getElementById('size-options');
+            sizeContainer.innerHTML = ''; // Clear existing sizes
+            
+            if (product.sizes) {
+                // Split sizes string into array if needed
+                const sizesArray = typeof product.sizes === 'string' && product.sizes.split 
+                    ? product.sizes.split(',') 
+                    : (Array.isArray(product.sizes) ? product.sizes : [product.sizes]);
+                    
+                sizesArray.forEach((size, index) => {
+                    const sizeOption = document.createElement('div');
+                    sizeOption.className = 'size-option' + (index === 0 ? ' active' : '');
+                    sizeOption.textContent = size.trim();
+                    
+                    sizeOption.addEventListener('click', () => {
+                        document.querySelectorAll('.size-option').forEach(opt => opt.classList.remove('active'));
+                        sizeOption.classList.add('active');
+                    });
+                    
+                    sizeContainer.appendChild(sizeOption);
+                });
+            } else {
+                // Add default sizes
+                const defaultSizes = ['S', 'M', 'L', 'XL', 'XXL'];
+                
+                defaultSizes.forEach((size, index) => {
+                    const sizeOption = document.createElement('div');
+                    sizeOption.className = 'size-option' + (index === 0 ? ' active' : '');
+                    sizeOption.textContent = size;
+                    
+                    sizeOption.addEventListener('click', () => {
+                        document.querySelectorAll('.size-option').forEach(opt => opt.classList.remove('active'));
+                        sizeOption.classList.add('active');
+                    });
+                    
+                    sizeContainer.appendChild(sizeOption);
+                });
+            }
+        }
+        
+        function renderColorOptions(variants, currentProductId) {
+            const colorOptions = document.getElementById('color-options');
+            colorOptions.innerHTML = ''; // Clear existing options
+            
+            variants.forEach(variant => {
+                if (variant.info?.color?.hex) {
+                    const colorOption = document.createElement('div');
+                    colorOption.className = 'color-switcher' + (variant._id === currentProductId ? ' active' : '');
+                    
+                    const hexColor = variant.info.color.hex;
+                    colorOption.style.backgroundColor = hexColor.startsWith('#') ? hexColor : `#${hexColor}`;
+                    colorOption.title = variant.info.color.labelColor || '';
+                    
+                    colorOption.addEventListener('click', () => {
+                        if (variant._id !== currentProductId) {
+                            // Navigate to the variant's page
+                            window.location.href = `/product/${variant._id}`;
+                        } else {
+                            // Just update active state for current product
+                            document.querySelectorAll('.color-switcher').forEach(opt => opt.classList.remove('active'));
+                            colorOption.classList.add('active');
+                            
+                            // Update selected color name
+                            document.getElementById('selected-color-name').textContent = variant.info.color.labelColor || '';
+                        }
+                    });
+                    
+                    colorOptions.appendChild(colorOption);
+                }
+            });
+        }
+    </script>
+</body>
+</html> 

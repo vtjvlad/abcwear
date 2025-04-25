@@ -19,6 +19,9 @@ app.use((req, res, next) => {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Import Product model
+const Product = mongoose.model('Product', require('./model.js'));
+
 // MongoDB Connection
 const initializeDatabase = async () => {
     try {
@@ -50,11 +53,23 @@ const initializeDatabase = async () => {
                 imageData: {
                     imgMain: 'https://via.placeholder.com/300',
                     images: ['https://via.placeholder.com/300']
+                },
+                pid: {
+                    groupKey: 'test-group-key'
                 }
             });
 
             await testProduct.save();
-            console.log('Test product created');
+            console.log('Test product created with ID:', testProduct._id);
+            console.log('Use this ID to test the product page:', `/product/${testProduct._id}`);
+        } else {
+            // Выводим существующие ID товаров для тестирования
+            const products = await Product.find().limit(5);
+            console.log('Existing products (first 5):');
+            products.forEach(product => {
+                console.log(`- ${product._id} (${product.info?.name || 'Unnamed'})`);
+                console.log(`  Test link: /product/${product._id}`);
+            });
         }
     } catch (err) {
         console.error('MongoDB connection error:', err);
@@ -63,9 +78,6 @@ const initializeDatabase = async () => {
 
 // Вызов функции
 initializeDatabase();
-
-// Import Product model
-const Product = mongoose.model('Product', require('./model.js'));
 
 // API Routes
 app.get('/api/filters/colors', async (req, res) => {
@@ -100,6 +112,35 @@ app.get('/api/filters/names', async (req, res) => {
 
 app.get('/api/products', async (req, res) => {
     try {
+        // Если запрашиваются варианты товара по groupKey
+        if (req.query.groupKey) {
+            console.log('Fetching products by groupKey:', req.query.groupKey);
+            
+            const products = await Product.find({
+                'pid.groupKey': req.query.groupKey
+            });
+            
+            if (!products || products.length === 0) {
+                console.log('No products found for groupKey:', req.query.groupKey);
+                return res.json({
+                    products: [],
+                    total: 0,
+                    currentPage: 1,
+                    totalPages: 0
+                });
+            }
+            
+            console.log(`Found ${products.length} products with groupKey ${req.query.groupKey}`);
+            
+            return res.json({
+                products: [products], // Оборачиваем в массив для совместимости с основным API
+                total: products.length,
+                currentPage: 1,
+                totalPages: 1
+            });
+        }
+        
+        // Обычный поиск с пагинацией
         const page = parseInt(req.query.page) || 1;
         const limit = parseInt(req.query.limit) || 10;
         const skip = (page - 1) * limit;
@@ -211,12 +252,18 @@ app.get('/api/products', async (req, res) => {
 
 app.get('/api/products/:id', async (req, res) => {
     try {
+        console.log('Fetching product with ID:', req.params.id);
         const product = await Product.findById(req.params.id);
+        
         if (!product) {
+            console.log('Product not found');
             return res.status(404).json({ message: 'Product not found' });
         }
+        
+        console.log('Product found:', product.info?.name);
         res.json(product);
     } catch (error) {
+        console.error('Error fetching product by ID:', error);
         res.status(500).json({ message: error.message });
     }
 });
@@ -263,7 +310,12 @@ app.get('/api/status', async (req, res) => {
     }
 });
 
-// Serve index.html for all routes
+// Serve product page
+app.get('/product/:id', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'product.html'));
+});
+
+// Serve index.html for all other routes
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

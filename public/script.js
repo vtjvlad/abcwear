@@ -268,16 +268,17 @@ document.addEventListener('DOMContentLoaded', () => {
         mainImage.className = 'product-image loading';
         mainImage.addEventListener('load', () => {
             imageContainer.classList.remove('loading');
+            imageContainer.classList.remove('no-image');
             mainImage.classList.remove('loading');
             imageLoading.style.display = 'none';
         });
         mainImage.addEventListener('error', () => {
             imageContainer.classList.remove('loading');
+            imageContainer.classList.add('no-image');
             mainImage.classList.remove('loading');
             imageLoading.style.display = 'none';
-            mainImage.src = 'placeholder.jpg'; // Замените на путь к вашему изображению-заглушке
         });
-        mainImage.src = product.imageData?.imgMain || product.imageData?.images?.[0] || '';
+        mainImage.src = product.imageData?.imgMain || '';
         mainImage.alt = product.info?.name || '';
 
         imageContainer.appendChild(mainImage);
@@ -301,6 +302,18 @@ document.addEventListener('DOMContentLoaded', () => {
             infoContainer.appendChild(subtitleElement);
         }
 
+        // Добавляем форматированное описание, если есть
+        if (product.discription) {
+            const descriptionElement = document.createElement('div');
+            descriptionElement.className = 'product-description';
+            
+            // Форматирование описания
+            const formattedDescription = formatDescription(product.discription);
+            descriptionElement.innerHTML = formattedDescription;
+            
+            infoContainer.appendChild(descriptionElement);
+        }
+
         // Добавляем цену
         const priceContainer = document.createElement('div');
         priceContainer.className = 'price-container';
@@ -320,58 +333,130 @@ document.addEventListener('DOMContentLoaded', () => {
 
         infoContainer.appendChild(priceContainer);
 
-        // Добавляем переключатели цветов
-        if (product.variants && product.variants.length > 0) {
-            const colorSwitchers = document.createElement('div');
-            colorSwitchers.className = 'color-switchers';
-
-            // Добавляем основной цвет
-            const mainColorSwitcher = document.createElement('div');
-            mainColorSwitcher.className = 'color-switcher active';
-            const mainHexColor = product.info?.color?.hex || '#FFFFFF';
-            mainColorSwitcher.style.backgroundColor = mainHexColor.startsWith('#') ? mainHexColor : `#${mainHexColor}`;
-            mainColorSwitcher.title = product.info?.color?.labelColor || '';
-            mainColorSwitcher.addEventListener('click', () => {
-                updateActiveColor(colorSwitchers, mainColorSwitcher);
-                imageContainer.classList.add('loading');
-                imageLoading.style.display = 'flex';
-                mainImage.classList.add('loading');
-                mainImage.src = product.imageData?.imgMain || product.imageData?.images?.[0] || '';
-                updatePrice(priceContainer, product.price?.self?.UAH);
-            });
-            colorSwitchers.appendChild(mainColorSwitcher);
-
-            // Добавляем цвета вариантов
-            product.variants.forEach(variant => {
-                const colorSwitcher = document.createElement('div');
-                colorSwitcher.className = 'color-switcher';
-                const hexColor = variant.info?.color?.hex || '#FFFFFF';
-                colorSwitcher.style.backgroundColor = hexColor.startsWith('#') ? hexColor : `#${hexColor}`;
-                colorSwitcher.title = variant.info?.color?.labelColor || '';
-                colorSwitcher.addEventListener('click', () => {
-                    updateActiveColor(colorSwitchers, colorSwitcher);
-                    imageContainer.classList.add('loading');
-                    imageLoading.style.display = 'flex';
-                    mainImage.classList.add('loading');
-                    mainImage.src = variant.imageData?.imgMain || variant.imageData?.images?.[0] || '';
-                    updatePrice(priceContainer, variant.price?.self?.UAH);
-                });
-                colorSwitchers.appendChild(colorSwitcher);
-            });
-
-            infoContainer.appendChild(colorSwitchers);
+        // Добавляем размеры
+        if (product.sizes) {
+            const sizesContainer = document.createElement('div');
+            sizesContainer.className = 'sizes-container';
+            
+            const sizesLabel = document.createElement('span');
+            sizesLabel.className = 'sizes-label';
+            sizesLabel.textContent = 'Размеры: ';
+            
+            const sizesValue = document.createElement('span');
+            sizesValue.className = 'sizes-value';
+            // Преобразуем строку с размерами в массив
+            const sizesArray = product.sizes.split ? product.sizes.split(',') : [product.sizes];
+            sizesValue.textContent = sizesArray.join(', ');
+            
+            sizesContainer.appendChild(sizesLabel);
+            sizesContainer.appendChild(sizesValue);
+            infoContainer.appendChild(sizesContainer);
         }
 
-        // Добавляем селектор размера
-        const sizeSelector = document.createElement('select');
-        sizeSelector.className = 'size-selector';
-        sizeSelector.innerHTML = `
-            <option value="">Выберите размер</option>
-            <option value="4Y-5.5Y">4Y-5.5Y / W5.5-7</option>
-            <option value="6Y-7.5Y">6Y-7.5Y / W7.5-9</option>
-            <option value="8Y-9.5Y">8Y-9.5Y / W9.5-11</option>
-        `;
-        infoContainer.appendChild(sizeSelector);
+        // Добавляем варианты продукта (разные цвета)
+        if (product.variants && product.variants.length > 0) {
+            // Создаем контейнер для вариантов
+            const variantsContainer = document.createElement('div');
+            variantsContainer.className = 'product-variants';
+            
+            // Основной вариант
+            const mainVariant = document.createElement('div');
+            mainVariant.className = 'variant-item active';
+            mainVariant.setAttribute('data-variant-id', product._id);
+            
+            const mainColorBlock = document.createElement('div');
+            mainColorBlock.className = 'variant-color';
+            const mainHexColor = product.info?.color?.hex || '#FFFFFF';
+            mainColorBlock.style.backgroundColor = mainHexColor.startsWith('#') ? mainHexColor : `#${mainHexColor}`;
+            
+            const mainInfoBlock = document.createElement('div');
+            mainInfoBlock.className = 'variant-info';
+            
+            const mainColorName = document.createElement('div');
+            mainColorName.className = 'variant-name';
+            mainColorName.textContent = product.info?.color?.labelColor || 'Основной цвет';
+            
+            const mainPrice = document.createElement('div');
+            mainPrice.className = 'variant-price';
+            mainPrice.textContent = `${product.price?.self?.UAH?.currentPrice || 0} ₴`;
+            
+            mainInfoBlock.appendChild(mainColorName);
+            mainInfoBlock.appendChild(mainPrice);
+            mainVariant.appendChild(mainColorBlock);
+            mainVariant.appendChild(mainInfoBlock);
+            
+            mainVariant.addEventListener('click', () => {
+                // Активируем выбранный вариант
+                variantsContainer.querySelectorAll('.variant-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                mainVariant.classList.add('active');
+                
+                // Обновляем изображение
+                imageContainer.classList.add('loading');
+                imageContainer.classList.remove('no-image');
+                imageLoading.style.display = 'flex';
+                mainImage.classList.add('loading');
+                mainImage.src = product.imageData?.imgMain || '';
+                
+                // Обновляем цену
+                updatePrice(priceContainer, product.price?.self?.UAH);
+            });
+            
+            variantsContainer.appendChild(mainVariant);
+            
+            // Другие варианты
+            product.variants.forEach(variant => {
+                if (!variant.info?.color?.hex) return;
+                
+                const variantItem = document.createElement('div');
+                variantItem.className = 'variant-item';
+                variantItem.setAttribute('data-variant-id', variant._id);
+                
+                const colorBlock = document.createElement('div');
+                colorBlock.className = 'variant-color';
+                const hexColor = variant.info.color.hex || '#FFFFFF';
+                colorBlock.style.backgroundColor = hexColor.startsWith('#') ? hexColor : `#${hexColor}`;
+                
+                const infoBlock = document.createElement('div');
+                infoBlock.className = 'variant-info';
+                
+                const colorName = document.createElement('div');
+                colorName.className = 'variant-name';
+                colorName.textContent = variant.info?.color?.labelColor || 'Вариант';
+                
+                const price = document.createElement('div');
+                price.className = 'variant-price';
+                price.textContent = `${variant.price?.self?.UAH?.currentPrice || 0} ₴`;
+                
+                infoBlock.appendChild(colorName);
+                infoBlock.appendChild(price);
+                variantItem.appendChild(colorBlock);
+                variantItem.appendChild(infoBlock);
+                
+                variantItem.addEventListener('click', () => {
+                    // Активируем выбранный вариант
+                    variantsContainer.querySelectorAll('.variant-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    variantItem.classList.add('active');
+                    
+                    // Обновляем изображение
+                    imageContainer.classList.add('loading');
+                    imageContainer.classList.remove('no-image');
+                    imageLoading.style.display = 'flex';
+                    mainImage.classList.add('loading');
+                    mainImage.src = variant.imageData?.imgMain || '';
+                    
+                    // Обновляем цену
+                    updatePrice(priceContainer, variant.price?.self?.UAH);
+                });
+                
+                variantsContainer.appendChild(variantItem);
+            });
+            
+            infoContainer.appendChild(variantsContainer);
+        }
 
         // Добавляем кнопки действий
         const actionsContainer = document.createElement('div');
@@ -380,16 +465,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const detailsButton = document.createElement('button');
         detailsButton.className = 'action-button details-button';
         detailsButton.textContent = 'Подробнее';
-        detailsButton.addEventListener('click', () => {
+        detailsButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('Navigating to product page:', product._id);
             window.location.href = `/product/${product._id}`;
         });
 
         const cartButton = document.createElement('button');
         cartButton.className = 'action-button cart-button';
         cartButton.textContent = 'В корзину';
-        cartButton.addEventListener('click', () => {
-            // Здесь будет логика добавления в корзину
+        cartButton.addEventListener('click', (e) => {
+            e.preventDefault();
             console.log('Adding to cart:', product._id);
+            // Здесь будет логика добавления в корзину
         });
 
         actionsContainer.appendChild(detailsButton);
@@ -413,6 +501,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentPrice = container.querySelector('.current-price');
         const initialPrice = container.querySelector('.initial-price');
         
+        if (!price) return;
+        
         if (currentPrice) {
             currentPrice.textContent = `${price?.currentPrice || 0} ₴`;
         }
@@ -423,6 +513,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 initialPrice.style.display = 'inline';
             } else {
                 initialPrice.style.display = 'none';
+            }
+        }
+        
+        // Обновляем информацию о скидке
+        const discountBadge = container.querySelector('.discount-badge');
+        if (discountBadge && price.initialPrice && price.currentPrice) {
+            const discountPercent = Math.round((1 - price.currentPrice / price.initialPrice) * 100);
+            if (discountPercent > 0) {
+                discountBadge.textContent = `-${discountPercent}%`;
+                discountBadge.style.display = 'flex';
+            } else {
+                discountBadge.style.display = 'none';
             }
         }
     }
@@ -450,6 +552,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const response = await fetch(`/api/products?${queryParams.toString()}`);
             const data = await response.json();
+
+            console.log('Products data:', data);
 
             if (data.products && data.products.length > 0) {
                 data.products.forEach(productGroup => {
@@ -549,7 +653,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // События
     window.addEventListener('scroll', handleScroll);
+
+    document.getElementById('scrollTopBtn').addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 });
+
+/**
+ * Форматирует описание продукта, преобразуя маркированные списки и абзацы
+ * @param {string} description - Текст описания продукта
+ * @return {string} HTML-отформатированное описание
+ */
+function formatDescription(description) {
+    if (!description) return '';
+    
+    let formatted = description;
+    
+    // Обработка маркированных списков
+    if (formatted.includes('• ') || formatted.includes('- ')) {
+        const paragraphs = formatted.split('\n\n');
+        
+        formatted = paragraphs.map(paragraph => {
+            // Проверяем наличие маркеров списка (поддержка обоих типов маркеров: • и -)
+            if (paragraph.trim().startsWith('• ') || paragraph.trim().includes('\n• ') || 
+                paragraph.trim().startsWith('- ') || paragraph.trim().includes('\n- ')) {
+                
+                // Определяем, какой маркер используется
+                const marker = paragraph.includes('• ') ? '• ' : '- ';
+                
+                // Разбиваем на элементы списка, фильтруем пустые строки
+                const listItems = paragraph.split('\n')
+                    .filter(line => line.trim().startsWith(marker))
+                    .map(line => {
+                        // Удаляем маркер из начала строки
+                        const itemText = line.trim().substring(marker.length).trim();
+                        return `<li>${itemText}</li>`;
+                    })
+                    .join('');
+                
+                return `<ul class="product-features">${listItems}</ul>`;
+            } else {
+                // Обычный абзац
+                return `<p>${paragraph}</p>`;
+            }
+        }).join('');
+    } else {
+        // Если нет маркеров списка, просто разбиваем на абзацы
+        formatted = formatted.split('\n\n')
+            .map(paragraph => `<p>${paragraph}</p>`)
+            .join('');
+    }
+    
+    return formatted;
+}
 
 // Функция для показа деталей продукта
 function showProductDetails(productId) {
