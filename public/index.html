@@ -607,6 +607,30 @@
             gap: 15px;
             margin-bottom: 20px;
             flex-wrap: wrap;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .search-container {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            background: white;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            border-color: #2196F3;
+            box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
         }
 
         .open-filters-btn {
@@ -729,12 +753,28 @@
             .filter-group {
                 width: 100%;
             }
+
+            .filters-header {
+                flex-direction: column;
+            }
+
+            .search-container {
+                width: 100%;
+            }
+
+            .open-filters-btn {
+                width: 100%;
+                justify-content: center;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="filters-header">
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Поиск по названию...">
+            </div>
             <button id="open-filters" class="open-filters-btn">
                 <span>Фильтры</span>
                 <span class="filter-count-badge" id="active-filters-count">0</span>
@@ -750,9 +790,6 @@
                 </div>
                 <div class="filters">
                     <div class="filters-row">
-                        <div class="filter-group">
-                            <input type="text" id="search" placeholder="Поиск по названию...">
-                        </div>
                         <div class="filter-group">
                             <select id="color-filter">
                                 <option value="">Все цвета</option>

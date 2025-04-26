@@ -105,23 +105,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Загрузка фильтров
     async function loadFilters() {
         try {
-            const [colors, categories, names] = await Promise.all([
+            const [colors, categories] = await Promise.all([
                 fetch('/api/filters/colors').then(res => res.json()),
-                fetch('/api/filters/categories').then(res => res.json()),
-                fetch('/api/filters/names').then(res => res.json())
+                fetch('/api/filters/categories').then(res => res.json())
             ]);
 
-            // Заполняем фильтры цветов
+            // Заполняем фильтр цветов
             colorFilter.innerHTML = '<option value="">Все цвета</option>' +
                 colors.map(color => `<option value="${color}">${color}</option>`).join('');
 
-            // Заполняем фильтры категорий
+            // Заполняем фильтр категорий
             categoryFilter.innerHTML = '<option value="">Все категории</option>' +
                 categories.map(category => `<option value="${category}">${category}</option>`).join('');
 
-            // Заполняем фильтры названий
-            nameFilter.innerHTML = '<option value="">Все названия</option>' +
-                names.map(name => `<option value="${name}">${name}</option>`).join('');
+            // Обновляем счетчики
+            document.getElementById('color-count').textContent = `(${colors.length} цветов)`;
+            document.getElementById('category-count').textContent = `(${categories.length} категорий)`;
 
         } catch (error) {
             console.error('Error loading filters:', error);

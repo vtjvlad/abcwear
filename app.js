@@ -65,8 +65,8 @@ const Product = mongoose.model('Product', require('./model.js'));
 // API Routes
 app.get('/api/filters/colors', async (req, res) => {
     try {
-        const colors = await Product.distinct('color');
-        res.json(colors);
+        const colors = await Product.distinct('info.color.labelColor');
+        res.json(colors.filter(color => color)); // Фильтруем пустые значения
     } catch (error) {
         console.error('Error fetching colors:', error);
         res.status(500).json({ error: 'Ошибка при получении списка цветов' });
@@ -75,8 +75,8 @@ app.get('/api/filters/colors', async (req, res) => {
 
 app.get('/api/filters/categories', async (req, res) => {
     try {
-        const categories = await Product.distinct('category');
-        res.json(categories);
+        const categories = await Product.distinct('data.productType');
+        res.json(categories.filter(category => category)); // Фильтруем пустые значения
     } catch (error) {
         console.error('Error fetching categories:', error);
         res.status(500).json({ error: 'Ошибка при получении списка категорий' });
