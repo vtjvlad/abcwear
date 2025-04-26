@@ -129,7 +129,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Обновление активных фильтров
+    // Модальное окно фильтров
+    const filtersModal = document.getElementById('filters-modal');
+    const openFiltersBtn = document.getElementById('open-filters');
+    const closeFiltersBtn = document.getElementById('close-filters');
+    const applyFiltersBtn = document.getElementById('apply-filters');
+    const activeFiltersCount = document.getElementById('active-filters-count');
+
+    // Открытие модального окна
+    openFiltersBtn.addEventListener('click', () => {
+        filtersModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+
+    // Закрытие модального окна
+    function closeModal() {
+        filtersModal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    closeFiltersBtn.addEventListener('click', closeModal);
+    filtersModal.addEventListener('click', (e) => {
+        if (e.target === filtersModal) {
+            closeModal();
+        }
+    });
+
+    // Применение фильтров
+    applyFiltersBtn.addEventListener('click', () => {
+        closeModal();
+        fetchProducts(1);
+    });
+
+    // Обновление счетчика активных фильтров
+    function updateActiveFiltersCount() {
+        const activeFilters = document.querySelectorAll('.filter-tag');
+        const count = activeFilters.length;
+        activeFiltersCount.textContent = count;
+        activeFiltersCount.style.display = count > 0 ? 'block' : 'none';
+    }
+
+    // Обновляем функцию updateActiveFilters
     function updateActiveFilters() {
         activeFiltersContainer.innerHTML = '';
         const filters = [];
@@ -174,14 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        if (filters.length > 0) {
-            const clearAllButton = document.createElement('button');
-            clearAllButton.className = 'clear-filters';
-            clearAllButton.textContent = 'Очистить все';
-            clearAllButton.addEventListener('click', clearAllFilters);
-            activeFiltersContainer.appendChild(clearAllButton);
-        }
-
         filters.forEach(filter => {
             const tag = document.createElement('div');
             tag.className = 'filter-tag';
@@ -192,6 +224,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tag.querySelector('.remove').addEventListener('click', () => removeFilter(filter.type));
             activeFiltersContainer.appendChild(tag);
         });
+
+        updateActiveFiltersCount();
     }
 
     // Удаление фильтра

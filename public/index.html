@@ -599,65 +599,214 @@
         .product-image.loading {
             opacity: 0;
         }
+
+        /* Стили для модального окна фильтров */
+        .filters-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .open-filters-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .open-filters-btn:hover {
+            background-color: #1976D2;
+        }
+
+        .filter-count-badge {
+            background-color: #FF5722;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .filters-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: white;
+            margin: 20px auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            padding: 5px;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: #333;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .apply-filters {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .apply-filters:hover {
+            background-color: #1976D2;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 10px auto;
+                padding: 15px;
+            }
+
+            .filters-row {
+                flex-direction: column;
+            }
+
+            .filter-group {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <div id="filters" class="filters">
-            <div class="filters-row">
-                <div class="filter-group">
-                    <input type="text" id="search" placeholder="Поиск по названию...">
-                </div>
-                <div class="filter-group">
-                    <select id="color-filter">
-                        <option value="">Все цвета</option>
-                    </select>
-                    <div class="filter-count" id="color-count"></div>
-                </div>
-                <div class="filter-group">
-                    <select id="category-filter">
-                        <option value="">Все категории</option>
-                    </select>
-                    <div class="filter-count" id="category-count"></div>
-                </div>
-                <div class="filter-group">
-                    <select id="name-filter">
-                        <option value="">Все названия</option>
-                    </select>
-                    <div class="filter-count" id="name-count"></div>
-                </div>
-            </div>
+        <div class="filters-header">
+            <button id="open-filters" class="open-filters-btn">
+                <span>Фильтры</span>
+                <span class="filter-count-badge" id="active-filters-count">0</span>
+            </button>
+            <div class="filter-tags" id="active-filters"></div>
+        </div>
 
-            <div class="filters-row">
-                <div class="filter-group">
-                    <div class="price-range">
-                        <div class="price-slider-container">
-                            <div id="price-slider"></div>
-                            <div class="price-inputs">
-                                <input type="number" id="min-price" placeholder="Мин. цена">
-                                <span>-</span>
-                                <input type="number" id="max-price" placeholder="Макс. цена">
+        <div id="filters-modal" class="filters-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Фильтры</h2>
+                    <button id="close-filters" class="close-modal">&times;</button>
+                </div>
+                <div class="filters">
+                    <div class="filters-row">
+                        <div class="filter-group">
+                            <input type="text" id="search" placeholder="Поиск по названию...">
+                        </div>
+                        <div class="filter-group">
+                            <select id="color-filter">
+                                <option value="">Все цвета</option>
+                            </select>
+                            <div class="filter-count" id="color-count"></div>
+                        </div>
+                        <div class="filter-group">
+                            <select id="category-filter">
+                                <option value="">Все категории</option>
+                            </select>
+                            <div class="filter-count" id="category-count"></div>
+                        </div>
+                        <div class="filter-group">
+                            <select id="name-filter">
+                                <option value="">Все названия</option>
+                            </select>
+                            <div class="filter-count" id="name-count"></div>
+                        </div>
+                    </div>
+
+                    <div class="filters-row">
+                        <div class="filter-group">
+                            <div class="price-range">
+                                <div class="price-slider-container">
+                                    <div id="price-slider"></div>
+                                    <div class="price-inputs">
+                                        <input type="number" id="min-price" placeholder="Мин. цена">
+                                        <span>-</span>
+                                        <input type="number" id="max-price" placeholder="Макс. цена">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <div class="sort-group">
+                                <select id="sort-field">
+                                    <option value="createdAt">Сортировать по</option>
+                                    <option value="price">Цене</option>
+                                    <option value="name">Названию</option>
+                                    <option value="createdAt">Дате добавления</option>
+                                </select>
+                                <select id="sort-order">
+                                    <option value="desc">По убыванию</option>
+                                    <option value="asc">По возрастанию</option>
+                                </select>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="filter-group">
-                    <div class="sort-group">
-                        <select id="sort-field">
-                            <option value="createdAt">Сортировать по</option>
-                            <option value="price">Цене</option>
-                            <option value="name">Названию</option>
-                            <option value="createdAt">Дате добавления</option>
-                        </select>
-                        <select id="sort-order">
-                            <option value="desc">По убыванию</option>
-                            <option value="asc">По возрастанию</option>
-                        </select>
-                    </div>
+                <div class="modal-footer">
+                    <button id="clear-filters" class="clear-filters">Очистить все</button>
+                    <button id="apply-filters" class="apply-filters">Применить</button>
                 </div>
             </div>
-
-            <div class="filter-tags" id="active-filters"></div>
         </div>
 
         <div id="products-container" class="products-grid"></div>
