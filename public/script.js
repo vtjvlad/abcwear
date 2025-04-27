@@ -26,38 +26,46 @@ document.addEventListener('DOMContentLoaded', () => {
         sortOrder: 'desc'
     };
 
-    // Initialize noUiSlider for price range
+    // Initialize noUiSlider for price range (динамический диапазон)
     const priceSlider = document.getElementById('price-slider');
-    noUiSlider.create(priceSlider, {
-        start: [0, 10000],
-        connect: true,
-        range: {
-            'min': 0,
-            'max': 10000
-        }
-    });
+    fetch('/api/products/price-range')
+        .then(res => res.json())
+        .then(({ min, max }) => {
+            noUiSlider.create(priceSlider, {
+                start: [min, max],
+                connect: true,
+                range: {
+                    'min': min,
+                    'max': max
+                }
+            });
+            minPriceInput.value = min;
+            maxPriceInput.value = max;
+            currentFilters.minPrice = min;
+            currentFilters.maxPrice = max;
 
-    // Update price inputs when slider changes
-    priceSlider.noUiSlider.on('update', (values) => {
-        minPriceInput.value = Math.round(values[0]);
-        maxPriceInput.value = Math.round(values[1]);
-        currentFilters.minPrice = minPriceInput.value;
-        currentFilters.maxPrice = maxPriceInput.value;
-        fetchProducts(1);
-    });
+            // Update price inputs when slider changes
+            priceSlider.noUiSlider.on('update', (values) => {
+                minPriceInput.value = Math.round(values[0]);
+                maxPriceInput.value = Math.round(values[1]);
+                currentFilters.minPrice = minPriceInput.value;
+                currentFilters.maxPrice = maxPriceInput.value;
+                fetchProducts(1);
+            });
 
-    // Update slider when price inputs change
-    const updatePriceSlider = debounce(() => {
-        const min = parseInt(minPriceInput.value) || 0;
-        const max = parseInt(maxPriceInput.value) || 10000;
-        priceSlider.noUiSlider.set([min, max]);
-        currentFilters.minPrice = minPriceInput.value;
-        currentFilters.maxPrice = maxPriceInput.value;
-        fetchProducts(1);
-    }, 500);
+            // Update slider when price inputs change
+            const updatePriceSlider = debounce(() => {
+                const minVal = parseInt(minPriceInput.value) || min;
+                const maxVal = parseInt(maxPriceInput.value) || max;
+                priceSlider.noUiSlider.set([minVal, maxVal]);
+                currentFilters.minPrice = minPriceInput.value;
+                currentFilters.maxPrice = maxPriceInput.value;
+                fetchProducts(1);
+            }, 500);
 
-    minPriceInput.addEventListener('input', updatePriceSlider);
-    maxPriceInput.addEventListener('input', updatePriceSlider);
+            minPriceInput.addEventListener('input', updatePriceSlider);
+            maxPriceInput.addEventListener('input', updatePriceSlider);
+        });
 
     // URL state management
     function updateURL() {

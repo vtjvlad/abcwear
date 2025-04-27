@@ -97,6 +97,47 @@ app.get('/api/filters/names', async (req, res) => {
     }
 });
 
+app.get('/api/products/price-range', async (req, res) => {
+    try {
+        const result = await Product.aggregate([
+            {
+                $group: {
+                    _id: null,
+                    min: { $min: "$price.self.UAH.currentPrice" },
+                    max: { $max: "$price.self.UAH.currentPrice" }
+                }
+            }
+        ]);
+        if (result.length > 0 && result[0].min != null && result[0].max != null) {
+            res.json({ min: result[0].min, max: result[0].max });
+        } else {
+            res.json({ min: 0, max: 10000 });
+        }
+    } catch (error) {
+        console.error('Ошибка в /api/products/price-range:', error);
+        res.json({ min: 0, max: 10000 }); // Возвращаем дефолтные значения даже при ошибке
+    }
+});
+
+app.get('/api/products/filter-counts', async (req, res) => {
+    try {
+        const [colors, categories, names] = await Promise.all([
+            Product.distinct('info.color.labelColor'),
+            Product.distinct('data.productType'),
+            Product.distinct('info.name')
+        ]);
+
+        res.json({
+            colors: colors.length,
+            categories: categories.length,
+            names: names.length
+        });
+    } catch (error) {
+        console.error('Error fetching filter counts:', error);
+        res.status(500).json({ error: 'Ошибка при получении количества фильтров' });
+    }
+});
+
 app.get('/api/products', productValidators.getProducts, async (req, res, next) => {
     try {
         const errors = validationResult(req);
@@ -203,25 +244,6 @@ app.get('/api/products/:id', async (req, res) => {
         res.json(product);
     } catch (error) {
         res.status(500).json({ message: error.message });
-    }
-});
-
-app.get('/api/products/filter-counts', async (req, res) => {
-    try {
-        const [colors, categories, names] = await Promise.all([
-            Product.distinct('color').count(),
-            Product.distinct('category').count(),
-            Product.distinct('name').count()
-        ]);
-
-        res.json({
-            colors,
-            categories,
-            names
-        });
-    } catch (error) {
-        console.error('Error fetching filter counts:', error);
-        res.status(500).json({ error: 'Ошибка при получении количества фильтров' });
     }
 });
 
