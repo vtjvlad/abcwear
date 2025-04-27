@@ -304,6 +304,21 @@ app.post('/api/cart', cartValidators.addToCart, async (req, res, next) => {
     }
 });
 
+// Эндпоинт для получения 7 случайных товаров для рекомендаций
+app.get('/api/recommendations', async (req, res) => {
+    try {
+        // Получаем случайные товары
+        const recommendations = await Product.aggregate([
+            { $match: { 'pid.groupKey': { $exists: true } } },
+            { $sample: { size: 7 } }
+        ]);
+        res.json(recommendations);
+    } catch (error) {
+        console.error('Ошибка при получении рекомендаций:', error);
+        res.status(500).json({ error: 'Ошибка при получении рекомендаций' });
+    }
+});
+
 // Error handling middleware
 app.use(errorHandler);
 
