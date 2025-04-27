@@ -26,6 +26,12 @@ document.addEventListener('DOMContentLoaded', () => {
         sortOrder: 'desc'
     };
 
+    let allProducts = [];
+    const CARD_HEIGHT = 420; // приблизна висота картки (px)
+    const VISIBLE_COUNT = 18; // скільки карток рендерити одночасно (екран + запас)
+    let scrollTopCache = 0;
+    let selectedCategory = 'all';
+
     // Initialize noUiSlider for price range
     const priceSlider = document.getElementById('price-slider');
     noUiSlider.create(priceSlider, {
@@ -296,9 +302,10 @@ document.addEventListener('DOMContentLoaded', () => {
         imageLoading.innerHTML = '<div class="spinner"></div>';
         imageContainer.appendChild(imageLoading);
 
-        // Создаем основное изображение
+        // Создаем основное изображение с поддержкой WebP
         const mainImage = document.createElement('img');
         mainImage.className = 'product-image loading';
+        mainImage.loading = "lazy"; // Добавляем атрибут для ленивой загрузки
         mainImage.addEventListener('load', () => {
             imageContainer.classList.remove('loading');
             mainImage.classList.remove('loading');
@@ -310,7 +317,28 @@ document.addEventListener('DOMContentLoaded', () => {
             imageLoading.style.display = 'none';
             mainImage.src = 'placeholder.jpg'; // Замените на путь к вашему изображению-заглушке
         });
-        mainImage.src = product.imageData?.imgMain || product.imageData?.images?.[0] || '';
+        
+        // Попытка использовать WebP, если доступен
+        const imgSrc = product.imageData?.imgMain || product.imageData?.images?.[0] || '';
+        // Проверяем, если URL изображения заканчивается на jpg/jpeg/png, пробуем загрузить WebP версию
+        if (imgSrc.match(/\.(jpg|jpeg|png)$/i)) {
+            checkWebpSupport().then(supportsWebp => {
+                if (supportsWebp) {
+                    // Пробуем WebP версию того же изображения
+                    const webpUrl = imgSrc.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+                    // Предзагрузка для проверки существования WebP
+                    const tempImg = new Image();
+                    tempImg.onload = () => { mainImage.src = webpUrl; };
+                    tempImg.onerror = () => { mainImage.src = imgSrc; }; 
+                    tempImg.src = webpUrl;
+                } else {
+                    mainImage.src = imgSrc;
+                }
+            });
+        } else {
+            mainImage.src = imgSrc;
+        }
+        
         mainImage.alt = product.info?.name || '';
 
         imageContainer.appendChild(mainImage);
@@ -420,13 +448,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const cartButton = document.createElement('button');
         cartButton.className = 'action-button cart-button';
         cartButton.textContent = 'В корзину';
-        cartButton.addEventListener('click', () => {
-            // Здесь будет логика добавления в корзину
-            console.log('Adding to cart:', product._id);
+        cartButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            addToCart(product);
+        });
+
+        // Добавляем кнопки для шаринга в соцсети
+        const shareButton = document.createElement('button');
+        shareButton.className = 'action-button share-button';
+        shareButton.innerHTML = '<span class="share-icon">&#128279;</span>';
+        shareButton.title = 'Поделиться';
+        shareButton.addEventListener('click', () => {
+            showShareOptions(product);
         });
 
         actionsContainer.appendChild(detailsButton);
         actionsContainer.appendChild(cartButton);
+        actionsContainer.appendChild(shareButton);
         infoContainer.appendChild(actionsContainer);
 
         card.appendChild(infoContainer);
@@ -460,57 +498,68 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Обновляем функцию fetchProducts для обработки сгруппированных товаров
+    function renderVisibleProducts() {
+        const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+        const containerTop = productsContainer.offsetTop;
+        // Діагностика: виводимо всі productType
+        console.log('productTypes:', allProducts.map(p => p.data?.productType));
+        // Фільтруємо товари по вибраній категорії (гнучко, по частковому співпадінню)
+        let filteredProducts = selectedCategory === 'all'
+            ? allProducts
+            : allProducts.filter(p => (p.data?.productType || '').toLowerCase().includes(selectedCategory.toLowerCase()));
+        const startIdx = Math.max(0, Math.floor((scrollTop - containerTop) / CARD_HEIGHT) - 3);
+        const endIdx = Math.min(filteredProducts.length, startIdx + VISIBLE_COUNT);
+        productsContainer.innerHTML = '';
+        const topSpacer = document.createElement('div');
+        topSpacer.style.height = (startIdx * CARD_HEIGHT) + 'px';
+        productsContainer.appendChild(topSpacer);
+        for (let i = startIdx; i < endIdx; i++) {
+            const card = createProductCard(filteredProducts[i]);
+            productsContainer.appendChild(card);
+        }
+        const bottomSpacer = document.createElement('div');
+        bottomSpacer.style.height = ((filteredProducts.length - endIdx) * CARD_HEIGHT) + 'px';
+        productsContainer.appendChild(bottomSpacer);
+    }
+
+    // Оновлений fetchProducts для зберігання всіх товарів у масиві
     async function fetchProducts(page = 1) {
         if (isLoading) return;
         isLoading = true;
-        
-        // Показываем индикатор загрузки
         loadingIndicator.style.display = 'block';
-        
-        // Очищаем контейнер только если это первая страница
         if (page === 1) {
-            productsContainer.innerHTML = '';
+            allProducts = [];
             hasMore = true;
         }
-
         try {
             const queryParams = new URLSearchParams({
                 page,
-                limit: '12',
+                limit: '24', // більше для плавності
                 ...currentFilters
             });
-
             const response = await fetch(`/api/products?${queryParams.toString()}`);
             const data = await response.json();
-
             if (data.products && data.products.length > 0) {
                 data.products.forEach(productGroup => {
-                    // Используем первый продукт из группы как основной
                     const mainProduct = productGroup[0];
                     if (!mainProduct) return;
-
-                    // Создаем копию основного продукта и добавляем варианты
                     const productWithVariants = {
                         ...mainProduct,
-                        variants: productGroup.slice(1) // Все остальные продукты становятся вариантами
+                        variants: productGroup.slice(1)
                     };
-
-                    const card = createProductCard(productWithVariants);
-                    productsContainer.appendChild(card);
+                    allProducts.push(productWithVariants);
                 });
-
-                // Обновляем состояние пагинации
                 currentPage = page;
                 hasMore = page < data.totalPages;
+                renderVisibleProducts();
             } else if (page === 1) {
-                productsContainer.innerHTML = '<div class="no-products">Товары не найдены</div>';
+                productsContainer.innerHTML = '<div class="no-products">Товари не знайдені</div>';
                 hasMore = false;
             }
         } catch (error) {
             console.error('Error fetching products:', error);
             if (page === 1) {
-                productsContainer.innerHTML = '<div class="error-message">Ошибка загрузки товаров</div>';
+                productsContainer.innerHTML = '<div class="error-message">Помилка завантаження товарів</div>';
             }
             hasMore = false;
         } finally {
@@ -519,12 +568,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Обновляем обработчик прокрутки
+    // Оновлений handleScroll для віртуалізації
     function handleScroll() {
         if (isLoading || !hasMore) return;
-
+        renderVisibleProducts();
         const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-        
         if (scrollTop + clientHeight >= scrollHeight - 500) {
             fetchProducts(currentPage + 1);
         }
@@ -582,6 +630,155 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // События
     window.addEventListener('scroll', handleScroll);
+
+    // Додаю обробник подій для вкладок категорій
+    const categoryTabs = document.getElementById('category-tabs');
+    if (categoryTabs) {
+        categoryTabs.addEventListener('click', (e) => {
+            if (e.target.classList.contains('category-tab')) {
+                document.querySelectorAll('.category-tab').forEach(tab => tab.classList.remove('active'));
+                e.target.classList.add('active');
+                selectedCategory = e.target.getAttribute('data-category');
+                renderVisibleProducts();
+            }
+        });
+    }
+
+    // Проверка поддержки WebP браузером
+    function checkWebpSupport() {
+        return new Promise(resolve => {
+            const webP = new Image();
+            webP.onload = () => resolve(true);
+            webP.onerror = () => resolve(false);
+            webP.src = 'data:image/webp;base64,UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==';
+        });
+    }
+
+    // Функция добавления товара в корзину
+    function addToCart(product) {
+        // Получаем текущую корзину из localStorage или создаем новую
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Проверяем, есть ли товар уже в корзине
+        const existingItemIndex = cart.findIndex(item => item._id === product._id);
+        
+        if (existingItemIndex >= 0) {
+            // Если товар уже в корзине, увеличиваем количество
+            cart[existingItemIndex].quantity = (cart[existingItemIndex].quantity || 1) + 1;
+        } else {
+            // Если товара нет в корзине, добавляем его
+            cart.push({
+                _id: product._id,
+                name: product.info?.name || '',
+                price: product.price?.self?.UAH?.currentPrice || 0,
+                image: product.imageData?.imgMain || product.imageData?.images?.[0] || '',
+                quantity: 1
+            });
+        }
+        
+        // Сохраняем корзину в localStorage
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        // Обновляем счетчик товаров в корзине
+        updateCartCount();
+        
+        // Показываем уведомление
+        showNotification('Товар добавлен в корзину');
+    }
+
+    // Функция обновления счетчика товаров в корзине
+    function updateCartCount() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        
+        // Находим элемент для отображения количества товаров
+        const cartCountElement = document.querySelector('.cart-count');
+        
+        if (cartCountElement) {
+            cartCountElement.textContent = totalItems;
+            cartCountElement.style.display = totalItems > 0 ? 'block' : 'none';
+        }
+    }
+
+    // Функция для отображения уведомления
+    function showNotification(message) {
+        // Проверяем, существует ли уже контейнер для уведомлений
+        let notificationContainer = document.getElementById('notification-container');
+        
+        if (!notificationContainer) {
+            // Если контейнера нет, создаем его
+            notificationContainer = document.createElement('div');
+            notificationContainer.id = 'notification-container';
+            document.body.appendChild(notificationContainer);
+        }
+        
+        // Создаем уведомление
+        const notification = document.createElement('div');
+        notification.className = 'notification';
+        notification.textContent = message;
+        
+        // Добавляем уведомление в контейнер
+        notificationContainer.appendChild(notification);
+        
+        // Удаляем уведомление через 3 секунды
+        setTimeout(() => {
+            notification.classList.add('hide');
+            setTimeout(() => {
+                notificationContainer.removeChild(notification);
+            }, 300);
+        }, 3000);
+    }
+
+    // Функция для отображения опций шаринга
+    function showShareOptions(product) {
+        // Создаем URL для шаринга
+        const shareUrl = encodeURIComponent(`${window.location.origin}/product/${product._id}`);
+        const shareTitle = encodeURIComponent(product.info?.name || 'Интересный товар');
+        
+        // Создаем модальное окно для шаринга
+        const modal = document.createElement('div');
+        modal.className = 'share-modal';
+        
+        modal.innerHTML = `
+            <div class="share-modal-content">
+                <span class="share-modal-close">&times;</span>
+                <h3>Поделиться товаром</h3>
+                <div class="share-buttons">
+                    <a href="https://telegram.me/share/url?url=${shareUrl}&text=${shareTitle}" target="_blank" class="share-button telegram">
+                        <span>Telegram</span>
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=${shareUrl}" target="_blank" class="share-button facebook">
+                        <span>Facebook</span>
+                    </a>
+                    <a href="viber://forward?text=${shareTitle}%20${shareUrl}" class="share-button viber">
+                        <span>Viber</span>
+                    </a>
+                    <a href="https://twitter.com/share?url=${shareUrl}&text=${shareTitle}" target="_blank" class="share-button twitter">
+                        <span>Twitter</span>
+                    </a>
+                </div>
+            </div>
+        `;
+        
+        // Добавляем модальное окно на страницу
+        document.body.appendChild(modal);
+        
+        // Добавляем обработчик закрытия
+        const closeButton = modal.querySelector('.share-modal-close');
+        closeButton.addEventListener('click', () => {
+            document.body.removeChild(modal);
+        });
+        
+        // Закрытие при клике вне модального окна
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                document.body.removeChild(modal);
+            }
+        });
+    }
+
+    // Инициализация счетчика корзины при загрузке страницы
+    updateCartCount();
 });
 
 // Функция для показа деталей продукта

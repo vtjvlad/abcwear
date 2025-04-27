@@ -2,12 +2,14 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
+const compression = require('compression');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+app.use(compression());
 app.use(cors());
 app.use(express.json());
 
@@ -219,15 +221,15 @@ app.get('/api/products/:id', async (req, res) => {
 app.get('/api/products/filter-counts', async (req, res) => {
     try {
         const [colors, categories, names] = await Promise.all([
-            Product.distinct('color').count(),
-            Product.distinct('category').count(),
-            Product.distinct('name').count()
+            Product.distinct('info.color.labelColor'),
+            Product.distinct('data.productType'),
+            Product.distinct('info.name')
         ]);
 
         res.json({
-            colors,
-            categories,
-            names
+            colors: colors.length,
+            categories: categories.length,
+            names: names.length
         });
     } catch (error) {
         console.error('Error fetching filter counts:', error);
@@ -258,7 +260,12 @@ app.get('/api/status', async (req, res) => {
     }
 });
 
-// Serve index.html for all routes
+// Serve cart.html for the cart route
+app.get('/cart', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'cart.html'));
+});
+
+// Serve index.html for all other routes
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });

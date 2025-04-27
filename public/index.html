@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC Wear - Интернет магазин</title>
+    <meta name="description" content="ABC Wear - інтернет-магазин одягу, взуття та аксесуарів. Великий вибір товарів з доставкою по всій Україні.">
+    <!-- Додаємо OpenGraph теги для кращого шерінгу -->
+    <meta property="og:title" content="ABC Wear - Интернет магазин">
+    <meta property="og:description" content="Найкращий вибір одягу, взуття та аксесуарів з доставкою по всій Україні.">
+    <meta property="og:image" content="/assets/logo.png">
+    <meta property="og:url" content="https://abcwear.com/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css">
     <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
     <style>
@@ -964,6 +970,335 @@
                 padding: 10px 0;
             }
         }
+        .umami-banner {
+            width: 100%;
+            min-height: 320px;
+            background: linear-gradient(120deg, #f8fafc 60%, #e0e7ef 100%), url('https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 32px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+        }
+        .umami-banner::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255,255,255,0.45);
+            z-index: 1;
+        }
+        .umami-banner-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: #222;
+            padding: 40px 24px;
+            max-width: 600px;
+        }
+        .umami-banner-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            letter-spacing: 6px;
+            margin-bottom: 18px;
+            color: #1a237e;
+            text-shadow: 0 2px 8px rgba(255,255,255,0.2);
+        }
+        .umami-banner-content p {
+            font-size: 1.3rem;
+            margin-bottom: 28px;
+            color: #333;
+        }
+        .umami-banner-btn {
+            display: inline-block;
+            background: #1a237e;
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 2px 8px rgba(26,35,126,0.08);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .umami-banner-btn:hover {
+            background: #3949ab;
+            box-shadow: 0 4px 16px rgba(26,35,126,0.12);
+        }
+        @media (max-width: 600px) {
+            .umami-banner-content h1 {
+                font-size: 2rem;
+            }
+            .umami-banner {
+                min-height: 180px;
+            }
+        }
+        .category-tabs {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            justify-content: center;
+        }
+        .category-tab {
+            background: #f5f5f5;
+            border: none;
+            border-radius: 24px;
+            padding: 10px 28px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a237e;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .category-tab.active, .category-tab:hover {
+            background: #1a237e;
+            color: #fff;
+        }
+        @media (max-width: 600px) {
+            .category-tabs {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            .category-tab {
+                padding: 8px 14px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Стили для уведомлений */
+        #notification-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .notification {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            transition: all 0.3s ease;
+            animation: slide-in 0.3s;
+        }
+
+        .notification.hide {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+
+        @keyframes slide-in {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Стили для модального окна шаринга */
+        .share-modal {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fade-in 0.3s;
+        }
+
+        .share-modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .share-modal-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .share-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .share-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            flex: 1 0 40%;
+            min-width: 120px;
+            color: white;
+            font-weight: 500;
+        }
+
+        .share-button.telegram {
+            background-color: #0088cc;
+        }
+
+        .share-button.facebook {
+            background-color: #3b5998;
+        }
+
+        .share-button.viber {
+            background-color: #7360f2;
+        }
+
+        .share-button.twitter {
+            background-color: #1da1f2;
+        }
+
+        .share-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Стили для корзины */
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #e53935;
+            color: white;
+            font-size: 12px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        /* Улучшения для мобильных устройств */
+        @media (max-width: 768px) {
+            .product-actions {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .action-button {
+                width: 100%;
+            }
+
+            .share-modal-content {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .u-main-nav {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                padding-bottom: 5px;
+            }
+
+            .u-main-nav::-webkit-scrollbar {
+                display: none;
+            }
+
+            .u-main-nav ul {
+                display: flex;
+                white-space: nowrap;
+                padding-bottom: 5px;
+            }
+
+            .u-main-nav li {
+                flex: 0 0 auto;
+            }
+
+            .category-tabs {
+                overflow-x: auto;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+                white-space: nowrap;
+                display: block;
+                padding-bottom: 10px;
+            }
+
+            .category-tabs::-webkit-scrollbar {
+                display: none;
+            }
+
+            .category-tab {
+                display: inline-block;
+                margin-right: 8px;
+                margin-bottom: 8px;
+            }
+
+            .search-container input {
+                height: 44px; /* Увеличиваем для лучшей доступности */
+            }
+
+            .filters-header {
+                padding: 10px;
+            }
+        }
+
+        /* Стили для кнопки шаринга на карточке товара */
+        .share-button.action-button {
+            background-color: #673ab7;
+            color: white;
+            padding: 8px 12px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .share-icon {
+            margin-right: 5px;
+        }
+
+        /* Стили для оптимизации загрузки изображений */
+        .product-image-container {
+            background-color: #f0f0f0; /* Placeholder цвет до загрузки изображения */
+        }
+
+        /* Добавляем минимальную высоту для клика на мобильных */
+        .action-button, button, select, .filter-tag {
+            min-height: 44px;
+        }
+
+        input, select {
+            font-size: 16px; /* Предотвращаем зум на iPhone */
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -1002,7 +1337,7 @@
                     <span class="u-search-icon">&#128269;</span>
                 </div>
                 <a href="#" class="u-header-icon" aria-label="Избранное">&#9825;</a>
-                <a href="#" class="u-header-icon" aria-label="Корзина">&#128722;</a>
+                <a href="/cart" class="u-header-icon cart-icon" aria-label="Корзина">&#128722;</a>
             </div>
         </div>
         <!-- Мегаменю (пример для одного пункта, остальные аналогично) -->
@@ -1013,7 +1348,24 @@
         </div>
     </header>
     <!-- U-style Header End -->
+    <!-- UMAMI Banner Start -->
+    <section class="umami-banner">
+        <div class="umami-banner-content">
+            <h1>UMAMI</h1>
+            <p>Відчуй стиль. Відчуй комфорт. Одяг для кожного моменту.</p>
+            <a href="#products-container" class="umami-banner-btn">Дивитись колекцію</a>
+        </div>
+    </section>
+    <!-- UMAMI Banner End -->
     <div class="container">
+        <!-- Category Tabs Start -->
+        <div class="category-tabs" id="category-tabs">
+            <button class="category-tab active" data-category="all">Всі</button>
+            <button class="category-tab" data-category="APPAREL">Одяг</button>
+            <button class="category-tab" data-category="FOOTWEAR">Взуття</button>
+            <button class="category-tab" data-category="ACCESSORIES">Аксесуари</button>
+        </div>
+        <!-- Category Tabs End -->
         <div class="filters-header">
             <div class="search-container">
                 <input type="text" id="search" placeholder="Поиск по названию...">
@@ -1173,6 +1525,36 @@
             megamenu.style.display = 'none';
         });
     });
+
+    function parseSizes(html) {
+        const div = document.createElement('div');
+        div.innerHTML = html;
+        return Array.from(div.querySelectorAll('input[type=\"radio\"]')).map(input => input.value);
+    }
+    </script>
+
+    <!-- Кошик в хедері -->
+    <script>
+        // Оновлюємо іконку кошика при завантаженні сторінки
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartIcon = document.querySelector('.u-header-icon[aria-label="Корзина"]');
+            if (cartIcon) {
+                // Додаємо елемент для відображення кількості товарів
+                const cartCount = document.createElement('span');
+                cartCount.className = 'cart-count';
+                cartCount.style.display = 'none';
+                cartIcon.style.position = 'relative';
+                cartIcon.appendChild(cartCount);
+                
+                // Оновлюємо лічильник
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+                if (totalItems > 0) {
+                    cartCount.textContent = totalItems;
+                    cartCount.style.display = 'flex';
+                }
+            }
+        });
     </script>
 </body>
 </html> 
