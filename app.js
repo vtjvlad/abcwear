@@ -307,9 +307,28 @@ app.post('/api/cart', cartValidators.addToCart, async (req, res, next) => {
 // Error handling middleware
 app.use(errorHandler);
 
-// Serve index.html for all routes
-app.get('*', (req, res) => {
+// Serve home.html for all non-API routes first
+app.get('*', (req, res, next) => {
+    if (req.url.startsWith('/api/')) {
+        return next();
+    }
+    if (req.url === '/w') {
+        return next();
+    }
+    console.log(`Serving home.html for route: ${req.url}`);
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Serve index.html for the catalog route
+app.get('/w', (req, res) => {
+    console.log('Serving index.html for /w route');
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    res.sendFile(path.join(__dirname, 'public', 'w.html'));
 });
 
 // Start server
