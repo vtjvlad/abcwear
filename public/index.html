@@ -767,9 +767,252 @@
                 justify-content: center;
             }
         }
+
+        /* U HEADER STYLES */
+        .u-header {
+            width: 100%;
+            background: #fff;
+            border-bottom: 1px solid #ececec;
+            font-family: 'Arial', sans-serif;
+            z-index: 100;
+            position: relative;
+        }
+        .u-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #555;
+            background: #f7f7f7;
+            padding: 6px 32px 6px 12px;
+        }
+        .u-header-top-left {
+            display: flex;
+            align-items: center;
+        }
+        .u-logo-mini {
+            font-size: 18px;
+            font-weight: bold;
+            color: #222;
+            letter-spacing: 2px;
+        }
+        .u-header-top-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .u-header-top-right a {
+            color: #555;
+            text-decoration: none;
+            margin: 0 2px;
+            transition: color 0.2s;
+        }
+        .u-header-top-right a:hover {
+            color: #111;
+        }
+        .u-header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 32px 12px 12px;
+            background: #fff;
+        }
+        .u-logo {
+            text-decoration: none;
+        }
+        .u-logo-big {
+            font-size: 32px;
+            font-weight: bold;
+            color: #222;
+            letter-spacing: 4px;
+        }
+        .u-main-nav ul {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .u-main-nav li {
+            position: relative;
+        }
+        .u-main-nav a {
+            text-decoration: none;
+            color: #111;
+            font-size: 18px;
+            font-weight: 400;
+            padding: 4px 0;
+            transition: color 0.2s;
+        }
+        .u-main-nav li.active a,
+        .u-main-nav a:hover {
+            color: #111;
+            border-bottom: 2px solid #111;
+        }
+        .u-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .u-search {
+            position: relative;
+            background: #f5f5f5;
+            border-radius: 24px;
+            padding: 0 12px;
+            display: flex;
+            align-items: center;
+            margin-right: 8px;
+        }
+        .u-search input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 16px;
+            padding: 8px 0 8px 0;
+            width: 120px;
+            transition: width 0.3s;
+        }
+        .u-search input:focus {
+            width: 180px;
+        }
+        .u-search-icon {
+            color: #888;
+            font-size: 18px;
+            margin-left: 4px;
+        }
+        .u-header-icon {
+            font-size: 22px;
+            color: #222;
+            text-decoration: none;
+            margin-left: 8px;
+            transition: color 0.2s;
+        }
+        .u-header-icon:hover {
+            color: #111;
+        }
+        .u-megamenu {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border-top: 1px solid #ececec;
+            display: none;
+            z-index: 101;
+            animation: fadeIn 0.2s;
+        }
+        .u-megamenu-content {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 32px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .u-megamenu-content > div {
+            min-width: 160px;
+        }
+        .u-megamenu-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #222;
+        }
+        .u-megamenu-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .u-megamenu-content li {
+            margin-bottom: 8px;
+        }
+        .u-megamenu-content a {
+            color: #555;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        .u-megamenu-content a:hover {
+            color: #111;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        @media (max-width: 900px) {
+            .u-header-main {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px;
+            }
+            .u-main-nav ul {
+                gap: 18px;
+            }
+            .u-megamenu-content {
+                gap: 24px;
+                padding: 18px 0;
+            }
+        }
+        @media (max-width: 600px) {
+            .u-header-top, .u-header-main {
+                padding: 8px;
+            }
+            .u-megamenu-content {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 0;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- U-style Header Start -->
+    <header class="u-header">
+        <div class="u-header-top">
+            <div class="u-header-top-left">
+                <span class="u-logo-mini">U</span>
+            </div>
+            <div class="u-header-top-right">
+                <a href="#">Магазины</a>
+                <span>|</span>
+                <a href="#">Помощь</a>
+                <span>|</span>
+                <a href="#">Регистрация</a>
+                <span>|</span>
+                <a href="#">Войти</a>
+            </div>
+        </div>
+        <div class="u-header-main">
+            <a href="#" class="u-logo">
+                <span class="u-logo-big">U</span>
+            </a>
+            <nav class="u-main-nav">
+                <ul>
+                    <li class="active" data-menu="new"><a href="#">Новинки</a></li>
+                    <li data-menu="men"><a href="#">Мужское</a></li>
+                    <li data-menu="women"><a href="#">Женское</a></li>
+                    <li data-menu="kids"><a href="#">Дети</a></li>
+                    <li data-menu="sale"><a href="#">Акции</a></li>
+                </ul>
+            </nav>
+            <div class="u-header-actions">
+                <div class="u-search">
+                    <input type="text" placeholder="Поиск" />
+                    <span class="u-search-icon">&#128269;</span>
+                </div>
+                <a href="#" class="u-header-icon" aria-label="Избранное">&#9825;</a>
+                <a href="#" class="u-header-icon" aria-label="Корзина">&#128722;</a>
+            </div>
+        </div>
+        <!-- Мегаменю (пример для одного пункта, остальные аналогично) -->
+        <div class="u-megamenu" id="u-megamenu" style="display: none;">
+            <div class="u-megamenu-content" id="u-megamenu-content">
+                <!-- JS будет подставлять содержимое в зависимости от пункта меню -->
+            </div>
+        </div>
+    </header>
+    <!-- U-style Header End -->
     <div class="container">
         <div class="filters-header">
             <div class="search-container">
@@ -854,5 +1097,73 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+    let uCategories = [];
+
+    async function loadCategories() {
+        try {
+            const res = await fetch('/api/filters/categories');
+            uCategories = await res.json();
+        } catch (e) {
+            uCategories = [];
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        loadCategories();
+
+        const navItems = document.querySelectorAll('.u-main-nav li');
+        const megamenu = document.getElementById('u-megamenu');
+        const megamenuContent = document.getElementById('u-megamenu-content');
+
+        navItems.forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                if (uCategories.length) {
+                    megamenuContent.innerHTML = `
+                        <div>
+                            <h4>Категории</h4>
+                            <ul>
+                                ${uCategories.map(cat => `<li><a href="#" class="u-category-link" data-category="${encodeURIComponent(cat)}">${cat}</a></li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                    megamenu.style.display = 'block';
+
+                    // Навешиваем обработчик на ссылки категорий
+                    megamenuContent.querySelectorAll('.u-category-link').forEach(link => {
+                        link.onclick = function(e) {
+                            e.preventDefault();
+                            const category = this.getAttribute('data-category');
+                            // Меняем фильтр категории и обновляем товары
+                            const categoryFilter = document.getElementById('category-filter');
+                            if (categoryFilter) {
+                                categoryFilter.value = decodeURIComponent(category);
+                                // Триггерим событие для фильтрации
+                                categoryFilter.dispatchEvent(new Event('change'));
+                            }
+                            megamenu.style.display = 'none';
+                            const params = new URLSearchParams(window.location.search);
+                            params.set('category', decodeURIComponent(category));
+                            window.location.search = params.toString();
+                        };
+                    });
+                }
+            });
+            item.addEventListener('mouseleave', function() {
+                setTimeout(() => {
+                    if (!megamenu.matches(':hover')) {
+                        megamenu.style.display = 'none';
+                    }
+                }, 100);
+            });
+        });
+        megamenu.addEventListener('mouseleave', function() {
+            megamenu.style.display = 'none';
+        });
+        document.querySelector('.u-header').addEventListener('mouseleave', function() {
+            megamenu.style.display = 'none';
+        });
+    });
+    </script>
 </body>
 </html> 
