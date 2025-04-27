@@ -254,6 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
         fetchProducts(1);
+        updateActiveFilters();
     }
 
     // Очистка всех фильтров
