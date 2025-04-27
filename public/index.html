@@ -1109,6 +1109,15 @@
         }
     }
 
+    async function getCategoriesByType(type) {
+        try {
+            const res = await fetch(`/api/filters/categories/${type}`);
+            return await res.json();
+        } catch {
+            return [];
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         loadCategories();
 
@@ -1117,34 +1126,34 @@
         const megamenuContent = document.getElementById('u-megamenu-content');
 
         navItems.forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                if (uCategories.length) {
+            item.addEventListener('mouseenter', async function() {
+                const menu = this.getAttribute('data-menu');
+                let categories = [];
+                if (menu === 'men' || menu === 'women' || menu === 'kids') {
+                    categories = await getCategoriesByType(menu);
+                } else {
+                    categories = uCategories; // общий список для остальных
+                }
+                if (categories.length) {
                     megamenuContent.innerHTML = `
                         <div>
                             <h4>Категории</h4>
                             <ul>
-                                ${uCategories.map(cat => `<li><a href="#" class="u-category-link" data-category="${encodeURIComponent(cat)}">${cat}</a></li>`).join('')}
+                                ${categories.map(cat => `<li><a href="#" class="u-category-link" data-category="${encodeURIComponent(cat)}">${cat}</a></li>`).join('')}
                             </ul>
                         </div>
                     `;
                     megamenu.style.display = 'block';
-
-                    // Навешиваем обработчик на ссылки категорий
                     megamenuContent.querySelectorAll('.u-category-link').forEach(link => {
                         link.onclick = function(e) {
                             e.preventDefault();
                             const category = this.getAttribute('data-category');
-                            // Меняем фильтр категории и обновляем товары
                             const categoryFilter = document.getElementById('category-filter');
                             if (categoryFilter) {
                                 categoryFilter.value = decodeURIComponent(category);
-                                // Триггерим событие для фильтрации
                                 categoryFilter.dispatchEvent(new Event('change'));
                             }
                             megamenu.style.display = 'none';
-                            const params = new URLSearchParams(window.location.search);
-                            params.set('category', decodeURIComponent(category));
-                            window.location.search = params.toString();
                         };
                     });
                 }
