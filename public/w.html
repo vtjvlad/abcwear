@@ -316,7 +316,96 @@
             }
 
             .products-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 12px;
+            }
+            
+            .product-info {
+                padding: 10px;
+            }
+            
+            .product-name {
+                font-size: 14px;
+                margin-bottom: 4px;
+            }
+            
+            .product-subtitle {
+                font-size: 12px;
+                margin-bottom: 6px;
+            }
+            
+            .current-price {
+                font-size: 15px;
+            }
+            
+            .initial-price {
+                font-size: 12px;
+            }
+            
+            .view-details {
+                padding: 8px;
+                font-size: 13px;
+            }
+            
+            .image-carousel {
+                bottom: 5px;
+                left: 5px;
+                right: 5px;
+            }
+            
+            .carousel-image {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
+        /* Маленькие мобильные устройства */
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+                gap: 10px;
+            }
+            
+            .product-info {
+                padding: 8px;
+            }
+            
+            .product-name {
+                font-size: 13px;
+            }
+            
+            .current-price {
+                font-size: 14px;
+            }
+            
+            .view-details {
+                padding: 6px;
+                font-size: 12px;
+            }
+            
+            header {
+                margin-bottom: 10px;
+            }
+            
+            header h1 {
+                font-size: 24px;
+            }
+            
+            header p {
+                font-size: 14px;
+            }
+            
+            .filters-header {
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+            
+            .price-inputs input {
+                width: 70px;
             }
         }
 

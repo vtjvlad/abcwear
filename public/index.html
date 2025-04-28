@@ -235,25 +235,112 @@
         }
 
         @media (max-width: 768px) {
-            header h1 {
-                font-size: 32px;
+            .main-header {
+                background: #fff !important;
+                border-radius: 0 !important;
+                margin-bottom: 0 !important;
+                box-shadow: 0 1px 0 #ececec;
             }
-
-            .hero h2 {
-                font-size: 36px;
+            .header-row-top {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                padding: 6px 8px 6px 8px !important;
+                min-height: 48px;
+                position: sticky !important;
+                top: 0 !important;
+                z-index: 1000 !important;
+                background: #fff !important;
+                box-shadow: 0 1px 0 #ececec;
             }
-
-            .hero p {
-                font-size: 18px;
+            .header-logo {
+                flex: 0 0 auto !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                margin: 0 !important;
+                transform: none !important;
             }
-
-            .features {
-                grid-template-columns: 1fr;
+            .logo-svg {
+                max-width: 100px !important;
+                margin: 0 !important;
+                height: 36px !important;
+                object-fit: contain;
             }
+            .header-actions {
+                display: flex !important;
+                align-items: center !important;
+                gap: 10px !important;
+                margin-left: 8px !important;
+            }
+            .icon-btn {
+                font-size: 20px !important;
+                padding: 2px !important;
+                background: none !important;
+                border: none !important;
+            }
+            .lang-switch {
+                font-size: 13px !important;
+                margin-right: 2px !important;
+            }
+            .header-row-bottom {
+                display: none !important;
+            }
+            .mobile-menu-scroll {
+                display: flex !important;
+                flex-direction: row !important;
+                overflow-x: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+                gap: 16px !important;
+                padding: 0 8px 0 8px !important;
+                white-space: nowrap !important;
+                scrollbar-width: none !important;
+                -ms-overflow-style: none !important;
+                background: #fff;
+                border-bottom: 1px solid #ececec;
+                min-height: 40px;
+                align-items: center;
+            }
+            .mobile-menu-scroll::-webkit-scrollbar {
+                display: none !important;
+            }
+            .mobile-menu-scroll .category,
+            .mobile-menu-scroll .menu-link {
+                font-size: 14px !important;
+                padding: 8px 2px !important;
+                white-space: nowrap !important;
+                border-bottom-width: 2px !important;
+                background: none !important;
+                border: none !important;
+                color: #222 !important;
+            }
+            .mobile-menu-scroll .category.active,
+            .mobile-menu-scroll .menu-link.sale {
+                color: #d32f2f !important;
+                font-weight: 700 !important;
+            }
+            .header-search {
+                display: none !important;
+            }
+        }
 
-            footer .container {
-                flex-direction: column;
-                gap: 20px;
+        @media (max-width: 480px) {
+            .logo-svg {
+                max-width: 70px !important;
+                height: 28px !important;
+            }
+            .icon-btn {
+                font-size: 17px !important;
+            }
+            .mobile-menu-scroll {
+                gap: 10px !important;
+                padding: 0 4px 0 4px !important;
+                min-height: 34px;
+            }
+            .mobile-menu-scroll .category,
+            .mobile-menu-scroll .menu-link {
+                font-size: 12px !important;
+                padding: 7px 1px !important;
             }
         }
 
@@ -478,42 +565,39 @@
             cursor: default;
         }
         .header-logo {
-            flex: 0 0 320px;
-            text-align: center;
+            flex: 0 0 auto;
+            text-align: left;
             position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 35%;
+            transform: none;
             z-index: 2;
-            pointer-events: none;
+            pointer-events: auto;
+            margin-left: 0;
         }
-        .logo-svg {
-            width: 100%;
+        .logo-svg-main {
+            max-width: 340px;
             height: auto;
-            max-width: 270px;
-            margin-left: 60px;
+            margin-left: 0;
         }
         .header-actions {
             display: flex;
             align-items: center;
+            justify-content: space-between;
+            gap: 0;
+            width: 320px;
+            position: relative;
+        }
+        .header-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
             gap: 18px;
         }
         .lang-switch {
-            font-size: 15px;
-            color: #888;
-            margin-right: 10px;
-            cursor: pointer;
-            transition: color 0.2s;
-        }
-        .lang-switch .lang {
-            transition: color 0.2s;
-        }
-        .lang-switch .lang:hover:not(.active) {
-            color: #2196F3;
-        }
-        .lang-switch .active {
-            color: #222;
-            font-weight: 600;
-            cursor: default;
+            min-width: 60px;
+            text-align: right;
+            margin-right: 0;
         }
         .icon-btn {
             color: #222;
@@ -557,21 +641,25 @@
             display: flex;
             align-items: center;
             border-bottom: 1.5px solid #222;
-            margin-left: 24px;
+            margin-left: auto;
+            margin-right: auto;
             transition: border-color 0.2s;
+            justify-content: center;
+            min-width: 420px;
+            max-width: 620px;
         }
         .header-search input {
             border: none;
             outline: none;
-            font-size: 15px;
-            padding: 4px 8px;
+            font-size: 16px;
+            padding: 4px 12px;
             background: transparent;
             color: #222;
-            width: 90px;
+            width: 380px;
             transition: width 0.2s, border-color 0.2s;
         }
         .header-search input:focus {
-            width: 140px;
+            width: 520px;
             border-bottom: 2px solid #2196F3;
         }
         .header-search button {
@@ -666,6 +754,19 @@
             font-size: 32px;
             font-weight: 400;
         }
+
+        .logo-svg-mini { display: none; }
+        @media (max-width: 768px) {
+            .logo-svg-main { display: none !important; }
+            .logo-svg-mini { display: block !important; max-width: 60px !important; height: 32px !important; margin: 0 !important; }
+        }
+
+        @media (min-width: 769px) {
+            .mobile-header-row,
+            .mobile-header-search-row {
+                display: none !important;
+            }
+        }
     </style>
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -673,33 +774,60 @@
 <body>
     <!-- Новый минималистичный header на всю ширину -->
     <header class="main-header">
-        <div class="header-row header-row-top">
-            <nav class="header-categories">
-                <a href="#" class="category">Она</a>
-                <a href="#" class="category active">Он</a>
-                <a href="#" class="category">Дети</a>
-                <a href="#" class="category">Дом</a>
-            </nav>
-            <div class="header-logo">
-                <img src="/logo.svg" alt="ABCWEAR logo" class="logo-svg">
+        <div class="mobile-header-row">
+            <div class="mobile-header-left">
+                <div class="mobile-logo">ABCWEAR</div>
+                <button class="burger-menu" aria-label="Открыть меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
-            <div class="header-actions">
+            <nav class="mobile-categories">
+                <a href="#" class="category">Взуття</a>
+                <a href="#" class="category">Одяг</a>
+                <a href="#" class="category">Аксесуары</a>
+            </nav>
+            <div class="mobile-header-actions">
                 <div class="lang-switch">
                     <span class="lang">UA</span> |
                     <span class="lang active">RU</span>
                 </div>
                 <a href="#" class="icon-btn"><i class="fa-regular fa-circle-user"></i></a>
-                <a href="#" class="icon-btn"><i class="fa-regular fa-user"></i></a>
                 <a href="#" class="icon-btn"><i class="fa-regular fa-heart"></i></a>
                 <a href="#" class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></a>
             </div>
         </div>
-        <div class="header-row header-row-bottom">
+        <div class="mobile-header-search-row">
+            <div class="mobile-search-line"></div>
+            <div class="mobile-search-label">Пошук</div>
+        </div>
+        <!-- desktop header (скрыт на мобиле) -->
+        <div class="header-row header-row-top desktop-header">
+            <nav class="header-categories">
+                <a href="#" class="category">Взуття</a>
+                <a href="#" class="category">Одяг</a>
+                <a href="#" class="category">Аксесуары</a>
+            </nav>
+            <div class="header-logo">
+                <img src="/logo.png" alt="ABCWEAR logo" class="logo-svg logo-svg-main">
+                <img src="/mini_logo.png" alt="ABCWEAR mini logo" class="logo-svg logo-svg-mini">
+            </div>
+            <div class="header-actions">
+                <div class="header-icons">
+                    <a href="#" class="icon-btn"><i class="fa-regular fa-circle-user"></i></a>
+                    <a href="#" class="icon-btn"><i class="fa-regular fa-heart"></i></a>
+                    <a href="#" class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></a>
+                </div>
+                <div class="lang-switch">
+                    <span class="lang">UA</span> |
+                    <span class="lang active">RU</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-row header-row-bottom desktop-header">
             <nav class="header-menu">
                 <a href="#" class="menu-link">Новинки</a>
-                <a href="#" class="menu-link">Одежда</a>
-                <a href="#" class="menu-link">Обувь</a>
-                <a href="#" class="menu-link">Аксессуары</a>
                 <a href="#" class="menu-link">Спорт</a>
                 <a href="#" class="menu-link">Премиум</a>
                 <a href="#" class="menu-link">Бренды</a>
@@ -761,5 +889,268 @@
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="recommendations.js"></script>
+
+    <!-- Мобильная адаптация -->
+    <style>
+        @media (max-width: 1024px) {
+            .header-categories {
+                gap: 20px;
+            }
+            .header-menu {
+                gap: 18px;
+            }
+            .header-row-top, .header-row-bottom {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            .logo-svg {
+                max-width: 220px;
+                margin-left: 35px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header {
+                background: #fff;
+                box-shadow: 0 1px 0 #ececec;
+                border-radius: 0;
+                margin-bottom: 0;
+                padding: 0;
+            }
+            .desktop-header { display: none !important; }
+            .mobile-header-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 12px 0 12px;
+                min-height: 48px;
+            }
+            .mobile-header-left {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+            }
+            .mobile-logo {
+                font-family: 'Montserrat', serif;
+                font-size: 32px;
+                font-weight: 700;
+                letter-spacing: 2px;
+                color: #111;
+                margin-bottom: 2px;
+            }
+            .burger-menu {
+                display: block;
+                background: none;
+                border: none;
+                padding: 0;
+                margin-top: 2px;
+                margin-bottom: 2px;
+                cursor: pointer;
+            }
+            .burger-menu span {
+                display: block;
+                width: 36px;
+                height: 4px;
+                background: #111;
+                margin: 4px 0;
+                border-radius: 2px;
+            }
+            .mobile-categories {
+                display: flex;
+                flex-direction: row;
+                gap: 18px;
+                margin-left: 16px;
+            }
+            .mobile-categories .category {
+                font-size: 17px;
+                color: #111;
+                text-decoration: none;
+                font-weight: 400;
+                padding: 0 2px;
+            }
+            .mobile-header-actions {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                margin-left: 8px;
+            }
+            .lang-switch {
+                font-size: 13px;
+                margin-right: 2px;
+                color: #111;
+            }
+            .icon-btn {
+                font-size: 20px;
+                color: #111;
+                background: none;
+                border: none;
+                padding: 2px;
+            }
+            .mobile-header-search-row {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                padding: 0 12px 6px 12px;
+                border-bottom: 1.5px solid #111;
+                position: relative;
+            }
+            .mobile-search-line {
+                flex: 1;
+                height: 2px;
+                background: #bbb;
+                margin-right: 10px;
+            }
+            .mobile-search-label {
+                font-size: 22px;
+                color: #222;
+                font-family: 'Montserrat', serif;
+                font-weight: 500;
+                letter-spacing: 1px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-header {
+                margin-bottom: 12px;
+            }
+            .header-row-top {
+                padding: 8px 10px 6px 10px;
+            }
+            .header-row-bottom {
+                padding: 6px 8px 10px 8px;
+            }
+            .header-categories {
+                gap: 12px;
+            }
+            .header-categories .category {
+                font-size: 13px;
+            }
+            .header-actions {
+                gap: 8px;
+            }
+            .logo-svg {
+                max-width: 130px;
+                margin-left: 8px;
+                margin-top: -4px;
+            }
+            .icon-btn {
+                font-size: 18px;
+            }
+            .header-menu {
+                gap: 18px;
+                padding: 0;
+            }
+            .header-menu .menu-link {
+                font-size: 13px;
+            }
+            .header-search {
+                margin-left: 10px;
+            }
+            .header-search input {
+                width: 60px;
+                padding: 3px 6px;
+            }
+            
+            /* Слайдер рекомендаций */
+            .recommendation-card {
+                min-height: 260px;
+            }
+            .recommendations-swiper .swiper-slide {
+                width: 150px;
+            }
+            .swiper-button-next, .swiper-button-prev {
+                width: 30px;
+                height: 30px;
+            }
+            .swiper-button-next:after, .swiper-button-prev:after {
+                font-size: 24px;
+            }
+            .container {
+                padding: 10px;
+            }
+            .recommendations-swiper {
+                padding: 20px 0 40px 0;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .header-row-top {
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            .header-categories {
+                gap: 8px;
+                order: 1;
+                width: 100%;
+                justify-content: center;
+                margin-top: 6px;
+            }
+            .header-categories .category {
+                font-size: 12px;
+            }
+            .header-logo {
+                order: 0;
+                transform: none;
+            }
+            .header-actions {
+                order: 0;
+            }
+            .logo-svg {
+                max-width: 110px;
+                margin-left: 0;
+            }
+            .icon-btn {
+                font-size: 16px;
+            }
+            .header-search input {
+                width: 50px;
+            }
+            .header-menu {
+                gap: 14px;
+            }
+            .header-menu .menu-link {
+                font-size: 12px;
+            }
+        }
+    </style>
+    <script>
+    // Список шутливых и мотивирующих подсказок для поиска
+    const searchPlaceholders = [
+        'Поиск: "Кроссовки мечты"',
+        'Попробуйте: "Сумка для счастья"',
+        'Что купить? Например, "Пижама для выходных"',
+        'Введи: "Подарок себе любимому"',
+        'А может, "Шапка для отпуска"?',
+        'Порадуй себя — ищи "Новую футболку"',
+        'Почувствуй стиль: "Очки как у звезды"',
+        'Поторопись! "Скидки на носки"',
+        'Поищи: "Платье для настроения"',
+        'Введи: "Купить всё!" (шутка, но вдруг?)'
+    ];
+    let searchIndex = 0;
+    let typingInterval = null;
+    function typePlaceholder(text, input, cb) {
+        let i = 0;
+        input.setAttribute('placeholder', '');
+        clearInterval(typingInterval);
+        typingInterval = setInterval(() => {
+            input.setAttribute('placeholder', text.slice(0, i + 1));
+            i++;
+            if (i === text.length) {
+                clearInterval(typingInterval);
+                if (cb) cb();
+            }
+        }, 45);
+    }
+    function rotateSearchPlaceholder() {
+        const input = document.querySelector('.header-search input');
+        if (!input) return;
+        typePlaceholder(searchPlaceholders[searchIndex], input);
+        searchIndex = (searchIndex + 1) % searchPlaceholders.length;
+    }
+    setInterval(rotateSearchPlaceholder, 3500);
+    window.addEventListener('DOMContentLoaded', rotateSearchPlaceholder);
+    </script>
 </body>
 </html> 

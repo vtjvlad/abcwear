@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             effect: 'coverflow',
             grabCursor: true,
             centeredSlides: true,
-            slidesPerView: 6,
+            slidesPerView: 5,
             loop: true,
             autoplay: {
                 delay: 2500,
@@ -86,7 +86,25 @@ document.addEventListener('DOMContentLoaded', async () => {
             },
             initialSlide: 2,
             breakpoints: {
-                600: { slidesPerView: 3 },
+                // Мобильные устройства
+                320: { 
+                    slidesPerView: 2,
+                    coverflowEffect: {
+                        rotate: 25,
+                        depth: 100,
+                        modifier: 1
+                    }
+                },
+                // Планшеты
+                600: { 
+                    slidesPerView: 3,
+                    coverflowEffect: {
+                        rotate: 28,
+                        depth: 150,
+                        modifier: 1.1
+                    }
+                },
+                // Десктопы
                 900: { slidesPerView: 5 },
                 1200: { slidesPerView: 5 }
             }
