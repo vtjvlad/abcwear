@@ -322,6 +322,15 @@
             .header-search {
                 display: none !important;
             }
+            .mobile-logo-img {
+                display: block;
+                max-width: 120px;
+                height: 38px;
+                object-fit: contain;
+                margin-bottom: 2px;
+                margin-top: 2px;
+            }
+            .mobile-logo { display: none; }
         }
 
         @media (max-width: 480px) {
@@ -769,6 +778,83 @@
                 display: none !important;
             }
         }
+
+        /* Нижняя навигационная панель для мобильных */
+        .mobile-bottom-nav { display: none; }
+        @media (max-width: 768px) {
+            .mobile-bottom-nav {
+                display: flex;
+                position: fixed;
+                left: 0; right: 0; bottom: 0;
+                height: 62px;
+                background: #fff;
+                border-top: 1px solid #ececec;
+                justify-content: space-around;
+                align-items: center;
+                z-index: 3000;
+                box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+            }
+            .bottom-nav-btn {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                color: #222;
+                font-size: 13px;
+                text-decoration: none;
+                padding: 4px 0 0 0;
+                transition: color 0.18s;
+            }
+            .bottom-nav-btn i {
+                font-size: 23px;
+                margin-bottom: 2px;
+            }
+            .bottom-nav-btn.catalog-btn {
+                color: #1976D2;
+                font-weight: 600;
+            }
+            .bottom-nav-btn.active,
+            .bottom-nav-btn:active {
+                color: #2196F3;
+            }
+            .mobile-header-actions .icon-btn {
+                display: none !important;
+            }
+        }
+
+        /* Мобильные категории под поиском */
+        .mobile-main-categories { display: none; }
+        @media (max-width: 768px) {
+            .mobile-main-categories {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 22px;
+                padding: 10px 0 8px 0;
+                background: #fff;
+                border-bottom: 1px solid #ececec;
+                position: relative;
+                z-index: 10;
+            }
+            .mobile-main-categories .category {
+                font-size: 16px;
+                color: #222;
+                text-decoration: none;
+                font-weight: 500;
+                padding: 7px 2px;
+                border-bottom: 2px solid transparent;
+                transition: color 0.2s, border-color 0.2s;
+                background: none;
+                border: none;
+            }
+            .mobile-main-categories .category.active {
+                color: #1976D2;
+                border-bottom: 2px solid #1976D2;
+                font-weight: 700;
+            }
+            .mobile-categories-scroll { display: none !important; }
+        }
     </style>
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
@@ -778,12 +864,10 @@
     <header class="main-header">
         <div class="mobile-header-row">
             <div class="mobile-header-left">
-                <div class="mobile-logo">ABCWEAR</div>
                 <button class="burger-menu" aria-label="Открыть меню" onclick="openMobileMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <i class="fa-solid fa-bars-staggered"></i>
                 </button>
+                <img src="/logo.png" alt="ABCWEAR" class="mobile-logo-img" />
             </div>
             <nav class="mobile-categories-scroll">
                 <a href="#" class="category">Взуття</a>
@@ -869,6 +953,12 @@
         </div>
     </header>
     <div class="container">
+        <!-- Мобильные категории под поиском -->
+        <div class="mobile-main-categories">
+            <a href="#" class="category">Взуття</a>
+            <a href="#" class="category">Одяг</a>
+            <a href="#" class="category">Аксесуары</a>
+        </div>
         <!-- Слайдер рекомендаций -->
         <section style="margin-bottom: 40px;">
             <h2 style="text-align:center; margin-bottom: 20px;">Рекомендуемое</h2>
@@ -955,37 +1045,36 @@
             }
             .mobile-header-left {
                 display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                justify-content: flex-start;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                gap: 10px;
             }
-            .mobile-logo {
-                font-family: 'Montserrat', serif;
-                font-size: 32px;
-                font-weight: 800;
-                letter-spacing: 2px;
-                color: #111;
-                margin-bottom: 2px;
-                margin-top: 2px;
+            .mobile-logo-img {
+                display: block;
+                max-width: 150px;
+                height: 48px;
+                object-fit: contain;
+                margin: 0 auto;
             }
             .burger-menu {
-                display: block;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 background: none;
                 border: none;
                 padding: 0;
-                margin-top: 4px;
-                margin-bottom: 2px;
+                margin: 0 6px 0 0;
                 cursor: pointer;
                 z-index: 1002;
+                font-size: 28px;
+                color: #222;
+                transition: color 0.18s, transform 0.18s;
             }
-            .burger-menu span {
-                display: block;
-                width: 36px;
-                height: 4px;
-                background: #111;
-                margin: 4px 0;
-                border-radius: 2px;
-                transition: background 0.2s;
+            .burger-menu:hover, .burger-menu:active {
+                color: #1976D2;
+                transform: scale(1.13) rotate(-6deg);
             }
             .mobile-categories-scroll {
                 display: flex;
@@ -1302,5 +1391,12 @@
         setInterval(rotateSearchPlaceholder, 3500);
     });
     </script>
+    <!-- Нижняя навигационная панель для мобильных -->
+    <div class="mobile-bottom-nav">
+        <a href="#" class="bottom-nav-btn"><i class="fa-regular fa-circle-user"></i><span>Профиль</span></a>
+        <a href="#" class="bottom-nav-btn"><i class="fa-regular fa-heart"></i><span>Избранное</span></a>
+        <a href="#" class="bottom-nav-btn catalog-btn"><i class="fa-solid fa-grip-horizontal"></i><span>Каталог</span></a>
+        <a href="#" class="bottom-nav-btn"><i class="fa-solid fa-bag-shopping"></i><span>Корзина</span></a>
+    </div>
 </body>
 </html> 
