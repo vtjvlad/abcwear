@@ -486,13 +486,11 @@
             z-index: 2;
             pointer-events: none;
         }
-        .logo-text {
-            font-family: 'Playfair Display', serif;
-            font-size: 38px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            color: #111;
-            user-select: none;
+        .logo-svg {
+            width: 100%;
+            height: auto;
+            max-width: 270px;
+            margin-left: 60px;
         }
         .header-actions {
             display: flex;
@@ -596,9 +594,6 @@
                 transform: translateX(-50%);
                 min-width: 180px;
             }
-            .logo-text {
-                font-size: 28px;
-            }
             .header-categories, .header-menu {
                 gap: 16px;
             }
@@ -627,48 +622,49 @@
             .header-categories, .header-menu {
                 gap: 8px;
             }
-            .logo-text {
-                font-size: 20px;
-            }
             .header-search input {
                 width: 50px;
             }
         }
 
         .swiper-button-next, .swiper-button-prev {
-            color: #1976D2;
-            background: rgba(255,255,255,0.85);
-            border-radius: 50%;
-            width: 44px;
-            height: 44px;
-            box-shadow: 0 2px 12px rgba(33,150,243,0.10);
-            transition: color 0.3s, background 0.3s, box-shadow 0.3s, transform 0.3s;
+            color: #2196F3;
+            background: none;
+            border-radius: 0;
+            width: 36px;
+            height: 36px;
+            box-shadow: none;
+            transition: color 0.2s, transform 0.2s, opacity 0.2s;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            top: 50%;
-            transform: translateY(-50%);
+            font-size: 32px;
             position: absolute;
+            left: auto;
+            right: auto;
+            top: auto;
+            bottom: -32px;
+            opacity: 0.65;
             z-index: 10;
         }
         .swiper-button-next:hover, .swiper-button-prev:hover {
-            color: #fff;
-            background: linear-gradient(135deg, #2196F3 60%, #21CBF3 100%);
-            box-shadow: 0 0 24px 4px rgba(33,150,243,0.18), 0 4px 16px rgba(0,0,0,0.10);
-            transform: scale(1.13) translateY(-50%);
-            z-index: 10;
-        }
-        .swiper-button-next:after, .swiper-button-prev:after {
-            font-size: 28px;
+            color: #1565c0;
+            opacity: 1;
+            background: none;
+            transform: scale(1.18);
+            box-shadow: none;
         }
         .swiper-button-prev {
-            left: 0;
-            margin-left: 8px;
+            left: 44%;
+            margin-left: -60px;
         }
         .swiper-button-next {
-            right: 0;
-            margin-right: 8px;
+            right: 44%;
+            margin-right: -60px;
+        }
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 32px;
+            font-weight: 400;
         }
     </style>
     <!-- Swiper CSS -->
@@ -685,7 +681,7 @@
                 <a href="#" class="category">Дом</a>
             </nav>
             <div class="header-logo">
-                <span class="logo-text">ABCWEAR</span>
+                <img src="/logo.svg" alt="ABCWEAR logo" class="logo-svg">
             </div>
             <div class="header-actions">
                 <div class="lang-switch">
