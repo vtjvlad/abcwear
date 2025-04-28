@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             effect: 'coverflow',
             grabCursor: true,
             centeredSlides: true,
-            slidesPerView: 'auto',
+            slidesPerView: 6,
             loop: true,
             autoplay: {
                 delay: 2500,
@@ -84,10 +84,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                 el: '.swiper-pagination',
                 clickable: true,
             },
+            initialSlide: 2,
             breakpoints: {
-                600: { slidesPerView: 'auto' },
-                900: { slidesPerView: 'auto' },
-                1200: { slidesPerView: 'auto' }
+                600: { slidesPerView: 3 },
+                900: { slidesPerView: 5 },
+                1200: { slidesPerView: 5 }
             }
         });
     } catch (e) {

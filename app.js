@@ -310,7 +310,7 @@ app.get('/api/recommendations', async (req, res) => {
         // Получаем случайные товары
         const recommendations = await Product.aggregate([
             { $match: { 'pid.groupKey': { $exists: true } } },
-            { $sample: { size: 7 } }
+            { $sample: { size: 13 } }
         ]);
         res.json(recommendations);
     } catch (error) {

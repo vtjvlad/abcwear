@@ -259,7 +259,13 @@
 
         /* Обновленные стили для слайдера рекомендаций */
         .recommendations-swiper {
-            padding: 30px 0 50px 0;
+            padding: 40px 0 60px 0;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            justify-content: center;
+            max-width: 100%;
+            position: relative;
         }
 
         .recommendations-swiper .swiper-slide {
@@ -268,7 +274,7 @@
             align-items: stretch;
             height: 100%;
             transition: filter 0.4s, opacity 0.4s, transform 0.4s;
-            width: 220px;
+            width: 240px;
             max-width: 90vw;
         }
 
@@ -290,16 +296,16 @@
         }
 
         .swiper-slide:not(.swiper-slide-active) .recommendation-card {
-            filter: blur(2.5px) grayscale(0.25) brightness(0.92);
-            opacity: 0.7;
-            transform: scale(0.88) translateY(12px);
+            filter: blur(1.2px) grayscale(0.13) brightness(0.97);
+            opacity: 0.82;
+            transform: scale(0.93) translateY(8px);
             box-shadow: 0 2px 8px rgba(33,150,243,0.10);
         }
 
         .swiper-slide.swiper-slide-active .recommendation-card {
             filter: none;
             opacity: 1;
-            transform: scale(1.08) translateY(-8px);
+            transform: scale(1.02) translateY(-4px);
             box-shadow: 0 12px 48px 0 rgba(33,150,243,0.22), 0 8px 32px rgba(0,0,0,0.12);
             z-index: 2;
         }
@@ -633,8 +639,8 @@
             color: #1976D2;
             background: rgba(255,255,255,0.85);
             border-radius: 50%;
-            width: 48px;
-            height: 48px;
+            width: 44px;
+            height: 44px;
             box-shadow: 0 2px 12px rgba(33,150,243,0.10);
             transition: color 0.3s, background 0.3s, box-shadow 0.3s, transform 0.3s;
             display: flex;
@@ -643,6 +649,8 @@
             font-size: 28px;
             top: 50%;
             transform: translateY(-50%);
+            position: absolute;
+            z-index: 10;
         }
         .swiper-button-next:hover, .swiper-button-prev:hover {
             color: #fff;
@@ -653,6 +661,14 @@
         }
         .swiper-button-next:after, .swiper-button-prev:after {
             font-size: 28px;
+        }
+        .swiper-button-prev {
+            left: 0;
+            margin-left: 8px;
+        }
+        .swiper-button-next {
+            right: 0;
+            margin-right: 8px;
         }
     </style>
     <!-- Swiper CSS -->
