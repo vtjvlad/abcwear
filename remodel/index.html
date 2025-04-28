@@ -1,0 +1,1178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Wear - Интернет магазин</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            background: white;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: #2196F3;
+            box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .product-image-container {
+            position: relative;
+            padding-top: 100%;
+            background: #f8f8f8;
+            overflow: hidden;
+        }
+
+        .product-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-carousel {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            display: flex;
+            gap: 5px;
+            overflow-x: auto;
+            padding: 5px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        .image-carousel::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
+        }
+
+        .carousel-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .carousel-image:hover {
+            transform: scale(1.1);
+            border-color: white;
+        }
+
+        .carousel-image.active {
+            border-color: #2196F3;
+            transform: scale(1.1);
+        }
+
+        .color-options {
+            display: flex;
+            gap: 8px;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        .color-indicator {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .color-indicator:hover {
+            transform: scale(1.1);
+        }
+
+        .color-indicator.active {
+            border-color: #2196F3;
+            transform: scale(1.1);
+        }
+
+        .color-indicator::after {
+            content: '';
+            position: absolute;
+            top: -4px;
+            left: -4px;
+            right: -4px;
+            bottom: -4px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            pointer-events: none;
+        }
+
+        .color-indicator.active::after {
+            border-color: #2196F3;
+        }
+
+        .product-info {
+            padding: 15px;
+        }
+
+        .product-name {
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .product-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .price-container {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .current-price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #e53935;
+        }
+
+        .initial-price {
+            font-size: 14px;
+            color: #999;
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+
+        .view-details {
+            width: 100%;
+            padding: 10px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .view-details:hover {
+            background-color: #1976D2;
+        }
+
+        #loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .loading-spinner {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 3px solid #2196F3;
+            animation: spin 1s linear infinite;
+            margin-bottom: 10px;
+        }
+
+        .loading-text {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .no-products, .error-message {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .error-message {
+            color: #e53935;
+        }
+
+        /* Стили для сгруппированных товаров */
+        .product-variants {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f8f8f8;
+            border-radius: 4px;
+        }
+
+        .variant-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .variant-item:last-child {
+            border-bottom: none;
+        }
+
+        .variant-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+        }
+
+        .variant-info {
+            flex: 1;
+        }
+
+        .variant-name {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .variant-price {
+            font-size: 14px;
+            color: #e53935;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .filters {
+                flex-direction: column;
+            }
+
+            .filter-group {
+                width: 100%;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+
+        .filters-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filters-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .sort-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .sort-group select {
+            min-width: 150px;
+        }
+
+        .price-range {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .price-range input {
+            width: 100px;
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .filter-tag {
+            background: #e3f2fd;
+            color: #1976D2;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-tag:hover {
+            background: #bbdefb;
+        }
+
+        .filter-tag .remove {
+            font-size: 14px;
+            font-weight: bold;
+            padding: 0 5px;
+        }
+
+        .clear-filters {
+            background: #f44336;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background-color 0.3s ease;
+        }
+
+        .clear-filters:hover {
+            background: #d32f2f;
+        }
+
+        .filter-count {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        .price-slider-container {
+            width: 100%;
+            padding: 10px 0;
+        }
+
+        .price-inputs {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .price-inputs input {
+            width: 100px;
+        }
+
+        .noUi-target {
+            background: #ddd;
+            border: none;
+            box-shadow: none;
+            height: 4px;
+        }
+
+        .noUi-connect {
+            background: #2196F3;
+        }
+
+        .noUi-handle {
+            width: 18px;
+            height: 18px;
+            right: -9px;
+            top: -7px;
+            border-radius: 50%;
+            background: #fff;
+            border: 2px solid #2196F3;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .noUi-handle:before,
+        .noUi-handle:after {
+            display: none;
+        }
+
+        /* Обновляем стили для переключателей цвета */
+        .color-switchers {
+            display: flex;
+            gap: 12px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+
+        .color-switcher {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            background-color: #fff;
+        }
+
+        .color-switcher::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .color-switcher.active {
+            border-color: #2196F3;
+            transform: scale(1.05);
+        }
+
+        .color-switcher:hover {
+            transform: scale(1.05);
+        }
+
+        .color-switcher.white {
+            background-color: #fff;
+        }
+
+        .color-switcher.black {
+            background-color: #000;
+        }
+
+        /* Добавляем стили для выбора размера */
+        .size-selector {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            margin: 10px 0;
+            background-color: white;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+        }
+
+        .size-selector:focus {
+            outline: none;
+            border-color: #2196F3;
+        }
+
+        /* Стили для кнопок действий */
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .action-button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .details-button {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .details-button:hover {
+            background-color: #1976D2;
+        }
+
+        .cart-button {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .cart-button:hover {
+            background-color: #388E3C;
+        }
+
+        /* Стили для индикатора загрузки изображений */
+        .image-loading {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .image-loading .spinner {
+            width: 30px;
+            height: 30px;
+            border: 2px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 2px solid #2196F3;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Добавляем состояние загрузки для контейнера изображения */
+        .product-image-container.loading::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #f8f8f8;
+            z-index: 1;
+        }
+
+        .product-image {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .product-image.loading {
+            opacity: 0;
+        }
+
+        /* Стили для модального окна фильтров */
+        .filters-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .search-container {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            background: white;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            border-color: #2196F3;
+            box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.1);
+        }
+
+        .open-filters-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .open-filters-btn:hover {
+            background-color: #1976D2;
+        }
+
+        .filter-count-badge {
+            background-color: #FF5722;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .filters-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: white;
+            margin: 20px auto;
+            padding: 20px;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            padding: 5px;
+            line-height: 1;
+        }
+
+        .close-modal:hover {
+            color: #333;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .apply-filters {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .apply-filters:hover {
+            background-color: #1976D2;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 10px auto;
+                padding: 15px;
+            }
+
+            .filters-row {
+                flex-direction: column;
+            }
+
+            .filter-group {
+                width: 100%;
+            }
+
+            .filters-header {
+                flex-direction: column;
+            }
+
+            .search-container {
+                width: 100%;
+            }
+
+            .open-filters-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* U HEADER STYLES */
+        .u-header {
+            width: 100%;
+            background: #fff;
+            border-bottom: 1px solid #ececec;
+            font-family: 'Arial', sans-serif;
+            z-index: 100;
+            position: relative;
+        }
+        .u-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            color: #555;
+            background: #f7f7f7;
+            padding: 6px 32px 6px 12px;
+        }
+        .u-header-top-left {
+            display: flex;
+            align-items: center;
+        }
+        .u-logo-mini {
+            font-size: 18px;
+            font-weight: bold;
+            color: #222;
+            letter-spacing: 2px;
+        }
+        .u-header-top-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .u-header-top-right a {
+            color: #555;
+            text-decoration: none;
+            margin: 0 2px;
+            transition: color 0.2s;
+        }
+        .u-header-top-right a:hover {
+            color: #111;
+        }
+        .u-header-main {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 32px 12px 12px;
+            background: #fff;
+        }
+        .u-logo {
+            text-decoration: none;
+        }
+        .u-logo-big {
+            font-size: 32px;
+            font-weight: bold;
+            color: #222;
+            letter-spacing: 4px;
+        }
+        .u-main-nav ul {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .u-main-nav li {
+            position: relative;
+        }
+        .u-main-nav a {
+            text-decoration: none;
+            color: #111;
+            font-size: 18px;
+            font-weight: 400;
+            padding: 4px 0;
+            transition: color 0.2s;
+        }
+        .u-main-nav li.active a,
+        .u-main-nav a:hover {
+            color: #111;
+            border-bottom: 2px solid #111;
+        }
+        .u-header-actions {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+        .u-search {
+            position: relative;
+            background: #f5f5f5;
+            border-radius: 24px;
+            padding: 0 12px;
+            display: flex;
+            align-items: center;
+            margin-right: 8px;
+        }
+        .u-search input {
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 16px;
+            padding: 8px 0 8px 0;
+            width: 120px;
+            transition: width 0.3s;
+        }
+        .u-search input:focus {
+            width: 180px;
+        }
+        .u-search-icon {
+            color: #888;
+            font-size: 18px;
+            margin-left: 4px;
+        }
+        .u-header-icon {
+            font-size: 22px;
+            color: #222;
+            text-decoration: none;
+            margin-left: 8px;
+            transition: color 0.2s;
+        }
+        .u-header-icon:hover {
+            color: #111;
+        }
+        .u-megamenu {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            width: 100%;
+            background: #fff;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+            border-top: 1px solid #ececec;
+            display: none;
+            z-index: 101;
+            animation: fadeIn 0.2s;
+        }
+        .u-megamenu-content {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            padding: 32px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .u-megamenu-content > div {
+            min-width: 160px;
+        }
+        .u-megamenu-content h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #222;
+        }
+        .u-megamenu-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .u-megamenu-content li {
+            margin-bottom: 8px;
+        }
+        .u-megamenu-content a {
+            color: #555;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        .u-megamenu-content a:hover {
+            color: #111;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        @media (max-width: 900px) {
+            .u-header-main {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px;
+            }
+            .u-main-nav ul {
+                gap: 18px;
+            }
+            .u-megamenu-content {
+                gap: 24px;
+                padding: 18px 0;
+            }
+        }
+        @media (max-width: 600px) {
+            .u-header-top, .u-header-main {
+                padding: 8px;
+            }
+            .u-megamenu-content {
+                flex-direction: column;
+                gap: 12px;
+                padding: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- U-style Header Start -->
+    <header class="u-header">
+        <div class="u-header-top">
+            <div class="u-header-top-left">
+                <span class="u-logo-mini">U</span>
+            </div>
+            <div class="u-header-top-right">
+                <a href="#">Магазины</a>
+                <span>|</span>
+                <a href="#">Помощь</a>
+                <span>|</span>
+                <a href="#">Регистрация</a>
+                <span>|</span>
+                <a href="#">Войти</a>
+            </div>
+        </div>
+        <div class="u-header-main">
+            <a href="#" class="u-logo">
+                <span class="u-logo-big">U</span>
+            </a>
+            <nav class="u-main-nav">
+                <ul>
+                    <li class="active" data-menu="new"><a href="#">Новинки</a></li>
+                    <li data-menu="men"><a href="#">Мужское</a></li>
+                    <li data-menu="women"><a href="#">Женское</a></li>
+                    <li data-menu="kids"><a href="#">Дети</a></li>
+                    <li data-menu="sale"><a href="#">Акции</a></li>
+                </ul>
+            </nav>
+            <div class="u-header-actions">
+                <div class="u-search">
+                    <input type="text" placeholder="Поиск" />
+                    <span class="u-search-icon">&#128269;</span>
+                </div>
+                <a href="#" class="u-header-icon" aria-label="Избранное">&#9825;</a>
+                <a href="#" class="u-header-icon" aria-label="Корзина">&#128722;</a>
+            </div>
+        </div>
+        <!-- Мегаменю (пример для одного пункта, остальные аналогично) -->
+        <div class="u-megamenu" id="u-megamenu" style="display: none;">
+            <div class="u-megamenu-content" id="u-megamenu-content">
+                <!-- JS будет подставлять содержимое в зависимости от пункта меню -->
+            </div>
+        </div>
+    </header>
+    <!-- U-style Header End -->
+    <div class="container">
+        <div class="filters-header">
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Поиск по названию...">
+            </div>
+            <button id="open-filters" class="open-filters-btn">
+                <span>Фильтры</span>
+                <span class="filter-count-badge" id="active-filters-count">0</span>
+            </button>
+            <div class="filter-tags" id="active-filters"></div>
+        </div>
+
+        <div id="filters-modal" class="filters-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Фильтры</h2>
+                    <button id="close-filters" class="close-modal">&times;</button>
+                </div>
+                <div class="filters">
+                    <div class="filters-row">
+                        <div class="filter-group">
+                            <select id="color-filter">
+                                <option value="">Все цвета</option>
+                            </select>
+                            <div class="filter-count" id="color-count"></div>
+                        </div>
+                        <div class="filter-group">
+                            <select id="category-filter">
+                                <option value="">Все категории</option>
+                            </select>
+                            <div class="filter-count" id="category-count"></div>
+                        </div>
+                        <div class="filter-group">
+                            <select id="name-filter">
+                                <option value="">Все названия</option>
+                            </select>
+                            <div class="filter-count" id="name-count"></div>
+                        </div>
+                    </div>
+
+                    <div class="filters-row">
+                        <div class="filter-group">
+                            <div class="price-range">
+                                <div class="price-slider-container">
+                                    <div id="price-slider"></div>
+                                    <div class="price-inputs">
+                                        <input type="number" id="min-price" placeholder="Мин. цена">
+                                        <span>-</span>
+                                        <input type="number" id="max-price" placeholder="Макс. цена">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <div class="sort-group">
+                                <select id="sort-field">
+                                    <option value="createdAt">Сортировать по</option>
+                                    <option value="price">Цене</option>
+                                    <option value="name">Названию</option>
+                                    <option value="createdAt">Дате добавления</option>
+                                </select>
+                                <select id="sort-order">
+                                    <option value="desc">По убыванию</option>
+                                    <option value="asc">По возрастанию</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="clear-filters" class="clear-filters">Очистить все</button>
+                    <button id="apply-filters" class="apply-filters">Применить</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="products-container" class="products-grid"></div>
+        <div id="loading">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Загрузка товаров...</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+    let uCategories = [];
+
+    async function loadCategories() {
+        try {
+            const res = await fetch('/api/filters/categories');
+            uCategories = await res.json();
+        } catch (e) {
+            uCategories = [];
+        }
+    }
+
+    async function getCategoriesByType(type) {
+        try {
+            const res = await fetch(`/api/filters/categories/${type}`);
+            return await res.json();
+        } catch {
+            return [];
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        loadCategories();
+
+        const navItems = document.querySelectorAll('.u-main-nav li');
+        const megamenu = document.getElementById('u-megamenu');
+        const megamenuContent = document.getElementById('u-megamenu-content');
+
+        navItems.forEach(item => {
+            item.addEventListener('mouseenter', async function() {
+                const menu = this.getAttribute('data-menu');
+                let categories = [];
+                if (menu === 'men' || menu === 'women' || menu === 'kids') {
+                    categories = await getCategoriesByType(menu);
+                } else {
+                    categories = uCategories; // общий список для остальных
+                }
+                if (categories.length) {
+                    megamenuContent.innerHTML = `
+                        <div>
+                            <h4>Категории</h4>
+                            <ul>
+                                ${categories.map(cat => `<li><a href="#" class="u-category-link" data-category="${encodeURIComponent(cat)}">${cat}</a></li>`).join('')}
+                            </ul>
+                        </div>
+                    `;
+                    megamenu.style.display = 'block';
+                    megamenuContent.querySelectorAll('.u-category-link').forEach(link => {
+                        link.onclick = function(e) {
+                            e.preventDefault();
+                            const category = this.getAttribute('data-category');
+                            const categoryFilter = document.getElementById('category-filter');
+                            if (categoryFilter) {
+                                categoryFilter.value = decodeURIComponent(category);
+                                categoryFilter.dispatchEvent(new Event('change'));
+                            }
+                            megamenu.style.display = 'none';
+                        };
+                    });
+                }
+            });
+            item.addEventListener('mouseleave', function() {
+                setTimeout(() => {
+                    if (!megamenu.matches(':hover')) {
+                        megamenu.style.display = 'none';
+                    }
+                }, 100);
+            });
+        });
+        megamenu.addEventListener('mouseleave', function() {
+            megamenu.style.display = 'none';
+        });
+        document.querySelector('.u-header').addEventListener('mouseleave', function() {
+            megamenu.style.display = 'none';
+        });
+    });
+    </script>
+</body>
+</html> 

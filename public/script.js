@@ -26,38 +26,46 @@ document.addEventListener('DOMContentLoaded', () => {
         sortOrder: 'desc'
     };
 
-    // Initialize noUiSlider for price range
+    // Initialize noUiSlider for price range (динамический диапазон)
     const priceSlider = document.getElementById('price-slider');
-    noUiSlider.create(priceSlider, {
-        start: [0, 10000],
-        connect: true,
-        range: {
-            'min': 0,
-            'max': 10000
-        }
-    });
+    fetch('/api/products/price-range')
+        .then(res => res.json())
+        .then(({ min, max }) => {
+            noUiSlider.create(priceSlider, {
+                start: [min, max],
+                connect: true,
+                range: {
+                    'min': min,
+                    'max': max
+                }
+            });
+            minPriceInput.value = min;
+            maxPriceInput.value = max;
+            currentFilters.minPrice = min;
+            currentFilters.maxPrice = max;
 
-    // Update price inputs when slider changes
-    priceSlider.noUiSlider.on('update', (values) => {
-        minPriceInput.value = Math.round(values[0]);
-        maxPriceInput.value = Math.round(values[1]);
-        currentFilters.minPrice = minPriceInput.value;
-        currentFilters.maxPrice = maxPriceInput.value;
-        fetchProducts(1);
-    });
+            // Update price inputs when slider changes
+            priceSlider.noUiSlider.on('update', (values) => {
+                minPriceInput.value = Math.round(values[0]);
+                maxPriceInput.value = Math.round(values[1]);
+                currentFilters.minPrice = minPriceInput.value;
+                currentFilters.maxPrice = maxPriceInput.value;
+                fetchProducts(1);
+            });
 
-    // Update slider when price inputs change
-    const updatePriceSlider = debounce(() => {
-        const min = parseInt(minPriceInput.value) || 0;
-        const max = parseInt(maxPriceInput.value) || 10000;
-        priceSlider.noUiSlider.set([min, max]);
-        currentFilters.minPrice = minPriceInput.value;
-        currentFilters.maxPrice = maxPriceInput.value;
-        fetchProducts(1);
-    }, 500);
+            // Update slider when price inputs change
+            const updatePriceSlider = debounce(() => {
+                const minVal = parseInt(minPriceInput.value) || min;
+                const maxVal = parseInt(maxPriceInput.value) || max;
+                priceSlider.noUiSlider.set([minVal, maxVal]);
+                currentFilters.minPrice = minPriceInput.value;
+                currentFilters.maxPrice = maxPriceInput.value;
+                fetchProducts(1);
+            }, 500);
 
-    minPriceInput.addEventListener('input', updatePriceSlider);
-    maxPriceInput.addEventListener('input', updatePriceSlider);
+            minPriceInput.addEventListener('input', updatePriceSlider);
+            maxPriceInput.addEventListener('input', updatePriceSlider);
+        });
 
     // URL state management
     function updateURL() {
@@ -105,23 +113,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Загрузка фильтров
     async function loadFilters() {
         try {
-            const [colors, categories, names] = await Promise.all([
+            const [colors, categories] = await Promise.all([
                 fetch('/api/filters/colors').then(res => res.json()),
-                fetch('/api/filters/categories').then(res => res.json()),
-                fetch('/api/filters/names').then(res => res.json())
+                fetch('/api/filters/categories').then(res => res.json())
             ]);
 
-            // Заполняем фильтры цветов
+            // Заполняем фильтр цветов
             colorFilter.innerHTML = '<option value="">Все цвета</option>' +
                 colors.map(color => `<option value="${color}">${color}</option>`).join('');
 
-            // Заполняем фильтры категорий
+            // Заполняем фильтр категорий
             categoryFilter.innerHTML = '<option value="">Все категории</option>' +
                 categories.map(category => `<option value="${category}">${category}</option>`).join('');
 
-            // Заполняем фильтры названий
-            nameFilter.innerHTML = '<option value="">Все названия</option>' +
-                names.map(name => `<option value="${name}">${name}</option>`).join('');
+            // Обновляем счетчики
+            document.getElementById('color-count').textContent = `(${colors.length} цветов)`;
+            document.getElementById('category-count').textContent = `(${categories.length} категорий)`;
 
         } catch (error) {
             console.error('Error loading filters:', error);
@@ -129,7 +136,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Обновление активных фильтров
+    // Модальное окно фильтров
+    const filtersModal = document.getElementById('filters-modal');
+    const openFiltersBtn = document.getElementById('open-filters');
+    const closeFiltersBtn = document.getElementById('close-filters');
+    const applyFiltersBtn = document.getElementById('apply-filters');
+    const activeFiltersCount = document.getElementById('active-filters-count');
+
+    // Открытие модального окна
+    openFiltersBtn.addEventListener('click', () => {
+        filtersModal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+
+    // Закрытие модального окна
+    function closeModal() {
+        filtersModal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    closeFiltersBtn.addEventListener('click', closeModal);
+    filtersModal.addEventListener('click', (e) => {
+        if (e.target === filtersModal) {
+            closeModal();
+        }
+    });
+
+    // Применение фильтров
+    applyFiltersBtn.addEventListener('click', () => {
+        closeModal();
+        fetchProducts(1);
+    });
+
+    // Обновление счетчика активных фильтров
+    function updateActiveFiltersCount() {
+        const activeFilters = document.querySelectorAll('.filter-tag');
+        const count = activeFilters.length;
+        activeFiltersCount.textContent = count;
+        activeFiltersCount.style.display = count > 0 ? 'block' : 'none';
+    }
+
+    // Обновляем функцию updateActiveFilters
     function updateActiveFilters() {
         activeFiltersContainer.innerHTML = '';
         const filters = [];
@@ -174,14 +221,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        if (filters.length > 0) {
-            const clearAllButton = document.createElement('button');
-            clearAllButton.className = 'clear-filters';
-            clearAllButton.textContent = 'Очистить все';
-            clearAllButton.addEventListener('click', clearAllFilters);
-            activeFiltersContainer.appendChild(clearAllButton);
-        }
-
         filters.forEach(filter => {
             const tag = document.createElement('div');
             tag.className = 'filter-tag';
@@ -192,6 +231,8 @@ document.addEventListener('DOMContentLoaded', () => {
             tag.querySelector('.remove').addEventListener('click', () => removeFilter(filter.type));
             activeFiltersContainer.appendChild(tag);
         });
+
+        updateActiveFiltersCount();
     }
 
     // Удаление фильтра
@@ -221,6 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
         fetchProducts(1);
+        updateActiveFilters();
     }
 
     // Очистка всех фильтров
