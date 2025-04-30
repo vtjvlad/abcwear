@@ -246,6 +246,7 @@
 
         /* Product Gallery */
         .product-gallery {
+            position: sticky;
             display: grid;
             grid-template-columns: 80px 1fr;
             gap: 20px;
@@ -659,12 +660,40 @@
     <script>
         // Get product ID from URL
         const productId = window.location.pathname.split('/').pop();
+        
+        // Кэш для хранения данных вариантов
+        const variantsCache = new Map();
+
+        // Функция для загрузки данных одного варианта
+        async function loadVariantData(variantId) {
+            try {
+                const response = await fetch(`/api/products/${variantId}`);
+                const data = await response.json();
+                variantsCache.set(variantId, data);
+                return data;
+            } catch (error) {
+                console.error(`Error loading variant ${variantId}:`, error);
+                return null;
+            }
+        }
+
+        // Функция для предварительной загрузки всех вариантов
+        async function preloadVariants(variants) {
+            const loadPromises = variants
+                .filter(variant => variant._id !== productId) // Исключаем текущий вариант
+                .map(variant => loadVariantData(variant._id));
+            
+            await Promise.all(loadPromises);
+        }
 
         // Function to load product data
         async function loadProductData() {
             try {
                 const response = await fetch(`/api/products/${productId}`);
                 const product = await response.json();
+
+                // Сохраняем текущий вариант в кэш
+                variantsCache.set(productId, product);
 
                 // Update page title
                 document.title = `ABC Wear - ${product.info.name}`;
@@ -710,13 +739,16 @@
                             <img src="${variant.imageData.squarishURL}" alt="${variant.info.color.name}">
                         </div>
                     `).join('');
+
+                    // Начинаем предварительную загрузку других вариантов
+                    preloadVariants(product.variants);
                 }
 
                 // Update description
                 document.getElementById('product-description').textContent = product.info.discription;
 
                 // Add event listeners
-                addEventListeners();
+                addEventListeners(product.variants);
             } 
             catch (error) {
                 console.error('Error loading product:', error);
@@ -725,7 +757,7 @@
         }
 
         // Function to add event listeners
-        function addEventListeners() {
+        function addEventListeners(variants) {
             // Gallery navigation
             const thumbnails = document.querySelectorAll('.thumbnail');
             const mainImage = document.getElementById('main-image');
@@ -734,31 +766,55 @@
 
             let currentImageIndex = 0;
 
+            function updateImage(index) {
+                const thumb = thumbnails[index];
+                mainImage.src = thumb.src;
+                thumbnails.forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+                currentImageIndex = index;
+            }
+
             thumbnails.forEach((thumb, index) => {
-                thumb.addEventListener('click', () => {
-                    mainImage.src = thumb.src;
-                    thumbnails.forEach(t => t.classList.remove('active'));
-                    thumb.classList.add('active');
-                    currentImageIndex = index;
+                thumb.addEventListener('mouseenter', () => {
+                    updateImage(index);
                 });
             });
 
             prevButton.addEventListener('click', () => {
-                currentImageIndex = (currentImageIndex - 1 + thumbnails.length) % thumbnails.length;
-                thumbnails[currentImageIndex].click();
+                const newIndex = (currentImageIndex - 1 + thumbnails.length) % thumbnails.length;
+                updateImage(newIndex);
             });
 
             nextButton.addEventListener('click', () => {
-                currentImageIndex = (currentImageIndex + 1) % thumbnails.length;
-                thumbnails[currentImageIndex].click();
+                const newIndex = (currentImageIndex + 1) % thumbnails.length;
+                updateImage(newIndex);
             });
 
-            // Color variants
+            // Color variants with instant preview
             const colorVariants = document.querySelectorAll('.color-variant');
             colorVariants.forEach(variant => {
-                variant.addEventListener('click', () => {
+                variant.addEventListener('click', async () => {
+                    const variantId = variant.dataset.variantId;
                     if (!variant.classList.contains('selected')) {
-                        window.location.href = variant.dataset.url;
+                        // Если данные варианта уже загружены, используем их для мгновенного обновления
+                        if (variantsCache.has(variantId)) {
+                            const variantData = variantsCache.get(variantId);
+                            // Обновляем URL без перезагрузки страницы
+                            window.history.pushState({}, '', variant.dataset.url);
+                            // Обновляем содержимое страницы
+                            updatePageContent(variantData);
+                        } else {
+                            // Если данных нет в кэше, переходим по ссылке
+                            window.location.href = variant.dataset.url;
+                        }
+                    }
+                });
+
+                // Предварительная загрузка при наведении
+                variant.addEventListener('mouseenter', () => {
+                    const variantId = variant.dataset.variantId;
+                    if (!variantsCache.has(variantId) && variantId !== productId) {
+                        loadVariantData(variantId);
                     }
                 });
             });
@@ -777,6 +833,48 @@
             document.getElementById('add-to-favorites').addEventListener('click', () => {
                 // Add to favorites logic here
             });
+        }
+
+        // Функция для обновления содержимого страницы без перезагрузки
+        function updatePageContent(productData) {
+            document.title = `ABC Wear - ${productData.info.name}`;
+            document.getElementById('product-title').textContent = productData.info.name;
+            document.getElementById('product-subtitle').textContent = productData.info.subtitle;
+
+            const priceContainer = document.getElementById('product-price');
+            const currentPrice = productData.price.self.UAH.currentPrice;
+            const initialPrice = productData.price.self.UAH.initialPrice;
+            const discount = productData.price.self.UAH.discount;
+
+            priceContainer.innerHTML = `
+                <span class="current-price">${currentPrice} грн</span>
+                ${initialPrice ? `<span class="original-price">${initialPrice} грн</span>` : ''}
+                ${discount ? `<span class="discount">${discount}% off</span>` : ''}
+            `;
+
+            const mainImage = document.getElementById('main-image');
+            const thumbnailList = document.getElementById('thumbnail-list');
+            
+            if (productData.imageData.imgMain) {
+                mainImage.src = productData.imageData.imgMain;
+                thumbnailList.innerHTML = `
+                    <img src="${productData.imageData.imgMain}" alt="Main view" class="thumbnail active">
+                    ${productData.imageData.images.map((img, index) => `
+                        <img src="${img}" alt="View ${index + 1}" class="thumbnail">
+                    `).join('')}
+                `;
+            }
+
+            document.getElementById('product-description').textContent = productData.info.discription;
+
+            // Обновляем активный цвет
+            const colorVariants = document.querySelectorAll('.color-variant');
+            colorVariants.forEach(variant => {
+                variant.classList.toggle('selected', variant.dataset.variantId === productData._id);
+            });
+
+            // Обновляем обработчики событий
+            addEventListeners(productData.variants);
         }
 
         // Load product data when page loads
