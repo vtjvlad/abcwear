@@ -241,7 +241,47 @@ app.get('/api/products/:id', async (req, res) => {
         if (!product) {
             return res.status(404).json({ message: 'Product not found' });
         }
-        res.json(product);
+
+        // Получаем все варианты цветов для этого продукта
+        const variants = await Product.find({
+            'pid.groupKey': product.pid.groupKey,
+            _id: { $ne: product._id }  // исключаем текущий продукт
+        }).select('_id info.color links.url imageData.squarishURL');
+
+        // Добавляем варианты к продукту
+        const productWithVariants = {
+            ...product.toObject(),
+            variants: [
+                // Добавляем текущий продукт как один из вариантов
+                {
+                    _id: product._id,
+                    info: {
+                        color: product.info.color
+                    },
+                    links: {
+                        url: `/product/${product._id}`
+                    },
+                    imageData: {
+                        squarishURL: product.imageData.squarishURL
+                    }
+                },
+                // Добавляем остальные варианты
+                ...variants.map(v => ({
+                    _id: v._id,
+                    info: {
+                        color: v.info.color
+                    },
+                    links: {
+                        url: `/product/${v._id}`
+                    },
+                    imageData: {
+                        squarishURL: v.imageData.squarishURL
+                    }
+                }))
+            ]
+        };
+
+        res.json(productWithVariants);
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
@@ -321,6 +361,11 @@ app.get('/api/recommendations', async (req, res) => {
 
 // Error handling middleware
 app.use(errorHandler);
+
+// Serve product.html for product routes
+app.get('/product/:id', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'product.html'));
+});
 
 // Serve home.html for all non-API routes first
 app.get('*', (req, res, next) => {

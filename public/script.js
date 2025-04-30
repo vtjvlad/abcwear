@@ -591,6 +591,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // События
     window.addEventListener('scroll', handleScroll);
+
+    // Add click handler for "Подробнее" button
+    document.addEventListener('click', (e) => {
+        if (e.target.classList.contains('details-button')) {
+            const productId = e.target.closest('.product-card').dataset.productId;
+            if (productId) {
+                window.location.href = `/product/${productId}`;
+            }
+        }
+    });
 });
 
 // Функция для показа деталей продукта
