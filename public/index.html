@@ -6,6 +6,7 @@
     <title>ABC Wear - Главная</title>
     <script src="/js/footer-loader.js" defer></script>
 
+    <script src="/js/header-loader.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -863,97 +864,6 @@
 </head>
 <body>
     <!-- Новый минималистичный header на всю ширину -->
-    <header class="main-header">
-        <div class="mobile-header-row">
-            <div class="mobile-header-left">
-                <button class="burger-menu" aria-label="Открыть меню" onclick="openMobileMenu()">
-                    <i class="fa-solid fa-bars-staggered"></i>
-                </button>
-                <img src="/logo.png" alt="ABCWEAR" class="mobile-logo-img" />
-            </div>
-            <nav class="mobile-categories-scroll">
-                <a href="#" class="category">Взуття</a>
-                <a href="#" class="category">Одяг</a>
-                <a href="#" class="category">Аксесуары</a>
-                <a href="#" class="category">Спорт</a>
-                <a href="#" class="category">Премиум</a>
-                <a href="#" class="category">Бренды</a>
-                <a href="#" class="category sale">Распродажа</a>
-                <a href="#" class="category">Журнал</a>
-                <a href="#" class="category">Кампания SS25</a>
-            </nav>
-            <div class="mobile-header-actions">
-                <div class="lang-switch">
-                    <span class="lang">UA</span> |
-                    <span class="lang active">RU</span>
-                </div>
-                <a href="#" class="icon-btn"><i class="fa-regular fa-circle-user"></i></a>
-                <a href="#" class="icon-btn"><i class="fa-regular fa-heart"></i></a>
-                <a href="#" class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></a>
-            </div>
-        </div>
-        <div class="mobile-header-search-row">
-            <form class="mobile-header-search" onsubmit="return false;">
-                <input type="text" placeholder="Поиск..." id="mobile-search-input" />
-                <button type="submit" class="mobile-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-        </div>
-        <div id="mobile-offcanvas" class="mobile-offcanvas">
-            <div class="mobile-offcanvas-content">
-                <button class="close-offcanvas" onclick="closeMobileMenu()">&times;</button>
-                <nav class="offcanvas-nav">
-                    <a href="#">Взуття</a>
-                    <a href="#">Одяг</a>
-                    <a href="#">Аксесуары</a>
-                    <a href="#">Спорт</a>
-                    <a href="#">Премиум</a>
-                    <a href="#">Бренды</a>
-                    <a href="#" class="sale">Распродажа</a>
-                    <a href="#">Журнал</a>
-                    <a href="#">Кампания SS25</a>
-                </nav>
-            </div>
-            <div class="offcanvas-backdrop" onclick="closeMobileMenu()"></div>
-        </div>
-        <!-- desktop header (скрыт на мобиле) -->
-        <div class="header-row header-row-top desktop-header">
-            <nav class="header-categories">
-                <a href="#" class="category">Взуття</a>
-                <a href="#" class="category">Одяг</a>
-                <a href="#" class="category">Аксесуары</a>
-            </nav>
-            <div class="header-logo">
-                <img src="/logo.png" alt="ABCWEAR logo" class="logo-svg logo-svg-main">
-                <img src="/mini_logo.png" alt="ABCWEAR mini logo" class="logo-svg logo-svg-mini">
-            </div>
-            <div class="header-actions">
-                <div class="header-icons">
-                    <a href="#" class="icon-btn"><i class="fa-regular fa-circle-user"></i></a>
-                    <a href="#" class="icon-btn"><i class="fa-regular fa-heart"></i></a>
-                    <a href="#" class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></a>
-                </div>
-                <div class="lang-switch">
-                    <span class="lang">UA</span> |
-                    <span class="lang active">RU</span>
-                </div>
-            </div>
-        </div>
-        <div class="header-row header-row-bottom desktop-header">
-            <nav class="header-menu">
-                <a href="#" class="menu-link">Новинки</a>
-                <a href="#" class="menu-link">Спорт</a>
-                <a href="#" class="menu-link">Премиум</a>
-                <a href="#" class="menu-link">Бренды</a>
-                <a href="#" class="menu-link sale">Распродажа</a>
-                <a href="#" class="menu-link">Журнал</a>
-                <a href="#" class="menu-link">Кампания SS25</a>
-            </nav>
-            <form class="header-search">
-                <input type="text" id="desktop-search-input" />
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-        </div>
-        </header>
     <div class="container">
         <!-- Мобильные категории под поиском -->
         <div class="mobile-main-categories">
