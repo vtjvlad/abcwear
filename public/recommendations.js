@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             <span class="current-price">${product.price?.self?.UAH?.currentPrice || 0} ₴</span>
                             ${product.price?.self?.UAH?.initialPrice && product.price.self.UAH.initialPrice > product.price.self.UAH.currentPrice ? `<span class="initial-price">${product.price.self.UAH.initialPrice} ₴</span>` : ''}
                         </div>
-                        <button class="btn" onclick="window.location.href='/w#${product._id}'">Подробнее</button>
+                        <button class="btn" onclick="window.location.href='/product/${product._id}'">Подробнее</button>
                     </div>
                 </div>
             `;
