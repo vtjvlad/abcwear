@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Wear - Header</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            --primary-color: #2196F3;
+            --primary-dark: #1976D2;
+            --secondary-color: #4CAF50;
+            --text-dark: #2C3E50;
+            --text-light: #7F8C8D;
+            --background-light: #F8F9FA;
+            --white: #FFFFFF;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            background-color: var(--background-light);
+            color: var(--text-dark);
+        }
+
+        /* --- Новый минималистичный header на всю ширину и интерактив --- */
+        .main-header {
+            width: 100vw;
+            min-width: 320px;
+            left: 0;
+            top: 0;
+            background: #fff;
+            box-shadow: 0 1px 0 #ececec;
+            margin-bottom: 32px;
+            border-radius: 0 0 12px 12px;
+            padding: 0 0 8px 0;
+            position: relative;
+            z-index: 100;
+        }
+        .header-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .header-row-top {
+            padding: 12px 32px 0 32px;
+            border-bottom: 1px solid #ececec;
+        }
+        .header-row-bottom {
+            padding: 8px 32px 0 32px;
+        }
+        .header-categories {
+            display: flex;
+            gap: 32px;
+        }
+        .header-categories .category {
+            color: #888;
+            font-size: 17px;
+            font-weight: 500;
+            text-decoration: none;
+            padding-bottom: 2px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+        .header-categories .category:hover,
+        .header-categories .category:focus {
+            color: #2196F3;
+            border-bottom: 2px solid #2196F3;
+        }
+        .header-categories .category.active {
+            color: #222;
+            border-bottom: 2px solid #222;
+            cursor: default;
+        }
+        .header-logo {
+            flex: 0 0 auto;
+            text-align: left;
+            position: absolute;
+            left: 35%;
+            transform: none;
+            z-index: 2;
+            pointer-events: auto;
+            margin-left: 0;
+        }
+        .logo-svg-main {
+            max-width: 340px;
+            height: auto;
+            margin-left: 0;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0;
+            width: 320px;
+            position: relative;
+        }
+        .header-icons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            gap: 18px;
+        }
+        .lang-switch {
+            min-width: 60px;
+            text-align: right;
+            margin-right: 0;
+        }
+        .icon-btn {
+            color: #222;
+            font-size: 22px;
+            margin-left: 2px;
+            transition: color 0.2s, transform 0.2s;
+            cursor: pointer;
+        }
+        .icon-btn:hover, .icon-btn:focus {
+            color: #2196F3;
+            transform: scale(1.15);
+        }
+        .header-menu {
+            display: flex;
+            gap: 28px;
+        }
+        .header-menu .menu-link {
+            color: #222;
+            font-size: 16px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s, border-bottom 0.2s;
+            cursor: pointer;
+            padding-bottom: 2px;
+            border-bottom: 2px solid transparent;
+        }
+        .header-menu .menu-link:hover,
+        .header-menu .menu-link:focus {
+            color: #2196F3;
+            border-bottom: 2px solid #2196F3;
+        }
+        .header-menu .menu-link.sale {
+            color: #d32f2f;
+            font-weight: 700;
+        }
+        .header-menu .menu-link.sale:hover {
+            color: #b71c1c;
+            border-bottom: 2px solid #b71c1c;
+        }
+        .header-search {
+            display: flex;
+            align-items: center;
+            border-bottom: 1.5px solid #222;
+            margin-left: auto;
+            margin-right: auto;
+            transition: border-color 0.2s;
+            justify-content: center;
+            min-width: 420px;
+            max-width: 620px;
+        }
+        .header-search input {
+            border: none;
+            outline: none;
+            font-size: 16px;
+            padding: 4px 12px;
+            background: transparent;
+            color: #222;
+            width: 380px;
+            transition: width 0.2s, border-color 0.2s;
+        }
+        .header-search input:focus {
+            width: 520px;
+            border-bottom: 2px solid #2196F3;
+        }
+        .header-search button {
+            background: none;
+            border: none;
+            color: #222;
+            font-size: 17px;
+            cursor: pointer;
+            padding: 0 6px;
+            transition: color 0.2s, transform 0.2s;
+        }
+        .header-search button:hover, .header-search button:focus {
+            color: #2196F3;
+            transform: scale(1.15);
+        }
+
+        /* Мобильная версия */
+        @media (max-width: 768px) {
+            .main-header {
+                background: #fff !important;
+                border-radius: 0 !important;
+                margin-bottom: 0 !important;
+                box-shadow: 0 1px 0 #ececec;
+            }
+            .header-row-top {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                padding: 6px 8px 6px 8px !important;
+                min-height: 48px;
+                position: sticky !important;
+                top: 0 !important;
+                z-index: 1000 !important;
+                background: #fff !important;
+                box-shadow: 0 1px 0 #ececec;
+            }
+            .header-logo {
+                flex: 0 0 auto !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                margin: 0 !important;
+                transform: none !important;
+            }
+            .logo-svg {
+                max-width: 100px !important;
+                margin: 0 !important;
+                height: 36px !important;
+                object-fit: contain;
+            }
+            .header-actions {
+                display: flex !important;
+                align-items: center !important;
+                gap: 10px !important;
+                margin-left: 8px !important;
+            }
+            .icon-btn {
+                font-size: 20px !important;
+                padding: 2px !important;
+                background: none !important;
+                border: none !important;
+            }
+            .lang-switch {
+                font-size: 13px !important;
+                margin-right: 2px !important;
+            }
+            .header-row-bottom {
+                display: none !important;
+            }
+            .mobile-menu-scroll {
+                display: flex !important;
+                flex-direction: row !important;
+                overflow-x: auto !important;
+                -webkit-overflow-scrolling: touch !important;
+                gap: 16px !important;
+                padding: 0 8px 0 8px !important;
+                white-space: nowrap !important;
+                scrollbar-width: none !important;
+                -ms-overflow-style: none !important;
+                background: #fff;
+                border-bottom: 1px solid #ececec;
+                min-height: 40px;
+                align-items: center;
+            }
+            .mobile-menu-scroll::-webkit-scrollbar {
+                display: none !important;
+            }
+            .mobile-menu-scroll .category,
+            .mobile-menu-scroll .menu-link {
+                font-size: 14px !important;
+                padding: 8px 2px !important;
+                white-space: nowrap !important;
+                border-bottom-width: 2px !important;
+                background: none !important;
+                border: none !important;
+                color: #222 !important;
+            }
+            .mobile-menu-scroll .category.active,
+            .mobile-menu-scroll .menu-link.sale {
+                color: #d32f2f !important;
+                font-weight: 700 !important;
+            }
+            .header-search {
+                display: none !important;
+            }
+            .mobile-logo-img {
+                display: block;
+                max-width: 120px;
+                height: 38px;
+                object-fit: contain;
+                margin-bottom: 2px;
+                margin-top: 2px;
+            }
+            .mobile-logo { display: none; }
+        }
+
+        @media (max-width: 480px) {
+            .logo-svg {
+                max-width: 70px !important;
+                height: 28px !important;
+            }
+            .icon-btn {
+                font-size: 17px !important;
+            }
+            .mobile-menu-scroll {
+                gap: 10px !important;
+                padding: 0 4px 0 4px !important;
+                min-height: 34px;
+            }
+            .mobile-menu-scroll .category,
+            .mobile-menu-scroll .menu-link {
+                font-size: 12px !important;
+                padding: 7px 1px !important;
+            }
+        }
+
+        /* Нижняя навигационная панель для мобильных */
+        .mobile-bottom-nav { display: none; }
+        @media (max-width: 768px) {
+            .mobile-bottom-nav {
+                display: flex;
+                position: fixed;
+                left: 0; right: 0; bottom: 0;
+                height: 62px;
+                background: #fff;
+                border-top: 1px solid #ececec;
+                justify-content: space-around;
+                align-items: center;
+                z-index: 3000;
+                box-shadow: 0 -2px 8px rgba(0,0,0,0.04);
+            }
+            .bottom-nav-btn {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                color: #222;
+                font-size: 13px;
+                text-decoration: none;
+                padding: 4px 0 0 0;
+                transition: color 0.18s;
+            }
+            .bottom-nav-btn i {
+                font-size: 23px;
+                margin-bottom: 2px;
+            }
+            .bottom-nav-btn.catalog-btn {
+                color: #1976D2;
+                font-weight: 600;
+            }
+            .bottom-nav-btn.active,
+            .bottom-nav-btn:active {
+                color: #2196F3;
+            }
+            .mobile-header-actions .icon-btn {
+                display: none !important;
+            }
+        }
+
+        /* Мобильные категории под поиском */
+        .mobile-main-categories { display: none; }
+        @media (max-width: 768px) {
+            .mobile-main-categories {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 22px;
+                padding: 10px 0 8px 0;
+                background: #fff;
+                border-bottom: 1px solid #ececec;
+                position: relative;
+                z-index: 10;
+            }
+            .mobile-main-categories .category {
+                font-size: 16px;
+                color: #222;
+                text-decoration: none;
+                font-weight: 500;
+                padding: 7px 2px;
+                border-bottom: 2px solid transparent;
+                transition: color 0.2s, border-color 0.2s;
+                background: none;
+                border: none;
+            }
+            .mobile-main-categories .category.active {
+                color: #1976D2;
+                border-bottom: 2px solid #1976D2;
+                font-weight: 700;
+            }
+            .mobile-categories-scroll { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Новый минималистичный header на всю ширину -->
+    <header class="main-header">
+        <div class="mobile-header-row">
+            <div class="mobile-header-left">
+                <button class="burger-menu" aria-label="Открыть меню" onclick="openMobileMenu()">
+                    <i class="fa-solid fa-bars-staggered"></i>
+                </button>
+                <img src="/logo.png" alt="ABCWEAR" class="mobile-logo-img" />
+            </div>
+            <nav class="mobile-categories-scroll">
+                <a href="#" class="category">Взуття</a>
+                <a href="#" class="category">Одяг</a>
+                <a href="#" class="category">Аксесуары</a>
+                <a href="#" class="category">Спорт</a>
+                <a href="#" class="category">Премиум</a>
+                <a href="#" class="category">Бренды</a>
+                <a href="#" class="category sale">Распродажа</a>
+                <a href="#" class="category">Журнал</a>
+                <a href="#" class="category">Кампания SS25</a>
+            </nav>
+            <div class="mobile-header-actions">
+                <div class="lang-switch">
+                    <span class="lang">UA</span> |
+                    <span class="lang active">RU</span>
+                </div>
+                <a href="#" class="icon-btn"><i class="fa-regular fa-circle-user"></i></a>
+                <a href="#" class="icon-btn"><i class="fa-regular fa-heart"></i></a>
+                <a href="#" class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></a>
+            </div>
+        </div>
+        <div class="mobile-header-search-row">
+            <form class="mobile-header-search" onsubmit="return false;">
+                <input type="text" placeholder="Поиск..." id="mobile-search-input" />
+                <button type="submit" class="mobile-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div id="mobile-offcanvas" class="mobile-offcanvas">
+            <div class="mobile-offcanvas-content">
+                <button class="close-offcanvas" onclick="closeMobileMenu()">&times;</button>
+                <nav class="offcanvas-nav">
+                    <a href="#">Взуття</a>
+                    <a href="#">Одяг</a>
+                    <a href="#">Аксесуары</a>
+                    <a href="#">Спорт</a>
+                    <a href="#">Премиум</a>
+                    <a href="#">Бренды</a>
+                    <a href="#" class="sale">Распродажа</a>
+                    <a href="#">Журнал</a>
+                    <a href="#">Кампания SS25</a>
+                </nav>
+            </div>
+            <div class="offcanvas-backdrop" onclick="closeMobileMenu()"></div>
+        </div>
+        <!-- desktop header (скрыт на мобиле) -->
+        <div class="header-row header-row-top desktop-header">
+            <nav class="header-categories">
+                <a href="#" class="category">Взуття</a>
+                <a href="#" class="category">Одяг</a>
+                <a href="#" class="category">Аксесуары</a>
+            </nav>
+            <div class="header-logo">
+                <img src="/logo.png" alt="ABCWEAR logo" class="logo-svg logo-svg-main">
+                <img src="/mini_logo.png" alt="ABCWEAR mini logo" class="logo-svg logo-svg-mini">
+            </div>
+            <div class="header-actions">
+                <div class="header-icons">
+                    <a href="#" class="icon-btn"><i class="fa-regular fa-circle-user"></i></a>
+                    <a href="#" class="icon-btn"><i class="fa-regular fa-heart"></i></a>
+                    <a href="#" class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></a>
+                </div>
+                <div class="lang-switch">
+                    <span class="lang">UA</span> |
+                    <span class="lang active">RU</span>
+                </div>
+            </div>
+        </div>
+        <div class="header-row header-row-bottom desktop-header">
+            <nav class="header-menu">
+                <a href="#" class="menu-link">Новинки</a>
+                <a href="#" class="menu-link">Спорт</a>
+                <a href="#" class="menu-link">Премиум</a>
+                <a href="#" class="menu-link">Бренды</a>
+                <a href="#" class="menu-link sale">Распродажа</a>
+                <a href="#" class="menu-link">Журнал</a>
+                <a href="#" class="menu-link">Кампания SS25</a>
+            </nav>
+            <form class="header-search">
+                <input type="text" id="desktop-search-input" />
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Мобильные категории под поиском -->
+    <div class="mobile-main-categories">
+        <a href="#" class="category">Взуття</a>
+        <a href="#" class="category">Одяг</a>
+        <a href="#" class="category">Аксесуары</a>
+    </div>
+
+    <!-- Нижняя навигационная панель для мобильных -->
+    <div class="mobile-bottom-nav">
+        <a href="#" class="bottom-nav-btn"><i class="fa-regular fa-circle-user"></i><span>Профиль</span></a>
+        <a href="#" class="bottom-nav-btn"><i class="fa-regular fa-heart"></i><span>Избранное</span></a>
+        <a href="#" class="bottom-nav-btn catalog-btn"><i class="fa-solid fa-grip-horizontal"></i><span>Каталог</span></a>
+        <a href="#" class="bottom-nav-btn"><i class="fa-solid fa-bag-shopping"></i><span>Корзина</span></a>
+    </div>
+
+    <script>
+        // Открытие/закрытие мобильного меню
+        function openMobileMenu() {
+            document.getElementById('mobile-offcanvas').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobile-offcanvas').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        // Список шутливых и мотивирующих подсказок для поиска
+        const searchPlaceholders = [
+            'Поиск: "Кроссовки мечты"',
+            'Попробуйте: "Сумка для счастья"',
+            'Что купить? Например, "Пижама для выходных"',
+            'Введи: "Подарок себе любимому"',
+            '1137',
+            'А может, "Шапка для отпуска"?',
+            'Пора встать с кровати!!!',
+            'Порадуй себя — ищи "Новую футболку"',
+            'Проснись!',
+            'Почувствуй стиль: "Очки как у звезды"',
+            'Поторопись! "Скидки на носки"',
+            'Поищи: "Платье для настроения"',
+            'Введи: "Купить всё!" (шутка, но вдруг?)',
+            'Пока не нашел? Попробуй "Кроссовки для бега"'
+        ];
+        let searchIndex = 0;
+        let desktopTypingInterval = null;
+        let mobileTypingInterval = null;
+        function typePlaceholder(text, input, intervalRef, cb) {
+            let i = 0;
+            input.setAttribute('placeholder', '');
+            clearInterval(intervalRef.current);
+            intervalRef.current = setInterval(() => {
+                input.setAttribute('placeholder', text.slice(0, i + 1));
+                i++;
+                if (i === text.length) {
+                    clearInterval(intervalRef.current);
+                    if (cb) cb();
+                }
+            }, 45);
+        }
+        function rotateSearchPlaceholder() {
+            const desktopInput = document.getElementById('desktop-search-input');
+            const mobileInput = document.getElementById('mobile-search-input');
+            if (desktopInput) typePlaceholder(searchPlaceholders[searchIndex], desktopInput, {current: desktopTypingInterval}, () => {});
+            if (mobileInput) typePlaceholder(searchPlaceholders[searchIndex], mobileInput, {current: mobileTypingInterval}, () => {});
+            searchIndex = (searchIndex + 1) % searchPlaceholders.length;
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            rotateSearchPlaceholder();
+            setInterval(rotateSearchPlaceholder, 3500);
+        });
+    </script>
+</body>
+</html> 

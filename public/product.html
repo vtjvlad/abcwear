@@ -59,6 +59,28 @@
             align-items: center;
         }
 
+        .back-to-catalog {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .back-to-catalog:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-2px);
+        }
+
+        .back-to-catalog i {
+            font-size: 16px;
+        }
+
         .logo {
             display: flex;
             align-items: center;
@@ -269,6 +291,8 @@
             transition: var(--transition);
             border: 1px solid #e5e5e5;
             padding: 2px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .thumbnail.active {
@@ -277,16 +301,30 @@
 
         .main-image-container {
             position: relative;
+        }
+
+        .main-image-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
             background: #f5f5f5;
             border-radius: 8px;
             overflow: hidden;
         }
 
         .main-image {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
+            height: 100%;
             object-fit: contain;
-            display: block;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .main-image.loaded {
+            opacity: 1;
         }
 
         .image-nav {
@@ -318,6 +356,14 @@
             padding-top: 20px;
         }
 
+        /* Rating and Back Button */
+        .rating-section {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
         .rating-badge {
             display: inline-flex;
             align-items: center;
@@ -327,8 +373,33 @@
             border-radius: 20px;
             font-size: 14px;
             font-weight: 500;
-            margin-bottom: 16px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .back-to-catalog {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 20px;
+            border-radius: 30px;
+            transition: var(--transition);
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .back-to-catalog:hover {
+            border-color: var(--text-dark);
+            transform: translateX(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .back-to-catalog i {
+            font-size: 16px;
         }
 
         .product-title {
@@ -380,6 +451,7 @@
             border: 1px solid #e5e5e5;
             padding: 2px;
             position: relative;
+            overflow: hidden;
         }
 
         .color-variant img {
@@ -387,6 +459,7 @@
             height: 100%;
             object-fit: cover;
             border-radius: 4px;
+            opacity: 1;
         }
 
         .color-variant.selected {
@@ -517,6 +590,95 @@
                 padding-top: 0;
             }
         }
+
+        /* Image Loading Styles */
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .image-loader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+            background-size: 1000px 100%;
+            animation: shimmer 2s infinite linear;
+            border-radius: inherit;
+            z-index: 1;
+        }
+
+        .image-wrapper {
+            position: relative;
+            background: #f5f5f5;
+            border-radius: inherit;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+
+        .main-image-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+            background: #f5f5f5;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .main-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .main-image.loaded {
+            opacity: 1;
+        }
+
+        .thumbnail {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid #e5e5e5;
+            padding: 2px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .thumbnail.loaded {
+            opacity: 1;
+        }
+
+        .thumbnail.active {
+            border-color: var(--text-dark);
+        }
+
+        /* Update existing styles */
+        .thumbnail-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            height: min-content;
+        }
+
+        .main-image-container {
+            position: relative;
+        }
     </style>
 </head>
 <body>
@@ -552,7 +714,10 @@
                     <!-- Thumbnails will be added dynamically -->
                 </div>
                 <div class="main-image-container">
-                    <img id="main-image" src="" alt="Main Product Image" class="main-image">
+                    <div class="main-image-wrapper">
+                        <div class="image-loader"></div>
+                        <img id="main-image" src="" alt="Main Product Image" class="main-image">
+                    </div>
                     <button class="image-nav prev">
                         <i class="fas fa-chevron-left"></i>
                     </button>
@@ -563,9 +728,15 @@
             </div>
 
             <div class="product-info">
-                <div class="rating-badge">
-                    <i class="fas fa-star"></i>
-                    Highly Rated
+                <div class="rating-section">
+                    <div class="rating-badge">
+                        <i class="fas fa-star"></i>
+                        Highly Rated
+                    </div>
+                    <a href="/w" class="back-to-catalog">
+                        <i class="fas fa-arrow-left"></i>
+                        <span>В каталог</span>
+                    </a>
                 </div>
 
                 <h1 class="product-title" id="product-title">Загрузка...</h1>
@@ -661,6 +832,28 @@
         // Get product ID from URL
         const productId = window.location.pathname.split('/').pop();
         
+        // Простой обработчик для кнопки "В каталог"
+        document.addEventListener('DOMContentLoaded', function() {
+            const backButton = document.querySelector('.back-to-catalog');
+            if (backButton) {
+                backButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Back button clicked');
+                    console.log('Referrer:', document.referrer);
+                    
+                    if (document.referrer.includes('/w')) {
+                        console.log('Going back to catalog');
+                        window.history.back();
+                    } else {
+                        console.log('Going to catalog main page');
+                        window.location.href = '/w';
+                    }
+                });
+            } else {
+                console.error('Back button not found');
+            }
+        });
+
         // Кэш для хранения данных вариантов
         const variantsCache = new Map();
 
@@ -679,21 +872,51 @@
 
         // Функция для предварительной загрузки всех вариантов
         async function preloadVariants(variants) {
+            console.log('Starting preload of variants:', variants.length);
             const loadPromises = variants
-                .filter(variant => variant._id !== productId) // Исключаем текущий вариант
-                .map(variant => loadVariantData(variant._id));
+                .filter(variant => variant._id !== productId)
+                .map(variant => {
+                    console.log('Preloading variant:', variant._id);
+                    return loadVariantData(variant._id);
+                });
             
-            await Promise.all(loadPromises);
+            try {
+                await Promise.all(loadPromises);
+                console.log('All variants preloaded successfully');
+            } catch (error) {
+                console.error('Error during variants preload:', error);
+            }
+        }
+
+        // Функция для создания обертки изображения с индикатором загрузки
+        function createImageWrapper(src, className, alt) {
+            return `
+                <div class="image-wrapper">
+                    <div class="image-loader"></div>
+                    <img src="${src}" 
+                         alt="${alt}" 
+                         class="${className}"
+                         onload="this.classList.add('loaded'); this.parentElement.querySelector('.image-loader').style.display = 'none';">
+                </div>
+            `;
         }
 
         // Function to load product data
         async function loadProductData() {
             try {
+                console.log('Loading initial product data:', productId);
                 const response = await fetch(`/api/products/${productId}`);
                 const product = await response.json();
 
                 // Сохраняем текущий вариант в кэш
                 variantsCache.set(productId, product);
+                console.log('Current product cached:', productId);
+
+                // Начинаем загрузку всех вариантов сразу
+                if (product.variants && product.variants.length > 0) {
+                    console.log('Starting variants preload');
+                    preloadVariants(product.variants);
+                }
 
                 // Update page title
                 document.title = `ABC Wear - ${product.info.name}`;
@@ -714,16 +937,39 @@
                     ${discount ? `<span class="discount">${discount}% off</span>` : ''}
                 `;
 
-                // Update images
-                const mainImage = document.getElementById('main-image');
+                // Update images with loading indicators
                 const thumbnailList = document.getElementById('thumbnail-list');
+                const mainImageContainer = document.querySelector('.main-image-container');
                 
                 if (product.imageData.imgMain) {
-                    mainImage.src = product.imageData.imgMain;
+                    // Обновляем главное изображение
+                    mainImageContainer.innerHTML = `
+                        <div class="main-image-wrapper">
+                            <div class="image-loader"></div>
+                            <img src="${product.imageData.imgMain}" 
+                                 alt="Main Product Image" 
+                                 class="main-image"
+                                 onload="this.classList.add('loaded'); this.parentElement.querySelector('.image-loader').style.display = 'none';">
+                        </div>
+                        <button class="image-nav prev">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="image-nav next">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    `;
+
+                    // Обновляем миниатюры
                     thumbnailList.innerHTML = `
-                        <img src="${product.imageData.imgMain}" alt="Main view" class="thumbnail active">
+                        <img src="${product.imageData.imgMain}" 
+                             alt="Main view" 
+                             class="thumbnail active"
+                             onload="this.classList.add('loaded')">
                         ${product.imageData.images.map((img, index) => `
-                            <img src="${img}" alt="View ${index + 1}" class="thumbnail">
+                            <img src="${img}" 
+                                 alt="View ${index + 1}" 
+                                 class="thumbnail"
+                                 onload="this.classList.add('loaded')">
                         `).join('')}
                     `;
                 }
@@ -736,12 +982,14 @@
                              data-variant-id="${variant._id}"
                              data-url="${variant.links.url}"
                              title="${variant.info.color.name}">
-                            <img src="${variant.imageData.squarishURL}" alt="${variant.info.color.name}">
+                            <div class="image-wrapper">
+                                <div class="image-loader"></div>
+                                <img src="${variant.imageData.squarishURL}" 
+                                     alt="${variant.info.color.name}"
+                                     onload="this.classList.add('loaded'); this.parentElement.querySelector('.image-loader').style.display = 'none';">
+                            </div>
                         </div>
                     `).join('');
-
-                    // Начинаем предварительную загрузку других вариантов
-                    preloadVariants(product.variants);
                 }
 
                 // Update description
@@ -756,11 +1004,77 @@
             }
         }
 
+        // Function to update page content
+        function updatePageContent(productData) {
+            document.title = `ABC Wear - ${productData.info.name}`;
+            document.getElementById('product-title').textContent = productData.info.name;
+            document.getElementById('product-subtitle').textContent = productData.info.subtitle;
+
+            const priceContainer = document.getElementById('product-price');
+            const currentPrice = productData.price.self.UAH.currentPrice;
+            const initialPrice = productData.price.self.UAH.initialPrice;
+            const discount = productData.price.self.UAH.discount;
+
+            priceContainer.innerHTML = `
+                <span class="current-price">${currentPrice} грн</span>
+                ${initialPrice ? `<span class="original-price">${initialPrice} грн</span>` : ''}
+                ${discount ? `<span class="discount">${discount}% off</span>` : ''}
+            `;
+
+            // Update images with loading indicators
+            const thumbnailList = document.getElementById('thumbnail-list');
+            const mainImageContainer = document.querySelector('.main-image-container');
+            
+            if (productData.imageData.imgMain) {
+                // Обновляем главное изображение
+                mainImageContainer.innerHTML = `
+                    <div class="main-image-wrapper">
+                        <div class="image-loader"></div>
+                        <img src="${productData.imageData.imgMain}" 
+                             alt="Main Product Image" 
+                             class="main-image"
+                             onload="this.classList.add('loaded'); this.parentElement.querySelector('.image-loader').style.display = 'none';">
+                    </div>
+                    <button class="image-nav prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="image-nav next">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                `;
+
+                // Обновляем миниатюры
+                thumbnailList.innerHTML = `
+                    <img src="${productData.imageData.imgMain}" 
+                         alt="Main view" 
+                         class="thumbnail active"
+                         onload="this.classList.add('loaded')">
+                    ${productData.imageData.images.map((img, index) => `
+                        <img src="${img}" 
+                             alt="View ${index + 1}" 
+                             class="thumbnail"
+                             onload="this.classList.add('loaded')">
+                    `).join('')}
+                `;
+            }
+
+            document.getElementById('product-description').textContent = productData.info.discription;
+
+            // Обновляем активный цвет
+            const colorVariants = document.querySelectorAll('.color-variant');
+            colorVariants.forEach(variant => {
+                variant.classList.toggle('selected', variant.dataset.variantId === productData._id);
+            });
+
+            // Обновляем обработчики событий
+            addEventListeners(productData.variants);
+        }
+
         // Function to add event listeners
         function addEventListeners(variants) {
             // Gallery navigation
             const thumbnails = document.querySelectorAll('.thumbnail');
-            const mainImage = document.getElementById('main-image');
+            const mainImage = document.querySelector('.main-image');
             const prevButton = document.querySelector('.image-nav.prev');
             const nextButton = document.querySelector('.image-nav.next');
 
@@ -790,31 +1104,21 @@
                 updateImage(newIndex);
             });
 
-            // Color variants with instant preview
+            // Color variants
             const colorVariants = document.querySelectorAll('.color-variant');
             colorVariants.forEach(variant => {
                 variant.addEventListener('click', async () => {
                     const variantId = variant.dataset.variantId;
                     if (!variant.classList.contains('selected')) {
-                        // Если данные варианта уже загружены, используем их для мгновенного обновления
                         if (variantsCache.has(variantId)) {
+                            console.log('Using cached variant data:', variantId);
                             const variantData = variantsCache.get(variantId);
-                            // Обновляем URL без перезагрузки страницы
                             window.history.pushState({}, '', variant.dataset.url);
-                            // Обновляем содержимое страницы
                             updatePageContent(variantData);
                         } else {
-                            // Если данных нет в кэше, переходим по ссылке
+                            console.log('No cached data, redirecting to:', variant.dataset.url);
                             window.location.href = variant.dataset.url;
                         }
-                    }
-                });
-
-                // Предварительная загрузка при наведении
-                variant.addEventListener('mouseenter', () => {
-                    const variantId = variant.dataset.variantId;
-                    if (!variantsCache.has(variantId) && variantId !== productId) {
-                        loadVariantData(variantId);
                     }
                 });
             });
@@ -833,48 +1137,6 @@
             document.getElementById('add-to-favorites').addEventListener('click', () => {
                 // Add to favorites logic here
             });
-        }
-
-        // Функция для обновления содержимого страницы без перезагрузки
-        function updatePageContent(productData) {
-            document.title = `ABC Wear - ${productData.info.name}`;
-            document.getElementById('product-title').textContent = productData.info.name;
-            document.getElementById('product-subtitle').textContent = productData.info.subtitle;
-
-            const priceContainer = document.getElementById('product-price');
-            const currentPrice = productData.price.self.UAH.currentPrice;
-            const initialPrice = productData.price.self.UAH.initialPrice;
-            const discount = productData.price.self.UAH.discount;
-
-            priceContainer.innerHTML = `
-                <span class="current-price">${currentPrice} грн</span>
-                ${initialPrice ? `<span class="original-price">${initialPrice} грн</span>` : ''}
-                ${discount ? `<span class="discount">${discount}% off</span>` : ''}
-            `;
-
-            const mainImage = document.getElementById('main-image');
-            const thumbnailList = document.getElementById('thumbnail-list');
-            
-            if (productData.imageData.imgMain) {
-                mainImage.src = productData.imageData.imgMain;
-                thumbnailList.innerHTML = `
-                    <img src="${productData.imageData.imgMain}" alt="Main view" class="thumbnail active">
-                    ${productData.imageData.images.map((img, index) => `
-                        <img src="${img}" alt="View ${index + 1}" class="thumbnail">
-                    `).join('')}
-                `;
-            }
-
-            document.getElementById('product-description').textContent = productData.info.discription;
-
-            // Обновляем активный цвет
-            const colorVariants = document.querySelectorAll('.color-variant');
-            colorVariants.forEach(variant => {
-                variant.classList.toggle('selected', variant.dataset.variantId === productData._id);
-            });
-
-            // Обновляем обработчики событий
-            addEventListeners(productData.variants);
         }
 
         // Load product data when page loads
