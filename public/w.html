@@ -950,5 +950,60 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Открытие/закрытие мобильного меню
+        function openMobileMenu() {
+            document.getElementById('mobile-offcanvas').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobile-offcanvas').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        // Список шутливых и мотивирующих подсказок для поиска
+        const searchPlaceholders = [
+            'Поиск: "Кроссовки мечты"',
+            'Попробуйте: "Сумка для счастья"',
+            'Что купить? Например, "Пижама для выходных"',
+            'Введи: "Подарок себе любимому"',
+            '1137',
+            'А может, "Шапка для отпуска"?',
+            'Пора встать с кровати!!!',
+            'Порадуй себя — ищи "Новую футболку"',
+            'Проснись!',
+            'Почувствуй стиль: "Очки как у звезды"',
+            'Поторопись! "Скидки на носки"',
+            'Поищи: "Платье для настроения"',
+            'Введи: "Купить всё!" (шутка, но вдруг?)',
+            'Пока не нашел? Попробуй "Кроссовки для бега"'
+        ];
+        let searchIndex = 0;
+        let desktopTypingInterval = null;
+        let mobileTypingInterval = null;
+        function typePlaceholder(text, input, intervalRef, cb) {
+            let i = 0;
+            input.setAttribute('placeholder', '');
+            clearInterval(intervalRef.current);
+            intervalRef.current = setInterval(() => {
+                input.setAttribute('placeholder', text.slice(0, i + 1));
+                i++;
+                if (i === text.length) {
+                    clearInterval(intervalRef.current);
+                    if (cb) cb();
+                }
+            }, 45);
+        }
+        function rotateSearchPlaceholder() {
+            const desktopInput = document.getElementById('desktop-search-input');
+            const mobileInput = document.getElementById('mobile-search-input');
+            if (desktopInput) typePlaceholder(searchPlaceholders[searchIndex], desktopInput, {current: desktopTypingInterval}, () => {});
+            if (mobileInput) typePlaceholder(searchPlaceholders[searchIndex], mobileInput, {current: mobileTypingInterval}, () => {});
+            searchIndex = (searchIndex + 1) % searchPlaceholders.length;
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            rotateSearchPlaceholder();
+            setInterval(rotateSearchPlaceholder, 3500);
+        });
+        </script>
 </body>
 </html> 

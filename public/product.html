@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="size.css">
     <style>
         :root {
             --primary-color: #2196F3;
@@ -973,6 +974,11 @@
                 // Update description
                 document.getElementById('product-description').textContent = product.info.discription;
 
+                // Обновляем сетку размеров, если есть contentDivSizes
+                if (product.sizes) {
+                    updateSizeGrid(product.sizes);
+                }
+
                 // Add event listeners
                 addEventListeners(product.variants);
             } 
@@ -1119,6 +1125,105 @@
 
         // Load product data when page loads
         loadProductData();
+
+        // Функция для парсинга HTML строки размеров и преобразования в нужный формат
+        function parseSizesHtml(htmlString) {
+            // Создаем временный div для парсинга HTML
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(htmlString, 'text/html');
+            
+            // Получаем все элементы размеров
+            const sizeInputs = doc.querySelectorAll('input[type="radio"]');
+            
+            // Преобразуем в массив объектов с нужной информацией
+            return Array.from(sizeInputs).map(input => ({
+                size: input.value,
+                disabled: input.hasAttribute('aria-disabled'),
+                id: input.id
+            }));
+        }
+
+        // Функция для обновления сетки размеров
+        function updateSizeGrid(sizesHtml) {
+            console.log('updateSizeGrid');
+            const sizeGrid = document.getElementById('size-grid');
+            const sizes = parseSizesHtml(sizesHtml);
+            
+            sizeGrid.innerHTML = sizes.map(size => `
+                <div class="size-option ${size.disabled ? 'disabled' : ''}" 
+                     data-size="${size.size}"
+                     ${size.disabled ? 'title="Размер недоступен"' : ''}>
+                    ${size.size}
+                </div>
+            `).join('');
+            
+            // Добавляем обработчики событий для размеров
+            const sizeOptions = sizeGrid.querySelectorAll('.size-option:not(.disabled)');
+            sizeOptions.forEach(option => {
+                option.addEventListener('click', () => {
+                    // Убираем выделение у всех размеров
+                    sizeOptions.forEach(opt => opt.classList.remove('selected'));
+                    // Добавляем выделение выбранному размеру
+                    option.classList.add('selected');
+                });
+            });
+        }
     </script>
+    <script src="size.js"></script>
+    <script>
+        // Открытие/закрытие мобильного меню
+        function openMobileMenu() {
+            document.getElementById('mobile-offcanvas').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeMobileMenu() {
+            document.getElementById('mobile-offcanvas').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        // Список шутливых и мотивирующих подсказок для поиска
+        const searchPlaceholders = [
+            'Поиск: "Кроссовки мечты"',
+            'Попробуйте: "Сумка для счастья"',
+            'Что купить? Например, "Пижама для выходных"',
+            'Введи: "Подарок себе любимому"',
+            '1137',
+            'А может, "Шапка для отпуска"?',
+            'Пора встать с кровати!!!',
+            'Порадуй себя — ищи "Новую футболку"',
+            'Проснись!',
+            'Почувствуй стиль: "Очки как у звезды"',
+            'Поторопись! "Скидки на носки"',
+            'Поищи: "Платье для настроения"',
+            'Введи: "Купить всё!" (шутка, но вдруг?)',
+            'Пока не нашел? Попробуй "Кроссовки для бега"'
+        ];
+        let searchIndex = 0;
+        let desktopTypingInterval = null;
+        let mobileTypingInterval = null;
+        function typePlaceholder(text, input, intervalRef, cb) {
+            let i = 0;
+            input.setAttribute('placeholder', '');
+            clearInterval(intervalRef.current);
+            intervalRef.current = setInterval(() => {
+                input.setAttribute('placeholder', text.slice(0, i + 1));
+                i++;
+                if (i === text.length) {
+                    clearInterval(intervalRef.current);
+                    if (cb) cb();
+                }
+            }, 45);
+        }
+        function rotateSearchPlaceholder() {
+            const desktopInput = document.getElementById('desktop-search-input');
+            const mobileInput = document.getElementById('mobile-search-input');
+            if (desktopInput) typePlaceholder(searchPlaceholders[searchIndex], desktopInput, {current: desktopTypingInterval}, () => {});
+            if (mobileInput) typePlaceholder(searchPlaceholders[searchIndex], mobileInput, {current: mobileTypingInterval}, () => {});
+            searchIndex = (searchIndex + 1) % searchPlaceholders.length;
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            rotateSearchPlaceholder();
+            setInterval(rotateSearchPlaceholder, 3500);
+        });
+        </script>
 </body>
 </html> 
