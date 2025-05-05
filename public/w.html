@@ -859,6 +859,46 @@
                 justify-content: center;
             }
         }
+
+        .page-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        }
+
+        .page-loader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #2196F3;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+
+        .loader-text {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            font-size: 16px;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -949,8 +989,30 @@
         </div>
     </div>
 
+    <div class="page-loader" id="page-loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <div class="loader-text">Загрузка...</div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
     <script>
+        // Page loader
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide loader when page is fully loaded
+            window.addEventListener('load', function() {
+                const loader = document.querySelector('.page-loader');
+                if (loader) {
+                    loader.classList.add('fade-out');
+                    // Remove loader from DOM after animation
+                    setTimeout(() => {
+                        loader.remove();
+                    }, 500);
+                }
+            });
+        });
+
         // Открытие/закрытие мобильного меню
         function openMobileMenu() {
             document.getElementById('mobile-offcanvas').classList.add('open');
@@ -1004,6 +1066,6 @@
             rotateSearchPlaceholder();
             setInterval(rotateSearchPlaceholder, 3500);
         });
-        </script>
+    </script>
 </body>
 </html> 
