@@ -8,18 +8,18 @@ const puppeteer = require('puppeteer');
   const outputFile = 'discriptions.json';
 
   // Чтение списка сайтов
-  const websites = fs.readFileSync(websitesFile, 'utf8')
+  const websites = fs
+    .readFileSync(websitesFile, 'utf8')
     .split('\n')
-    .map(url => url.trim())
-    .filter(url => url.length > 0);
+    .map((url) => url.trim())
+    .filter((url) => url.length > 0);
 
   // Запуск браузера в headless-режиме
-const browser = await puppeteer.launch({
-        executablePath: "/snap/bin/chromium", // Укажи свой путь, если нужно
-        headless: true,
-        args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    });
-
+  const browser = await puppeteer.launch({
+    executablePath: '/snap/bin/chromium', // Укажи свой путь, если нужно
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  });
 
   const results = [];
 
@@ -28,21 +28,21 @@ const browser = await puppeteer.launch({
     console.log(`Обработка: ${url}`);
     const page = await browser.newPage();
     try {
-               await page.goto(url, {
-    waitUntil: 'networkidle0'  // дожидаемся, когда сети будут «тихими»
-  });
-
+      await page.goto(url, {
+        waitUntil: 'networkidle0', // дожидаемся, когда сети будут «тихими»
+      });
 
       // await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 });
       // Извлечение содержимого нужного элемента
       const content = await page.evaluate(() => {
         // Селектор, учитывающий вложенность элементов:
-        // body → #experience-wrapper → #__next[data-reactroot] → main с классами → 
-        // div с классами "nds-grid pdp-grid css-qqclnk ehf3nt20" → 
-        // div с классами "grid-item price pl6-lg z1 css-1jk6ulu nds-grid-item" → 
-        // div#product-description-container с data-testid и классом "pt7-sm" → 
+        // body → #experience-wrapper → #__next[data-reactroot] → main с классами →
+        // div с классами "nds-grid pdp-grid css-qqclnk ehf3nt20" →
+        // div с классами "grid-item price pl6-lg z1 css-1jk6ulu nds-grid-item" →
+        // div#product-description-container с data-testid и классом "pt7-sm" →
         // p с нужным классом.
-        const selector = 'body #experience-wrapper #__next[data-reactroot] main.d-sm-flx.flx-dir-sm-c.flx-jc-sm-c.flx-ai-sm-c .nds-grid.pdp-grid.css-qqclnk.ehf3nt20 .grid-item.price.pl6-lg.z1.css-1jk6ulu.nds-grid-item #product-description-container.pt7-sm[data-testid="product-description-container"] p.nds-text.css-pxxozx.e1yhcai00.text-align-start.appearance-body1.color-primary.weight-regular';
+        const selector =
+          'body #experience-wrapper #__next[data-reactroot] main.d-sm-flx.flx-dir-sm-c.flx-jc-sm-c.flx-ai-sm-c .nds-grid.pdp-grid.css-qqclnk.ehf3nt20 .grid-item.price.pl6-lg.z1.css-1jk6ulu.nds-grid-item #product-description-container.pt7-sm[data-testid="product-description-container"] p.nds-text.css-pxxozx.e1yhcai00.text-align-start.appearance-body1.color-primary.weight-regular';
         const element = document.querySelector(selector);
         return element ? element.innerText.trim() : null;
       });

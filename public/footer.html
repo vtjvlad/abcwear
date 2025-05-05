@@ -1,128 +1,140 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ABC Wear - Footer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <style>
-        :root {
-            --primary-color: #2196F3;
-            --primary-dark: #1976D2;
-            --secondary-color: #4CAF50;
-            --text-dark: #2C3E50;
-            --text-light: #7F8C8D;
-            --background-light: #F8F9FA;
-            --white: #FFFFFF;
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
-            --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
-            --shadow-lg: 0 8px 16px rgba(0,0,0,0.1);
-            --transition: all 0.3s ease;
-        }
+      :root {
+        --primary-color: #2196f3;
+        --primary-dark: #1976d2;
+        --secondary-color: #4caf50;
+        --text-dark: #2c3e50;
+        --text-light: #7f8c8d;
+        --background-light: #f8f9fa;
+        --white: #ffffff;
+        --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+        --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            background-color: var(--background-light);
-            color: var(--text-dark);
-        }
+      body {
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1.6;
+        background-color: var(--background-light);
+        color: var(--text-dark);
+      }
 
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: var(--white);
-            padding: 40px 0;
-            margin-top: auto;
-        }
+      /* Footer */
+      footer {
+        background: var(--text-dark);
+        color: var(--white);
+        padding: 40px 0;
+        margin-top: auto;
+      }
 
-        .footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+      }
 
-        .footer-section h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
+      .footer-section h3 {
+        font-size: 20px;
+        margin-bottom: 20px;
+        color: var(--primary-color);
+      }
 
-        .footer-links {
-            list-style: none;
-        }
+      .footer-links {
+        list-style: none;
+      }
 
-        .footer-link {
-            color: var(--text-light);
-            text-decoration: none;
-            margin-bottom: 10px;
-            display: block;
-            transition: var(--transition);
-        }
+      .footer-link {
+        color: var(--text-light);
+        text-decoration: none;
+        margin-bottom: 10px;
+        display: block;
+        transition: var(--transition);
+      }
 
-        .footer-link:hover {
-            color: var(--white);
-            transform: translateX(5px);
-        }
+      .footer-link:hover {
+        color: var(--white);
+        transform: translateX(5px);
+      }
 
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
+      }
 
-        .social-link {
-            color: var(--white);
-            font-size: 24px;
-            transition: var(--transition);
-        }
+      .social-link {
+        color: var(--white);
+        font-size: 24px;
+        transition: var(--transition);
+      }
 
-        .social-link:hover {
-            color: var(--primary-color);
-            transform: translateY(-3px);
-        }
+      .social-link:hover {
+        color: var(--primary-color);
+        transform: translateY(-3px);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>О компании</h3>
-                <p>ABC Wear - ваш надежный партнер в мире моды и стиля. Мы предлагаем качественную одежду и аксессуары по доступным ценам.</p>
-            </div>
-            <div class="footer-section">
-                <h3>Полезные ссылки</h3>
-                <ul class="footer-links">
-                    <li><a href="/w" class="footer-link">Каталог</a></li>
-                    <li><a href="/about" class="footer-link">О нас</a></li>
-                    <li><a href="/contacts" class="footer-link">Контакты</a></li>
-                    <li><a href="/delivery" class="footer-link">Доставка и оплата</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Контакты</h3>
-                <ul class="footer-links">
-                    <li><a href="tel:+380123456789" class="footer-link">+38 (012) 345-67-89</a></li>
-                    <li><a href="mailto:info@abcwear.com" class="footer-link">info@abcwear.com</a></li>
-                </ul>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
-                </div>
-            </div>
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>О компании</h3>
+          <p>
+            ABC Wear - ваш надежный партнер в мире моды и стиля. Мы предлагаем качественную одежду и
+            аксессуары по доступным ценам.
+          </p>
         </div>
+        <div class="footer-section">
+          <h3>Полезные ссылки</h3>
+          <ul class="footer-links">
+            <li><a href="/w" class="footer-link">Каталог</a></li>
+            <li><a href="/about" class="footer-link">О нас</a></li>
+            <li><a href="/contacts" class="footer-link">Контакты</a></li>
+            <li><a href="/delivery" class="footer-link">Доставка и оплата</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul class="footer-links">
+            <li><a href="tel:+380123456789" class="footer-link">+38 (012) 345-67-89</a></li>
+            <li><a href="mailto:info@abcwear.com" class="footer-link">info@abcwear.com</a></li>
+          </ul>
+          <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+          </div>
+        </div>
+      </div>
     </footer>
-</body>
-</html> 
+  </body>
+</html>

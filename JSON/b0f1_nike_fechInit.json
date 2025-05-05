@@ -10,9 +10,7 @@
     "locationId": null,
     "language": "en",
     "selectedFiltersCount": null,
-    "mlModels": [
-      "NONE"
-    ],
+    "mlModels": ["NONE"],
     "analyzer": null,
     "contentData": null,
     "navigation": null,
@@ -452,9 +450,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/e14330cb-6673-42ae-b4f1-074adbd6b68a/U+NK+ED+PLUS+CUSH+NS+6PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/gpikqlmftdhjizkopas3/U+NK+ED+PLUS+CUSH+NS+6PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-no-show-socks-6-pairs-XXM9xm/SX6898-100",
               "path": "/t/everyday-plus-cushioned-training-no-show-socks-6-pairs-XXM9xm/SX6898-100"
@@ -497,9 +493,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/031971fd-95ea-4e4c-a4f3-0e704964655d/U+NK+ED+PLUS+CUSH+NS+6PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/akozf5uxpbkeslputi8j/U+NK+ED+PLUS+CUSH+NS+6PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-no-show-socks-6-pairs-XXM9xm/SX6898-010",
               "path": "/t/everyday-plus-cushioned-training-no-show-socks-6-pairs-XXM9xm/SX6898-010"
@@ -542,9 +536,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/e6d0e881-6c5a-407a-8882-ce7b099a91e2/U+NK+ED+PLUS+CUSH+NS+6PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/63121d3c-b6f3-4974-8c6a-3c357cd26c14/U+NK+ED+PLUS+CUSH+NS+6PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-no-show-socks-6-pairs-XXM9xm/SX6898-964",
               "path": "/t/everyday-plus-cushioned-training-no-show-socks-6-pairs-XXM9xm/SX6898-964"
@@ -587,9 +579,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/51121d39-6bf3-41dc-91c5-3c4408e3d399/U+NK+ED+PLUS+CUSH+NS+6PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/1bf98c54-a5a0-491f-8c57-283c03c9b86a/U+NK+ED+PLUS+CUSH+NS+6PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-no-show-socks-6-pairs-XXM9xm/SX6898-904",
               "path": "/t/everyday-plus-cushioned-training-no-show-socks-6-pairs-XXM9xm/SX6898-904"
@@ -632,9 +622,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/113313d0-6cea-4131-8da7-c2c34f038193/U+NK+ED+PLUS+CUSH+NS+6PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/2da92399-997f-445b-a980-bc4f10fa8e60/U+NK+ED+PLUS+CUSH+NS+6PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-no-show-socks-6-pairs-XXM9xm/SX6898-937",
               "path": "/t/everyday-plus-cushioned-training-no-show-socks-6-pairs-XXM9xm/SX6898-937"
@@ -677,9 +665,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/bd397f51-b0be-4034-b5ea-f41bd58e4bfd/U+NK+ED+PLUS+CUSH+NS+6PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/bfe8e7af-13c1-4a97-a91d-ee26e41f0040/U+NK+ED+PLUS+CUSH+NS+6PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-no-show-socks-6-pairs-XXM9xm/SX6898-968",
               "path": "/t/everyday-plus-cushioned-training-no-show-socks-6-pairs-XXM9xm/SX6898-968"
@@ -722,9 +708,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/12392909-b650-4c95-857e-0cc4aa2ba8ad/U+NK+ED+PLUS+CUSH+NS+6PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/778ab6c3-e796-44ba-8602-81243cb427cd/U+NK+ED+PLUS+CUSH+NS+6PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-no-show-socks-6-pairs-XXM9xm/SX6898-969",
               "path": "/t/everyday-plus-cushioned-training-no-show-socks-6-pairs-XXM9xm/SX6898-969"
@@ -773,9 +757,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/682b7b6a-ca9a-474e-8b8f-e21c123ae668/Y+NK+ELMNTL+BKPK.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/8fc71638-b326-4ad5-bf71-f10cd3a480b5/Y+NK+ELMNTL+BKPK.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/elemental-kids-backpack-20l-ptK5V9/DR6084-010",
               "path": "/t/elemental-kids-backpack-20l-ptK5V9/DR6084-010"
@@ -818,9 +800,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/421c9666-91d3-4ead-8feb-2a384274c5a2/Y+NK+ELMNTL+BKPK.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/21872bef-cf87-475d-82e7-83c8fd325068/Y+NK+ELMNTL+BKPK.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/elemental-kids-backpack-20l-ptK5V9/DR6084-480",
               "path": "/t/elemental-kids-backpack-20l-ptK5V9/DR6084-480"
@@ -863,9 +843,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/fae07a28-0d33-4d33-b3b4-6b010a196cd6/Y+NK+ELMNTL+BKPK.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/b1cd8826-8be9-4f13-a8d4-2e30c130d549/Y+NK+ELMNTL+BKPK.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/elemental-kids-backpack-20l-ptK5V9/DR6084-646",
               "path": "/t/elemental-kids-backpack-20l-ptK5V9/DR6084-646"
@@ -914,9 +892,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/2a3b1721-2428-498b-ab17-f962ff6294d1/NIKE+COURT+LEGACY+%28PSV%29.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/b7a86d7b-b214-4213-9eba-ebbe8c587087/NIKE+COURT+LEGACY+%28PSV%29.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/court-legacy-little-kids-shoes-OcIArbbp/DA5381-102",
               "path": "/t/court-legacy-little-kids-shoes-OcIArbbp/DA5381-102"
@@ -959,9 +935,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/a1f3a53d-f2b6-4431-9342-ebc9343caccb/NIKE+COURT+LEGACY+%28PSV%29.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/7e374d77-956f-4668-b5a2-89cd1cab821b/NIKE+COURT+LEGACY+%28PSV%29.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/court-legacy-little-kids-shoes-OcIArbbp/DA5381-126",
               "path": "/t/court-legacy-little-kids-shoes-OcIArbbp/DA5381-126"
@@ -1004,9 +978,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/9ad139a7-769b-463f-9d22-185398bb6219/NIKE+COURT+LEGACY+%28PSV%29.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/181c30eb-4600-4f2a-97aa-20811a3e0984/NIKE+COURT+LEGACY+%28PSV%29.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/court-legacy-little-kids-shoes-OcIArbbp/DA5381-124",
               "path": "/t/court-legacy-little-kids-shoes-OcIArbbp/DA5381-124"
@@ -1049,9 +1021,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/d7b10332-b449-4934-8a43-693b68dc191f/NIKE+COURT+LEGACY+%28PSV%29.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/5e8b10c8-19f1-4770-8d3a-40d6b8d11e34/NIKE+COURT+LEGACY+%28PSV%29.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/court-legacy-little-kids-shoes-OcIArbbp/DA5381-104",
               "path": "/t/court-legacy-little-kids-shoes-OcIArbbp/DA5381-104"
@@ -1094,9 +1064,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/c0e4b735-e1fa-40de-a60d-cbecb8b949fa/NIKE+COURT+LEGACY+%28PSV%29.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/b02859ad-974d-481d-91d3-029826014fdb/NIKE+COURT+LEGACY+%28PSV%29.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/court-legacy-little-kids-shoes-OcIArbbp/DA5381-401",
               "path": "/t/court-legacy-little-kids-shoes-OcIArbbp/DA5381-401"
@@ -1280,9 +1248,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/4e8796f2-6423-47b5-b308-f40d58b68271/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/53ff795b-d4ef-4912-ad01-f2d586d073b0/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-907",
               "path": "/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-907"
@@ -1325,9 +1291,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/18d8c9bf-98fb-4538-a41a-1ed29e448289/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/ec927994-cbb5-48f9-a173-e13be83fcb77/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-966",
               "path": "/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-966"
@@ -1370,9 +1334,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/f4e95136-6011-43e8-92d7-19314e7cb676/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/7a801e5d-aff9-42ff-80c5-c079d62f047e/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-967",
               "path": "/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-967"
@@ -1415,9 +1377,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/0c7302c0-9d23-4170-bca0-e67dd522add4/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/qvpzseudso1po6hdsv9j/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-010",
               "path": "/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-010"
@@ -1460,9 +1420,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/6e6f752b-8bc6-412b-83dc-38d9668d67f9/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/5cf08450-f3bb-4a3f-90d7-d5f82e738d5e/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-965",
               "path": "/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-965"
@@ -1505,9 +1463,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/72c6228c-4597-4718-80c6-252c07246557/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/kze9nz89cay3xy4qzqst/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-100",
               "path": "/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-100"
@@ -1550,9 +1506,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/57d77620-67f2-493f-a9b5-f5eac1c341ef/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/589c5fd1-7498-4551-ab8e-e245f343e260/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-903",
               "path": "/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-903"
@@ -1595,9 +1549,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/35c348b9-8a7b-4ef3-8772-4bed7f7ef6ae/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/76ebb7bc-863a-49bf-b3c7-f0f155359432/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-904",
               "path": "/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-904"
@@ -1640,9 +1592,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/a1e61163-423d-431b-9fd4-3e7cef4b5972/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/327a1225-d715-4619-9fe0-b018bb52303c/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-968",
               "path": "/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-968"
@@ -1685,9 +1635,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/087b1a3f-71ac-4032-81b3-92a0a2402db9/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/da64aa50-cfc3-49ca-b5bf-7bac75635a62/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-901",
               "path": "/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-901"
@@ -1730,9 +1678,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/ce5ea538-9c93-4be2-9e24-b9749928cec3/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/805d27da-f1fb-4526-80ff-9ee6d085c02d/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-936",
               "path": "/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-936"
@@ -1775,9 +1721,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/af6e71b2-121f-4bdd-b59a-88ccdcf54812/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/6bab7042-ee26-42fb-8036-e5fae0892c24/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-937",
               "path": "/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-937"
@@ -1820,9 +1764,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/1b3fff91-9cbb-459b-8ef6-9df92ef1f498/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/f9055618-6541-4b4f-acfe-a8b38ac7dbd4/U+NK+ED+PLS+CSH+CRW+6PR+-+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-991",
               "path": "/t/everyday-plus-cushioned-training-crew-socks-6-pairs-vlRw4Q/SX6897-991"
@@ -2748,10 +2690,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/01c1dfcf-3023-42fa-a912-513eef200ac8/M+NK+DF+VCTRY+%2B+MICRO+AOP+POLO.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/bb7b5f0a-19bc-446b-9386-97eba537aaed/M+NK+DF+VCTRY+%2B+MICRO+AOP+POLO.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "JUST_IN"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "JUST_IN"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/dri-fit-victory-mens-allover-print-golf-polo-C6dTh3/DV8497-100",
               "path": "/t/dri-fit-victory-mens-allover-print-golf-polo-C6dTh3/DV8497-100"
@@ -2849,9 +2788,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/3b27eb2b-da90-4a12-bb43-a093ca26b4a3/NIKE+FREE+RN+5.0+NEXT+NATURE.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/a17ff9a8-3b6d-4331-abee-e50aecf0438f/NIKE+FREE+RN+5.0+NEXT+NATURE.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/free-run-5-mens-road-running-shoes-Xp40hf/CZ1884-001",
               "path": "/t/free-run-5-mens-road-running-shoes-Xp40hf/CZ1884-001"
@@ -2894,9 +2831,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/076f12da-c8f4-4035-874b-5a26e1f2ceae/NIKE+FREE+RN+5.0+NEXT+NATURE.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/a16d459f-b08c-432f-aa54-dcc6eac80543/NIKE+FREE+RN+5.0+NEXT+NATURE.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/free-run-5-mens-road-running-shoes-Xp40hf/CZ1884-010",
               "path": "/t/free-run-5-mens-road-running-shoes-Xp40hf/CZ1884-010"
@@ -2945,9 +2880,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/2d116240-77c8-4f5b-91f9-f44d8b6f347f/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/vqnnnyqlus8vksngi3ya/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-100",
               "path": "/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-100"
@@ -2990,9 +2923,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/9f44f860-bce0-45b0-a6e8-32b26022e32f/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/662ae688-acf5-46f9-b7dc-83b09b87a254/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-967",
               "path": "/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-967"
@@ -3035,9 +2966,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/40934dfc-0af5-4bfc-abfa-2a67b50d49d8/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/sflhz8r0r0gjuyf7vuzs/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-010",
               "path": "/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-010"
@@ -3080,9 +3009,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/b82d6549-693f-48a0-8792-1b423d9fa963/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/c8c39e58-b154-4c06-ba06-2e37c954f78e/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-968",
               "path": "/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-968"
@@ -3125,9 +3052,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/a2fd658d-917b-4619-bd08-de35c9a9efb5/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/8dc1f16a-f32f-43bd-863d-1abad7094953/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-965",
               "path": "/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-965"
@@ -3170,9 +3095,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/1c8589ba-5bcc-4eb2-abfa-dda5ca574b01/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/9591ad11-a458-4851-ba9b-1f0d6750e40e/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-994",
               "path": "/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-994"
@@ -3215,9 +3138,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/228e02de-b4ba-459b-a16e-3f3cab98f153/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/df396c4f-97ad-4f9e-b690-6a90c37f26d4/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-995",
               "path": "/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-995"
@@ -3260,9 +3181,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/d6a2a1ac-2f38-4886-833e-09ce44317288/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/4af5341b-fdbb-4a04-93f2-29e72a90f4c6/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-969",
               "path": "/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-969"
@@ -3305,9 +3224,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/752ff14d-8fd7-4891-b140-68f21ac6b6f9/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/25443d12-33c3-40cf-9f80-abdfd3035fb7/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-901",
               "path": "/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-901"
@@ -3350,9 +3267,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/ee5e36fc-836e-4ec7-bd93-395382650f60/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/58fcbecc-b5b9-4ef0-88e2-c2165ad538c2/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-936",
               "path": "/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-936"
@@ -3395,9 +3310,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/03c3cbfe-d2c5-4264-94db-3e2e3443b20a/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/1983c592-cea7-4f7a-97bf-c38766dddb01/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-937",
               "path": "/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-937"
@@ -3440,9 +3353,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/e166b522-ca96-41de-85be-60b7a4cfd6d7/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/2c8c1574-7f6e-432c-8dfa-60a84d04204a/U+NK+EVRY+PLS+CSH+ANK+3PR+132.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-996",
               "path": "/t/everyday-plus-cushioned-training-ankle-socks-3-pairs-QrMX1x/SX6890-996"
@@ -3540,9 +3451,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/ece27fc1-1c28-43b2-ae8e-fb39db26c71c/NIKE+COURT+LEGACY+NN.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/aaac8e7b-b62e-4023-9844-7ac4a0577f0a/NIKE+COURT+LEGACY+NN.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/court-legacy-mens-shoes-75ljqX/DH3162-100",
               "path": "/t/court-legacy-mens-shoes-75ljqX/DH3162-100"
@@ -3585,9 +3494,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/f0e2da9f-f646-4104-8a87-2760b66720d2/NIKE+COURT+LEGACY+NN.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/cf4a5556-6163-4abf-9b83-0f89b4766100/NIKE+COURT+LEGACY+NN.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/court-legacy-mens-shoes-75ljqX/DH3162-101",
               "path": "/t/court-legacy-mens-shoes-75ljqX/DH3162-101"
@@ -3648,9 +3555,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/26d05b2f-e8d3-47f3-89d4-5055f1f9d179/W+NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/bf5af5bb-ae08-48af-a022-b765d1e1bb33/W+NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-womens-road-running-shoes-bt34Qq/FB2208-003",
               "path": "/t/revolution-7-womens-road-running-shoes-bt34Qq/FB2208-003"
@@ -3693,9 +3598,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/d76b79fd-e11d-458d-8177-fa1746921e21/W+NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/d0e15fdf-cd8f-4020-8235-f31a0e07068e/W+NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-womens-road-running-shoes-bt34Qq/FB2208-100",
               "path": "/t/revolution-7-womens-road-running-shoes-bt34Qq/FB2208-100"
@@ -3738,9 +3641,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/88587c4e-efba-4360-b26a-75d876007319/W+NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/cab1127e-19ea-44de-b530-67c7aa72071c/W+NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-womens-road-running-shoes-bt34Qq/FB2208-002",
               "path": "/t/revolution-7-womens-road-running-shoes-bt34Qq/FB2208-002"
@@ -3783,9 +3684,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/5f38c967-dec3-4dad-8f7c-327d44bef738/W+NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/acd9a3e5-da56-4218-936d-4e519fd6e9ad/W+NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-womens-road-running-shoes-bt34Qq/FB2208-104",
               "path": "/t/revolution-7-womens-road-running-shoes-bt34Qq/FB2208-104"
@@ -3828,9 +3727,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/5a839742-a28d-4ba3-b5be-f7bb7a837aab/W+NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/6b62d203-4ee4-4d50-9f09-b909e08ff013/W+NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-womens-road-running-shoes-bt34Qq/FB2208-106",
               "path": "/t/revolution-7-womens-road-running-shoes-bt34Qq/FB2208-106"
@@ -3928,9 +3825,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/cb8d316e-795a-4a9b-99e6-e8e73a46c970/Y+NK+EVERYDY+CUSH+CREW+6PR+108.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/2f83ff67-8853-45b5-b84a-f05c7994fa7a/Y+NK+EVERYDY+CUSH+CREW+6PR+108.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-kids-cushioned-crew-socks-6-pairs-pvTjozMg/SX6910-100",
               "path": "/t/everyday-kids-cushioned-crew-socks-6-pairs-pvTjozMg/SX6910-100"
@@ -3973,9 +3868,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/e092c5cd-629d-44fa-a846-a383c0b068a0/Y+NK+EVERYDY+CUSH+CREW+6PR+108.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/ter1euq2eyaouoetndcx/Y+NK+EVERYDY+CUSH+CREW+6PR+108.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-kids-cushioned-crew-socks-6-pairs-pvTjozMg/SX6910-010",
               "path": "/t/everyday-kids-cushioned-crew-socks-6-pairs-pvTjozMg/SX6910-010"
@@ -4018,9 +3911,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/b029ff71-7b30-4de2-aa88-1f549edf29ac/Y+NK+EVERYDY+CUSH+CREW+6PR+108.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/18c94a08-56b4-4f54-9e94-da6a960ad15f/Y+NK+EVERYDY+CUSH+CREW+6PR+108.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/everyday-kids-cushioned-crew-socks-6-pairs-pvTjozMg/SX6910-903",
               "path": "/t/everyday-kids-cushioned-crew-socks-6-pairs-pvTjozMg/SX6910-903"
@@ -4118,9 +4009,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/f276e2c7-71e6-42c4-91fc-201efe7d170d/W+NK+INDY+V-NECK+BRA.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/cd7c5022-17f0-4bf9-9131-915d7938ba96/W+NK+INDY+V-NECK+BRA.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/indy-womens-light-support-padded-v-neck-sports-bra-tcglhV/CZ4456-010",
               "path": "/t/indy-womens-light-support-padded-v-neck-sports-bra-tcglhV/CZ4456-010"
@@ -4163,9 +4052,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/3e5dcb16-35cb-47ac-80cd-7ff4ee87e93d/W+NK+INDY+V-NECK+BRA.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/76c9061d-add8-4962-b826-d947324fa6b6/W+NK+INDY+V-NECK+BRA.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/indy-womens-light-support-padded-v-neck-sports-bra-tcglhV/CZ4456-084",
               "path": "/t/indy-womens-light-support-padded-v-neck-sports-bra-tcglhV/CZ4456-084"
@@ -4208,9 +4095,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/0b76aa3a-12fa-449a-8ecc-57f97519b95b/W+NK+INDY+V-NECK+BRA.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/7556ede9-85d8-42bf-9219-e7068816a307/W+NK+INDY+V-NECK+BRA.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/indy-womens-light-support-padded-v-neck-sports-bra-tcglhV/CZ4456-100",
               "path": "/t/indy-womens-light-support-padded-v-neck-sports-bra-tcglhV/CZ4456-100"
@@ -4351,9 +4236,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/0468bdc9-4deb-4074-beeb-f115b9ea1365/M+NK+DF+SWOOSH+FLEECE+JOGGER.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/a0cf4950-5d84-49ec-8122-11943f7975d8/M+NK+DF+SWOOSH+FLEECE+JOGGER.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/swoosh-mens-dri-fit-fleece-fitness-joggers-WV5k0d/FV9946-010",
               "path": "/t/swoosh-mens-dri-fit-fleece-fitness-joggers-WV5k0d/FV9946-010"
@@ -4396,9 +4279,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/94e2b3d9-6f51-42fc-90a0-4f1f5e005027/M+NK+DF+SWOOSH+FLEECE+JOGGER.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/536bb271-2664-411d-8d3a-0d6f08a96de0/M+NK+DF+SWOOSH+FLEECE+JOGGER.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/swoosh-mens-dri-fit-fleece-fitness-joggers-WV5k0d/FV9946-494",
               "path": "/t/swoosh-mens-dri-fit-fleece-fitness-joggers-WV5k0d/FV9946-494"
@@ -4441,9 +4322,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/221d3515-467b-41a7-8277-347b16756ebe/M+NK+DF+SWOOSH+FLEECE+JOGGER.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/736692cc-2192-4f7b-be27-5c360d54dd44/M+NK+DF+SWOOSH+FLEECE+JOGGER.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/swoosh-mens-dri-fit-fleece-fitness-joggers-WV5k0d/FV9946-652",
               "path": "/t/swoosh-mens-dri-fit-fleece-fitness-joggers-WV5k0d/FV9946-652"
@@ -5204,9 +5083,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/22cc9b7d-80ee-4704-9157-c7cd8747eb2b/M+NK+DF+READY+SS.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/0c3f6310-ef30-463d-b669-601b001ffe18/M+NK+DF+READY+SS.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/ready-mens-dri-fit-short-sleeve-fitness-top-bc8lMz/DV9815-100",
               "path": "/t/ready-mens-dri-fit-short-sleeve-fitness-top-bc8lMz/DV9815-100"
@@ -5249,9 +5126,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/e554f22e-e4b2-46a3-b026-69d7e2d7fe43/M+NK+DF+READY+SS.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/ad59c742-aa0b-4961-a914-83bffc6367b0/M+NK+DF+READY+SS.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/ready-mens-dri-fit-short-sleeve-fitness-top-bc8lMz/DV9815-010",
               "path": "/t/ready-mens-dri-fit-short-sleeve-fitness-top-bc8lMz/DV9815-010"
@@ -5294,9 +5169,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/856ed19b-7e18-4d42-b859-545500184c70/M+NK+DF+READY+SS.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/8c5524d4-d371-4bf9-babf-b846ebe1fdc8/M+NK+DF+READY+SS.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/ready-mens-dri-fit-short-sleeve-fitness-top-bc8lMz/DV9815-657",
               "path": "/t/ready-mens-dri-fit-short-sleeve-fitness-top-bc8lMz/DV9815-657"
@@ -5339,9 +5212,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/9c47d2ef-f3ce-4ce9-ab07-6ceb8509be77/M+NK+DF+READY+SS.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/0a35fe1c-592c-4d1a-96d3-b2f961f51e77/M+NK+DF+READY+SS.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/ready-mens-dri-fit-short-sleeve-fitness-top-bc8lMz/DV9815-480",
               "path": "/t/ready-mens-dri-fit-short-sleeve-fitness-top-bc8lMz/DV9815-480"
@@ -5776,9 +5647,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/26085f38-56cb-4361-bbc2-7e22f22f22e7/ZM+SUPERFLY+10+ACAD+FG%2FMG.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/306e73bd-90ed-4c0c-a679-f62b868b515a/ZM+SUPERFLY+10+ACAD+FG%2FMG.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/mercurial-superfly-10-academy-mg-high-top-soccer-cleats-IeaDQZH0/FQ1456-400",
               "path": "/t/mercurial-superfly-10-academy-mg-high-top-soccer-cleats-IeaDQZH0/FQ1456-400"
@@ -5821,9 +5690,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/ec00ecc5-dc3f-4375-9dc1-f18a979d8ba6/ZM+SUPERFLY+10+ACAD+FG%2FMG.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/615bd8bf-ea41-487a-b3e1-70399eef6be6/ZM+SUPERFLY+10+ACAD+FG%2FMG.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/mercurial-superfly-10-academy-mg-high-top-soccer-cleats-IeaDQZH0/FQ1456-002",
               "path": "/t/mercurial-superfly-10-academy-mg-high-top-soccer-cleats-IeaDQZH0/FQ1456-002"
@@ -5866,9 +5733,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/a68f0e5f-4e7d-45d8-b4c6-b59524a015d6/ZM+SUPERFLY+10+ACAD+FG%2FMG.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/b197b1fb-1249-48e2-aa98-bd8aee5c0f7e/ZM+SUPERFLY+10+ACAD+FG%2FMG.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/mercurial-superfly-10-academy-mg-high-top-soccer-cleats-IeaDQZH0/FQ1456-800",
               "path": "/t/mercurial-superfly-10-academy-mg-high-top-soccer-cleats-IeaDQZH0/FQ1456-800"
@@ -6525,9 +6390,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/d1faa250-46fc-4723-b1f6-0d2cd2be5f1e/Y+NK+BRSLA+BKPK+-+CAT+AOP+FA24.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/f9b99fab-40ab-4662-9d0e-c6e4f7bd8e54/Y+NK+BRSLA+BKPK+-+CAT+AOP+FA24.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/brasilia-kids-backpack-18l-VwF8fS/HF6651-010",
               "path": "/t/brasilia-kids-backpack-18l-VwF8fS/HF6651-010"
@@ -6570,9 +6433,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/ce2bce3d-6150-4346-91b7-39314f8ddcc8/Y+NK+BRSLA+BKPK+-+CAT+AOP+FA24.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/759043e4-1390-4917-a581-b29f907fe9a4/Y+NK+BRSLA+BKPK+-+CAT+AOP+FA24.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/brasilia-kids-backpack-18l-VwF8fS/HF6651-478",
               "path": "/t/brasilia-kids-backpack-18l-VwF8fS/HF6651-478"
@@ -6621,9 +6482,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/8d01bd38-9416-4fec-a454-81fa7c17551f/AIR+MAX+1+%28GS%29.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/b83a6ee2-2c79-4550-8168-0c6f3bfd6b63/AIR+MAX+1+%28GS%29.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-max-1-big-kids-shoes-qTLjtC/DZ3307-104",
               "path": "/t/air-max-1-big-kids-shoes-qTLjtC/DZ3307-104"
@@ -6666,9 +6525,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/fb3ba7ef-fa8c-4430-87f4-e820e5b647d3/AIR+MAX+1+%28GS%29.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/c2a128e8-2d1b-488b-8948-237d329c7459/AIR+MAX+1+%28GS%29.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-max-1-big-kids-shoes-qTLjtC/DZ3307-106",
               "path": "/t/air-max-1-big-kids-shoes-qTLjtC/DZ3307-106"
@@ -6711,9 +6568,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/d7292e05-ed78-494b-bece-0d8d2e9d0c2b/AIR+MAX+1+%28GS%29.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/99f92c2d-7608-4988-83d6-ae0959cb5385/AIR+MAX+1+%28GS%29.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-max-1-big-kids-shoes-qTLjtC/DZ3307-011",
               "path": "/t/air-max-1-big-kids-shoes-qTLjtC/DZ3307-011"
@@ -6756,9 +6611,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/76091e91-5fbd-4e47-af2e-4c3bcbff8358/AIR+MAX+1+%28GS%29.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/4c6c1a35-f0d4-4646-84b9-583b967b4b03/AIR+MAX+1+%28GS%29.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-max-1-big-kids-shoes-qTLjtC/DZ3307-008",
               "path": "/t/air-max-1-big-kids-shoes-qTLjtC/DZ3307-008"
@@ -6801,9 +6654,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/104d50e3-5c5a-421d-95e5-0c78cbe64235/AIR+MAX+1+%28GS%29.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/a4df45e2-376e-44d4-8d99-adf5518a505e/AIR+MAX+1+%28GS%29.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-max-1-big-kids-shoes-qTLjtC/DZ3307-116",
               "path": "/t/air-max-1-big-kids-shoes-qTLjtC/DZ3307-116"
@@ -6895,9 +6746,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/60ca116d-704e-4710-a9d4-f2a7a5c1061d/M+J+FLT+ESS+85+SS+CREW.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/72ce17e6-2381-4d1e-96db-dbd8bdaa9845/M+J+FLT+ESS+85+SS+CREW.png"
             },
-            "featuredAttributes": [
-              "PROMOS_EXCLUDED"
-            ],
+            "featuredAttributes": ["PROMOS_EXCLUDED"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/jordan-flight-essentials-85-mens-t-shirt-hHw2Z9/FZ1912-133",
               "path": "/t/jordan-flight-essentials-85-mens-t-shirt-hHw2Z9/FZ1912-133"
@@ -6946,9 +6795,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/48287ddd-4b87-4cc5-a2a3-dd0bdb3b5154/NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/d71ffe7b-921c-4495-94cf-11c28bbf17b6/NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-100",
               "path": "/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-100"
@@ -6991,9 +6838,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/30d7afaa-343b-4439-b65d-bb544c65420e/NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/8d7e9e0b-7100-4a95-82ae-130c4076df64/NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-001",
               "path": "/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-001"
@@ -7036,9 +6881,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/55cb230b-f009-4885-8e0b-e4651a36fe6c/NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/ffbb54e2-f757-48b3-83de-a0903f05d893/NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-005",
               "path": "/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-005"
@@ -7081,9 +6924,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/cd6dd402-923f-4db1-8b88-54ca099531b1/NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/03e79eb6-da2b-4e52-af1a-2499caf49dc9/NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-400",
               "path": "/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-400"
@@ -7126,9 +6967,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/951bed17-cd2d-44e6-adc1-e26ad6136242/NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/e2021acb-ab25-472c-9cdf-3a921e66f7cf/NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-102",
               "path": "/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-102"
@@ -7171,9 +7010,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/40625c4a-ef13-4505-b63f-b3cd425f54b3/NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/c5e4f8b4-82d6-46fa-bd41-9a5ee7d6057c/NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-003",
               "path": "/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-003"
@@ -7216,9 +7053,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/b88834c4-75f3-40d6-a757-19a878998abf/NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/ee7202cb-93cc-4e38-a413-189b4dbf5998/NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-007",
               "path": "/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-007"
@@ -7261,9 +7096,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/5d42aa4c-6955-4e76-b0a4-523686dd4eac/NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/94576e1d-9409-4010-8b62-a1924df29f4c/NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-010",
               "path": "/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-010"
@@ -7306,9 +7139,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/adbbd5f0-a95e-40c3-b3d5-6b04efaab415/NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/be65aaee-d0c1-4f1b-859c-6b89db34d057/NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-011",
               "path": "/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-011"
@@ -7351,9 +7182,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/dfb01a15-064c-43d1-b8fe-bfc6bb2f9354/NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/793d3b43-0a66-4241-9ad1-c0e0b42b5c8c/NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-103",
               "path": "/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-103"
@@ -7396,9 +7225,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/d1e78222-cc91-4e8b-b0be-edf1747cee43/NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/88dbe84c-61fc-4495-b052-948381f455f7/NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-403",
               "path": "/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-403"
@@ -7441,9 +7268,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/5c06575b-e025-4240-b8b3-131245f08a42/NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/019b0faa-5940-4d4d-b58c-82adeac866d1/NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-406",
               "path": "/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-406"
@@ -7486,9 +7311,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/7c6696d8-af22-4422-87f4-8b3c2b909236/NIKE+REVOLUTION+7.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/3cbffeff-fa2b-462e-8a35-ca62b5da92c9/NIKE+REVOLUTION+7.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-407",
               "path": "/t/revolution-7-mens-road-running-shoes-72BvdH/FB2207-407"
@@ -7936,9 +7759,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/8f4e5736-13dd-4f42-b74f-48383b0911ae/M+NSW+CLUB+HOODIE+PO+BB.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/3903931e-af6d-4f21-be1d-0b4d3c50788f/M+NSW+CLUB+HOODIE+PO+BB.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/sportswear-club-fleece-pullover-hoodie-Gw4Nwq/BV2654-010",
               "path": "/t/sportswear-club-fleece-pullover-hoodie-Gw4Nwq/BV2654-010"
@@ -7981,9 +7802,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/300e86cc-f6e1-407d-bf57-60edf337af99/M+NSW+CLUB+HOODIE+PO+BB.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/e5ad23cc-6e81-4c08-9cc1-7f9487e059e0/M+NSW+CLUB+HOODIE+PO+BB.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/sportswear-club-fleece-pullover-hoodie-Gw4Nwq/BV2654-247",
               "path": "/t/sportswear-club-fleece-pullover-hoodie-Gw4Nwq/BV2654-247"
@@ -8026,9 +7845,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/e66165d4-a51e-444f-b184-f25aba04898c/M+NSW+CLUB+HOODIE+PO+BB.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/5de18338-3337-40c1-83e0-53a5e9ed18c0/M+NSW+CLUB+HOODIE+PO+BB.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/sportswear-club-fleece-pullover-hoodie-Gw4Nwq/BV2654-063",
               "path": "/t/sportswear-club-fleece-pullover-hoodie-Gw4Nwq/BV2654-063"
@@ -8298,9 +8115,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/94ebd118-cb01-413b-98ff-a96cd7a72060/M+NK+CLUB+FLOW+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/49e61b95-54ee-4f59-951a-4e64cb7f43d6/M+NK+CLUB+FLOW+SHORT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-652",
               "path": "/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-652"
@@ -8429,9 +8244,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/38377413-58cc-4b06-9219-36a0630552ad/M+NK+CLUB+FLOW+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/4aec311c-a4cb-4203-ad81-44cd7af68a79/M+NK+CLUB+FLOW+SHORT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-224",
               "path": "/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-224"
@@ -8517,9 +8330,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/e876c667-8eb3-41ad-82e8-bb2ec0370e3a/M+NK+CLUB+FLOW+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/a527142a-0caf-4f05-9896-d8aa11c169d1/M+NK+CLUB+FLOW+SHORT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-663",
               "path": "/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-663"
@@ -8605,9 +8416,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/8e6e07cc-1762-4a5e-bd4c-101e156eb2e4/M+NK+CLUB+FLOW+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/622c1882-3fb7-4d12-9a32-2008e07df9c2/M+NK+CLUB+FLOW+SHORT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-386",
               "path": "/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-386"
@@ -8650,9 +8459,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/beaee65e-7074-400d-a53d-e99f0520e851/M+NK+CLUB+FLOW+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/30a87838-c314-4161-93c9-240e03b75576/M+NK+CLUB+FLOW+SHORT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-323",
               "path": "/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-323"
@@ -8793,9 +8600,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/e9ea4825-19dc-4ab5-ba3e-dfe12b6b6d7d/M+NK+CLUB+FLOW+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/4013ffe7-b5ee-4876-a617-fde8312090f8/M+NK+CLUB+FLOW+SHORT.png"
             },
-            "featuredAttributes": [
-              "JUST_IN"
-            ],
+            "featuredAttributes": ["JUST_IN"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-538",
               "path": "/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-538"
@@ -8838,9 +8643,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/2a05db80-569f-4d73-8310-dca4b07017f3/M+NK+CLUB+FLOW+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/48df1b9d-e09d-49d8-8854-34851dcc5b93/M+NK+CLUB+FLOW+SHORT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-480",
               "path": "/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-480"
@@ -8883,9 +8686,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/4d2bc9f3-6a55-4cd0-81f1-f1bd9bdb9723/M+NK+CLUB+FLOW+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/ef6157c2-0f50-4530-8085-867f55bafce5/M+NK+CLUB+FLOW+SHORT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-657",
               "path": "/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-657"
@@ -8928,9 +8729,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/fa3fc5f1-6914-4dfd-92f8-446dbe086d9e/M+NK+CLUB+FLOW+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/d7984909-9cbb-4a3c-bca0-6b84efe8c4b0/M+NK+CLUB+FLOW+SHORT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-464",
               "path": "/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-464"
@@ -8973,9 +8772,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/9b0fcdd5-83db-4dd9-b918-d6b2db14f67b/M+NK+CLUB+FLOW+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/cb0f2549-e8ec-44be-a290-e755b2c62c7f/M+NK+CLUB+FLOW+SHORT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-814",
               "path": "/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-814"
@@ -9018,9 +8815,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/e9aea0ba-5bc0-4ee4-91e8-42a729213f74/M+NK+CLUB+FLOW+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/430d735f-1ebc-496b-8eff-c9a9279cc47f/M+NK+CLUB+FLOW+SHORT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-025",
               "path": "/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-025"
@@ -9063,9 +8858,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/bedff65e-6767-4eda-be2c-107b321f36d9/M+NK+CLUB+FLOW+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/c2f9263f-307f-40f9-ab8f-4997af266aa4/M+NK+CLUB+FLOW+SHORT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-100",
               "path": "/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-100"
@@ -9151,9 +8944,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/39d9604b-2065-45aa-8ede-8be20d5e0634/M+NK+CLUB+FLOW+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/859b3b27-3938-4ef7-933f-27a0b119504c/M+NK+CLUB+FLOW+SHORT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-412",
               "path": "/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-412"
@@ -9196,9 +8987,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/fde529c5-1d0b-4328-9d28-b2d486d207ac/M+NK+CLUB+FLOW+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/d62c336b-6754-484a-a56c-d46c68fc59d4/M+NK+CLUB+FLOW+SHORT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-451",
               "path": "/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-451"
@@ -9241,9 +9030,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/ae1d6b60-6203-4438-ba9a-17303cb48c43/M+NK+CLUB+FLOW+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/9838aa31-2e74-4ec5-9ee1-63a3a904624a/M+NK+CLUB+FLOW+SHORT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-736",
               "path": "/t/club-mens-woven-flow-shorts-vw2WpQ/FN3307-736"
@@ -9378,9 +9165,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/eddbae6d-ea20-45c4-8bdb-084c1111e46f/W+NIKE+DUNK+LOW+NN.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/05ad2a05-0103-470b-8b10-c4cd9f5040ab/W+NIKE+DUNK+LOW+NN.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/dunk-low-next-nature-womens-shoes-0kZvx6/FZ6770-001",
               "path": "/t/dunk-low-next-nature-womens-shoes-0kZvx6/FZ6770-001"
@@ -9423,9 +9208,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/3ff2b05a-1070-41ea-ac43-d199c6cc875b/W+DUNK+LOW+NEXT+NATURE.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/150fafa5-6dea-43e1-ae4f-7f523128ccb9/W+DUNK+LOW+NEXT+NATURE.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/dunk-low-womens-shoes-0kZvx6/HF5384-300",
               "path": "/t/dunk-low-womens-shoes-0kZvx6/HF5384-300"
@@ -9468,9 +9251,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/c7535fe6-153d-4a5e-9d5a-d72c5c813c85/W+NIKE+DUNK+LOW+PRM+NN.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/4e2229e5-22a4-46ac-897b-6860c0a57974/W+NIKE+DUNK+LOW+PRM+NN.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/dunk-low-premium-next-nature-womens-shoes-0kZvx6/FN6345-001",
               "path": "/t/dunk-low-premium-next-nature-womens-shoes-0kZvx6/FN6345-001"
@@ -9814,10 +9595,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/7888ed00-8d4c-45b3-bbfb-f3d6d29e8c1f/W+NIKE+DUNK+LOW.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/e1df5e0b-37f5-4111-9ec5-2e3053052cdb/W+NIKE+DUNK+LOW.png"
             },
-            "featuredAttributes": [
-              "MEMBER_ACCESS_ALL",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["MEMBER_ACCESS_ALL", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/dunk-low-womens-shoes-0kZvx6/HV5231-133",
               "path": "/t/dunk-low-womens-shoes-0kZvx6/HV5231-133"
@@ -9903,9 +9681,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/d2a10c00-cb10-4c92-82e2-8ab0a7e0fcb9/W+NIKE+DUNK+LOW.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/e4d381f6-4422-4595-8d3b-979169a785a9/W+NIKE+DUNK+LOW.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/dunk-low-womens-shoes-0kZvx6/HF1986-001",
               "path": "/t/dunk-low-womens-shoes-0kZvx6/HF1986-001"
@@ -10371,9 +10147,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/9937644d-a6c5-48c6-9e03-2fefdf04148f/M+NK+DF+ICON+11IN+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/55a5290f-7765-4ebd-9022-598fc8f4b945/M+NK+DF+ICON+11IN+SHORT.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/icon-mens-dri-fit-11-basketball-shorts-dkviPq3W/DQ5822-016",
               "path": "/t/icon-mens-dri-fit-11-basketball-shorts-dkviPq3W/DQ5822-016"
@@ -10416,9 +10190,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/50f89684-366b-435c-a734-26088edaae49/M+NK+DF+ICON+11IN+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/61293122-6250-428b-a6c8-882207065386/M+NK+DF+ICON+11IN+SHORT.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/icon-mens-dri-fit-11-basketball-shorts-dkviPq3W/DQ5822-659",
               "path": "/t/icon-mens-dri-fit-11-basketball-shorts-dkviPq3W/DQ5822-659"
@@ -10461,9 +10233,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/6505eddd-071f-4703-9eed-4845aed5e6d4/M+NK+DF+ICON+11IN+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/88952611-48b7-4020-a0f5-b74e0a764b1a/M+NK+DF+ICON+11IN+SHORT.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/icon-mens-dri-fit-11-basketball-shorts-dkviPq3W/DQ5822-100",
               "path": "/t/icon-mens-dri-fit-11-basketball-shorts-dkviPq3W/DQ5822-100"
@@ -10506,9 +10276,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/07092873-a6fc-4222-ac79-a09916c44b66/M+NK+DF+ICON+11IN+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/961b76da-a1e4-4663-bfd5-8f4f5e5792a1/M+NK+DF+ICON+11IN+SHORT.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/icon-mens-dri-fit-11-basketball-shorts-dkviPq3W/DQ5822-413",
               "path": "/t/icon-mens-dri-fit-11-basketball-shorts-dkviPq3W/DQ5822-413"
@@ -10551,9 +10319,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/5b8d0f68-79ab-48be-989a-8154dff797c1/M+NK+DF+ICON+11IN+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/f47eb8a6-85ce-4073-91bd-b4cb1b5f900d/M+NK+DF+ICON+11IN+SHORT.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/icon-mens-dri-fit-11-basketball-shorts-dkviPq3W/DQ5822-066",
               "path": "/t/icon-mens-dri-fit-11-basketball-shorts-dkviPq3W/DQ5822-066"
@@ -10596,9 +10362,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/782220fc-a2e4-4f79-a039-b220a0a2715e/M+NK+DF+ICON+11IN+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/c47b1953-da9d-408d-b82b-902a28f2b9ef/M+NK+DF+ICON+11IN+SHORT.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/icon-mens-dri-fit-11-basketball-shorts-dkviPq3W/DQ5822-017",
               "path": "/t/icon-mens-dri-fit-11-basketball-shorts-dkviPq3W/DQ5822-017"
@@ -11641,9 +11405,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/5b8492c6-f61b-4337-ad76-c062e450a6c0/W+NK+ONE+DF+HR+7IN+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/d6912089-a52e-4c4e-af0b-48cb5d35e246/W+NK+ONE+DF+HR+7IN+SHORT.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/dri-fit-one-womens-high-waisted-7-biker-shorts-StCVGV/DV9022-010",
               "path": "/t/dri-fit-one-womens-high-waisted-7-biker-shorts-StCVGV/DV9022-010"
@@ -11735,9 +11497,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/afa59af3-3482-473f-8242-9901364dcd86/NIKE+P-6000.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/a6445416-b16c-4bf7-bdb9-5dd988666313/NIKE+P-6000.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/p-6000-shoes-XkgpKW/CD6404-023",
               "path": "/t/p-6000-shoes-XkgpKW/CD6404-023"
@@ -11902,9 +11662,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/927e2017-07a2-4f0e-a83d-c3b603844d4b/NIKE+P-6000.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/2443160d-3a91-452a-a8a7-054c62e979a0/NIKE+P-6000.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/p-6000-shoes-XkgpKW/CD6404-701",
               "path": "/t/p-6000-shoes-XkgpKW/CD6404-701"
@@ -12088,9 +11846,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/6c916724-b326-476d-87a5-2b57d667a0f3/NIKE+P-6000.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/177461e4-2ad3-4773-86d4-95bb5fbde7fc/NIKE+P-6000.png"
             },
-            "featuredAttributes": [
-              "JUST_IN"
-            ],
+            "featuredAttributes": ["JUST_IN"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/p-6000-shoes-XkgpKW/CD6404-025",
               "path": "/t/p-6000-shoes-XkgpKW/CD6404-025"
@@ -12133,9 +11889,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/2b0eef5c-9de6-4be8-8346-72017e994498/NIKE+P-6000.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/f70d1ffa-f4ab-49b7-8136-751ec1dc00eb/NIKE+P-6000.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/p-6000-shoes-XkgpKW/CD6404-105",
               "path": "/t/p-6000-shoes-XkgpKW/CD6404-105"
@@ -12178,9 +11932,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/360320d5-93f5-4cd2-a6f4-093608a21100/NIKE+P-6000.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/c99960a0-1a02-408c-a7ca-6fc28d725d2d/NIKE+P-6000.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/p-6000-shoes-XkgpKW/CD6404-026",
               "path": "/t/p-6000-shoes-XkgpKW/CD6404-026"
@@ -12223,9 +11975,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/c0bef76c-db55-40d4-a8e4-996c31f13f65/NIKE+P-6000.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/7755255b-fe67-424e-a09d-8bac2da97154/NIKE+P-6000.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/p-6000-shoes-XkgpKW/CD6404-107",
               "path": "/t/p-6000-shoes-XkgpKW/CD6404-107"
@@ -12274,9 +12024,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/f6d72bcb-1bbb-4d13-888a-eb5fd64a03ed/M+NP+DF+FLEX+VENT+MX+8IN+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/fdd82b9b-2eee-426f-82be-4bf4688a5660/M+NP+DF+FLEX+VENT+MX+8IN+SHORT.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/pro-dri-fit-flex-vent-max-mens-8-training-shorts-JTz2FS/DM5950-010",
               "path": "/t/pro-dri-fit-flex-vent-max-mens-8-training-shorts-JTz2FS/DM5950-010"
@@ -12319,9 +12067,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/e3fb161f-d813-475f-8eea-8664b3687842/M+NP+DF+FLEX+VENT+MX+8IN+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/8b65413c-f461-4e97-a8df-5f4a4568dee4/M+NP+DF+FLEX+VENT+MX+8IN+SHORT.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/pro-dri-fit-flex-vent-max-mens-8-training-shorts-JTz2FS/DM5950-451",
               "path": "/t/pro-dri-fit-flex-vent-max-mens-8-training-shorts-JTz2FS/DM5950-451"
@@ -12370,9 +12116,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/73124d96-b05f-479c-9554-65a904fa71de/M+NK+DF+FORM+9IN+UL+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/25ca30af-88d7-4dc0-9ef6-afa86ee28b5c/M+NK+DF+FORM+9IN+UL+SHORT.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/form-mens-dri-fit-9-unlined-versatile-shorts-7gZxEe00/FN2998-010",
               "path": "/t/form-mens-dri-fit-9-unlined-versatile-shorts-7gZxEe00/FN2998-010"
@@ -12415,9 +12159,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/3ac49847-ec62-4850-bf64-d622081bdda3/M+NK+DF+FORM+9IN+UL+SHORT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/17237eed-0eb5-416f-ab4c-c6f9624fac69/M+NK+DF+FORM+9IN+UL+SHORT.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/form-mens-dri-fit-9-unlined-versatile-shorts-7gZxEe00/FN2998-084",
               "path": "/t/form-mens-dri-fit-9-unlined-versatile-shorts-7gZxEe00/FN2998-084"
@@ -12509,10 +12251,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/03ca43c0-dbcd-48fe-8532-c462cd1e89f2/W+NIKE+AL8.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/9dd51889-3628-45bc-9e1c-985122079162/W+NIKE+AL8.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/al8-womens-shoes-r93WJ3g5/FJ3794-600",
               "path": "/t/al8-womens-shoes-r93WJ3g5/FJ3794-600"
@@ -12555,10 +12294,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/27b66475-73ee-498c-8c0a-d5a1f96b82bb/W+NIKE+AL8.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/3c33a490-f37a-43d1-9ab4-9bd266dce7f0/W+NIKE+AL8.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/al8-womens-shoes-r93WJ3g5/FJ3794-101",
               "path": "/t/al8-womens-shoes-r93WJ3g5/FJ3794-101"
@@ -12601,10 +12337,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/14dd3546-ccee-4407-99a6-598a2537690a/W+NIKE+AL8.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/34840d30-ce13-42f4-8ee6-e81601341038/W+NIKE+AL8.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/al8-womens-shoes-r93WJ3g5/FJ3794-100",
               "path": "/t/al8-womens-shoes-r93WJ3g5/FJ3794-100"
@@ -12647,10 +12380,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/5b616cad-9db9-468c-b4ce-fe90655cf73b/W+NIKE+AL8.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/2e2decfe-6240-42be-82a3-6b892840ad21/W+NIKE+AL8.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/al8-womens-shoes-r93WJ3g5/FJ3794-004",
               "path": "/t/al8-womens-shoes-r93WJ3g5/FJ3794-004"
@@ -12736,10 +12466,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/79589026-1ef3-429e-9be0-309fbf86ece5/W+NIKE+AL8.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/eda634a0-f45d-4323-bb15-d69f279b5da8/W+NIKE+AL8.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/al8-womens-shoes-r93WJ3g5/FJ3794-001",
               "path": "/t/al8-womens-shoes-r93WJ3g5/FJ3794-001"
@@ -12782,10 +12509,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/6dbbe772-aa8a-404c-85a1-ab4e3d44bec4/W+NIKE+AL8.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/7273076a-199a-4de0-a6c2-5c35bbaf35a1/W+NIKE+AL8.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/al8-womens-shoes-r93WJ3g5/FJ3794-102",
               "path": "/t/al8-womens-shoes-r93WJ3g5/FJ3794-102"
@@ -12828,10 +12552,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/e5291800-d707-4cfa-bc61-a142639f627a/W+NIKE+AL8.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/c2a3ce24-7442-40f7-aea7-5e3a67d2befd/W+NIKE+AL8.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/al8-womens-shoes-r93WJ3g5/FJ3794-106",
               "path": "/t/al8-womens-shoes-r93WJ3g5/FJ3794-106"
@@ -12880,9 +12601,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/d63cb565-a8fa-4731-89c9-144b41591c4f/WMNS+AIR+JORDAN+1+MID.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/689bf39a-6e96-4a55-adbc-0cbc8fe387d5/WMNS+AIR+JORDAN+1+MID.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-jordan-1-mid-womens-shoes-FfLktz/BQ6472-079",
               "path": "/t/air-jordan-1-mid-womens-shoes-FfLktz/BQ6472-079"
@@ -12937,9 +12656,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/69889e6a-27e2-4cd2-a5b0-6f64ff8512d0/WMNS+AIR+JORDAN+1+MID.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/bf36e446-bdf2-413b-a0f4-ad095720c6c3/WMNS+AIR+JORDAN+1+MID.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-jordan-1-mid-womens-shoes-FfLktz/BQ6472-162",
               "path": "/t/air-jordan-1-mid-womens-shoes-FfLktz/BQ6472-162"
@@ -12982,9 +12699,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/24750e81-85ed-4b0e-8cd8-becf0cd97b2f/WMNS+AIR+JORDAN+1+MID.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/89b9c5f5-9049-422d-aa76-19ea5323ef58/WMNS+AIR+JORDAN+1+MID.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-jordan-1-mid-womens-shoes-FfLktz/DV0991-101",
               "path": "/t/air-jordan-1-mid-womens-shoes-FfLktz/DV0991-101"
@@ -13027,9 +12742,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/bd4cf472-051a-4699-964b-443b3364b2bb/WMNS+AIR+JORDAN+1+MID.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/9dbb19ec-29e0-428f-b6e0-188d7ec8cc90/WMNS+AIR+JORDAN+1+MID.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-jordan-1-mid-womens-shoes-FfLktz/BQ6472-160",
               "path": "/t/air-jordan-1-mid-womens-shoes-FfLktz/BQ6472-160"
@@ -13072,9 +12785,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/7fcafee2-7416-44f2-a0bc-0f34d1f6c8a2/WMNS+AIR+JORDAN+1+MID.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/46f55604-0c16-43d7-8d74-05b379c140dc/WMNS+AIR+JORDAN+1+MID.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-jordan-1-mid-womens-shoes-FfLktz/DV0991-111",
               "path": "/t/air-jordan-1-mid-womens-shoes-FfLktz/DV0991-111"
@@ -13387,9 +13098,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/64ad84af-3fab-4f15-9cf3-fe211470b3a4/ZOOM+RIVAL+XC+6.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/3b881458-ac66-43f7-82cb-a9d765a405df/ZOOM+RIVAL+XC+6.png"
             },
-            "featuredAttributes": [
-              "JUST_IN"
-            ],
+            "featuredAttributes": ["JUST_IN"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/rival-xc-6-cross-country-spikes-zcnHpR/DX7999-300",
               "path": "/t/rival-xc-6-cross-country-spikes-zcnHpR/DX7999-300"
@@ -13481,9 +13190,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/24231b12-64f5-4957-adc6-525518d4ecfb/M+NIKE+METCON+9+FLYEASE.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/3fbab1d2-3c0d-4dea-b407-b0e555285ff5/M+NIKE+METCON+9+FLYEASE.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/metcon-9-easyon-mens-workout-shoes-0nCc2n/DZ2615-001",
               "path": "/t/metcon-9-easyon-mens-workout-shoes-0nCc2n/DZ2615-001"
@@ -14151,9 +13858,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/ace2647f-cfae-444f-8551-845ada576bb5/M+NK+DF+READY+TANK.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/b1990c96-e978-439f-a682-9c0de9241c5c/M+NK+DF+READY+TANK.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/ready-mens-dri-fit-fitness-tank-5xSHKM/DV9813-010",
               "path": "/t/ready-mens-dri-fit-fitness-tank-5xSHKM/DV9813-010"
@@ -14196,9 +13901,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/c1673c87-9c79-4305-8f1a-83f789757c4c/M+NK+DF+READY+TANK.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/e554ad01-b2a7-447b-9db4-b1bc0c3cf6ab/M+NK+DF+READY+TANK.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/ready-mens-dri-fit-fitness-tank-5xSHKM/DV9813-084",
               "path": "/t/ready-mens-dri-fit-fitness-tank-5xSHKM/DV9813-084"
@@ -14247,9 +13950,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/886e93b2-8fb0-45c9-87a5-c3bf9f6f4a21/WMNS+CELSO+GIRL+THONG.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/ecxbarvuwamzrcty2hpe/WMNS+CELSO+GIRL+THONG.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/celso-girl-womens-slides-9AwYMr/314870-011",
               "path": "/t/celso-girl-womens-slides-9AwYMr/314870-011"
@@ -14347,9 +14048,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/83b3f3b8-216f-4cc2-b5b2-c3d3bb93432d/WMNS+NIKE+COURT+LEGACY+LIFT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/48d800de-8bbd-4aa1-a6b9-2cc53af63927/WMNS+NIKE+COURT+LEGACY+LIFT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/court-legacy-lift-womens-shoes-x0B6BB/DM7590-200",
               "path": "/t/court-legacy-lift-womens-shoes-x0B6BB/DM7590-200"
@@ -14521,9 +14220,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/8b56658b-8a36-454a-bbfa-eefc2a6e064d/WMNS+NIKE+COURT+LEGACY+LIFT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/2e370612-ab41-48c8-98b6-698561dab394/WMNS+NIKE+COURT+LEGACY+LIFT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/court-legacy-lift-womens-shoes-x0B6BB/DM7590-107",
               "path": "/t/court-legacy-lift-womens-shoes-x0B6BB/DM7590-107"
@@ -14719,9 +14416,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/91610264-3636-4d12-bef7-aa5a8277e686/WMNS+NIKE+COURT+LEGACY+LIFT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/6a2b7a34-dcf3-4d90-8b0a-b8f640f16185/WMNS+NIKE+COURT+LEGACY+LIFT.png"
             },
-            "featuredAttributes": [
-              "JUST_IN"
-            ],
+            "featuredAttributes": ["JUST_IN"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/court-legacy-lift-womens-shoes-x0B6BB/DM7590-003",
               "path": "/t/court-legacy-lift-womens-shoes-x0B6BB/DM7590-003"
@@ -14807,9 +14502,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/ea7f7cfd-465f-4a6b-89eb-5fa205eadfa5/WMNS+NIKE+COURT+LEGACY+LIFT.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/228c755e-cc18-4187-89e0-87faaab421e8/WMNS+NIKE+COURT+LEGACY+LIFT.png"
             },
-            "featuredAttributes": [
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/court-legacy-lift-womens-shoes-x0B6BB/DM7590-101",
               "path": "/t/court-legacy-lift-womens-shoes-x0B6BB/DM7590-101"
@@ -15165,9 +14858,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/585f1bdd-825e-431b-8af8-304a65bcbb79/NIKE+CORTEZ.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/a73adc66-c005-4652-91e2-3e2d2b0eb46a/NIKE+CORTEZ.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/cortez-textile-shoes-cTpskF/DZ2795-401",
               "path": "/t/cortez-textile-shoes-cTpskF/DZ2795-401"
@@ -15210,9 +14901,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/fc2e5cc0-c0bc-4f7c-9466-accb37a36b7d/NIKE+CORTEZ.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/7740e2fc-b8c2-4f77-a8eb-6461516269ea/NIKE+CORTEZ.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/cortez-textile-shoes-cTpskF/DZ2795-402",
               "path": "/t/cortez-textile-shoes-cTpskF/DZ2795-402"
@@ -15255,9 +14944,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/e882505d-3723-44ed-9be9-ba8ea2dfae32/NIKE+CORTEZ.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/932a026f-6fbe-46f8-9bc6-5946bf11d70e/NIKE+CORTEZ.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/cortez-textile-shoes-cTpskF/DZ2795-403",
               "path": "/t/cortez-textile-shoes-cTpskF/DZ2795-403"
@@ -15312,9 +14999,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/8bd40f1c-94cb-4319-8161-37a3fdd93698/NIKE+CORTEZ.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/9ab8e739-b9e7-4ce9-b071-cb7db0535b99/NIKE+CORTEZ.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/cortez-textile-shoes-cTpskF/DZ2795-001",
               "path": "/t/cortez-textile-shoes-cTpskF/DZ2795-001"
@@ -15400,9 +15085,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/8965d145-4dfe-4126-902e-fba7598b4929/NIKE+CORTEZ.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/032da76d-1d05-42c5-893d-3d01ba13dcbb/NIKE+CORTEZ.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/cortez-textile-shoes-cTpskF/DZ2795-005",
               "path": "/t/cortez-textile-shoes-cTpskF/DZ2795-005"
@@ -15445,9 +15128,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/f7349db2-a78e-4808-b004-6a6d4064ee23/NIKE+CORTEZ.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/6fdb88bf-386c-4f74-9e05-2b33bb10b3f2/NIKE+CORTEZ.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/cortez-textile-shoes-cTpskF/DZ2795-102",
               "path": "/t/cortez-textile-shoes-cTpskF/DZ2795-102"
@@ -15496,9 +15177,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/a7400abc-b3d7-4bd9-8f98-d19fc105caea/NIKE+TANJUN+EASYON+%28PS%29.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/e02fb9a3-4f10-45a0-aa25-54169fb54a08/NIKE+TANJUN+EASYON+%28PS%29.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/tanjun-easyon-little-kids-shoes-x6LQ77/DX9042-001",
               "path": "/t/tanjun-easyon-little-kids-shoes-x6LQ77/DX9042-001"
@@ -15682,9 +15361,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/10b19296-5d70-437c-97e3-b39cc33ad618/JORDAN+TOUR+GG+REG+L.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/cca5b8f3-8024-4a12-8046-d47d964a035b/JORDAN+TOUR+GG+REG+L.png"
             },
-            "featuredAttributes": [
-              "PROMOS_EXCLUDED"
-            ],
+            "featuredAttributes": ["PROMOS_EXCLUDED"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/jordan-tour-regular-golf-glove-left-regular-qJBNBj/J1008185-131",
               "path": "/t/jordan-tour-regular-golf-glove-left-regular-qJBNBj/J1008185-131"
@@ -15733,9 +15410,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/7b6ede8a-5278-40b7-b659-99f7243663c7/WMNS+NIKE+TANJUN.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/8ba7d65d-a444-4dc7-b602-2665b93a4b81/WMNS+NIKE+TANJUN.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/tanjun-womens-shoes-lj1St1/DJ6257-004",
               "path": "/t/tanjun-womens-shoes-lj1St1/DJ6257-004"
@@ -15833,9 +15508,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/16c8f386-c845-416f-9450-a4e3bb6859ee/W+AIR+FORCE+1+%2707+NEXT+NATURE.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/c7909c35-f33a-4485-8064-2bb088612f32/W+AIR+FORCE+1+%2707+NEXT+NATURE.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-force-1-07-next-nature-womens-shoes-fvxZ0g/DC9486-102",
               "path": "/t/air-force-1-07-next-nature-womens-shoes-fvxZ0g/DC9486-102"
@@ -15878,9 +15551,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/4a806aff-ccd5-4b99-b2e8-6ef79a62f827/W+AIR+FORCE+1+%2707+NEXT+NATURE.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/da8cce5e-470a-4935-b8c8-1a8c9d402e8a/W+AIR+FORCE+1+%2707+NEXT+NATURE.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-force-1-07-next-nature-womens-shoes-fvxZ0g/DC9486-105",
               "path": "/t/air-force-1-07-next-nature-womens-shoes-fvxZ0g/DC9486-105"
@@ -15923,9 +15594,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/f8157237-0f24-45b7-b867-7e2c044ec8e1/W+AIR+FORCE+1+%2707+NEXT+NATURE.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/116c1fcd-ec1c-419d-9016-d03534ef5063/W+AIR+FORCE+1+%2707+NEXT+NATURE.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-force-1-07-next-nature-womens-shoes-fvxZ0g/DC9486-107",
               "path": "/t/air-force-1-07-next-nature-womens-shoes-fvxZ0g/DC9486-107"
@@ -15968,9 +15637,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/03f4175b-cd89-464e-a1bf-9d35186b5089/W+AIR+FORCE+1+%2707+NEXT+NATURE.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/acaf86f4-8441-4827-a6e2-fcb205d2b07c/W+AIR+FORCE+1+%2707+NEXT+NATURE.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-force-1-07-next-nature-womens-shoes-fvxZ0g/DC9486-108",
               "path": "/t/air-force-1-07-next-nature-womens-shoes-fvxZ0g/DC9486-108"
@@ -16025,9 +15692,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/abc8da07-db0a-4d90-ae20-5d98f709b1f1/WMNS+AIR+FORCE+1+%2707+NN.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/c0b7c82d-baa6-4070-bb3b-1e32d5c96124/WMNS+AIR+FORCE+1+%2707+NN.png"
             },
-            "featuredAttributes": [
-              "JUST_IN"
-            ],
+            "featuredAttributes": ["JUST_IN"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-force-1-07-next-nature-womens-shoes-fvxZ0g/DV3808-115",
               "path": "/t/air-force-1-07-next-nature-womens-shoes-fvxZ0g/DV3808-115"
@@ -16113,9 +15778,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/1f01bb28-a38c-4a23-932f-f3616ea4827f/W+AIR+FORCE+1+%2707+NEXT+NATURE.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/5a5dd34b-447b-4a0d-92b4-0d7509676588/W+AIR+FORCE+1+%2707+NEXT+NATURE.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-force-1-07-next-nature-womens-shoes-fvxZ0g/DC9486-111",
               "path": "/t/air-force-1-07-next-nature-womens-shoes-fvxZ0g/DC9486-111"
@@ -16428,9 +16091,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/1b9cb61d-4e1d-4626-8097-9afc6db8b557/W+NIKE+INTERACT+RUN.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/ae098ba0-1362-42d4-88f2-6366964cd125/W+NIKE+INTERACT+RUN.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/interact-run-womens-road-running-shoes-H1pOJ6bG/FD2292-104",
               "path": "/t/interact-run-womens-road-running-shoes-H1pOJ6bG/FD2292-104"
@@ -16473,9 +16134,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/3e5a9391-57b3-4854-853c-6d54030b9f58/W+NIKE+INTERACT+RUN.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/1797b1ab-99e7-4391-ba94-899ebc9aecb9/W+NIKE+INTERACT+RUN.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/interact-run-womens-road-running-shoes-H1pOJ6bG/FD2292-003",
               "path": "/t/interact-run-womens-road-running-shoes-H1pOJ6bG/FD2292-003"
@@ -16518,9 +16177,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/a9e3cfd7-8329-47ca-b0cf-6507dbe005f8/W+NIKE+INTERACT+RUN.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/180aced8-1f1c-48d0-a2b3-e736827bcf60/W+NIKE+INTERACT+RUN.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/interact-run-womens-road-running-shoes-H1pOJ6bG/FD2292-403",
               "path": "/t/interact-run-womens-road-running-shoes-H1pOJ6bG/FD2292-403"
@@ -16563,9 +16220,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/285df0bb-f4c3-420e-8b4f-d57c1431abf2/W+NIKE+INTERACT+RUN+EASYON.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/36817163-805e-49e6-bafa-9ba347933a2f/W+NIKE+INTERACT+RUN+EASYON.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/interact-run-easyon-womens-road-running-shoes-H1pOJ6bG/FV5591-001",
               "path": "/t/interact-run-easyon-womens-road-running-shoes-H1pOJ6bG/FV5591-001"
@@ -16608,9 +16263,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/d13e0da6-84a5-4502-914e-51ce521f6d26/W+NIKE+INTERACT+RUN+EASYON.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/5a4d0b29-a965-4369-978c-2bb8681b8d5c/W+NIKE+INTERACT+RUN+EASYON.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/interact-run-easyon-womens-road-running-shoes-H1pOJ6bG/FV5591-003",
               "path": "/t/interact-run-easyon-womens-road-running-shoes-H1pOJ6bG/FV5591-003"
@@ -16653,9 +16306,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/7570cf3e-ee17-40eb-ba43-5676f16837bb/W+NIKE+INTERACT+RUN+EASYON.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/916af0f0-6e9a-4b81-82c0-80459c250e5f/W+NIKE+INTERACT+RUN+EASYON.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/interact-run-easyon-womens-road-running-shoes-H1pOJ6bG/FV5591-100",
               "path": "/t/interact-run-easyon-womens-road-running-shoes-H1pOJ6bG/FV5591-100"
@@ -16698,10 +16349,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/76f08167-d112-478b-9a6e-ecdaa6326867/W+NIKE+INTERACT+RUN.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/19ee8a87-c51c-4d82-95c4-002b1db93669/W+NIKE+INTERACT+RUN.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "JUST_IN"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "JUST_IN"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/interact-run-womens-road-running-shoes-H1pOJ6bG/FD2292-109",
               "path": "/t/interact-run-womens-road-running-shoes-H1pOJ6bG/FD2292-109"
@@ -16744,9 +16392,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/c9276679-74bb-404d-ae53-64ca36edb193/W+NIKE+INTERACT+RUN.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/9453b072-b9cd-4fe2-807d-3ebaa0643d1c/W+NIKE+INTERACT+RUN.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/interact-run-womens-road-running-shoes-H1pOJ6bG/FD2292-012",
               "path": "/t/interact-run-womens-road-running-shoes-H1pOJ6bG/FD2292-012"
@@ -16795,9 +16441,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/bb8992f5-e31a-4e3e-a6f8-35245eaf187f/W+NIKE+AIR+MAX+NUAXIS.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/d5556074-df8d-4f30-a8c8-5106be8c7822/W+NIKE+AIR+MAX+NUAXIS.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-105",
               "path": "/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-105"
@@ -16840,9 +16484,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/0448a9eb-bf69-416f-9888-fbccc071f491/W+NIKE+AIR+MAX+NUAXIS.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/87ccf587-04de-4425-a356-1056322dc98e/W+NIKE+AIR+MAX+NUAXIS.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-100",
               "path": "/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-100"
@@ -16885,9 +16527,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/669beea6-8a13-4c59-b74a-795dd9fd78a5/W+NIKE+AIR+MAX+NUAXIS.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/478753f6-cec1-43a7-bbdf-c75a4a306ad5/W+NIKE+AIR+MAX+NUAXIS.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-003",
               "path": "/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-003"
@@ -16930,9 +16570,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/d44ab370-ff83-435f-8f3d-1b0494d47fc9/W+NIKE+AIR+MAX+NUAXIS.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/87ae6557-0fb2-4f65-8dbf-2427de575586/W+NIKE+AIR+MAX+NUAXIS.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-104",
               "path": "/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-104"
@@ -16975,9 +16613,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/0f6cd1fb-ac0a-4440-b79b-623deca61c32/W+NIKE+AIR+MAX+NUAXIS.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/209fba4d-ce8b-49c6-8794-669b382df496/W+NIKE+AIR+MAX+NUAXIS.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-107",
               "path": "/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-107"
@@ -17020,9 +16656,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/e2f545af-e213-4bfe-862e-f0cfba1eedb7/W+NIKE+AIR+MAX+NUAXIS.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/61818ef6-4a3b-4fc8-b7fe-feef5b6a7820/W+NIKE+AIR+MAX+NUAXIS.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-001",
               "path": "/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-001"
@@ -17077,9 +16711,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/3892bd02-dded-4cb8-8212-ec3c7380f57a/W+NIKE+AIR+MAX+NUAXIS.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/20f14d48-36de-4856-a779-eb29f259326e/W+NIKE+AIR+MAX+NUAXIS.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-101",
               "path": "/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-101"
@@ -17134,9 +16766,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/bea6ea2f-be59-4d3f-ab37-9f50b1f070ac/W+NIKE+AIR+MAX+NUAXIS.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/2d190a21-e66d-4560-a7ed-2018336b6d80/W+NIKE+AIR+MAX+NUAXIS.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-108",
               "path": "/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-108"
@@ -17179,9 +16809,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/921482f5-f1a3-45fa-a1ba-94c15ce2d678/W+NIKE+AIR+MAX+NUAXIS.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/0d07e821-e975-4f92-95cb-60f3a15f4688/W+NIKE+AIR+MAX+NUAXIS.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-110",
               "path": "/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-110"
@@ -17224,9 +16852,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/cc04cbc4-b14e-4e31-a3be-333560cfb1d3/W+NIKE+AIR+MAX+NUAXIS.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/94d968f3-1f2a-4820-b97b-7b99760709ae/W+NIKE+AIR+MAX+NUAXIS.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-600",
               "path": "/t/air-max-nuaxis-womens-shoes-0mH3DF/HF1233-600"
@@ -17275,9 +16901,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/c6b30b7f-83b8-4810-bc86-172fff545b6f/JR+PHANTOM+GX+II+ACADEMY+FG%2FMG.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/d749eff3-3ffd-45e6-b279-5aba61abb926/JR+PHANTOM+GX+II+ACADEMY+FG%2FMG.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/jr-phantom-gx-2-academy-little-big-kids-mg-low-top-soccer-cleats-P58fO6Lv/FD6722-400",
               "path": "/t/jr-phantom-gx-2-academy-little-big-kids-mg-low-top-soccer-cleats-P58fO6Lv/FD6722-400"
@@ -17320,9 +16944,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/0f7a4000-66c6-47de-8ebc-c518186b2f91/JR+PHANTOM+GX+II+ACADEMY+FG%2FMG.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/6e6fd9c4-4ef4-4cf9-acc7-2aa7a0085aac/JR+PHANTOM+GX+II+ACADEMY+FG%2FMG.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/jr-phantom-gx-2-academy-little-big-kids-mg-low-top-soccer-cleats-P58fO6Lv/FD6722-003",
               "path": "/t/jr-phantom-gx-2-academy-little-big-kids-mg-low-top-soccer-cleats-P58fO6Lv/FD6722-003"
@@ -17365,9 +16987,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/de5ae275-b597-46e9-b5c1-cbf0482bd4f0/JR+PHANTOM+GX+II+ACADEMY+FG%2FMG.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/fbcdd36c-c798-4bb1-adcf-71c4ffbbb353/JR+PHANTOM+GX+II+ACADEMY+FG%2FMG.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/jr-phantom-gx-2-academy-little-big-kids-mg-low-top-soccer-cleats-P58fO6Lv/FD6722-002",
               "path": "/t/jr-phantom-gx-2-academy-little-big-kids-mg-low-top-soccer-cleats-P58fO6Lv/FD6722-002"
@@ -17453,9 +17073,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/087a68ee-8c5d-495e-b9a6-6f8ba262928e/JR+PHANTOM+GX+II+ACADEMY+FG%2FMG.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/a685d4bf-5ac0-477e-a55c-c67458c3a1b3/JR+PHANTOM+GX+II+ACADEMY+FG%2FMG.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/jr-phantom-gx-2-academy-little-big-kids-mg-low-top-soccer-cleats-P58fO6Lv/FD6722-300",
               "path": "/t/jr-phantom-gx-2-academy-little-big-kids-mg-low-top-soccer-cleats-P58fO6Lv/FD6722-300"
@@ -19165,9 +18783,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/ab132ade-35a9-47d1-af9a-66ad6f21ed45/NIKE+REVOLUTION+7+WIDE.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/60ba7d78-b4f1-4f5a-9be6-79872a95689f/NIKE+REVOLUTION+7+WIDE.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-extra-wide-72BvdH/FB8501-001",
               "path": "/t/revolution-7-mens-road-running-shoes-extra-wide-72BvdH/FB8501-001"
@@ -19210,9 +18826,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/aa16f9bd-40e0-4db3-a3d1-a48d4b20cf3b/NIKE+REVOLUTION+7+WIDE.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/94341311-2775-4950-ba7e-83c397a73349/NIKE+REVOLUTION+7+WIDE.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-extra-wide-72BvdH/FB8501-002",
               "path": "/t/revolution-7-mens-road-running-shoes-extra-wide-72BvdH/FB8501-002"
@@ -19255,9 +18869,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/34dbd8ac-db73-4c02-8cbb-80b71fdfc0b0/NIKE+REVOLUTION+7+WIDE.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/27acfdf6-319b-4919-97a2-153fea767d8c/NIKE+REVOLUTION+7+WIDE.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-extra-wide-72BvdH/FB8501-003",
               "path": "/t/revolution-7-mens-road-running-shoes-extra-wide-72BvdH/FB8501-003"
@@ -19300,9 +18912,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/ea60ad78-f502-4d05-bc92-8be8eb8db6c7/NIKE+REVOLUTION+7+WIDE.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/5903a63e-307b-4104-8683-1f666332c09b/NIKE+REVOLUTION+7+WIDE.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-mens-road-running-shoes-extra-wide-72BvdH/FB8501-400",
               "path": "/t/revolution-7-mens-road-running-shoes-extra-wide-72BvdH/FB8501-400"
@@ -19437,9 +19047,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/99296cfb-e632-4f65-8d4b-1ef8c3416906/M+NSW+TEE+ICON+SWOOSH.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/b84d52f6-b273-4c4d-b9f3-e2481bb936f3/M+NSW+TEE+ICON+SWOOSH.png"
             },
-            "featuredAttributes": [
-              "OUT_OF_STOCK"
-            ],
+            "featuredAttributes": ["OUT_OF_STOCK"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/sportswear-swoosh-mens-t-shirt-LzncrX/DC5094-657",
               "path": "/t/sportswear-swoosh-mens-t-shirt-LzncrX/DC5094-657"
@@ -19838,9 +19446,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/4a6c9a52-16ba-4a47-ae06-3e9a7404fb99/NIKE+TANJUN+EASYON+%28TDV%29.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/9657dc48-8e43-4277-8293-de8b7bb78b44/NIKE+TANJUN+EASYON+%28TDV%29.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/tanjun-easyon-baby-toddler-shoes-Lpnk7T/DX9043-001",
               "path": "/t/tanjun-easyon-baby-toddler-shoes-Lpnk7T/DX9043-001"
@@ -19883,9 +19489,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/ac25565e-428a-4274-89d3-eb67037afc7f/NIKE+TANJUN+EASYON+%28TDV%29.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/fa34f379-8b06-4d2d-b672-dbb697ddca82/NIKE+TANJUN+EASYON+%28TDV%29.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/tanjun-easyon-baby-toddler-shoes-Lpnk7T/DX9043-003",
               "path": "/t/tanjun-easyon-baby-toddler-shoes-Lpnk7T/DX9043-003"
@@ -19928,9 +19532,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/02200f1a-8489-48b4-8a5f-4034e5dc924f/NIKE+TANJUN+EASYON+%28TDV%29.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/27ba8237-8b90-40cd-8f4e-b0cbacba65d7/NIKE+TANJUN+EASYON+%28TDV%29.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/tanjun-easyon-baby-toddler-shoes-Lpnk7T/DX9043-401",
               "path": "/t/tanjun-easyon-baby-toddler-shoes-Lpnk7T/DX9043-401"
@@ -20157,9 +19759,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/cdd1bf27-c47d-4ee3-8e8a-13d095c5f0e6/NIKE+KIDS+CORTEZ+EASYON+%28TDV%29.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/7dde18dc-e1fb-4ffa-ac79-2128f65ef8aa/NIKE+KIDS+CORTEZ+EASYON+%28TDV%29.png"
             },
-            "featuredAttributes": [
-              "JUST_IN"
-            ],
+            "featuredAttributes": ["JUST_IN"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/cortez-easyon-baby-toddler-shoes-SNjC7S/DM0952-117",
               "path": "/t/cortez-easyon-baby-toddler-shoes-SNjC7S/DM0952-117"
@@ -20472,9 +20072,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/9427006b-345d-4fd4-8e4a-c2942c0a186e/M+NK+DF+FLX+REP+4.0+5IN+UL.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/2c2747a9-10a3-4007-b2ef-2d727f3ab69e/M+NK+DF+FLX+REP+4.0+5IN+UL.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/flex-rep-mens-dri-fit-5-unlined-fitness-shorts-xLO1m6nX/FN3002-084",
               "path": "/t/flex-rep-mens-dri-fit-5-unlined-fitness-shorts-xLO1m6nX/FN3002-084"
@@ -20517,9 +20115,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/556ca294-9f2b-4656-83b0-d083545dbe25/M+NK+DF+FLX+REP+4.0+5IN+UL.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/9062bc52-cb8b-4d65-82ae-dad352a92c94/M+NK+DF+FLX+REP+4.0+5IN+UL.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/flex-rep-mens-dri-fit-5-unlined-fitness-shorts-xLO1m6nX/FN3002-010",
               "path": "/t/flex-rep-mens-dri-fit-5-unlined-fitness-shorts-xLO1m6nX/FN3002-010"
@@ -20562,9 +20158,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/5376c2a6-3186-496c-84a5-3bba55636925/M+NK+DF+FLX+REP+4.0+5IN+UL.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/73e57415-87b4-408d-990e-24f6e595c836/M+NK+DF+FLX+REP+4.0+5IN+UL.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/flex-rep-mens-dri-fit-5-unlined-fitness-shorts-xLO1m6nX/FN3002-412",
               "path": "/t/flex-rep-mens-dri-fit-5-unlined-fitness-shorts-xLO1m6nX/FN3002-412"
@@ -20619,10 +20213,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/18082f1d-baea-4431-9e49-345e241c51fa/M+NK+DF+FLX+REP+4.0+5IN+UL.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/d60dcd77-da39-4de9-949d-10ba122311e1/M+NK+DF+FLX+REP+4.0+5IN+UL.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "JUST_IN"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "JUST_IN"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/flex-rep-mens-dri-fit-5-unlined-fitness-shorts-xLO1m6nX/FN3002-345",
               "path": "/t/flex-rep-mens-dri-fit-5-unlined-fitness-shorts-xLO1m6nX/FN3002-345"
@@ -20978,9 +20569,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/52bae160-25b0-4f71-b5c6-aabd47f9dc64/W+NIKE+P-6000.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/99b43d0c-0437-462b-a64c-7377c00b4e30/W+NIKE+P-6000.png"
             },
-            "featuredAttributes": [
-              "JUST_IN"
-            ],
+            "featuredAttributes": ["JUST_IN"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/p-6000-womens-shoes-SGxVgg/BV1021-106",
               "path": "/t/p-6000-womens-shoes-SGxVgg/BV1021-106"
@@ -21195,9 +20784,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/79065c13-fc92-47f7-971d-0b19f880fca8/W+NIKE+P-6000.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/35456862-716b-4dde-92cc-af96ca2a8ccb/W+NIKE+P-6000.png"
             },
-            "featuredAttributes": [
-              "MEMBER_ACCESS_ALL"
-            ],
+            "featuredAttributes": ["MEMBER_ACCESS_ALL"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/p-6000-womens-shoes-SGxVgg/HV8972-001",
               "path": "/t/p-6000-womens-shoes-SGxVgg/HV8972-001"
@@ -21811,10 +21398,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/96af128d-e759-483d-83cb-4ad316ccfbb4/NIKE+FREE+METCON+6.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/733f68f7-eea5-4ee8-a5e6-67e8e5cf634c/NIKE+FREE+METCON+6.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-004",
               "path": "/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-004"
@@ -21857,10 +21441,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/643aada6-6a0a-44cb-b4fd-45e2388628de/NIKE+FREE+METCON+6.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/ba066d10-002b-4778-b37a-e2d371815723/NIKE+FREE+METCON+6.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-104",
               "path": "/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-104"
@@ -21903,10 +21484,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/89a3c500-2a7c-40e4-9111-e0e382a53270/NIKE+FREE+METCON+6.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/b066942f-58f2-4c96-9745-477481a5c166/NIKE+FREE+METCON+6.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-800",
               "path": "/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-800"
@@ -22035,10 +21613,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/556d3884-4081-4c5a-88aa-f3711c80742c/NIKE+FREE+METCON+6.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/e5cc9ab3-5c10-43fa-b007-5bb4fcfc07d9/NIKE+FREE+METCON+6.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-001",
               "path": "/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-001"
@@ -22081,10 +21656,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/996fc095-c136-4934-9791-ed78dabbba8f/NIKE+FREE+METCON+6.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/1a76e046-d17d-45f0-94cb-77b00406f456/NIKE+FREE+METCON+6.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-105",
               "path": "/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-105"
@@ -22127,10 +21699,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/490c5153-5cc0-4a14-8b69-505305ce6dbf/NIKE+FREE+METCON+6.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/d88bf5ef-bbf6-4824-a99b-f402c2520785/NIKE+FREE+METCON+6.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-400",
               "path": "/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-400"
@@ -22173,10 +21742,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/4a6ae6ac-a355-4ea1-9f9d-c45968ea8aa7/NIKE+FREE+METCON+6.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/52e2dd8c-12cf-420a-b9eb-68869f894e2c/NIKE+FREE+METCON+6.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-402",
               "path": "/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-402"
@@ -22219,10 +21785,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/5b476beb-4c17-459e-85c1-8c50dbd68660/NIKE+FREE+METCON+6.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/ff121b2a-7157-48cc-8fef-4cbd4020274a/NIKE+FREE+METCON+6.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-003",
               "path": "/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-003"
@@ -22265,10 +21828,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/f14ec20c-3c19-4764-90a7-16f6d17df710/NIKE+FREE+METCON+6.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/e41d4454-eda3-464f-89cf-f83eb38eea8c/NIKE+FREE+METCON+6.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-010",
               "path": "/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-010"
@@ -22311,10 +21871,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/8b3da434-12a5-4a11-a5dc-d754892d2c10/NIKE+FREE+METCON+6.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/92d0dc75-6749-4d04-955f-911a8edce5c8/NIKE+FREE+METCON+6.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-101",
               "path": "/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-101"
@@ -22357,10 +21914,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/4b1f572d-0d61-465c-965c-1886ef4faa2d/NIKE+FREE+METCON+6.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/d74c184d-02f6-4c38-b7fa-6d1a8c084ab0/NIKE+FREE+METCON+6.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-200",
               "path": "/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-200"
@@ -22403,10 +21957,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/f5f8b03b-f37d-4364-ad66-429f488d7ee8/NIKE+FREE+METCON+6.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/05ba85a6-760b-4614-afb8-c5c1cb4a2cdf/NIKE+FREE+METCON+6.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS",
-              "BEST_SELLER"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS", "BEST_SELLER"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-301",
               "path": "/t/free-metcon-6-mens-workout-shoes-QFCf19/FJ7127-301"
@@ -22455,9 +22006,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/9fcefc9f-b603-4dca-8dba-bc08b1b98d4c/W+NIKE+REVOLUTION+7+WIDE.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/1803f549-bb74-4ba3-8df7-5b8ec703a2cb/W+NIKE+REVOLUTION+7+WIDE.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/revolution-7-womens-road-running-shoes-extra-wide-bt34Qq/FZ6829-001",
               "path": "/t/revolution-7-womens-road-running-shoes-extra-wide-bt34Qq/FZ6829-001"
@@ -22506,9 +22055,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/5a03f66d-7f9d-45bb-a136-a5d839a950c9/M+NK+TCH+FLC+FZ+WR+HOODIE.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/298c9f7c-a668-4277-aa19-462b508da484/M+NK+TCH+FLC+FZ+WR+HOODIE.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/sportswear-tech-fleece-windrunner-mens-full-zip-hoodie-rznlBf/FB7921-063",
               "path": "/t/sportswear-tech-fleece-windrunner-mens-full-zip-hoodie-rznlBf/FB7921-063"
@@ -22557,9 +22104,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/f03c156c-efa2-4481-b337-d94cb5162e9d/W+NK+DF+SWOOSH+BRA+TANK.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/14ef9143-fa51-4993-b61c-6528a0aee30e/W+NK+DF+SWOOSH+BRA+TANK.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/swoosh-womens-medium-support-padded-sports-bra-tank-BUewXUbL/DV9897-010",
               "path": "/t/swoosh-womens-medium-support-padded-sports-bra-tank-BUewXUbL/DV9897-010"
@@ -22602,9 +22147,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/c8f83f56-3e51-4327-bbbd-3c306b52512d/W+NK+DF+SWOOSH+BRA+TANK.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/c6255f33-7337-42cf-939a-59f4017a4ec3/W+NK+DF+SWOOSH+BRA+TANK.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/swoosh-womens-medium-support-padded-sports-bra-tank-BUewXUbL/DV9897-100",
               "path": "/t/swoosh-womens-medium-support-padded-sports-bra-tank-BUewXUbL/DV9897-100"
@@ -22647,9 +22190,7 @@
               "portraitURL": "https://static.nike.com/a/images/t_default/95e09b34-61c4-4bdf-ad56-1ee6efc5d007/W+NK+DF+SWOOSH+BRA+TANK.png",
               "squarishURL": "https://static.nike.com/a/images/t_default/705096b8-86db-4ba9-a256-fad08affa6eb/W+NK+DF+SWOOSH+BRA+TANK.png"
             },
-            "featuredAttributes": [
-              "SUSTAINABLE_MATERIALS"
-            ],
+            "featuredAttributes": ["SUSTAINABLE_MATERIALS"],
             "pdpUrl": {
               "url": "https://www.nike.com/t/swoosh-womens-medium-support-padded-sports-bra-tank-BUewXUbL/DV9897-478",
               "path": "/t/swoosh-womens-medium-support-padded-sports-bra-tank-BUewXUbL/DV9897-478"

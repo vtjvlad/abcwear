@@ -1,52 +1,47 @@
 const fs = require('fs').promises;
 
 function normalizeUrl(url) {
-    return url.trim().toLowerCase();
+  return url.trim().toLowerCase();
 }
 
 async function filterObjectsByUrls(jsonFilePath, urlsFilePath, outputFilePath) {
-    try {
-        // Читаем файлы
-        const jsonData = await fs.readFile(jsonFilePath, 'utf8');
-        const objectsArray = JSON.parse(jsonData);
-        
-        const urlsData = await fs.readFile(urlsFilePath, 'utf8');
-        const urlsArray = urlsData.split('\n').filter(url => url.trim() !== '');
-        const urlsSet = new Set(urlsArray.map(normalizeUrl));
+  try {
+    // Читаем файлы
+    const jsonData = await fs.readFile(jsonFilePath, 'utf8');
+    const objectsArray = JSON.parse(jsonData);
 
-        console.log('URL-ы из текстового файла:', Array.from(urlsSet));
+    const urlsData = await fs.readFile(urlsFilePath, 'utf8');
+    const urlsArray = urlsData.split('\n').filter((url) => url.trim() !== '');
+    const urlsSet = new Set(urlsArray.map(normalizeUrl));
 
-        // Фильтруем массив
-        const filteredArray = objectsArray.filter(obj => {
-            if (!obj.url) {
-                console.log('Объект без url:', obj);
-                return true;
-            }
+    console.log('URL-ы из текстового файла:', Array.from(urlsSet));
 
-            const objUrl = normalizeUrl(obj.url);
-            const shouldKeep = !urlsSet.has(objUrl);
-            
-            if (!shouldKeep) {
-                console.log('Удаляется объект с URL:', objUrl);
-            }
-            
-            return shouldKeep;
-        });
+    // Фильтруем массив
+    const filteredArray = objectsArray.filter((obj) => {
+      if (!obj.url) {
+        console.log('Объект без url:', obj);
+        return true;
+      }
 
-        // Записываем результат
-        await fs.writeFile(
-            outputFilePath,
-            JSON.stringify(filteredArray, null, 2),
-            'utf8'
-        );
+      const objUrl = normalizeUrl(obj.url);
+      const shouldKeep = !urlsSet.has(objUrl);
 
-        console.log(`Исходное количество объектов: ${objectsArray.length}`);
-        console.log(`Оставшееся количество объектов: ${filteredArray.length}`);
-        console.log(`Удалено объектов: ${objectsArray.length - filteredArray.length}`);
+      if (!shouldKeep) {
+        console.log('Удаляется объект с URL:', objUrl);
+      }
 
-    } catch (error) {
-        console.error('Произошла ошибка:', error);
-    }
+      return shouldKeep;
+    });
+
+    // Записываем результат
+    await fs.writeFile(outputFilePath, JSON.stringify(filteredArray, null, 2), 'utf8');
+
+    console.log(`Исходное количество объектов: ${objectsArray.length}`);
+    console.log(`Оставшееся количество объектов: ${filteredArray.length}`);
+    console.log(`Удалено объектов: ${objectsArray.length - filteredArray.length}`);
+  } catch (error) {
+    console.error('Произошла ошибка:', error);
+  }
 }
 
 // Использование

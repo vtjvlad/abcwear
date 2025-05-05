@@ -1,0 +1,9 @@
+# Ignore dependencies and generated files
+node_modules/
+
+# Skip remodel scripts for now
+remodel/
+
+# Ignore build and logs
+public/
+*.log 

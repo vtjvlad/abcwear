@@ -1,456 +1,488 @@
 :root {
-    --primary-color: #2196F3;
-    --primary-dark: #1976D2;
-    --secondary-color: #4CAF50;
-    --text-dark: #2C3E50;
-    --text-light: #7F8C8D;
-    --background-light: #F8F9FA;
-    --white: #FFFFFF;
-    --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
-    --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
-    --shadow-lg: 0 8px 16px rgba(0,0,0,0.1);
-    --transition: all 0.3s ease;
+  --primary-color: #2196f3;
+  --primary-dark: #1976d2;
+  --secondary-color: #4caf50;
+  --text-dark: #2c3e50;
+  --text-light: #7f8c8d;
+  --background-light: #f8f9fa;
+  --white: #ffffff;
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    background-color: var(--background-light);
-    color: var(--text-dark);
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  background-color: var(--background-light);
+  color: var(--text-dark);
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1200x600?text=Welcome+to+ABC+Wear');
-    background-size: cover;
-    background-position: center;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: var(--white);
-    margin-bottom: 40px;
-    border-radius: 12px;
-    box-shadow: var(--shadow-lg);
-    position: relative;
-    overflow: hidden;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url('https://via.placeholder.com/1200x600?text=Welcome+to+ABC+Wear');
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 40px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
 }
 
 .hero::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background: linear-gradient(to top, var(--background-light), transparent);
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to top, var(--background-light), transparent);
 }
 
 .hero-content {
-    max-width: 800px;
-    padding: 0 20px;
-    position: relative;
-    z-index: 1;
+  max-width: 800px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero h2 {
-    font-size: 48px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero p {
-    font-size: 24px;
-    margin-bottom: 30px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  font-size: 24px;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 .btn {
-    display: inline-block;
-    padding: 16px 32px;
-    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-    color: var(--white);
-    text-decoration: none;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    transition: var(--transition);
-    box-shadow: var(--shadow-sm);
-    border: none;
-    cursor: pointer;
+  display: inline-block;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+  border: none;
+  cursor: pointer;
 }
 
 .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-    background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
 }
 
 .features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
 }
 
 .feature-card {
-    background: var(--white);
-    padding: 30px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
 }
 
 .feature-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
-    transform: scaleX(0);
-    transition: var(--transition);
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-color), var(--primary-dark));
+  transform: scaleX(0);
+  transition: var(--transition);
 }
 
 .feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
 }
 
 .feature-card:hover::before {
-    transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 .feature-card h3 {
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    color: var(--primary-color);
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--primary-color);
 }
 
 .feature-card p {
-    font-size: 16px;
-    color: var(--text-light);
-    line-height: 1.6;
+  font-size: 16px;
+  color: var(--text-light);
+  line-height: 1.6;
 }
 
 footer {
-    background: var(--text-dark);
-    color: var(--white);
-    text-align: center;
-    padding: 30px 0;
-    margin-top: 40px;
+  background: var(--text-dark);
+  color: var(--white);
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 40px;
 }
 
 footer .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 footer p {
-    font-size: 14px;
-    opacity: 0.8;
+  font-size: 14px;
+  opacity: 0.8;
 }
 
 .social-links {
-    display: flex;
-    gap: 15px;
+  display: flex;
+  gap: 15px;
 }
 
 .social-links a {
-    color: var(--white);
-    font-size: 20px;
-    transition: var(--transition);
+  color: var(--white);
+  font-size: 20px;
+  transition: var(--transition);
 }
 
 .social-links a:hover {
-    color: var(--primary-color);
-    transform: translateY(-2px);
+  color: var(--primary-color);
+  transform: translateY(-2px);
 }
 
 /* Recommendations Slider Styles */
 .recommendations-swiper {
-    padding: 40px 0 60px 0;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    justify-content: center;
-    max-width: 100%;
-    position: relative;
+  padding: 40px 0 60px 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  position: relative;
 }
 
 .recommendations-swiper .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    height: 100%;
-    transition: filter 0.4s, opacity 0.4s, transform 0.4s;
-    width: 240px;
-    max-width: 90vw;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  height: 100%;
+  transition:
+    filter 0.4s,
+    opacity 0.4s,
+    transform 0.4s;
+  width: 240px;
+  max-width: 90vw;
 }
 
 .recommendation-card {
-    aspect-ratio: 2/3;
-    min-height: 340px;
-    max-height: 420px;
-    width: 100%;
-    background: var(--white);
-    border-radius: 18px;
-    box-shadow: 0 8px 32px rgba(33,150,243,0.18), 0 4px 16px rgba(0,0,0,0.10);
-    overflow: hidden;
-    transition: box-shadow 0.4s, transform 0.4s, filter 0.4s;
-    position: relative;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
+  aspect-ratio: 2/3;
+  min-height: 340px;
+  max-height: 420px;
+  width: 100%;
+  background: var(--white);
+  border-radius: 18px;
+  box-shadow:
+    0 8px 32px rgba(33, 150, 243, 0.18),
+    0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition:
+    box-shadow 0.4s,
+    transform 0.4s,
+    filter 0.4s;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .swiper-slide:not(.swiper-slide-active) .recommendation-card {
-    filter: blur(1.2px) grayscale(0.13) brightness(0.97);
-    opacity: 0.82;
-    transform: scale(0.93) translateY(8px);
-    box-shadow: 0 2px 8px rgba(33,150,243,0.10);
+  filter: blur(1.2px) grayscale(0.13) brightness(0.97);
+  opacity: 0.82;
+  transform: scale(0.93) translateY(8px);
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.1);
 }
 
 .swiper-slide.swiper-slide-active .recommendation-card {
-    filter: none;
-    opacity: 1;
-    transform: scale(1.02) translateY(-4px);
-    box-shadow: 0 12px 48px 0 rgba(33,150,243,0.22), 0 8px 32px rgba(0,0,0,0.12);
-    z-index: 2;
+  filter: none;
+  opacity: 1;
+  transform: scale(1.02) translateY(-4px);
+  box-shadow:
+    0 12px 48px 0 rgba(33, 150, 243, 0.22),
+    0 8px 32px rgba(0, 0, 0, 0.12);
+  z-index: 2;
 }
 
 .recommendation-card .product-image-container {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 .recommendation-card .product-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 18px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
 .recommendation-card .product-info {
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    width: 100%;
-    background: rgba(255,255,255,0.28);
-    padding: 24px 18px 16px 18px;
-    border-radius: 0 0 18px 18px;
-    box-shadow: 0 8px 32px rgba(33,150,243,0.10);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(32px) scale(0.98);
-    filter: blur(8px);
-    transition:
-        opacity 0.5s cubic-bezier(.22,1,.36,1) 0.08s,
-        transform 0.7s cubic-bezier(.22,1,.36,1),
-        filter 0.5s cubic-bezier(.22,1,.36,1),
-        background 0.5s;
-    z-index: 2;
-    backdrop-filter: blur(6px) saturate(1.2);
-    overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.28);
+  padding: 24px 18px 16px 18px;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 8px 32px rgba(33, 150, 243, 0.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(32px) scale(0.98);
+  filter: blur(8px);
+  transition:
+    opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.08s,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.5s;
+  z-index: 2;
+  backdrop-filter: blur(6px) saturate(1.2);
+  overflow: hidden;
 }
 
 .recommendation-card .product-info::before {
-    content: '';
-    position: absolute;
-    left: 0; right: 0; top: 0; height: 38%;
-    background: linear-gradient(180deg,rgba(255,255,255,0.45) 0%,rgba(255,255,255,0.08) 100%);
-    pointer-events: none;
-    border-radius: 0 0 18px 18px;
-    z-index: 3;
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 38%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.45) 0%, rgba(255, 255, 255, 0.08) 100%);
+  pointer-events: none;
+  border-radius: 0 0 18px 18px;
+  z-index: 3;
 }
 
 .swiper-slide.swiper-slide-active .recommendation-card .product-info,
 .swiper-slide.swiper-slide-active .recommendation-card:focus-within .product-info {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(32px) scale(0.98);
-    filter: blur(8px);
-    background: rgba(255,255,255,0.6);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(32px) scale(0.98);
+  filter: blur(8px);
+  background: rgba(255, 255, 255, 0.6);
 }
 
 .swiper-slide.swiper-slide-active .recommendation-card:hover .product-info {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(-12px) scale(1.04);
-    filter: blur(0);
-    background: rgba(255,255,255,0.38);
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-12px) scale(1.04);
+  filter: blur(0);
+  background: rgba(255, 255, 255, 0.38);
 }
 
 .recommendation-card .product-name {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text-dark);
-    margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
 }
 
 .recommendation-card .product-subtitle {
-    font-size: 12.5px;
-    color: var(--text-light);
-    margin-bottom: 15px;
+  font-size: 12.5px;
+  color: var(--text-light);
+  margin-bottom: 15px;
 }
 
 .recommendation-card .price-container {
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .recommendation-card .current-price {
-    font-size: 15px;
-    font-weight: 700;
-    color: #e53935;
+  font-size: 15px;
+  font-weight: 700;
+  color: #e53935;
 }
 
 .recommendation-card .initial-price {
-    font-size: 12px;
-    color: var(--text-light);
-    text-decoration: line-through;
+  font-size: 12px;
+  color: var(--text-light);
+  text-decoration: line-through;
 }
 
 /* Swiper Navigation Styles */
-.swiper-button-next, .swiper-button-prev {
-    color: #2196F3;
-    background: none;
-    border-radius: 0;
-    width: 36px;
-    height: 36px;
-    box-shadow: none;
-    transition: color 0.2s, transform 0.2s, opacity 0.2s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    position: absolute;
-    left: auto;
-    right: auto;
-    top: auto;
-    bottom: -32px;
-    opacity: 0.65;
-    z-index: 10;
+.swiper-button-next,
+.swiper-button-prev {
+  color: #2196f3;
+  background: none;
+  border-radius: 0;
+  width: 36px;
+  height: 36px;
+  box-shadow: none;
+  transition:
+    color 0.2s,
+    transform 0.2s,
+    opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  position: absolute;
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: -32px;
+  opacity: 0.65;
+  z-index: 10;
 }
 
-.swiper-button-next:hover, .swiper-button-prev:hover {
-    color: #1565c0;
-    opacity: 1;
-    background: none;
-    transform: scale(1.18);
-    box-shadow: none;
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: #1565c0;
+  opacity: 1;
+  background: none;
+  transform: scale(1.18);
+  box-shadow: none;
 }
 
 .swiper-button-prev {
-    left: 44%;
-    margin-left: -60px;
+  left: 44%;
+  margin-left: -60px;
 }
 
 .swiper-button-next {
-    right: 44%;
-    margin-right: -60px;
+  right: 44%;
+  margin-right: -60px;
 }
 
-.swiper-button-next:after, .swiper-button-prev:after {
-    font-size: 32px;
-    font-weight: 400;
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 32px;
+  font-weight: 400;
 }
 
 /* Mobile Styles */
 @media (max-width: 1024px) {
-    .recommendations-swiper .swiper-slide {
-        width: 200px;
-    }
+  .recommendations-swiper .swiper-slide {
+    width: 200px;
+  }
 }
 
 @media (max-width: 768px) {
-    .recommendation-card {
-        min-height: 260px;
-    }
-    .recommendations-swiper .swiper-slide {
-        width: 150px;
-    }
-    .swiper-button-next, .swiper-button-prev {
-        width: 30px;
-        height: 30px;
-    }
-    .swiper-button-next:after, .swiper-button-prev:after {
-        font-size: 24px;
-    }
-    .container {
-        padding: 10px;
-    }
-    .recommendations-swiper {
-        padding: 20px 0 40px 0;
-    }
+  .recommendation-card {
+    min-height: 260px;
+  }
+  .recommendations-swiper .swiper-slide {
+    width: 150px;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+  }
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 24px;
+  }
+  .container {
+    padding: 10px;
+  }
+  .recommendations-swiper {
+    padding: 20px 0 40px 0;
+  }
 }
 
 @media (max-width: 480px) {
-    .recommendation-card {
-        min-height: 260px;
-    }
-    .recommendations-swiper .swiper-slide {
-        width: 150px;
-    }
-    .swiper-button-next, .swiper-button-prev {
-        width: 30px;
-        height: 30px;
-    }
-    .swiper-button-next:after, .swiper-button-prev:after {
-        font-size: 24px;
-    }
-    .container {
-        padding: 10px;
-    }
-    .recommendations-swiper {
-        padding: 20px 0 40px 0;
-    }
+  .recommendation-card {
+    min-height: 260px;
+  }
+  .recommendations-swiper .swiper-slide {
+    width: 150px;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+  }
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 24px;
+  }
+  .container {
+    padding: 10px;
+  }
+  .recommendations-swiper {
+    padding: 20px 0 40px 0;
+  }
 }
 
 @media (max-width: 360px) {
-    .recommendation-card {
-        min-height: 260px;
-    }
-    .recommendations-swiper .swiper-slide {
-        width: 150px;
-    }
-    .swiper-button-next, .swiper-button-prev {
-        width: 30px;
-        height: 30px;
-    }
-    .swiper-button-next:after, .swiper-button-prev:after {
-        font-size: 24px;
-    }
-    .container {
-        padding: 10px;
-    }
-    .recommendations-swiper {
-        padding: 20px 0 40px 0;
-    }
-} 
+  .recommendation-card {
+    min-height: 260px;
+  }
+  .recommendations-swiper .swiper-slide {
+    width: 150px;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+  }
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 24px;
+  }
+  .container {
+    padding: 10px;
+  }
+  .recommendations-swiper {
+    padding: 20px 0 40px 0;
+  }
+}

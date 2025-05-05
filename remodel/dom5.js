@@ -58,7 +58,6 @@
 // })();
 //
 
-
 const fs = require('fs');
 const puppeteer = require('puppeteer');
 const beautify = require('js-beautify').html;
@@ -69,21 +68,21 @@ const beautify = require('js-beautify').html;
   const websitesFile = 'output.txt';
 
   // Файл для сохранения результатов
- const outputFile = 'sizes.json';
+  const outputFile = 'sizes.json';
 
   // Чтение списка сайтов из файла
-  const websites = fs.readFileSync(websitesFile, 'utf8')
+  const websites = fs
+    .readFileSync(websitesFile, 'utf8')
     .split('\n')
-    .map(url => url.trim())
-    .filter(url => url.length > 0);
+    .map((url) => url.trim())
+    .filter((url) => url.length > 0);
 
   // Запуск браузера в headless-режиме
-const browser = await puppeteer.launch({
-        executablePath: "/snap/bin/chromium", // Укажи свой путь, если нужно
-        headless: true,
-        args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    });
-
+  const browser = await puppeteer.launch({
+    executablePath: '/snap/bin/chromium', // Укажи свой путь, если нужно
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox'],
+  });
 
   let resultText = '';
 
@@ -92,9 +91,9 @@ const browser = await puppeteer.launch({
     console.log(`Обработка: ${url}`);
     const page = await browser.newPage();
     try {
-               await page.goto(url, {
-    waitUntil: 'networkidle0'  // дожидаемся, когда сети будут «тихими»
-  });
+      await page.goto(url, {
+        waitUntil: 'networkidle0', // дожидаемся, когда сети будут «тихими»
+      });
 
       // Извлечение содержимого нужного элемента
       const content = await page.evaluate(() => {
@@ -105,7 +104,7 @@ const browser = await puppeteer.launch({
       const formattedContent = content
         ? beautify(content, { indent_size: 2, preserve_newlines: true }).trim()
         : 'Контент не найден';
-      
+
       // Формирование текстового результата
       resultText += `URL: ${url}\n`;
       resultText += `Контент:\n${formattedContent}\n`;

@@ -1,91 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UMAMI - Главная</title>
-    <link rel="icon" type="image/png" href="/u.png">
-    <link rel="apple-touch-icon" href="/u.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/u.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/u.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/u.png">
-    <link rel="shortcut icon" href="/u.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="UMAMI">
+    <link rel="icon" type="image/png" href="/u.png" />
+    <link rel="apple-touch-icon" href="/u.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/u.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/u.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/u.png" />
+    <link rel="shortcut icon" href="/u.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="UMAMI" />
     <script src="/js/footer-loader.js" defer></script>
     <script src="/js/header-loader.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/loader.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/loader.css" />
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-</head>
-<body>
+  </head>
+  <body>
     <div class="page-loader">
-        <div class="loader-content">
-            <span class="loader-u">U</span><span class="loader-dot">.</span>
-        </div>
+      <div class="loader-content">
+        <span class="loader-u">U</span><span class="loader-dot">.</span>
+      </div>
     </div>
     <!-- Новый минималистичный header на всю ширину -->
     <div class="container">
-        <!-- Мобильные категории под поиском -->
-        <!-- <div class="mobile-main-categories"> -->
-            <!-- <a href="#" class="category">Взуття</a> -->
-            <!-- <a href="#" class="category">Одяг</a> -->
-            <!-- <a href="#" class="category">Аксесуары</a> -->
-        <!-- </div> -->
-        <!-- Слайдер рекомендаций -->
-        <section style="margin-bottom: 40px;">
-            <h2 style="text-align:center; margin-bottom: 20px;">Рекомендуемое</h2>
-            <div class="swiper recommendations-swiper">
-                <div class="swiper-wrapper" id="recommendations-slider">
-                    <!-- Слайды будут добавлены через JS -->
-                </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
-                <!-- Add Navigation -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-        </section>
-        <section class="hero">
-            <div>
-                <h2>Добро пожаловать в ABC Wear!</h2>
-                <p>Откройте для себя последние тренды и эксклюзивные предложения</p>
-                <a href="/w" class="btn">Перейти к каталогу</a>
-            </div>
-        </section>
+      <!-- Мобильные категории под поиском -->
+      <!-- <div class="mobile-main-categories"> -->
+      <!-- <a href="#" class="category">Взуття</a> -->
+      <!-- <a href="#" class="category">Одяг</a> -->
+      <!-- <a href="#" class="category">Аксесуары</a> -->
+      <!-- </div> -->
+      <!-- Слайдер рекомендаций -->
+      <section style="margin-bottom: 40px">
+        <h2 style="text-align: center; margin-bottom: 20px">Рекомендуемое</h2>
+        <div class="swiper recommendations-swiper">
+          <div class="swiper-wrapper" id="recommendations-slider">
+            <!-- Слайды будут добавлены через JS -->
+          </div>
+          <!-- Add Pagination -->
+          <div class="swiper-pagination"></div>
+          <!-- Add Navigation -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </section>
+      <section class="hero">
+        <div>
+          <h2>Добро пожаловать в ABC Wear!</h2>
+          <p>Откройте для себя последние тренды и эксклюзивные предложения</p>
+          <a href="/w" class="btn">Перейти к каталогу</a>
+        </div>
+      </section>
 
-        <section class="features">
-            <div class="feature-card">
-                <h3>Широкий ассортимент</h3>
-                <p>От повседневной одежды до вечерних нарядов - у нас есть все, что вам нужно.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Доступные цены</h3>
-                <p>Качественная одежда по ценам, которые не ударят по вашему бюджету.</p>
-            </div>
-            <div class="feature-card">
-                <h3>Быстрая доставка</h3>
-                <p>Получите ваши заказы в кратчайшие сроки с нашими надежными партнерами по доставке.</p>
-            </div>
-        </section>
+      <section class="features">
+        <div class="feature-card">
+          <h3>Широкий ассортимент</h3>
+          <p>От повседневной одежды до вечерних нарядов - у нас есть все, что вам нужно.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Доступные цены</h3>
+          <p>Качественная одежда по ценам, которые не ударят по вашему бюджету.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Быстрая доставка</h3>
+          <p>Получите ваши заказы в кратчайшие сроки с нашими надежными партнерами по доставке.</p>
+        </div>
+      </section>
     </div>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2023 ABC Wear. Все права защищены.</p>
-        </div>
+      <div class="container">
+        <p>&copy; 2023 ABC Wear. Все права защищены.</p>
+      </div>
     </footer>
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="recommendations.js"></script>
     <script src="/js/loader.js"></script>
-</body>
-</html> 
+  </body>
+</html>

@@ -1,107 +1,128 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UMAMI - Название товара</title>
-    <link rel="icon" type="image/png" href="/u.png">
-    <link rel="apple-touch-icon" href="/u.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/u.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/u.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/u.png">
-    <link rel="shortcut icon" href="/u.png">
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="UMAMI">
+    <link rel="icon" type="image/png" href="/u.png" />
+    <link rel="apple-touch-icon" href="/u.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/u.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/u.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/u.png" />
+    <link rel="shortcut icon" href="/u.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="application-name" content="UMAMI" />
 
     <script src="/js/header-loader.js" defer></script>
     <script src="/js/footer-loader.js" defer></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="size.css">
-    <link rel="stylesheet" href="/styles/product.css">
-</head>
-<body>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="size.css" />
+    <link rel="stylesheet" href="/styles/product.css" />
+  </head>
+  <body>
     <main class="main-content">
-        <div class="container">
-            <div class="product-gallery">
-                <div class="thumbnail-list" id="thumbnail-list">
-                    <!-- Thumbnails will be added dynamically -->
-                </div>
-                <div class="main-image-container">
-                    <div class="main-image-wrapper">
-                        <div class="image-loader"></div>
-                        <img id="main-image" src="" alt="Main Product Image" class="main-image">
-                    </div>
-                    <button class="image-nav prev">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <button class="image-nav next">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                    <div class="photo-dots" id="photo-dots"></div>
-                </div>
+      <div class="container">
+        <div class="product-gallery">
+          <div class="thumbnail-list" id="thumbnail-list">
+            <!-- Thumbnails will be added dynamically -->
+          </div>
+          <div class="main-image-container">
+            <div class="main-image-wrapper">
+              <div class="image-loader"></div>
+              <img id="main-image" src="" alt="Main Product Image" class="main-image" />
             </div>
-
-            <div class="product-info">
-                <div class="rating-section">
-                    <div class="rating-badge">
-                        <i class="fas fa-star"></i>
-                        Highly Rated
-                    </div>
-                    <a href="/w" class="back-to-catalog">
-                        <i class="fas fa-arrow-left"></i>
-                        <span>В каталог</span>
-                    </a>
-                </div>
-
-                <h1 class="product-title" id="product-title">Загрузка...</h1>
-                <p class="product-subtitle" id="product-subtitle"></p>
-
-                <div class="product-price" id="product-price">
-                    <span class="current-price"></span>
-                    <span class="original-price"></span>
-                    <span class="discount"></span>
-                </div>
-
-                <div class="color-variants-wrapper" style="position:relative;">
-                    <button class="color-scroll-arrow left" id="color-scroll-left" aria-label="Скролл влево">
-                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
-                    </button>
-                    <div class="color-variants" id="color-grid">
-                        <!-- Color variants will be added dynamically -->
-                    </div>
-                    <button class="color-scroll-arrow right" id="color-scroll-right" aria-label="Скролл вправо">
-                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
-                    </button>
-                </div>
-
-                <div class="size-section">
-                    <div class="size-header">
-                        <h3>Select Size</h3>
-                        <a href="#" class="size-guide-link">
-                            <i class="fas fa-ruler"></i>
-                            Size Guide
-                        </a>
-                    </div>
-                    <div class="size-grid" id="size-grid">
-                        <!-- Sizes will be added dynamically -->
-                    </div>
-                </div>
-
-                <div class="action-buttons">
-                    <button class="btn btn-primary" id="add-to-cart">Add to Bag</button>
-                    <button class="btn btn-secondary" id="add-to-favorites">Favorite</button>
-                </div>
-
-                <div class="product-description" id="product-description">
-                    <!-- Description will be added dynamically -->
-                </div>
-            </div>
+            <button class="image-nav prev">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="image-nav next">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+            <div class="photo-dots" id="photo-dots"></div>
+          </div>
         </div>
+
+        <div class="product-info">
+          <div class="rating-section">
+            <div class="rating-badge">
+              <i class="fas fa-star"></i>
+              Highly Rated
+            </div>
+            <a href="/w" class="back-to-catalog">
+              <i class="fas fa-arrow-left"></i>
+              <span>В каталог</span>
+            </a>
+          </div>
+
+          <h1 class="product-title" id="product-title">Загрузка...</h1>
+          <p class="product-subtitle" id="product-subtitle"></p>
+
+          <div class="product-price" id="product-price">
+            <span class="current-price"></span>
+            <span class="original-price"></span>
+            <span class="discount"></span>
+          </div>
+
+          <div class="color-variants-wrapper" style="position: relative">
+            <button
+              class="color-scroll-arrow left"
+              id="color-scroll-left"
+              aria-label="Скролл влево"
+            >
+              <svg viewBox="0 0 24 24">
+                <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+              </svg>
+            </button>
+            <div class="color-variants" id="color-grid">
+              <!-- Color variants will be added dynamically -->
+            </div>
+            <button
+              class="color-scroll-arrow right"
+              id="color-scroll-right"
+              aria-label="Скролл вправо"
+            >
+              <svg viewBox="0 0 24 24">
+                <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
+              </svg>
+            </button>
+          </div>
+
+          <div class="size-section">
+            <div class="size-header">
+              <h3>Select Size</h3>
+              <a href="#" class="size-guide-link">
+                <i class="fas fa-ruler"></i>
+                Size Guide
+              </a>
+            </div>
+            <div class="size-grid" id="size-grid">
+              <!-- Sizes will be added dynamically -->
+            </div>
+          </div>
+
+          <div class="action-buttons">
+            <button class="btn btn-primary" id="add-to-cart">Add to Bag</button>
+            <button class="btn btn-secondary" id="add-to-favorites">Favorite</button>
+          </div>
+
+          <div class="product-description" id="product-description">
+            <!-- Description will be added dynamically -->
+          </div>
+        </div>
+      </div>
     </main>
 
     <!-- <footer>
@@ -135,89 +156,89 @@
     </footer> -->
 
     <nav class="mobile-nav">
-        <div class="mobile-nav-links">
-            <a href="/w" class="mobile-nav-link">
-                <i class="fa-solid fa-store mobile-nav-icon"></i>
-                <span>Каталог</span>
-            </a>
-            <a href="/favorites" class="mobile-nav-link">
-                <i class="fa-regular fa-heart mobile-nav-icon"></i>
-                <span>Избранное</span>
-            </a>
-            <a href="/cart" class="mobile-nav-link">
-                <i class="fa-solid fa-cart-shopping mobile-nav-icon"></i>
-                <span>Корзина</span>
-            </a>
-            <a href="/profile" class="mobile-nav-link">
-                <i class="fa-regular fa-user mobile-nav-icon"></i>
-                <span>Профиль</span>
-            </a>
-        </div>
+      <div class="mobile-nav-links">
+        <a href="/w" class="mobile-nav-link">
+          <i class="fa-solid fa-store mobile-nav-icon"></i>
+          <span>Каталог</span>
+        </a>
+        <a href="/favorites" class="mobile-nav-link">
+          <i class="fa-regular fa-heart mobile-nav-icon"></i>
+          <span>Избранное</span>
+        </a>
+        <a href="/cart" class="mobile-nav-link">
+          <i class="fa-solid fa-cart-shopping mobile-nav-icon"></i>
+          <span>Корзина</span>
+        </a>
+        <a href="/profile" class="mobile-nav-link">
+          <i class="fa-regular fa-user mobile-nav-icon"></i>
+          <span>Профиль</span>
+        </a>
+      </div>
     </nav>
 
     <script>
-        // Get product ID from URL
-        const productId = window.location.pathname.split('/').pop();
-        
-        // Простой обработчик для кнопки "В каталог"
-        document.addEventListener('DOMContentLoaded', function() {
-            const backButton = document.querySelector('.back-to-catalog');
-            if (backButton) {
-                backButton.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    console.log('Back button clicked');
-                    console.log('Referrer:', document.referrer);
-                    
-                    if (document.referrer.includes('/w')) {
-                        console.log('Going back to catalog');
-                        window.history.back();
-                    } else {
-                        console.log('Going to catalog main page');
-                        window.location.href = '/w';
-                    }
-                });
+      // Get product ID from URL
+      const productId = window.location.pathname.split('/').pop();
+
+      // Простой обработчик для кнопки "В каталог"
+      document.addEventListener('DOMContentLoaded', function () {
+        const backButton = document.querySelector('.back-to-catalog');
+        if (backButton) {
+          backButton.addEventListener('click', function (e) {
+            e.preventDefault();
+            console.log('Back button clicked');
+            console.log('Referrer:', document.referrer);
+
+            if (document.referrer.includes('/w')) {
+              console.log('Going back to catalog');
+              window.history.back();
             } else {
-                console.error('Back button not found');
+              console.log('Going to catalog main page');
+              window.location.href = '/w';
             }
-        });
-
-        // Кэш для хранения данных вариантов
-        const variantsCache = new Map();
-
-        // Функция для загрузки данных одного варианта
-        async function loadVariantData(variantId) {
-            try {
-                const response = await fetch(`/api/products/${variantId}`);
-                const data = await response.json();
-                variantsCache.set(variantId, data);
-                return data;
-            } catch (error) {
-                console.error(`Error loading variant ${variantId}:`, error);
-                return null;
-            }
+          });
+        } else {
+          console.error('Back button not found');
         }
+      });
 
-        // Функция для предварительной загрузки всех вариантов
-        async function preloadVariants(variants) {
-            console.log('Starting preload of variants:', variants.length);
-            const loadPromises = variants
-                .filter(variant => variant._id !== productId)
-                .map(variant => {
-                    console.log('Preloading variant:', variant._id);
-                    return loadVariantData(variant._id);
-                });
-            
-            try {
-                await Promise.all(loadPromises);
-                console.log('All variants preloaded successfully');
-            } catch (error) {
-                console.error('Error during variants preload:', error);
-            }
+      // Кэш для хранения данных вариантов
+      const variantsCache = new Map();
+
+      // Функция для загрузки данных одного варианта
+      async function loadVariantData(variantId) {
+        try {
+          const response = await fetch(`/api/products/${variantId}`);
+          const data = await response.json();
+          variantsCache.set(variantId, data);
+          return data;
+        } catch (error) {
+          console.error(`Error loading variant ${variantId}:`, error);
+          return null;
         }
+      }
 
-        // Функция для создания обертки изображения с индикатором загрузки
-        function createImageWrapper(src, className, alt) {
-            return `
+      // Функция для предварительной загрузки всех вариантов
+      async function preloadVariants(variants) {
+        console.log('Starting preload of variants:', variants.length);
+        const loadPromises = variants
+          .filter((variant) => variant._id !== productId)
+          .map((variant) => {
+            console.log('Preloading variant:', variant._id);
+            return loadVariantData(variant._id);
+          });
+
+        try {
+          await Promise.all(loadPromises);
+          console.log('All variants preloaded successfully');
+        } catch (error) {
+          console.error('Error during variants preload:', error);
+        }
+      }
+
+      // Функция для создания обертки изображения с индикатором загрузки
+      function createImageWrapper(src, className, alt) {
+        return `
                 <div class="image-wrapper">
                     <div class="image-loader"></div>
                     <img src="${src}" 
@@ -226,51 +247,51 @@
                          onload="this.classList.add('loaded'); this.parentElement.querySelector('.image-loader').style.display = 'none';">
                 </div>
             `;
-        }
+      }
 
-        // Function to load product data
-        async function loadProductData() {
-            try {
-                console.log('Loading initial product data:', productId);
-                const response = await fetch(`/api/products/${productId}`);
-                const product = await response.json();
+      // Function to load product data
+      async function loadProductData() {
+        try {
+          console.log('Loading initial product data:', productId);
+          const response = await fetch(`/api/products/${productId}`);
+          const product = await response.json();
 
-                // Сохраняем текущий вариант в кэш
-                variantsCache.set(productId, product);
-                console.log('Current product cached:', productId);
+          // Сохраняем текущий вариант в кэш
+          variantsCache.set(productId, product);
+          console.log('Current product cached:', productId);
 
-                // Начинаем загрузку всех вариантов сразу
-                if (product.variants && product.variants.length > 0) {
-                    console.log('Starting variants preload');
-                    preloadVariants(product.variants);
-                }
+          // Начинаем загрузку всех вариантов сразу
+          if (product.variants && product.variants.length > 0) {
+            console.log('Starting variants preload');
+            preloadVariants(product.variants);
+          }
 
-                // Update page title
-                document.title = `ABC Wear - ${product.info.name}`;
+          // Update page title
+          document.title = `ABC Wear - ${product.info.name}`;
 
-                // Update product info
-                document.getElementById('product-title').textContent = product.info.name;
-                document.getElementById('product-subtitle').textContent = product.info.subtitle;
+          // Update product info
+          document.getElementById('product-title').textContent = product.info.name;
+          document.getElementById('product-subtitle').textContent = product.info.subtitle;
 
-                // Update price
-                const priceContainer = document.getElementById('product-price');
-                const currentPrice = product.price.self.UAH.currentPrice;
-                const initialPrice = product.price.self.UAH.initialPrice;
-                const discount = product.price.self.UAH.discount;
+          // Update price
+          const priceContainer = document.getElementById('product-price');
+          const currentPrice = product.price.self.UAH.currentPrice;
+          const initialPrice = product.price.self.UAH.initialPrice;
+          const discount = product.price.self.UAH.discount;
 
-                priceContainer.innerHTML = `
+          priceContainer.innerHTML = `
                     <span class="current-price">${currentPrice} грн</span>
                     ${initialPrice ? `<span class="original-price">${initialPrice} грн</span>` : ''}
                     ${discount ? `<span class="discount">${discount}% off</span>` : ''}
                 `;
 
-                // Update images with loading indicators
-                const thumbnailList = document.getElementById('thumbnail-list');
-                const mainImageContainer = document.querySelector('.main-image-container');
-                
-                if (product.imageData.imgMain) {
-                    // Обновляем главное изображение
-                    mainImageContainer.innerHTML = `
+          // Update images with loading indicators
+          const thumbnailList = document.getElementById('thumbnail-list');
+          const mainImageContainer = document.querySelector('.main-image-container');
+
+          if (product.imageData.imgMain) {
+            // Обновляем главное изображение
+            mainImageContainer.innerHTML = `
                         <div class="main-image-wrapper">
                             <div class="image-loader"></div>
                             <img src="${product.imageData.imgMain}" 
@@ -286,25 +307,31 @@
                         </button>
                     `;
 
-                    // Обновляем миниатюры
-                    thumbnailList.innerHTML = `
+            // Обновляем миниатюры
+            thumbnailList.innerHTML = `
                         <img src="${product.imageData.imgMain}" 
                              alt="Main view" 
                              class="thumbnail active"
                              onload="this.classList.add('loaded')">
-                        ${product.imageData.images.map((img, index) => `
+                        ${product.imageData.images
+                          .map(
+                            (img, index) => `
                             <img src="${img}" 
                                  alt="View ${index + 1}" 
                                  class="thumbnail"
                                  onload="this.classList.add('loaded')">
-                        `).join('')}
+                        `
+                          )
+                          .join('')}
                     `;
-                }
+          }
 
-                // Update color variants
-                const colorGrid = document.getElementById('color-grid');
-                if (product.variants && product.variants.length > 0) {
-                    colorGrid.innerHTML = product.variants.map(variant => `
+          // Update color variants
+          const colorGrid = document.getElementById('color-grid');
+          if (product.variants && product.variants.length > 0) {
+            colorGrid.innerHTML = product.variants
+              .map(
+                (variant) => `
                         <div class="color-variant ${variant._id === product._id ? 'selected' : ''}" 
                              data-variant-id="${variant._id}"
                              data-url="${variant.links.url}"
@@ -316,50 +343,51 @@
                                      onload="this.classList.add('loaded'); this.parentElement.querySelector('.image-loader').style.display = 'none';">
                             </div>
                         </div>
-                    `).join('');
-                }
+                    `
+              )
+              .join('');
+          }
 
-                // Update description
-                document.getElementById('product-description').textContent = product.info.discription;
+          // Update description
+          document.getElementById('product-description').textContent = product.info.discription;
 
-                // Обновляем сетку размеров, если есть contentDivSizes
-                if (product.sizes) {
-                    updateSizeGrid(product.sizes);
-                }
+          // Обновляем сетку размеров, если есть contentDivSizes
+          if (product.sizes) {
+            updateSizeGrid(product.sizes);
+          }
 
-                // Add event listeners
-                addEventListeners(product.variants);
-            } 
-            catch (error) {
-                console.error('Error loading product:', error);
-                document.getElementById('product-title').textContent = 'Ошибка загрузки товара';
-            }
+          // Add event listeners
+          addEventListeners(product.variants);
+        } catch (error) {
+          console.error('Error loading product:', error);
+          document.getElementById('product-title').textContent = 'Ошибка загрузки товара';
         }
+      }
 
-        // Function to update page content
-        function updatePageContent(productData) {
-            document.title = `ABC Wear - ${productData.info.name}`;
-            document.getElementById('product-title').textContent = productData.info.name;
-            document.getElementById('product-subtitle').textContent = productData.info.subtitle;
+      // Function to update page content
+      function updatePageContent(productData) {
+        document.title = `ABC Wear - ${productData.info.name}`;
+        document.getElementById('product-title').textContent = productData.info.name;
+        document.getElementById('product-subtitle').textContent = productData.info.subtitle;
 
-            const priceContainer = document.getElementById('product-price');
-            const currentPrice = productData.price.self.UAH.currentPrice;
-            const initialPrice = productData.price.self.UAH.initialPrice;
-            const discount = productData.price.self.UAH.discount;
+        const priceContainer = document.getElementById('product-price');
+        const currentPrice = productData.price.self.UAH.currentPrice;
+        const initialPrice = productData.price.self.UAH.initialPrice;
+        const discount = productData.price.self.UAH.discount;
 
-            priceContainer.innerHTML = `
+        priceContainer.innerHTML = `
                 <span class="current-price">${currentPrice} грн</span>
                 ${initialPrice ? `<span class="original-price">${initialPrice} грн</span>` : ''}
                 ${discount ? `<span class="discount">${discount}% off</span>` : ''}
             `;
 
-            // Update images with loading indicators
-            const thumbnailList = document.getElementById('thumbnail-list');
-            const mainImageContainer = document.querySelector('.main-image-container');
-            
-            if (productData.imageData.imgMain) {
-                // Обновляем главное изображение
-                mainImageContainer.innerHTML = `
+        // Update images with loading indicators
+        const thumbnailList = document.getElementById('thumbnail-list');
+        const mainImageContainer = document.querySelector('.main-image-container');
+
+        if (productData.imageData.imgMain) {
+          // Обновляем главное изображение
+          mainImageContainer.innerHTML = `
                     <div class="main-image-wrapper">
                         <div class="image-loader"></div>
                         <img src="${productData.imageData.imgMain}" 
@@ -375,274 +403,300 @@
                     </button>
                 `;
 
-                // Обновляем миниатюры
-                thumbnailList.innerHTML = `
+          // Обновляем миниатюры
+          thumbnailList.innerHTML = `
                     <img src="${productData.imageData.imgMain}" 
                          alt="Main view" 
                          class="thumbnail active"
                          onload="this.classList.add('loaded')">
-                    ${productData.imageData.images.map((img, index) => `
+                    ${productData.imageData.images
+                      .map(
+                        (img, index) => `
                         <img src="${img}" 
                              alt="View ${index + 1}" 
                              class="thumbnail"
                              onload="this.classList.add('loaded')">
-                    `).join('')}
+                    `
+                      )
+                      .join('')}
                 `;
-            }
-
-            document.getElementById('product-description').textContent = productData.info.discription;
-
-            // Обновляем активный цвет
-            const colorVariants = document.querySelectorAll('.color-variant');
-            colorVariants.forEach(variant => {
-                variant.classList.toggle('selected', variant.dataset.variantId === productData._id);
-            });
-
-            // Обновляем обработчики событий
-            addEventListeners(productData.variants);
         }
 
-        // Function to add event listeners
-        function addEventListeners(variants) {
-            // Gallery navigation
-            const thumbnails = document.querySelectorAll('.thumbnail');
-            const mainImage = document.querySelector('.main-image');
-            const prevButton = document.querySelector('.image-nav.prev');
-            const nextButton = document.querySelector('.image-nav.next');
+        document.getElementById('product-description').textContent = productData.info.discription;
 
-            let currentImageIndex = 0;
+        // Обновляем активный цвет
+        const colorVariants = document.querySelectorAll('.color-variant');
+        colorVariants.forEach((variant) => {
+          variant.classList.toggle('selected', variant.dataset.variantId === productData._id);
+        });
 
-            function updateImage(index) {
-                const thumb = thumbnails[index];
-                mainImage.src = thumb.src;
-                thumbnails.forEach(t => t.classList.remove('active'));
-                thumb.classList.add('active');
-                currentImageIndex = index;
-                // Обновить точки на мобильных
-                if (window.innerWidth <= 768) {
-                    updatePhotoDots(Array.from(thumbnails), index);
-                }
-            }
+        // Обновляем обработчики событий
+        addEventListeners(productData.variants);
+      }
 
-            thumbnails.forEach((thumb, index) => {
-                thumb.addEventListener('mouseenter', () => {
-                    updateImage(index);
-                });
-            });
+      // Function to add event listeners
+      function addEventListeners(variants) {
+        // Gallery navigation
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const mainImage = document.querySelector('.main-image');
+        const prevButton = document.querySelector('.image-nav.prev');
+        const nextButton = document.querySelector('.image-nav.next');
 
-            prevButton.addEventListener('click', () => {
-                const newIndex = (currentImageIndex - 1 + thumbnails.length) % thumbnails.length;
-                updateImage(newIndex);
-            });
+        let currentImageIndex = 0;
 
-            nextButton.addEventListener('click', () => {
-                const newIndex = (currentImageIndex + 1) % thumbnails.length;
-                updateImage(newIndex);
-            });
-
-            // Color variants
-            const colorVariants = document.querySelectorAll('.color-variant');
-            colorVariants.forEach(variant => {
-                variant.addEventListener('click', async () => {
-                    const variantId = variant.dataset.variantId;
-                    if (!variant.classList.contains('selected')) {
-                        if (variantsCache.has(variantId)) {
-                            console.log('Using cached variant data:', variantId);
-                            const variantData = variantsCache.get(variantId);
-                            window.history.pushState({}, '', variant.dataset.url);
-                            updatePageContent(variantData);
-                        } else {
-                            console.log('No cached data, redirecting to:', variant.dataset.url);
-                            window.location.href = variant.dataset.url;
-                        }
-                    }
-                });
-            });
-
-            // Add to cart button
-            document.getElementById('add-to-cart').addEventListener('click', () => {
-                const selectedSize = document.querySelector('.size-option.selected');
-                if (!selectedSize) {
-                    alert('Пожалуйста, выберите размер');
-                    return;
-                }
-                // Add to cart logic here
-            });
-
-            // Add to favorites button
-            document.getElementById('add-to-favorites').addEventListener('click', () => {
-                // Add to favorites logic here
-            });
-
-            if (window.innerWidth <= 768) {
-                updatePhotoDots(Array.from(thumbnails), currentImageIndex);
-            }
+        function updateImage(index) {
+          const thumb = thumbnails[index];
+          mainImage.src = thumb.src;
+          thumbnails.forEach((t) => t.classList.remove('active'));
+          thumb.classList.add('active');
+          currentImageIndex = index;
+          // Обновить точки на мобильных
+          if (window.innerWidth <= 768) {
+            updatePhotoDots(Array.from(thumbnails), index);
+          }
         }
 
-        // Load product data when page loads
-        loadProductData();
+        thumbnails.forEach((thumb, index) => {
+          thumb.addEventListener('mouseenter', () => {
+            updateImage(index);
+          });
+        });
 
-        // Функция для парсинга HTML строки размеров и преобразования в нужный формат
-        function parseSizesHtml(htmlString) {
-            // Создаем временный div для парсинга HTML
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(htmlString, 'text/html');
-            
-            // Получаем все элементы размеров
-            const sizeInputs = doc.querySelectorAll('input[type="radio"]');
-            
-            // Преобразуем в массив объектов с нужной информацией
-            return Array.from(sizeInputs).map(input => ({
-                size: input.value,
-                disabled: input.hasAttribute('aria-disabled'),
-                id: input.id
-            }));
+        prevButton.addEventListener('click', () => {
+          const newIndex = (currentImageIndex - 1 + thumbnails.length) % thumbnails.length;
+          updateImage(newIndex);
+        });
+
+        nextButton.addEventListener('click', () => {
+          const newIndex = (currentImageIndex + 1) % thumbnails.length;
+          updateImage(newIndex);
+        });
+
+        // Color variants
+        const colorVariants = document.querySelectorAll('.color-variant');
+        colorVariants.forEach((variant) => {
+          variant.addEventListener('click', async () => {
+            const variantId = variant.dataset.variantId;
+            if (!variant.classList.contains('selected')) {
+              if (variantsCache.has(variantId)) {
+                console.log('Using cached variant data:', variantId);
+                const variantData = variantsCache.get(variantId);
+                window.history.pushState({}, '', variant.dataset.url);
+                updatePageContent(variantData);
+              } else {
+                console.log('No cached data, redirecting to:', variant.dataset.url);
+                window.location.href = variant.dataset.url;
+              }
+            }
+          });
+        });
+
+        // Add to cart button
+        document.getElementById('add-to-cart').addEventListener('click', () => {
+          const selectedSize = document.querySelector('.size-option.selected');
+          if (!selectedSize) {
+            alert('Пожалуйста, выберите размер');
+            return;
+          }
+          // Add to cart logic here
+        });
+
+        // Add to favorites button
+        document.getElementById('add-to-favorites').addEventListener('click', () => {
+          // Add to favorites logic here
+        });
+
+        if (window.innerWidth <= 768) {
+          updatePhotoDots(Array.from(thumbnails), currentImageIndex);
         }
+      }
 
-        // Функция для обновления сетки размеров
-        function updateSizeGrid(sizesHtml) {
-            console.log('updateSizeGrid');
-            const sizeGrid = document.getElementById('size-grid');
-            const sizes = parseSizesHtml(sizesHtml);
-            
-            sizeGrid.innerHTML = sizes.map(size => `
+      // Load product data when page loads
+      loadProductData();
+
+      // Функция для парсинга HTML строки размеров и преобразования в нужный формат
+      function parseSizesHtml(htmlString) {
+        // Создаем временный div для парсинга HTML
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlString, 'text/html');
+
+        // Получаем все элементы размеров
+        const sizeInputs = doc.querySelectorAll('input[type="radio"]');
+
+        // Преобразуем в массив объектов с нужной информацией
+        return Array.from(sizeInputs).map((input) => ({
+          size: input.value,
+          disabled: input.hasAttribute('aria-disabled'),
+          id: input.id,
+        }));
+      }
+
+      // Функция для обновления сетки размеров
+      function updateSizeGrid(sizesHtml) {
+        console.log('updateSizeGrid');
+        const sizeGrid = document.getElementById('size-grid');
+        const sizes = parseSizesHtml(sizesHtml);
+
+        sizeGrid.innerHTML = sizes
+          .map(
+            (size) => `
                 <div class="size-option ${size.disabled ? 'disabled' : ''}" 
                      data-size="${size.size}"
                      ${size.disabled ? 'title="Размер недоступен"' : ''}>
                     ${size.size}
                 </div>
-            `).join('');
-            
-            // Добавляем обработчики событий для размеров
-            const sizeOptions = sizeGrid.querySelectorAll('.size-option:not(.disabled)');
-            sizeOptions.forEach(option => {
-                option.addEventListener('click', () => {
-                    // Убираем выделение у всех размеров
-                    sizeOptions.forEach(opt => opt.classList.remove('selected'));
-                    // Добавляем выделение выбранному размеру
-                    option.classList.add('selected');
-                });
-            });
-        }
+            `
+          )
+          .join('');
 
-        document.addEventListener('DOMContentLoaded', function() {
-            function updateColorScrollArrows() {
-                const colorGrid = document.getElementById('color-grid');
-                const leftArrow = document.getElementById('color-scroll-left');
-                const rightArrow = document.getElementById('color-scroll-right');
-                if (!colorGrid || !leftArrow || !rightArrow) return;
-                // Показывать левую стрелку, если скролл не в начале
-                leftArrow.style.display = colorGrid.scrollLeft > 5 ? 'flex' : 'none';
-                // Показывать правую стрелку, если скролл не в конце
-                rightArrow.style.display = (colorGrid.scrollLeft + colorGrid.clientWidth < colorGrid.scrollWidth - 5) ? 'flex' : 'none';
-            }
-            function scrollColorVariants(direction) {
-                const colorGrid = document.getElementById('color-grid');
-                if (!colorGrid) return;
-                const scrollAmount = colorGrid.clientWidth * 0.7;
-                colorGrid.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-            }
-            const colorGrid = document.getElementById('color-grid');
-            const leftArrow = document.getElementById('color-scroll-left');
-            const rightArrow = document.getElementById('color-scroll-right');
-            if (colorGrid && leftArrow && rightArrow) {
-                colorGrid.addEventListener('scroll', updateColorScrollArrows);
-                window.addEventListener('resize', updateColorScrollArrows);
-                leftArrow.addEventListener('click', () => scrollColorVariants(-1));
-                rightArrow.addEventListener('click', () => scrollColorVariants(1));
-                // Первичная инициализация
-                setTimeout(updateColorScrollArrows, 300);
-            }
+        // Добавляем обработчики событий для размеров
+        const sizeOptions = sizeGrid.querySelectorAll('.size-option:not(.disabled)');
+        sizeOptions.forEach((option) => {
+          option.addEventListener('click', () => {
+            // Убираем выделение у всех размеров
+            sizeOptions.forEach((opt) => opt.classList.remove('selected'));
+            // Добавляем выделение выбранному размеру
+            option.classList.add('selected');
+          });
         });
+      }
 
-        // JS: обновление точек и обработка кликов по ним
-        function updatePhotoDots(images, currentIndex) {
-            const dotsContainer = document.getElementById('photo-dots');
-            if (!dotsContainer) return;
-            dotsContainer.innerHTML = images.map((_, idx) =>
-                `<div class="photo-dot${idx === currentIndex ? ' active' : ''}" data-index="${idx}"></div>`
-            ).join('');
-            // Добавить обработчик клика по точкам
-            dotsContainer.querySelectorAll('.photo-dot').forEach(dot => {
-                dot.addEventListener('click', () => {
-                    if (window.innerWidth <= 768) {
-                        updateImage(Number(dot.dataset.index));
-                    }
-                });
-            });
+      document.addEventListener('DOMContentLoaded', function () {
+        function updateColorScrollArrows() {
+          const colorGrid = document.getElementById('color-grid');
+          const leftArrow = document.getElementById('color-scroll-left');
+          const rightArrow = document.getElementById('color-scroll-right');
+          if (!colorGrid || !leftArrow || !rightArrow) return;
+          // Показывать левую стрелку, если скролл не в начале
+          leftArrow.style.display = colorGrid.scrollLeft > 5 ? 'flex' : 'none';
+          // Показывать правую стрелку, если скролл не в конце
+          rightArrow.style.display =
+            colorGrid.scrollLeft + colorGrid.clientWidth < colorGrid.scrollWidth - 5
+              ? 'flex'
+              : 'none';
         }
+        function scrollColorVariants(direction) {
+          const colorGrid = document.getElementById('color-grid');
+          if (!colorGrid) return;
+          const scrollAmount = colorGrid.clientWidth * 0.7;
+          colorGrid.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+        const colorGrid = document.getElementById('color-grid');
+        const leftArrow = document.getElementById('color-scroll-left');
+        const rightArrow = document.getElementById('color-scroll-right');
+        if (colorGrid && leftArrow && rightArrow) {
+          colorGrid.addEventListener('scroll', updateColorScrollArrows);
+          window.addEventListener('resize', updateColorScrollArrows);
+          leftArrow.addEventListener('click', () => scrollColorVariants(-1));
+          rightArrow.addEventListener('click', () => scrollColorVariants(1));
+          // Первичная инициализация
+          setTimeout(updateColorScrollArrows, 300);
+        }
+      });
+
+      // JS: обновление точек и обработка кликов по ним
+      function updatePhotoDots(images, currentIndex) {
+        const dotsContainer = document.getElementById('photo-dots');
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = images
+          .map(
+            (_, idx) =>
+              `<div class="photo-dot${idx === currentIndex ? ' active' : ''}" data-index="${idx}"></div>`
+          )
+          .join('');
+        // Добавить обработчик клика по точкам
+        dotsContainer.querySelectorAll('.photo-dot').forEach((dot) => {
+          dot.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+              updateImage(Number(dot.dataset.index));
+            }
+          });
+        });
+      }
     </script>
     <script src="size.js"></script>
     <script src="/js/universal-loader.js"></script>
     <script>
-        // Page loader
-        document.addEventListener('DOMContentLoaded', function() {
-            // Hide loader when page is fully loaded
-            window.addEventListener('load', function() {
-                const loader = document.querySelector('.page-loader');
-                if (loader) {
-                    loader.classList.add('fade-out');
-                    // Remove loader from DOM after animation
-                    setTimeout(() => {
-                        loader.remove();
-                    }, 500);
-                }
-            });
+      // Page loader
+      document.addEventListener('DOMContentLoaded', function () {
+        // Hide loader when page is fully loaded
+        window.addEventListener('load', function () {
+          const loader = document.querySelector('.page-loader');
+          if (loader) {
+            loader.classList.add('fade-out');
+            // Remove loader from DOM after animation
+            setTimeout(() => {
+              loader.remove();
+            }, 500);
+          }
         });
+      });
 
-        // Открытие/закрытие мобильного меню
-        function openMobileMenu() {
-            document.getElementById('mobile-offcanvas').classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-        function closeMobileMenu() {
-            document.getElementById('mobile-offcanvas').classList.remove('open');
-            document.body.style.overflow = '';
-        }
-        // Список шутливых и мотивирующих подсказок для поиска
-        const searchPlaceholders = [
-            'Поиск: "Кроссовки мечты"',
-            'Попробуйте: "Сумка для счастья"',
-            'Что купить? Например, "Пижама для выходных"',
-            'Введи: "Подарок себе любимому"',
-            '1137',
-            'А может, "Шапка для отпуска"?',
-            'Пора встать с кровати!!!',
-            'Порадуй себя — ищи "Новую футболку"',
-            'Проснись!',
-            'Почувствуй стиль: "Очки как у звезды"',
-            'Поторопись! "Скидки на носки"',
-            'Поищи: "Платье для настроения"',
-            'Введи: "Купить всё!" (шутка, но вдруг?)',
-            'Пока не нашел? Попробуй "Кроссовки для бега"'
-        ];
-        let searchIndex = 0;
-        let desktopTypingInterval = null;
-        let mobileTypingInterval = null;
-        function typePlaceholder(text, input, intervalRef, cb) {
-            let i = 0;
-            input.setAttribute('placeholder', '');
+      // Открытие/закрытие мобильного меню
+      function openMobileMenu() {
+        document.getElementById('mobile-offcanvas').classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMobileMenu() {
+        document.getElementById('mobile-offcanvas').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      // Список шутливых и мотивирующих подсказок для поиска
+      const searchPlaceholders = [
+        'Поиск: "Кроссовки мечты"',
+        'Попробуйте: "Сумка для счастья"',
+        'Что купить? Например, "Пижама для выходных"',
+        'Введи: "Подарок себе любимому"',
+        '1137',
+        'А может, "Шапка для отпуска"?',
+        'Пора встать с кровати!!!',
+        'Порадуй себя — ищи "Новую футболку"',
+        'Проснись!',
+        'Почувствуй стиль: "Очки как у звезды"',
+        'Поторопись! "Скидки на носки"',
+        'Поищи: "Платье для настроения"',
+        'Введи: "Купить всё!" (шутка, но вдруг?)',
+        'Пока не нашел? Попробуй "Кроссовки для бега"',
+      ];
+      let searchIndex = 0;
+      let desktopTypingInterval = null;
+      let mobileTypingInterval = null;
+      function typePlaceholder(text, input, intervalRef, cb) {
+        let i = 0;
+        input.setAttribute('placeholder', '');
+        clearInterval(intervalRef.current);
+        intervalRef.current = setInterval(() => {
+          input.setAttribute('placeholder', text.slice(0, i + 1));
+          i++;
+          if (i === text.length) {
             clearInterval(intervalRef.current);
-            intervalRef.current = setInterval(() => {
-                input.setAttribute('placeholder', text.slice(0, i + 1));
-                i++;
-                if (i === text.length) {
-                    clearInterval(intervalRef.current);
-                    if (cb) cb();
-                }
-            }, 45);
-        }
-        function rotateSearchPlaceholder() {
-            const desktopInput = document.getElementById('desktop-search-input');
-            const mobileInput = document.getElementById('mobile-search-input');
-            if (desktopInput) typePlaceholder(searchPlaceholders[searchIndex], desktopInput, {current: desktopTypingInterval}, () => {});
-            if (mobileInput) typePlaceholder(searchPlaceholders[searchIndex], mobileInput, {current: mobileTypingInterval}, () => {});
-            searchIndex = (searchIndex + 1) % searchPlaceholders.length;
-        }
-        window.addEventListener('DOMContentLoaded', () => {
-            rotateSearchPlaceholder();
-            setInterval(rotateSearchPlaceholder, 3500);
-        });
+            if (cb) cb();
+          }
+        }, 45);
+      }
+      function rotateSearchPlaceholder() {
+        const desktopInput = document.getElementById('desktop-search-input');
+        const mobileInput = document.getElementById('mobile-search-input');
+        if (desktopInput)
+          typePlaceholder(
+            searchPlaceholders[searchIndex],
+            desktopInput,
+            { current: desktopTypingInterval },
+            () => {}
+          );
+        if (mobileInput)
+          typePlaceholder(
+            searchPlaceholders[searchIndex],
+            mobileInput,
+            { current: mobileTypingInterval },
+            () => {}
+          );
+        searchIndex = (searchIndex + 1) % searchPlaceholders.length;
+      }
+      window.addEventListener('DOMContentLoaded', () => {
+        rotateSearchPlaceholder();
+        setInterval(rotateSearchPlaceholder, 3500);
+      });
     </script>
-</body>
-</html> 
+  </body>
+</html>

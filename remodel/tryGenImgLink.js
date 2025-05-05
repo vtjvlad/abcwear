@@ -13,16 +13,16 @@ function transformArray(inputArray) {
     return imgMain.substring(lastSlashIndex);
   }
 
-  return inputArray.map(item => {
+  return inputArray.map((item) => {
     const { url, imgMain, imgs: originalImgs } = item;
     let newImgs = [];
 
     if (imgMain && typeof imgMain === 'string') {
       const suffix = getSuffix(imgMain);
       if (suffix) {
-        const base = "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/";
-        const values = Object.values(originalImgs); 
-        newImgs = values.map(value => `${base}${value}${suffix}`);
+        const base = 'https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/';
+        const values = Object.values(originalImgs);
+        newImgs = values.map((value) => `${base}${value}${suffix}`);
       }
     }
 
@@ -35,4 +35,3 @@ const outputArray = transformArray(inputArray);
 fs.writeFileSync('nikeGENimgsLinks2.json', JSON.stringify(outputArray, null, 2));
 log('Done!');
 console.log('Done!');
-
