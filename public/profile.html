@@ -3,115 +3,619 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Профиль | ABC Wear</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Личный кабинет | ABC Wear</title>
+    <script src="/js/header-loader.js" defer></script>
+    <script src="/js/footer-loader.js" defer></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+            min-height: 100vh;
+            font-family: 'Montserrat', sans-serif;
+            color: #2c3e50;
+        }
+        .profile-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .profile-header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .profile-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+        }
+        .profile-sidebar {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            height: fit-content;
+        }
+        .profile-main {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .nav-link {
+            color: #2c3e50;
+            padding: 0.8rem 1rem;
+            border-radius: 12px;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover, .nav-link.active {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+        }
+        .nav-link i {
+            margin-right: 0.5rem;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #2980b9 0%, #2471a3 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        .form-control {
+            border-radius: 12px;
+            padding: 0.9rem 1.2rem;
+            border: 2px solid #e9ecef;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        .form-control:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.15);
+        }
+        .order-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .order-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .order-status {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .status-pending {
+            background: #fff3cd;
+            color: #856404;
+        }
+        .status-completed {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status-cancelled {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        @media (max-width: 768px) {
+            .profile-content {
+                grid-template-columns: 1fr;
+            }
+            .profile-sidebar {
+                margin-bottom: 1rem;
+            }
+        }
+        .avatar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+        }
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .avatar-upload {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: #3498db;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .avatar-upload:hover {
+            background: #2980b9;
+            transform: scale(1.1);
+        }
+        .avatar-upload i {
+            color: white;
+            font-size: 1rem;
+        }
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .toast {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+        .favorite-item {
+            background: white;
+            border-radius: 15px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .favorite-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .favorite-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .order-details {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+        .order-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .order-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 1rem;
+        }
+        .order-item img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+        }
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .profile-sidebar {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: white;
+                border-radius: 20px 20px 0 0;
+                padding: 1rem;
+                transform: translateY(100%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+            }
+            .profile-sidebar.show {
+                transform: translateY(0);
+            }
+            .nav-link {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+            .nav-link i {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-gray-100 min-h-screen">
-    <div class="container mx-auto px-4 py-8">
-        <div class="max-w-4xl mx-auto">
-            <!-- Header -->
-            <div class="bg-white rounded-lg shadow-lg p-6 mb-6">
-                <div class="flex justify-between items-center">
-                    <h1 class="text-2xl font-bold text-gray-800">Личный кабинет</h1>
-                    <button onclick="authUtils.logout()" class="text-red-500 hover:text-red-700">
-                        Выйти
-                    </button>
+<body>
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="avatar-container">
+                <img src="/placeholder.jpg" alt="Avatar" class="avatar" id="user-avatar">
+                <label for="avatar-upload" class="avatar-upload">
+                    <i class="bi bi-camera"></i>
+                </label>
+                <input type="file" id="avatar-upload" accept="image/*" style="display: none;">
+            </div>
+            <h1 class="mb-3">Личный кабинет</h1>
+            <p class="text-muted mb-0">Добро пожаловать, <span id="user-name">Пользователь</span>!</p>
+        </div>
+
+        <div class="profile-content">
+            <div class="profile-sidebar">
+                <div class="nav flex-column nav-pills">
+                    <a class="nav-link active" href="#profile" data-bs-toggle="pill">
+                        <i class="bi bi-person"></i> Профиль
+                    </a>
+                    <a class="nav-link" href="#orders" data-bs-toggle="pill">
+                        <i class="bi bi-bag"></i> Мои заказы
+                    </a>
+                    <a class="nav-link" href="#favorites" data-bs-toggle="pill">
+                        <i class="bi bi-heart"></i> Избранное
+                    </a>
+                    <a class="nav-link" href="#settings" data-bs-toggle="pill">
+                        <i class="bi bi-gear"></i> Настройки
+                    </a>
+                    <a class="nav-link text-danger" href="#" id="logout">
+                        <i class="bi bi-box-arrow-right"></i> Выйти
+                    </a>
                 </div>
             </div>
 
-            <!-- Main Content -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Sidebar -->
-                <div class="md:col-span-1">
-                    <div class="bg-white rounded-lg shadow-lg p-6">
-                        <nav class="space-y-2">
-                            <button onclick="showSection('profile')" class="w-full text-left px-4 py-2 rounded-md hover:bg-blue-50 text-blue-600 font-medium">
-                                Профиль
-                            </button>
-                            <button onclick="showSection('orders')" class="w-full text-left px-4 py-2 rounded-md hover:bg-blue-50 text-gray-600">
-                                Заказы
-                            </button>
-                        </nav>
-                    </div>
-                </div>
-
-                <!-- Content Area -->
-                <div class="md:col-span-2">
-                    <!-- Profile Section -->
-                    <div id="profileSection" class="bg-white rounded-lg shadow-lg p-6">
-                        <h2 class="text-xl font-bold mb-6">Информация профиля</h2>
-                        <form id="profileForm" class="space-y-4">
-                            <div>
-                                <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
-                                    Имя
-                                </label>
-                                <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                                       id="name" type="text" required>
+            <div class="profile-main">
+                <div class="tab-content">
+                    <!-- Профиль -->
+                    <div class="tab-pane fade show active" id="profile">
+                        <h2 class="mb-4">Мой профиль</h2>
+                        <form id="profile-form">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Имя пользователя</label>
+                                    <input type="text" class="form-control" id="username" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
                             </div>
-                            <div>
-                                <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
-                                    Email
-                                </label>
-                                <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                                       id="email" type="email" required>
-                            </div>
-                            <div class="text-green-500 text-sm hidden" id="profileSuccess"></div>
-                            <div class="text-red-500 text-sm hidden" id="profileError"></div>
-                            <button type="submit" 
-                                    class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                                Сохранить изменения
-                            </button>
+                            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
                         </form>
+                    </div>
 
-                        <div class="mt-8 pt-8 border-t">
-                            <h3 class="text-lg font-bold mb-4">Изменить пароль</h3>
-                            <form id="passwordForm" class="space-y-4">
-                                <div>
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="currentPassword">
-                                        Текущий пароль
-                                    </label>
-                                    <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                                           id="currentPassword" type="password" required>
-                                </div>
-                                <div>
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="newPassword">
-                                        Новый пароль
-                                    </label>
-                                    <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                                           id="newPassword" type="password" required>
-                                </div>
-                                <div>
-                                    <label class="block text-gray-700 text-sm font-bold mb-2" for="confirmPassword">
-                                        Подтвердите новый пароль
-                                    </label>
-                                    <input class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" 
-                                           id="confirmPassword" type="password" required>
-                                </div>
-                                <div class="text-green-500 text-sm hidden" id="passwordSuccess"></div>
-                                <div class="text-red-500 text-sm hidden" id="passwordError"></div>
-                                <button type="submit" 
-                                        class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
-                                    Изменить пароль
-                                </button>
-                            </form>
+                    <!-- Заказы -->
+                    <div class="tab-pane fade" id="orders">
+                        <h2 class="mb-4">Мои заказы</h2>
+                        <div id="orders-list">
+                            <!-- Заказы будут добавлены динамически -->
                         </div>
                     </div>
 
-                    <!-- Orders Section -->
-                    <div id="ordersSection" class="bg-white rounded-lg shadow-lg p-6 hidden">
-                        <h2 class="text-xl font-bold mb-6">История заказов</h2>
-                        <div id="ordersList" class="space-y-4">
-                            <!-- Orders will be loaded here -->
-                            <div class="text-gray-500 text-center py-4">Загрузка заказов...</div>
+                    <!-- Избранное -->
+                    <div class="tab-pane fade" id="favorites">
+                        <h2 class="mb-4">Избранные товары</h2>
+                        <div id="favorites-list" class="row">
+                            <!-- Избранные товары будут добавлены динамически -->
                         </div>
+                    </div>
+
+                    <!-- Настройки -->
+                    <div class="tab-pane fade" id="settings">
+                        <h2 class="mb-4">Настройки</h2>
+                        <form id="password-form">
+                            <div class="mb-3">
+                                <label class="form-label">Текущий пароль</label>
+                                <input type="password" class="form-control" id="current-password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Новый пароль</label>
+                                <input type="password" class="form-control" id="new-password" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Подтвердите новый пароль</label>
+                                <input type="password" class="form-control" id="confirm-password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Изменить пароль</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Добавляем контейнер для уведомлений -->
+        <div class="toast-container"></div>
+
+        <!-- Добавляем кнопку мобильного меню -->
+        <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <i class="bi bi-list"></i>
+        </button>
     </div>
 
-    <script src="js/auth-utils.js"></script>
-    <script src="js/profile.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Проверка авторизации
+        const token = localStorage.getItem('token');
+        if (!token) {
+            window.location.href = '/auth';
+        }
+
+        // Загрузка данных профиля
+        async function loadProfile() {
+            try {
+                const response = await fetch('/api/auth/me', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    document.getElementById('user-name').textContent = data.username;
+                    document.getElementById('username').value = data.username;
+                    document.getElementById('email').value = data.email;
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                console.error('Error loading profile:', error);
+                if (error.message === 'Unauthorized') {
+                    window.location.href = '/auth';
+                }
+            }
+        }
+
+        // Загрузка заказов
+        async function loadOrders() {
+            try {
+                const response = await fetch('/api/orders', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const orders = await response.json();
+                
+                const ordersList = document.getElementById('orders-list');
+                ordersList.innerHTML = orders.map(order => `
+                    <div class="order-card">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h5 class="mb-0">Заказ #${order._id}</h5>
+                            <span class="order-status status-${order.status.toLowerCase()}">
+                                ${order.status}
+                            </span>
+                        </div>
+                        <p class="text-muted mb-2">Дата: ${new Date(order.createdAt).toLocaleDateString()}</p>
+                        <p class="mb-2">Сумма: ${order.total} грн</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">${order.items.length} товаров</small>
+                            <button class="btn btn-sm btn-outline-primary">Подробнее</button>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading orders:', error);
+            }
+        }
+
+        // Обработчики форм
+        document.getElementById('profile-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+
+            try {
+                const response = await fetch('/api/auth/update-profile', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ username, email })
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    alert('Профиль успешно обновлен');
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+
+        document.getElementById('password-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const currentPassword = document.getElementById('current-password').value;
+            const newPassword = document.getElementById('new-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (newPassword !== confirmPassword) {
+                alert('Пароли не совпадают');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/auth/change-password', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ currentPassword, newPassword })
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    alert('Пароль успешно изменен');
+                    e.target.reset();
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+
+        // Выход из аккаунта
+        document.getElementById('logout').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('token');
+            window.location.href = '/auth';
+        });
+
+        // Функция для показа уведомлений
+        function showToast(message, type = 'success') {
+            const toastContainer = document.querySelector('.toast-container');
+            const toast = document.createElement('div');
+            toast.className = `toast show`;
+            toast.innerHTML = `
+                <div class="toast-body ${type === 'success' ? 'bg-success' : 'bg-danger'} text-white">
+                    ${message}
+                </div>
+            `;
+            toastContainer.appendChild(toast);
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Загрузка аватара
+        document.getElementById('avatar-upload').addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const formData = new FormData();
+            formData.append('avatar', file);
+
+            try {
+                const response = await fetch('/api/auth/upload-avatar', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: formData
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    document.getElementById('user-avatar').src = data.avatarUrl;
+                    showToast('Аватар успешно обновлен');
+                } else {
+                    throw new Error(data.error);
+                }
+            } catch (error) {
+                showToast(error.message, 'error');
+            }
+        });
+
+        // Загрузка избранных товаров
+        async function loadFavorites() {
+            try {
+                const response = await fetch('/api/favorites', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                const favorites = await response.json();
+                
+                const favoritesList = document.getElementById('favorites-list');
+                favoritesList.innerHTML = favorites.map(item => `
+                    <div class="col-md-4">
+                        <div class="favorite-item">
+                            <img src="${item.image}" alt="${item.name}">
+                            <h5>${item.name}</h5>
+                            <p class="text-muted">${item.price} грн</p>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn btn-sm btn-primary">В корзину</button>
+                                <button class="btn btn-sm btn-outline-danger" onclick="removeFavorite('${item._id}')">
+                                    <i class="bi bi-heart-fill"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            } catch (error) {
+                console.error('Error loading favorites:', error);
+            }
+        }
+
+        // Удаление из избранного
+        async function removeFavorite(itemId) {
+            try {
+                const response = await fetch(`/api/favorites/${itemId}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (response.ok) {
+                    showToast('Товар удален из избранного');
+                    loadFavorites();
+                } else {
+                    throw new Error('Ошибка при удалении из избранного');
+                }
+            } catch (error) {
+                showToast(error.message, 'error');
+            }
+        }
+
+        // Мобильное меню
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const profileSidebar = document.querySelector('.profile-sidebar');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            profileSidebar.classList.toggle('show');
+        });
+
+        // Закрытие мобильного меню при клике вне его
+        document.addEventListener('click', (e) => {
+            if (!profileSidebar.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                profileSidebar.classList.remove('show');
+            }
+        });
+
+        // Загрузка данных при открытии страницы
+        loadProfile();
+        loadOrders();
+        loadFavorites();
+    </script>
 </body>
 </html> 

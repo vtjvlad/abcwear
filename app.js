@@ -362,89 +362,90 @@ app.get('/api/recommendations', async (req, res) => {
     }
 });
 
-// Authentication routes
+// Auth Routes
 app.post('/api/auth/register', async (req, res) => {
     try {
-        const { username, email, password, name } = req.body;
+        const { username, email, password } = req.body;
 
-        // Check if user/email already exists
-        const existingUser = await User.findOne({ $or: [ { email }, { username } ] });
+        // Check if user already exists
+        const existingUser = await User.findOne({ 
+            $or: [{ email }, { username }] 
+        });
+        
         if (existingUser) {
-            if (existingUser.email === email) {
-                return res.status(400).json({ error: 'Пользователь с таким email уже существует' });
-            }
-            if (existingUser.username === username) {
-                return res.status(400).json({ error: 'Пользователь с таким username уже существует' });
-            }
+            return res.status(400).json({ 
+                error: 'Пользователь с таким email или именем уже существует' 
+            });
         }
 
         // Create new user
         const user = new User({
             username,
             email,
-            password,
-            name
+            password
         });
 
         await user.save();
 
-        // Generate token
+        // Generate JWT token
         const token = jwt.sign(
             { userId: user._id },
             process.env.JWT_SECRET,
-            { expiresIn: '7d' }
+            { expiresIn: '24h' }
         );
 
         res.status(201).json({
+            message: 'Пользователь успешно зарегистрирован',
             token,
             user: {
                 id: user._id,
                 username: user.username,
                 email: user.email,
-                name: user.name,
                 role: user.role
             }
         });
     } catch (error) {
-        res.status(500).json({ error: 'Ошибка при регистрации', details: error.message, stack: error.stack });
+        console.error('Registration error:', error);
+        res.status(500).json({ error: 'Ошибка при регистрации пользователя' });
     }
 });
 
 app.post('/api/auth/login', async (req, res) => {
     try {
-        const { login, password } = req.body; // login = username or email
+        const { email, password } = req.body;
 
-        // Find user by username or email
-        const user = await User.findOne({ $or: [ { email: login }, { username: login } ] });
+        // Find user by email
+        const user = await User.findOne({ email });
         if (!user) {
-            return res.status(401).json({ error: 'Неверный email/username или пароль' });
+            return res.status(401).json({ error: 'Неверный email или пароль' });
         }
 
         // Check password
         const isMatch = await user.comparePassword(password);
         if (!isMatch) {
-            return res.status(401).json({ error: 'Неверный email/username или пароль' });
+            return res.status(401).json({ error: 'Неверный email или пароль' });
         }
 
-        // Generate token
+        // Generate JWT token
         const token = jwt.sign(
             { userId: user._id },
             process.env.JWT_SECRET,
-            { expiresIn: '7d' }
+            { expiresIn: '24h' }
         );
 
         res.json({
+            message: 'Успешный вход',
             token,
             user: {
                 id: user._id,
                 username: user.username,
                 email: user.email,
-                name: user.name,
                 role: user.role
             }
         });
     } catch (error) {
-        res.status(500).json({ error: 'Ошибка при входе', details: error.message, stack: error.stack });
+        console.error('Login error:', error);
+        res.status(500).json({ error: 'Ошибка при входе' });
     }
 });
 
