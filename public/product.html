@@ -441,12 +441,69 @@
 
         /* Color Variants */
         .color-variants {
+            position: relative;
+            padding-right: 32px;
+        }
+        .color-variants::after {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0;
+            width: 32px;
+            pointer-events: none;
+            background: linear-gradient(to left, var(--background-light) 80%, transparent 100%);
+            z-index: 2;
+            display: block;
+        }
+
+        .color-scroll-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 28px;
+            height: 48px;
+            background: rgba(255,255,255,0.85);
+            border: 1px solid #e5e5e5;
+            border-radius: 24px;
             display: flex;
-            gap: 8px;
-            margin-bottom: 24px;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 3;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+            transition: background 0.2s;
+        }
+        .color-scroll-arrow svg {
+            width: 18px;
+            height: 18px;
+            color: var(--text-dark);
+        }
+        .color-scroll-arrow.left {
+            left: 0;
+            display: none;
+        }
+        .color-scroll-arrow.right {
+            right: 0;
+        }
+        .color-scroll-arrow:hover {
+            background: #f0f0f0;
+        }
+
+        @media (max-width: 768px) {
+            .color-scroll-arrow {
+                width: 24px;
+                height: 36px;
+                border-radius: 18px;
+            }
+            .color-variants::after {
+                width: 24px;
+            }
+            .color-variants {
+                padding-right: 24px;
+            }
         }
 
         .color-variant {
+            flex: 0 0 auto;
             width: 60px;
             height: 60px;
             border-radius: 6px;
@@ -579,19 +636,34 @@
             }
 
             .thumbnail-list {
-                flex-direction: row;
-                overflow-x: auto;
-                padding-bottom: 8px;
+                display: none !important;
             }
 
-            .thumbnail {
-                width: 60px;
-                height: 60px;
+            .photo-dots {
+                display: flex !important;
             }
 
             .product-info {
                 padding-top: 0;
             }
+        }
+
+        .photo-dots {
+            display: none;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        .photo-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #d3d3d3;
+            transition: background 0.2s, transform 0.2s;
+        }
+        .photo-dot.active {
+            background: var(--primary-color);
+            transform: scale(1.2);
         }
 
         /* Image Loading Styles */
@@ -682,6 +754,33 @@
         .main-image-container {
             position: relative;
         }
+
+        /* Добавлено для горизонтального скролла цветовых вариантов */
+        .color-variants {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-color) #e5e5e5;
+            scroll-behavior: smooth;
+            max-width: 100%;
+        }
+        .color-variant {
+            flex: 0 0 auto;
+        }
+        .color-variants::-webkit-scrollbar {
+            height: 6px;
+        }
+        .color-variants::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 4px;
+        }
+        .color-variants::-webkit-scrollbar-track {
+            background: #e5e5e5;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -703,6 +802,7 @@
                     <button class="image-nav next">
                         <i class="fas fa-chevron-right"></i>
                     </button>
+                    <div class="photo-dots" id="photo-dots"></div>
                 </div>
             </div>
 
@@ -727,8 +827,16 @@
                     <span class="discount"></span>
                 </div>
 
-                <div class="color-variants" id="color-grid">
-                    <!-- Color variants will be added dynamically -->
+                <div class="color-variants-wrapper" style="position:relative;">
+                    <button class="color-scroll-arrow left" id="color-scroll-left" aria-label="Скролл влево">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    <div class="color-variants" id="color-grid">
+                        <!-- Color variants will be added dynamically -->
+                    </div>
+                    <button class="color-scroll-arrow right" id="color-scroll-right" aria-label="Скролл вправо">
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+                    </button>
                 </div>
 
                 <div class="size-section">
@@ -1070,6 +1178,10 @@
                 thumbnails.forEach(t => t.classList.remove('active'));
                 thumb.classList.add('active');
                 currentImageIndex = index;
+                // Обновить точки на мобильных
+                if (window.innerWidth <= 768) {
+                    updatePhotoDots(Array.from(thumbnails), index);
+                }
             }
 
             thumbnails.forEach((thumb, index) => {
@@ -1121,6 +1233,10 @@
             document.getElementById('add-to-favorites').addEventListener('click', () => {
                 // Add to favorites logic here
             });
+
+            if (window.innerWidth <= 768) {
+                updatePhotoDots(Array.from(thumbnails), currentImageIndex);
+            }
         }
 
         // Load product data when page loads
@@ -1165,6 +1281,53 @@
                     sizeOptions.forEach(opt => opt.classList.remove('selected'));
                     // Добавляем выделение выбранному размеру
                     option.classList.add('selected');
+                });
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            function updateColorScrollArrows() {
+                const colorGrid = document.getElementById('color-grid');
+                const leftArrow = document.getElementById('color-scroll-left');
+                const rightArrow = document.getElementById('color-scroll-right');
+                if (!colorGrid || !leftArrow || !rightArrow) return;
+                // Показывать левую стрелку, если скролл не в начале
+                leftArrow.style.display = colorGrid.scrollLeft > 5 ? 'flex' : 'none';
+                // Показывать правую стрелку, если скролл не в конце
+                rightArrow.style.display = (colorGrid.scrollLeft + colorGrid.clientWidth < colorGrid.scrollWidth - 5) ? 'flex' : 'none';
+            }
+            function scrollColorVariants(direction) {
+                const colorGrid = document.getElementById('color-grid');
+                if (!colorGrid) return;
+                const scrollAmount = colorGrid.clientWidth * 0.7;
+                colorGrid.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+            }
+            const colorGrid = document.getElementById('color-grid');
+            const leftArrow = document.getElementById('color-scroll-left');
+            const rightArrow = document.getElementById('color-scroll-right');
+            if (colorGrid && leftArrow && rightArrow) {
+                colorGrid.addEventListener('scroll', updateColorScrollArrows);
+                window.addEventListener('resize', updateColorScrollArrows);
+                leftArrow.addEventListener('click', () => scrollColorVariants(-1));
+                rightArrow.addEventListener('click', () => scrollColorVariants(1));
+                // Первичная инициализация
+                setTimeout(updateColorScrollArrows, 300);
+            }
+        });
+
+        // JS: обновление точек и обработка кликов по ним
+        function updatePhotoDots(images, currentIndex) {
+            const dotsContainer = document.getElementById('photo-dots');
+            if (!dotsContainer) return;
+            dotsContainer.innerHTML = images.map((_, idx) =>
+                `<div class="photo-dot${idx === currentIndex ? ' active' : ''}" data-index="${idx}"></div>`
+            ).join('');
+            // Добавить обработчик клика по точкам
+            dotsContainer.querySelectorAll('.photo-dot').forEach(dot => {
+                dot.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        updateImage(Number(dot.dataset.index));
+                    }
                 });
             });
         }
