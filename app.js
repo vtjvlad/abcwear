@@ -365,16 +365,22 @@ app.get('/api/recommendations', async (req, res) => {
 // Authentication routes
 app.post('/api/auth/register', async (req, res) => {
     try {
-        const { email, password, name } = req.body;
+        const { username, email, password, name } = req.body;
 
-        // Check if user already exists
-        const existingUser = await User.findOne({ email });
+        // Check if user/email already exists
+        const existingUser = await User.findOne({ $or: [ { email }, { username } ] });
         if (existingUser) {
-            return res.status(400).json({ error: 'Пользователь с таким email уже существует' });
+            if (existingUser.email === email) {
+                return res.status(400).json({ error: 'Пользователь с таким email уже существует' });
+            }
+            if (existingUser.username === username) {
+                return res.status(400).json({ error: 'Пользователь с таким username уже существует' });
+            }
         }
 
         // Create new user
         const user = new User({
+            username,
             email,
             password,
             name
@@ -393,30 +399,31 @@ app.post('/api/auth/register', async (req, res) => {
             token,
             user: {
                 id: user._id,
+                username: user.username,
                 email: user.email,
                 name: user.name,
                 role: user.role
             }
         });
     } catch (error) {
-        res.status(500).json({ error: 'Ошибка при регистрации' });
+        res.status(500).json({ error: 'Ошибка при регистрации', details: error.message, stack: error.stack });
     }
 });
 
 app.post('/api/auth/login', async (req, res) => {
     try {
-        const { email, password } = req.body;
+        const { login, password } = req.body; // login = username or email
 
-        // Find user
-        const user = await User.findOne({ email });
+        // Find user by username or email
+        const user = await User.findOne({ $or: [ { email: login }, { username: login } ] });
         if (!user) {
-            return res.status(401).json({ error: 'Неверный email или пароль' });
+            return res.status(401).json({ error: 'Неверный email/username или пароль' });
         }
 
         // Check password
         const isMatch = await user.comparePassword(password);
         if (!isMatch) {
-            return res.status(401).json({ error: 'Неверный email или пароль' });
+            return res.status(401).json({ error: 'Неверный email/username или пароль' });
         }
 
         // Generate token
@@ -430,13 +437,14 @@ app.post('/api/auth/login', async (req, res) => {
             token,
             user: {
                 id: user._id,
+                username: user.username,
                 email: user.email,
                 name: user.name,
                 role: user.role
             }
         });
     } catch (error) {
-        res.status(500).json({ error: 'Ошибка при входе' });
+        res.status(500).json({ error: 'Ошибка при входе', details: error.message, stack: error.stack });
     }
 });
 
@@ -455,6 +463,62 @@ app.get('/api/auth/me', auth, async (req, res) => {
     }
 });
 
+// Profile routes
+app.post('/api/auth/update-profile', auth, async (req, res) => {
+    try {
+        const { name, email } = req.body;
+        
+        // Check if email is already taken by another user
+        if (email !== req.user.email) {
+            const existingUser = await User.findOne({ email });
+            if (existingUser) {
+                return res.status(400).json({ error: 'Этот email уже используется' });
+            }
+        }
+
+        // Update user
+        req.user.name = name;
+        req.user.email = email;
+        await req.user.save();
+
+        res.json({
+            user: {
+                id: req.user._id,
+                email: req.user.email,
+                name: req.user.name,
+                role: req.user.role
+            }
+        });
+    } catch (error) {
+        res.status(500).json({ error: 'Ошибка при обновлении профиля' });
+    }
+});
+
+app.post('/api/auth/change-password', auth, async (req, res) => {
+    try {
+        const { currentPassword, newPassword } = req.body;
+
+        // Verify current password
+        const isMatch = await req.user.comparePassword(currentPassword);
+        if (!isMatch) {
+            return res.status(400).json({ error: 'Неверный текущий пароль' });
+        }
+
+        // Update password
+        req.user.password = newPassword;
+        await req.user.save();
+
+        res.json({ message: 'Пароль успешно изменен' });
+    } catch (error) {
+        res.status(500).json({ error: 'Ошибка при изменении пароля' });
+    }
+});
+
+// Serve profile page
+app.get('/profile', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'profile.html'));
+});
+
 // Error handling middleware
 app.use(errorHandler);
 
@@ -463,12 +527,20 @@ app.get('/product/:id', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'product.html'));
 });
 
+// Serve auth.html for authentication routes
+app.get('/auth', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'auth.html'));
+});
+
 // Serve home.html for all non-API routes first
 app.get('*', (req, res, next) => {
     if (req.url.startsWith('/api/')) {
         return next();
     }
     if (req.url === '/w') {
+        return next();
+    }
+    if (req.url === '/auth') {
         return next();
     }
     console.log(`Serving home.html for route: ${req.url}`);
