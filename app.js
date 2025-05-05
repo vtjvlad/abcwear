@@ -3,16 +3,19 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
 const { validationResult } = require('express-validator');
+const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 // Import models
 const productSchema = require('./model.js');
 const Product = mongoose.model('Products', productSchema);
 const Cart = require('./models/Cart');
+const User = require('./models/User');
 
 // Import middleware
 const errorHandler = require('./middleware/errorHandler');
 const { productValidators, cartValidators } = require('./middleware/validators');
+const auth = require('./middleware/auth');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -356,6 +359,99 @@ app.get('/api/recommendations', async (req, res) => {
     } catch (error) {
         console.error('Ошибка при получении рекомендаций:', error);
         res.status(500).json({ error: 'Ошибка при получении рекомендаций' });
+    }
+});
+
+// Authentication routes
+app.post('/api/auth/register', async (req, res) => {
+    try {
+        const { email, password, name } = req.body;
+
+        // Check if user already exists
+        const existingUser = await User.findOne({ email });
+        if (existingUser) {
+            return res.status(400).json({ error: 'Пользователь с таким email уже существует' });
+        }
+
+        // Create new user
+        const user = new User({
+            email,
+            password,
+            name
+        });
+
+        await user.save();
+
+        // Generate token
+        const token = jwt.sign(
+            { userId: user._id },
+            process.env.JWT_SECRET,
+            { expiresIn: '7d' }
+        );
+
+        res.status(201).json({
+            token,
+            user: {
+                id: user._id,
+                email: user.email,
+                name: user.name,
+                role: user.role
+            }
+        });
+    } catch (error) {
+        res.status(500).json({ error: 'Ошибка при регистрации' });
+    }
+});
+
+app.post('/api/auth/login', async (req, res) => {
+    try {
+        const { email, password } = req.body;
+
+        // Find user
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(401).json({ error: 'Неверный email или пароль' });
+        }
+
+        // Check password
+        const isMatch = await user.comparePassword(password);
+        if (!isMatch) {
+            return res.status(401).json({ error: 'Неверный email или пароль' });
+        }
+
+        // Generate token
+        const token = jwt.sign(
+            { userId: user._id },
+            process.env.JWT_SECRET,
+            { expiresIn: '7d' }
+        );
+
+        res.json({
+            token,
+            user: {
+                id: user._id,
+                email: user.email,
+                name: user.name,
+                role: user.role
+            }
+        });
+    } catch (error) {
+        res.status(500).json({ error: 'Ошибка при входе' });
+    }
+});
+
+app.get('/api/auth/me', auth, async (req, res) => {
+    try {
+        res.json({
+            user: {
+                id: req.user._id,
+                email: req.user.email,
+                name: req.user.name,
+                role: req.user.role
+            }
+        });
+    } catch (error) {
+        res.status(500).json({ error: 'Ошибка при получении данных пользователя' });
     }
 });
 
