@@ -36,7 +36,6 @@ async function loadHeader() {
 
         // Извлекаем нужные элементы
         const header = tempDiv.querySelector('.main-header');
-        const mobileCategories = tempDiv.querySelector('.mobile-main-categories');
         const mobileBottomNav = tempDiv.querySelector('.mobile-bottom-nav');
         const mobileOffcanvas = tempDiv.querySelector('#mobile-offcanvas');
         const scripts = tempDiv.querySelectorAll('script');
@@ -46,7 +45,6 @@ async function loadHeader() {
         // Сохраняем в кэш
         headerCache.html = {
             header: header.outerHTML,
-            mobileCategories: mobileCategories.outerHTML,
             mobileBottomNav: mobileBottomNav.outerHTML,
             mobileOffcanvas: mobileOffcanvas.outerHTML
         };
@@ -69,9 +67,6 @@ function insertCachedHeader() {
     // Вставляем элементы в начало body
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = headerCache.html.header;
-    document.body.insertBefore(tempDiv.firstChild, document.body.firstChild);
-
-    tempDiv.innerHTML = headerCache.html.mobileCategories;
     document.body.insertBefore(tempDiv.firstChild, document.body.firstChild);
 
     tempDiv.innerHTML = headerCache.html.mobileBottomNav;
@@ -198,6 +193,8 @@ function handleIconClick(event) {
         window.location.href = '/favorites';
     } else if (iconClass.includes('fa-bag-shopping')) {
         window.location.href = '/cart';
+    } else if (iconClass.includes('fa-grip-horizontal')) {
+        window.location.href = '/w';
     }
 }
 

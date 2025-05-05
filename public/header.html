@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC Wear - Header</title>
+    <link rel="icon" type="image/png" href="/u.png">
+    <link rel="apple-touch-icon" href="/u.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -214,8 +216,8 @@
                 display: flex !important;
                 align-items: center !important;
                 justify-content: space-between !important;
-                padding: 6px 8px 6px 8px !important;
-                min-height: 48px;
+                padding: 10px 12px !important;
+                min-height: 58px;
                 position: sticky !important;
                 top: 0 !important;
                 z-index: 1000 !important;
@@ -239,14 +241,13 @@
             .header-actions {
                 display: flex !important;
                 align-items: center !important;
-                gap: 10px !important;
+                gap: 12px !important;
                 margin-left: 8px !important;
+                padding-top: 4px !important;
             }
             .icon-btn {
-                font-size: 20px !important;
-                padding: 2px !important;
-                background: none !important;
-                border: none !important;
+                font-size: 26px !important;
+                padding: 4px !important;
             }
             .lang-switch {
                 font-size: 13px !important;
@@ -293,13 +294,106 @@
             }
             .mobile-logo-img {
                 display: block;
-                max-width: 120px;
-                height: 38px;
+                max-width: 150px;
+                height: 48px;
                 object-fit: contain;
                 margin-bottom: 2px;
                 margin-top: 2px;
             }
             .mobile-logo { display: none; }
+            .mobile-header-search-row {
+                padding: 8px 12px 6px;
+                border-bottom: none;
+                background: #fff;
+            }
+            .mobile-header-search {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                max-width: 98vw;
+                background: #f5f5f5;
+                border-radius: 12px;
+                padding: 4px 14px;
+                box-shadow: inset 0 1px 2px rgba(0,0,0,0.05);
+                transition: all 0.2s ease;
+            }
+            .mobile-header-search:focus-within {
+                background: #fff;
+                box-shadow: inset 0 1px 2px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.05);
+            }
+            .mobile-header-search input {
+                border: none;
+                outline: none;
+                font-size: 16px;
+                padding: 8px 0;
+                background: transparent;
+                color: #222;
+                width: 100%;
+                min-width: 0;
+                flex: 1;
+            }
+            .mobile-header-search input::placeholder {
+                color: #999;
+                font-size: 15px;
+            }
+            .mobile-search-btn {
+                background: none;
+                border: none;
+                color: #666;
+                font-size: 18px;
+                padding: 6px;
+                margin-right: -6px;
+                transition: all 0.2s ease;
+            }
+            .mobile-search-btn:active {
+                transform: scale(0.92);
+            }
+            .mobile-main-categories {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 20px;
+                padding: 2px 12px 10px;
+                background: #fff;
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                position: relative;
+            }
+            .mobile-main-categories::-webkit-scrollbar {
+                display: none;
+            }
+            .mobile-main-categories::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 1px;
+                background: linear-gradient(to right, #ececec 0%, #ececec 100%);
+            }
+            .mobile-main-categories .category {
+                font-size: 15px;
+                color: #666;
+                text-decoration: none;
+                font-weight: 500;
+                padding: 6px 2px;
+                white-space: nowrap;
+                border-bottom: 2px solid transparent;
+                transition: all 0.2s ease;
+            }
+            .mobile-main-categories .category.active {
+                color: #1976D2;
+                border-bottom: 2px solid #1976D2;
+                font-weight: 600;
+            }
+            .mobile-main-categories .category:active {
+                transform: scale(0.96);
+            }
+            .mobile-header-actions .icon-btn {
+                font-size: 24px !important;
+                padding: 4px !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -319,6 +413,106 @@
             .mobile-menu-scroll .menu-link {
                 font-size: 12px !important;
                 padding: 7px 1px !important;
+            }
+            .header-row-top {
+                padding: 8px 10px !important;
+                min-height: 52px;
+            }
+            .mobile-logo-img {
+                max-width: 130px;
+                height: 42px;
+            }
+            .icon-btn {
+                font-size: 19px !important;
+                padding: 4px !important;
+            }
+            .mobile-header-search-row {
+                padding: 6px 10px 4px;
+            }
+            .mobile-header-search {
+                padding: 3px 12px;
+                border-radius: 10px;
+            }
+            .mobile-header-search input {
+                font-size: 15px;
+                padding: 7px 0;
+            }
+            .mobile-header-search input::placeholder {
+                font-size: 14px;
+            }
+            .mobile-search-btn {
+                font-size: 17px;
+                padding: 5px;
+            }
+            .mobile-main-categories {
+                padding: 2px 10px 8px;
+                gap: 16px;
+            }
+            .mobile-main-categories .category {
+                font-size: 14px;
+                padding: 5px 2px;
+            }
+            .lang-switch {
+                font-size: 13px !important;
+            }
+            .mobile-header-actions {
+                gap: 10px !important;
+                padding-top: 3px !important;
+            }
+            .mobile-header-actions .icon-btn {
+                font-size: 24px !important;
+                padding: 3px !important;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .header-row-top {
+                padding: 6px 8px !important;
+                min-height: 48px;
+            }
+            .mobile-logo-img {
+                max-width: 120px;
+                height: 38px;
+            }
+            .icon-btn {
+                font-size: 18px !important;
+                padding: 3px !important;
+            }
+            .mobile-header-search-row {
+                padding: 5px 8px 3px;
+            }
+            .mobile-header-search {
+                padding: 2px 10px;
+            }
+            .mobile-header-search input {
+                font-size: 14px;
+                padding: 6px 0;
+            }
+            .mobile-header-search input::placeholder {
+                font-size: 13px;
+            }
+            .mobile-search-btn {
+                font-size: 16px;
+                padding: 4px;
+            }
+            .mobile-main-categories {
+                padding: 1px 8px 7px;
+                gap: 14px;
+            }
+            .mobile-main-categories .category {
+                font-size: 13px;
+                padding: 4px 1px;
+            }
+            .lang-switch {
+                font-size: 12px !important;
+            }
+            .mobile-header-actions {
+                gap: 8px !important;
+                padding-top: 2px !important;
+            }
+            .mobile-header-actions .icon-btn {
+                font-size: 22px !important;
+                padding: 2px !important;
             }
         }
 
@@ -364,11 +558,25 @@
             flex-direction: row;
             justify-content: center;
             gap: 22px;
-            padding: 10px 0 8px 0;
+            padding: 12px 0 8px 0;
             background: #fff;
             border-bottom: 1px solid #ececec;
             position: relative;
             z-index: 10;
+        }
+        .mobile-main-categories .category {
+            font-size: 16px;
+            color: #222;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 7px 2px;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .mobile-main-categories .category.active {
+            color: #1976D2;
+            border-bottom: 2px solid #1976D2;
+            font-weight: 700;
         }
         .mobile-header-row {
             display: flex;
@@ -436,7 +644,7 @@
                 background: none;
                 border: none;
                 padding: 0;
-                margin: 0 6px 0 0;
+                margin: 0 6px 0 12px;
                 cursor: pointer;
                 transition: color 0.18s, transform 0.18s;
             }
@@ -445,21 +653,20 @@
                 transform: scale(1.13) rotate(-6deg);
             }
             .mobile-logo-img {
-                max-width: 100px;
-                height: 36px;
+                max-width: 150px;
+                height: 48px;
                 object-fit: contain;
             }
             .mobile-header-actions {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                margin-left: 8px;
+                display: flex !important;
+                align-items: center !important;
+                gap: 12px !important;
+                margin-left: 8px !important;
+                padding-top: 4px !important;
             }
             .mobile-header-actions .icon-btn {
-                font-size: 20px;
-                padding: 2px;
-                background: none;
-                border: none;
+                font-size: 26px !important;
+                padding: 4px !important;
             }
             .mobile-header-search-row {
                 padding: 0 8px 8px;
@@ -499,7 +706,7 @@
                 flex-direction: row;
                 justify-content: center;
                 gap: 22px;
-                padding: 10px 0 8px;
+                padding: 12px 0 8px 0;
                 background: #fff;
                 border-bottom: 1px solid #ececec;
                 position: relative;
@@ -644,10 +851,6 @@
                 </a>
             </div>
             <div class="mobile-header-actions">
-                <div class="lang-switch">
-                    <span class="lang">UA</span> |
-                    <span class="lang active">RU</span>
-                </div>
                 <a href="#" class="icon-btn"><i class="fa-regular fa-circle-user"></i></a>
                 <a href="#" class="icon-btn"><i class="fa-regular fa-heart"></i></a>
                 <a href="#" class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></a>
@@ -659,6 +862,13 @@
                 <input type="text" placeholder="Поиск..." id="mobile-search-input" />
                 <button type="submit" class="mobile-search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
+        </div>
+
+        <!-- Мобильные категории -->
+        <div class="mobile-main-categories">
+            <a href="#" class="category">Взуття</a>
+            <a href="#" class="category">Одяг</a>
+            <a href="#" class="category">Аксесуары</a>
         </div>
 
         <!-- Десктопная версия -->
@@ -680,10 +890,6 @@
                         <a href="#" class="icon-btn"><i class="fa-regular fa-heart"></i></a>
                         <a href="#" class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></a>
                     </div>
-                    <!-- <div class="lang-switch"> -->
-                        <!-- <span class="lang">UA</span> | -->
-                        <!-- <span class="lang active">RU</span> -->
-                    <!-- </div> -->
                 </div>
             </div>
             <div class="header-row header-row-bottom">
@@ -693,8 +899,6 @@
                     <a href="#" class="menu-link">Премиум</a>
                     <a href="#" class="menu-link">Бренды</a>
                     <a href="#" class="menu-link sale">Распродажа</a>
-                    <!-- <a href="#" class="menu-link">Журнал</a> -->
-                    <!-- <a href="#" class="menu-link">Кампания SS25</a> -->
                 </nav>
                 <form class="header-search">
                     <input type="text" id="desktop-search-input" />
@@ -704,18 +908,11 @@
         </div>
     </header>
 
-    <!-- Мобильные категории -->
-    <div class="mobile-main-categories">
-        <a href="#" class="category">Взуття</a>
-        <a href="#" class="category">Одяг</a>
-        <a href="#" class="category">Аксесуары</a>
-    </div>
-
     <!-- Мобильная нижняя навигация -->
     <div class="mobile-bottom-nav">
         <a href="#" class="bottom-nav-btn"><i class="fa-regular fa-circle-user"></i><span>Профиль</span></a>
         <a href="#" class="bottom-nav-btn"><i class="fa-regular fa-heart"></i><span>Избранное</span></a>
-        <a href="#" class="bottom-nav-btn catalog-btn"><i class="fa-solid fa-grip-horizontal"></i><span>Каталог</span></a>
+        <a href="/w" class="bottom-nav-btn catalog-btn"><i class="fa-solid fa-grip-horizontal"></i><span>Каталог</span></a>
         <a href="#" class="bottom-nav-btn"><i class="fa-solid fa-bag-shopping"></i><span>Корзина</span></a>
     </div>
 
@@ -731,8 +928,8 @@
                 <a href="#">Премиум</a>
                 <a href="#">Бренды</a>
                 <a href="#" class="sale">Распродажа</a>
-                <a href="#">Журнал</a>
-                <a href="#">Кампания SS25</a>
+                <!-- <a href="#">Журнал</a> -->
+                <!-- <a href="#">Кампания SS25</a> -->
             </nav>
         </div>
         <div class="offcanvas-backdrop" onclick="closeMobileMenu()"></div>
