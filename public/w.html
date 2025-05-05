@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ABC Wear - Интернет магазин</title>
+    <title>UMAMI - Интернет магазин</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css">
     <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
     <script src="/js/header-loader.js" defer></script>
     <script src="/js/footer-loader.js" defer></script>
+    <link rel="stylesheet" href="/styles/w.css">
 
     <style>
         * {
@@ -863,10 +864,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- <header style="text-align: center; margin-bottom: 20px;"> -->
-            <!-- <h1>ABC Wear</h1> -->
-            <!-- <p>Добро пожаловать в наш интернет-магазин одежды!</p> -->
-        <!-- </header> -->
         <div class="filters-header">
             <div class="search-container">
                 <input type="text" id="search" placeholder="Поиск по названию...">
@@ -946,70 +943,6 @@
         <div id="loading">
             <div class="loading-spinner"></div>
             <div class="loading-text">Загрузка товаров...</div>
-        </div>
-    </div>
-
-    <div id="filters-modal" class="filters-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Фильтры</h2>
-                <button id="close-filters" class="close-modal">&times;</button>
-            </div>
-            <div class="filters">
-                <div class="filters-row">
-                    <div class="filter-group">
-                        <select id="color-filter">
-                            <option value="">Все цвета</option>
-                        </select>
-                        <div class="filter-count" id="color-count"></div>
-                    </div>
-                    <div class="filter-group">
-                        <select id="category-filter">
-                            <option value="">Все категории</option>
-                        </select>
-                        <div class="filter-count" id="category-count"></div>
-                    </div>
-                    <div class="filter-group">
-                        <select id="name-filter">
-                            <option value="">Все названия</option>
-                        </select>
-                        <div class="filter-count" id="name-count"></div>
-                    </div>
-                </div>
-
-                <div class="filters-row">
-                    <div class="filter-group">
-                        <div class="price-range">
-                            <div class="price-slider-container">
-                                <div id="price-slider"></div>
-                                <div class="price-inputs">
-                                    <input type="number" id="min-price" placeholder="Мин. цена">
-                                    <span>-</span>
-                                    <input type="number" id="max-price" placeholder="Макс. цена">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="filter-group">
-                        <div class="sort-group">
-                            <select id="sort-field">
-                                <option value="createdAt">Сортировать по</option>
-                                <option value="price">Цене</option>
-                                <option value="name">Названию</option>
-                                <option value="createdAt">Дате добавления</option>
-                            </select>
-                            <select id="sort-order">
-                                <option value="desc">По убыванию</option>
-                                <option value="asc">По возрастанию</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button id="clear-filters" class="clear-filters">Очистить все</button>
-                <button id="apply-filters" class="apply-filters">Применить</button>
-            </div>
         </div>
     </div>
 
