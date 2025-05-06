@@ -4,6 +4,7 @@ const cors = require('cors');
 const path = require('path');
 const { validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
+const multer = require('multer');
 require('dotenv').config();
 
 // Import models
@@ -11,6 +12,7 @@ const productSchema = require('./model.js');
 const Product = mongoose.model('Products', productSchema);
 const Cart = require('./models/Cart');
 const User = require('./models/User');
+const Category = require('./models/Category');
 
 // Import middleware
 const errorHandler = require('./middleware/errorHandler');
@@ -563,6 +565,72 @@ app.get('/w', (req, res) => {
     res.setHeader('Pragma', 'no-cache');
     res.setHeader('Expires', '0');
     res.sendFile(path.join(__dirname, 'public', 'w.html'));
+});
+
+// Повертає підкатегорії для заданої категорії
+app.get('/api/filters/categories/:type', async (req, res, next) => {
+    try {
+        const type = req.params.type.toUpperCase();
+        const subcategories = await Product.distinct('data.productSubType', { 'data.productType': type });
+        res.json(subcategories.filter(Boolean));
+    } catch (error) {
+        next(error);
+    }
+});
+
+// CRUD для категорій
+app.get('/api/categories', async (req, res) => {
+    try {
+        const categories = await Category.find();
+        res.json(categories);
+    } catch (error) {
+        res.status(500).json({ error: 'Не вдалося отримати категорії' });
+    }
+});
+
+app.post('/api/categories', async (req, res) => {
+    try {
+        const { name, description, subcategories } = req.body;
+        const category = new Category({ name, description, subcategories });
+        await category.save();
+        res.status(201).json(category);
+    } catch (error) {
+        res.status(400).json({ error: 'Не вдалося створити категорію' });
+    }
+});
+
+app.put('/api/categories/:id', async (req, res) => {
+    try {
+        const { name, description, subcategories } = req.body;
+        const category = await Category.findByIdAndUpdate(
+            req.params.id,
+            { name, description, subcategories },
+            { new: true }
+        );
+        if (!category) return res.status(404).json({ error: 'Категорію не знайдено' });
+        res.json(category);
+    } catch (error) {
+        res.status(400).json({ error: 'Не вдалося оновити категорію' });
+    }
+});
+
+app.delete('/api/categories/:id', async (req, res) => {
+    try {
+        const category = await Category.findByIdAndDelete(req.params.id);
+        if (!category) return res.status(404).json({ error: 'Категорію не знайдено' });
+        res.json({ success: true });
+    } catch (error) {
+        res.status(400).json({ error: 'Не вдалося видалити категорію' });
+    }
+});
+
+// Завантаження зображення
+const upload = multer({ dest: path.join(__dirname, 'public/uploads') });
+
+app.post('/api/upload', upload.single('image'), (req, res) => {
+    if (!req.file) return res.status(400).json({ error: 'Файл не завантажено' });
+    const url = `/uploads/${req.file.filename}`;
+    res.json({ url });
 });
 
 // Start server

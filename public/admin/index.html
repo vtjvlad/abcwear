@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Адмін-панель</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <div id="admin-login" class="admin-login-container"></div>
+    <div id="admin-panel" class="admin-panel" style="display:none;">
+        <nav class="admin-menu">
+            <button data-module="dashboard">Дашборд</button>
+            <button data-module="products">Товари</button>
+            <button data-module="categories">Категорії</button>
+            <button data-module="orders">Замовлення</button>
+            <button data-module="users">Користувачі</button>
+            <button data-module="content">Контент</button>
+            <button data-module="settings">Налаштування</button>
+            <button id="admin-logout">Вийти</button>
+        </nav>
+        <main id="admin-content" class="admin-content"></main>
+    </div>
+    <script src="js/login.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html> 

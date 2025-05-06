@@ -95,6 +95,8 @@ function insertCachedHeader() {
 
     // Инициализируем обработчики событий
     initializeHeaderEvents();
+    loadCategoriesToMenu();
+    loadSubcategories();
 }
 
 // Функция для инициализации обработчиков событий
@@ -256,6 +258,95 @@ function initializeSearchPlaceholders() {
 
     rotateSearchPlaceholder();
     setInterval(rotateSearchPlaceholder, 3500);
+}
+
+// Функция для загрузки и вставки категорий в меню
+async function loadCategoriesToMenu() {
+    try {
+        const response = await fetch('/api/filters/categories');
+        if (!response.ok) throw new Error('Ошибка загрузки категорий');
+        const categories = await response.json();
+        // Мапа для відображення назв (можна змінити під свої потреби)
+        const categoryNames = {
+            'APPAREL': 'Одяг',
+            'EQUIPMENT': 'Аксесуари',
+            'FOOTWEAR': 'Взуття',
+            'STORED_VALUE': 'Подарункові карти'
+        };
+        // Десктоп
+        const headerCategories = document.querySelector('.header-categories');
+        if (headerCategories) {
+            headerCategories.innerHTML = '';
+            categories.forEach(cat => {
+                const a = document.createElement('a');
+                a.className = 'category';
+                a.href = `/c/${cat.toLowerCase()}`;
+                a.textContent = categoryNames[cat] || cat;
+                headerCategories.appendChild(a);
+            });
+        }
+        // Мобільне меню
+        const mobileCategories = document.querySelector('.mobile-main-categories');
+        if (mobileCategories) {
+            mobileCategories.innerHTML = '';
+            categories.forEach(cat => {
+                const a = document.createElement('a');
+                a.className = 'category';
+                a.href = `/c/${cat.toLowerCase()}`;
+                a.textContent = categoryNames[cat] || cat;
+                mobileCategories.appendChild(a);
+            });
+        }
+        // Оффканвас меню
+        const offcanvasNav = document.querySelector('.offcanvas-nav');
+        if (offcanvasNav) {
+            // Зберігаємо старі пункти (бренди, розпродаж тощо)
+            const staticLinks = Array.from(offcanvasNav.querySelectorAll('a.sale, a[href="#"], a[href="/b/nike/"]'));
+            offcanvasNav.innerHTML = '';
+            categories.forEach(cat => {
+                const a = document.createElement('a');
+                a.className = 'category';
+                a.href = `/c/${cat.toLowerCase()}`;
+                a.textContent = categoryNames[cat] || cat;
+                offcanvasNav.appendChild(a);
+            });
+            staticLinks.forEach(link => offcanvasNav.appendChild(link));
+        }
+    } catch (e) {
+        console.error('Не вдалося завантажити категорії:', e);
+    }
+}
+
+// Функция для загрузки и вставки підкатегорій у підменю
+async function loadSubcategories() {
+    const mapping = {
+        men: 'APPAREL',
+        women: 'APPAREL',
+        shoes: 'FOOTWEAR',
+        accessories: 'EQUIPMENT'
+    };
+    for (const [key, apiType] of Object.entries(mapping)) {
+        const submenu = document.getElementById(`${key}-submenu`);
+        if (submenu) {
+            submenu.innerHTML = '<li>Завантаження...</li>';
+            try {
+                const res = await fetch(`/api/filters/categories/${apiType}`);
+                const subcats = await res.json();
+                submenu.innerHTML = '';
+                subcats.forEach(sub => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                    a.href = `/c/${key}/${encodeURIComponent(sub.toLowerCase())}`;
+                    a.textContent = sub;
+                    li.appendChild(a);
+                    submenu.appendChild(li);
+                });
+                if (!subcats.length) submenu.innerHTML = '<li>Немає підкатегорій</li>';
+            } catch (e) {
+                submenu.innerHTML = '<li>Помилка завантаження</li>';
+            }
+        }
+    }
 }
 
 // Загружаем шапку при загрузке страницы
