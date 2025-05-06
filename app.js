@@ -365,7 +365,7 @@ app.get('/api/recommendations', async (req, res) => {
 // Authentication routes
 app.post('/api/auth/register', async (req, res) => {
     try {
-        const { username, email, password, name } = req.body;
+        const { username, email, password } = req.body;
 
         // Check if user/email already exists
         const existingUser = await User.findOne({ $or: [ { email }, { username } ] });
@@ -383,7 +383,7 @@ app.post('/api/auth/register', async (req, res) => {
             username,
             email,
             password,
-            name
+            name: username // Use username as name initially
         });
 
         await user.save();
@@ -406,24 +406,30 @@ app.post('/api/auth/register', async (req, res) => {
             }
         });
     } catch (error) {
-        res.status(500).json({ error: 'Ошибка при регистрации', details: error.message, stack: error.stack });
+        res.status(500).json({ error: 'Ошибка при регистрации', details: error.message });
     }
 });
 
 app.post('/api/auth/login', async (req, res) => {
     try {
-        const { login, password } = req.body; // login = username or email
+        const { login, password } = req.body; // login can be either email or username
 
         // Find user by username or email
-        const user = await User.findOne({ $or: [ { email: login }, { username: login } ] });
+        const user = await User.findOne({
+            $or: [
+                { email: login },
+                { username: login }
+            ]
+        });
+
         if (!user) {
-            return res.status(401).json({ error: 'Неверный email/username или пароль' });
+            return res.status(401).json({ error: 'Неверный email/имя пользователя или пароль' });
         }
 
         // Check password
         const isMatch = await user.comparePassword(password);
         if (!isMatch) {
-            return res.status(401).json({ error: 'Неверный email/username или пароль' });
+            return res.status(401).json({ error: 'Неверный email/имя пользователя или пароль' });
         }
 
         // Generate token
@@ -444,7 +450,7 @@ app.post('/api/auth/login', async (req, res) => {
             }
         });
     } catch (error) {
-        res.status(500).json({ error: 'Ошибка при входе', details: error.message, stack: error.stack });
+        res.status(500).json({ error: 'Ошибка при входе', details: error.message });
     }
 });
 

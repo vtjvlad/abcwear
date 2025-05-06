@@ -82,12 +82,19 @@ document.addEventListener('DOMContentLoaded', () => {
     registerFormElement.addEventListener('submit', async (e) => {
         e.preventDefault();
         
-        const name = document.getElementById('registerName').value;
+        const username = document.getElementById('registerUsername').value;
         const email = document.getElementById('registerEmail').value;
         const password = document.getElementById('registerPassword').value;
+        const passwordRepeat = document.getElementById('registerPasswordRepeat').value;
+
+        // Check if passwords match
+        if (password !== passwordRepeat) {
+            showError(registerError, 'Пароли не совпадают');
+            return;
+        }
 
         try {
-            const result = await apiRequest('/api/auth/register', 'POST', { name, email, password });
+            const result = await apiRequest('/api/auth/register', 'POST', { username, email, password });
             
             // Save token to localStorage
             localStorage.setItem('token', result.token);
