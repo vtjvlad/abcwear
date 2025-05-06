@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPage = 1;
     let isLoading = false;
     let hasMore = true;
+    // Обновленная структура фильтров
     let currentFilters = {
         color: '',
         category: '',
@@ -26,66 +27,142 @@ document.addEventListener('DOMContentLoaded', () => {
         sortOrder: 'desc'
     };
 
-    // Initialize noUiSlider for price range (динамический диапазон)
-    const priceSlider = document.getElementById('price-slider');
-    fetch('/api/products/price-range')
-        .then(res => res.json())
-        .then(({ min, max }) => {
-            noUiSlider.create(priceSlider, {
-                start: [min, max],
-                connect: true,
-                range: {
-                    'min': min,
-                    'max': max
-                }
-            });
-            minPriceInput.value = min;
-            maxPriceInput.value = max;
-            currentFilters.minPrice = min;
-            currentFilters.maxPrice = max;
+    // Конвертация параметров в ЧПУ
+    const seoUrlParams = {
+        color: 'color',
+        category: 'cat',
+        name: 'name',
+        search: 'q',
+        minPrice: 'min',
+        maxPrice: 'max',
+        sortField: 'sort',
+        sortOrder: 'order'
+    };
 
-            // Update price inputs when slider changes
-            priceSlider.noUiSlider.on('update', (values) => {
-                minPriceInput.value = Math.round(values[0]);
-                maxPriceInput.value = Math.round(values[1]);
-                currentFilters.minPrice = minPriceInput.value;
-                currentFilters.maxPrice = maxPriceInput.value;
-                fetchProducts(1);
-            });
+    // Карта соответствий для ЧПУ
+    const seoMapping = {
+        categories: {
+            'mens-shoes': 'Мужская обувь',
+            'womens-shoes': 'Женская обувь',
+            'accessories': 'Аксессуары'
+        },
+        colors: {
+            'black': 'Черный',
+            'white': 'Белый',
+            'red': 'Красный'
+        }
+    };
 
-            // Update slider when price inputs change
-            const updatePriceSlider = debounce(() => {
-                const minVal = parseInt(minPriceInput.value) || min;
-                const maxVal = parseInt(maxPriceInput.value) || max;
-                priceSlider.noUiSlider.set([minVal, maxVal]);
-                currentFilters.minPrice = minPriceInput.value;
-                currentFilters.maxPrice = maxPriceInput.value;
-                fetchProducts(1);
-            }, 500);
+    // Функция для обновления мета-тегов
+    function updateMetaTags(filters) {
+        const title = generateMetaTitle(filters);
+        const description = generateMetaDescription(filters);
+        const canonical = generateCanonicalUrl(filters);
 
-            minPriceInput.addEventListener('input', updatePriceSlider);
-            maxPriceInput.addEventListener('input', updatePriceSlider);
-        });
-
-    // URL state management
-    function updateURL() {
-        const params = new URLSearchParams();
-        Object.entries(currentFilters).forEach(([key, value]) => {
-            if (value) params.set(key, value);
-        });
-        window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+        document.title = title;
+        document.querySelector('meta[name="description"]').setAttribute('content', description);
+        document.querySelector('link[rel="canonical"]').setAttribute('href', canonical);
     }
 
-    function loadFromURL() {
-        const params = new URLSearchParams(window.location.search);
-        Object.keys(currentFilters).forEach(key => {
-            const value = params.get(key);
-            if (value) {
-                currentFilters[key] = value;
-                const element = document.getElementById(`${key}-filter`) || document.getElementById(key);
-                if (element) element.value = value;
+    // Генерация мета-заголовка
+    function generateMetaTitle(filters) {
+        let title = 'UMAMI - ';
+        if (filters.category) {
+            title += seoMapping.categories[filters.category] || filters.category;
+        }
+        if (filters.color) {
+            title += ' ' + (seoMapping.colors[filters.color] || filters.color);
+        }
+        return title + ' | Интернет-магазин';
+    }
+
+    // Генерация мета-описания
+    function generateMetaDescription(filters) {
+        let desc = 'Купить ';
+        if (filters.category) {
+            desc += seoMapping.categories[filters.category] || filters.category;
+        }
+        if (filters.color) {
+            desc += ' ' + (seoMapping.colors[filters.color] || filters.color) + ' цвета';
+        }
+        return desc + ' в интернет-магазине UMAMI. Доставка по всей стране.';
+    }
+
+    // Генерация канонического URL
+    function generateCanonicalUrl(filters) {
+        const url = new URL(window.location.origin);
+        const cleanPath = generateSeoPath(filters);
+        url.pathname = cleanPath;
+        return url.toString();
+    }
+
+    // Генерация SEO-friendly URL
+    function generateSeoPath(filters) {
+        let path = '/catalog';
+        
+        if (filters.category) {
+            path += '/' + filters.category;
+        }
+        if (filters.color) {
+            path += '/color-' + filters.color;
+        }
+        
+        return path;
+    }
+
+    // Обновление URL с учетом SEO
+    function updateURL() {
+        const seoPath = generateSeoPath(currentFilters);
+        const params = new URLSearchParams();
+        
+        // Добавляем остальные параметры, которые не входят в ЧПУ
+        Object.entries(currentFilters).forEach(([key, value]) => {
+            if (value && !['category', 'color'].includes(key)) {
+                params.set(seoUrlParams[key], value);
             }
         });
+
+        const queryString = params.toString() ? '?' + params.toString() : '';
+        const newUrl = seoPath + queryString;
+
+        window.history.replaceState({}, '', newUrl);
+        updateMetaTags(currentFilters);
+    }
+
+    // Загрузка фильтров из URL
+    function loadFromURL() {
+        const path = window.location.pathname;
+        const params = new URLSearchParams(window.location.search);
+
+        // Парсинг ЧПУ
+        const pathSegments = path.split('/').filter(Boolean);
+        if (pathSegments[0] === 'catalog') {
+            pathSegments.slice(1).forEach(segment => {
+                if (segment.startsWith('color-')) {
+                    currentFilters.color = segment.replace('color-', '');
+                } else {
+                    currentFilters.category = segment;
+                }
+            });
+        }
+
+        // Парсинг остальных параметров
+        Object.entries(seoUrlParams).forEach(([filterKey, paramKey]) => {
+            const value = params.get(paramKey);
+            if (value && !['category', 'color'].includes(filterKey)) {
+                currentFilters[filterKey] = value;
+            }
+        });
+
+        // Обновляем UI
+        Object.entries(currentFilters).forEach(([key, value]) => {
+            const element = document.getElementById(`${key}-filter`) || document.getElementById(key);
+            if (element && value) {
+                element.value = value;
+            }
+        });
+
+        updateMetaTags(currentFilters);
     }
 
     // Filter counts

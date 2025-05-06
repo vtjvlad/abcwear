@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /catalog/
+Allow: /product/
+Allow: /sitemap.xml
+Disallow: /api/
+Disallow: /auth
+Disallow: /profile
+
+Sitemap: https://your-domain.com/sitemap.xml
