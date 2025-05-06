@@ -387,7 +387,7 @@
                 const data = await response.json();
                 
                 if (response.ok) {
-                    // Обновляем имя пользователя в заголовке
+                    // Обновляем отображаемое имя пользователя
                     document.getElementById('user-name').textContent = data.user.name || data.user.username;
                     
                     // Обновляем поля формы
@@ -399,11 +399,13 @@
                         document.getElementById('user-avatar').src = data.user.avatar;
                     }
                 } else {
-                    throw new Error(data.error);
+                    throw new Error(data.error || 'Ошибка загрузки профиля');
                 }
             } catch (error) {
                 console.error('Error loading profile:', error);
-                if (error.message === 'Unauthorized') {
+                showToast(error.message, 'error');
+                if (error.message === 'Unauthorized' || error.message.includes('401')) {
+                    localStorage.removeItem('token');
                     window.location.href = '/auth';
                 }
             }
@@ -463,7 +465,7 @@
                     // Перезагружаем данные профиля после обновления
                     loadProfile();
                 } else {
-                    throw new Error(data.error);
+                    throw new Error(data.error || 'Ошибка обновления профиля');
                 }
             } catch (error) {
                 showToast(error.message, 'error');
