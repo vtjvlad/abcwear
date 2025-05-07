@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const multer = require('multer');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 const { validationResult } = require('express-validator');
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
@@ -459,8 +461,14 @@ app.get('/api/auth/me', auth, async (req, res) => {
         res.json({
             user: {
                 id: req.user._id,
+                username: req.user.username,
                 email: req.user.email,
                 name: req.user.name,
+                avatar: req.user.avatar,
+                phone: req.user.phone,
+                address: req.user.address,
+                city: req.user.city,
+                createdAt: req.user.createdAt,
                 role: req.user.role
             }
         });
@@ -469,22 +477,24 @@ app.get('/api/auth/me', auth, async (req, res) => {
     }
 });
 
-// Profile routes
 app.post('/api/auth/update-profile', auth, async (req, res) => {
     try {
-        const { name, email } = req.body;
-        
-        // Check if email is already taken by another user
-        if (email !== req.user.email) {
+        const { name, email, avatar, phone, address, city, username } = req.body;
+
+        if (email && email !== req.user.email) {
             const existingUser = await User.findOne({ email });
             if (existingUser) {
                 return res.status(400).json({ error: 'Этот email уже используется' });
             }
         }
+        if (username) req.user.username = username;
+        if (name) req.user.name = name;
+        if (email) req.user.email = email;
+        if (avatar) req.user.avatar = avatar;
+        if (phone !== undefined) req.user.phone = phone;
+        if (address !== undefined) req.user.address = address;
+        if (city !== undefined) req.user.city = city;
 
-        // Update user
-        req.user.name = name;
-        req.user.email = email;
         await req.user.save();
 
         res.json({
@@ -492,6 +502,11 @@ app.post('/api/auth/update-profile', auth, async (req, res) => {
                 id: req.user._id,
                 email: req.user.email,
                 name: req.user.name,
+                avatar: req.user.avatar,
+                phone: req.user.phone,
+                address: req.user.address,
+                city: req.user.city,
+                username: req.user.username,
                 role: req.user.role
             }
         });
@@ -539,22 +554,22 @@ app.get('/auth', (req, res) => {
 });
 
 // Serve home.html for all non-API routes first
-app.get('*', (req, res, next) => {
-    if (req.url.startsWith('/api/')) {
-        return next();
-    }
-    if (req.url === '/w') {
-        return next();
-    }
-    if (req.url === '/auth') {
-        return next();
-    }
-    console.log(`Serving home.html for route: ${req.url}`);
-    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-    res.setHeader('Pragma', 'no-cache');
-    res.setHeader('Expires', '0');
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
+// app.get('*', (req, res, next) => {
+//     if (req.url.startsWith('/api/')) {
+//         return next();
+//     }
+//     if (req.url === '/w') {
+//         return next();
+//     }
+//     if (req.url === '/auth') {
+//         return next();
+//     }
+//     console.log(`Serving home.html for route: ${req.url}`);
+//     res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+//     res.setHeader('Pragma', 'no-cache');
+//     res.setHeader('Expires', '0');
+//     res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// });
 
 // Serve index.html for the catalog route
 app.get('/w', (req, res) => {
@@ -564,6 +579,36 @@ app.get('/w', (req, res) => {
     res.setHeader('Expires', '0');
     res.sendFile(path.join(__dirname, 'public', 'w.html'));
 });
+
+    // Указываем папку для хранения загруженных файлов
+    const storage = multer.diskStorage({
+        destination: 'uploads/',
+        filename: (req, file, cb) => {
+            cb(null, Date.now() + path.extname(file.originalname)); // Уникальное имя файла
+        }
+    });
+
+    const upload = multer({ storage });
+
+        // Разрешаем отдавать статические файлы из папки "uploads"
+        app.use('/uploads', express.static('uploads'));
+
+        // Маршрут для загрузки файла
+        app.post('/upload', upload.single('image'), (req, res) => {
+            console.log("Попытка загрузки файлов");
+            if (!req.file) {
+                return res.status(400).json({
+                    error: 'Файл не был загружен'
+                });
+            }
+            res.json({
+                url: `https://${req.get('host')}/uploads/${req.file.filename}`
+            });
+            console.log(`Фото успешго загруженно:
+                https://vtjvlad.ddns.net/uploads/${req.file.filename}`);
+        });
+
+
 
 // Start server
 app.listen(PORT, () => {

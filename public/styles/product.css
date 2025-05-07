@@ -286,6 +286,7 @@ footer {
     flex-direction: column;
     gap: 12px;
     height: min-content;
+    width: 80px;
 }
 
 .thumbnail {
@@ -299,6 +300,10 @@ footer {
     padding: 2px;
     opacity: 0;
     transition: opacity 0.3s ease;
+}
+
+.thumbnail.loaded {
+    opacity: 1;
 }
 
 .thumbnail.active {
@@ -696,11 +701,11 @@ footer {
     }
 
     .thumbnail-list {
-        display: none !important;
+        display: none;
     }
 
     .photo-dots {
-        display: flex !important;
+        display: flex;
     }
 
     .product-info {

@@ -242,7 +242,7 @@
             }
             .profile-sidebar {
                 position: fixed;
-                bottom: 0;
+                bottom: 62px;
                 left: 0;
                 right: 0;
                 background: white;
@@ -269,7 +269,7 @@
     <div class="profile-container">
         <div class="profile-header">
             <div class="avatar-container">
-                <img src="/placeholder.jpg" alt="Avatar" class="avatar" id="user-avatar">
+                <img src="./images/default.jpg" alt="Avatar" class="avatar" id="user-avatar">
                 <label for="avatar-upload" class="avatar-upload">
                     <i class="bi bi-camera"></i>
                 </label>
@@ -305,19 +305,7 @@
                     <!-- Профиль -->
                     <div class="tab-pane fade show active" id="profile">
                         <h2 class="mb-4">Мой профиль</h2>
-                        <form id="profile-form">
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label">Имя пользователя</label>
-                                    <input type="text" class="form-control" id="username" required>
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" required>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
-                        </form>
+
                     </div>
 
                     <!-- Заказы -->
@@ -339,6 +327,36 @@
                     <!-- Настройки -->
                     <div class="tab-pane fade" id="settings">
                         <h2 class="mb-4">Настройки</h2>
+                        <form id="profile-form">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Имя</label>
+                                    <input type="text" class="form-control" id="name">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Имя пользователя</label>
+                                    <input type="text" class="form-control" id="username" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Телефон</label>
+                                    <input type="text" class="form-control" id="phone">
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Город</label>
+                                    <input type="text" class="form-control" id="city">
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label class="form-label">Адрес</label>
+                                    <input type="text" class="form-control" id="address">
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+                        </form>
+
                         <form id="password-form">
                             <div class="mb-3">
                                 <label class="form-label">Текущий пароль</label>
@@ -384,26 +402,86 @@
                         'Authorization': `Bearer ${token}`
                     }
                 });
+                
+                if (!response.ok) {
+                    throw new Error('Ошибка загрузки профиля');
+                }
+
                 const data = await response.json();
                 
-                if (response.ok) {
-                    // Обновляем отображаемое имя пользователя
-                    document.getElementById('user-name').textContent = data.user.name || data.user.username;
-                    
-                    // Обновляем поля формы
-                    document.getElementById('username').value = data.user.username;
-                    document.getElementById('email').value = data.user.email;
-                    
-                    // Если есть аватар, обновляем его
-                    if (data.user.avatar) {
-                        document.getElementById('user-avatar').src = data.user.avatar;
-                    }
-                } else {
-                    throw new Error(data.error || 'Ошибка загрузки профиля');
+                // Проверяем наличие данных пользователя
+                if (!data || !data.user) {
+                    throw new Error('Данные пользователя не найдены');
                 }
+
+                const user = data.user;
+                
+                // Обновляем отображаемое имя пользователя
+                const userNameElement = document.getElementById('user-name');
+                userNameElement.textContent = user.name || user.username || 'Пользователь';
+                
+                // Обновляем поля формы
+                const usernameInput = document.getElementById('username');
+                const emailInput = document.getElementById('email');
+                
+                if (usernameInput) {
+                    usernameInput.value = user.username || '';
+                }
+                
+                if (emailInput) {
+                    emailInput.value = user.email || '';
+                }
+                
+                // Обновляем аватар
+                const avatarElement = document.getElementById('user-avatar');
+                if (avatarElement) {
+                    if (user.avatar) {
+                        avatarElement.src = user.avatar;
+                    } else {
+                        // Устанавливаем дефолтный аватар, если нет пользовательского
+                        avatarElement.src = 'public/images/default.png';
+                    }
+                }
+
+                // Добавляем дополнительную информацию о пользователе, если она есть
+                const profileInfo = document.createElement('div');
+                profileInfo.className = 'profile-info mt-3';
+                profileInfo.innerHTML = `
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Дата регистрации:</strong> ${new Date(user.createdAt).toLocaleDateString()}</p>
+                            ${user.phone ? `<p><strong>Телефон:</strong> ${user.phone}</p>` : ''}
+                        </div>
+                        <div class="col-md-6">
+                            ${user.address ? `<p><strong>Адрес:</strong> ${user.address}</p>` : ''}
+                            ${user.city ? `<p><strong>Город:</strong> ${user.city}</p>` : ''}
+                        </div>
+                    </div>
+                `;
+
+                // Добавляем информацию в профиль
+                const profileTab = document.getElementById('profile');
+                const existingInfo = profileTab.querySelector('.profile-info');
+                if (existingInfo) {
+                    existingInfo.remove();
+                }
+                profileTab.appendChild(profileInfo);
+
+                const phoneInput = document.getElementById('phone');
+                const addressInput = document.getElementById('address');
+                const cityInput = document.getElementById('city');
+                if (phoneInput) phoneInput.value = user.phone || '';
+                if (addressInput) addressInput.value = user.address || '';
+                if (cityInput) cityInput.value = user.city || '';
+
+                const nameInput = document.getElementById('name');
+                if (nameInput) nameInput.value = user.name || '';
+
             } catch (error) {
                 console.error('Error loading profile:', error);
                 showToast(error.message, 'error');
+                
+                // Если ошибка авторизации, перенаправляем на страницу входа
                 if (error.message === 'Unauthorized' || error.message.includes('401')) {
                     localStorage.removeItem('token');
                     window.location.href = '/auth';
@@ -427,39 +505,105 @@
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <h5 class="mb-0">Заказ #${order._id}</h5>
                             <span class="order-status status-${order.status.toLowerCase()}">
-                                ${order.status}
+                                ${getStatusText(order.status)}
                             </span>
                         </div>
                         <p class="text-muted mb-2">Дата: ${new Date(order.createdAt).toLocaleDateString()}</p>
                         <p class="mb-2">Сумма: ${order.total} грн</p>
                         <div class="d-flex justify-content-between align-items-center">
                             <small class="text-muted">${order.items.length} товаров</small>
-                            <button class="btn btn-sm btn-outline-primary">Подробнее</button>
+                            <button class="btn btn-sm btn-outline-primary" onclick="toggleOrderDetails('${order._id}')">
+                                Подробнее
+                            </button>
+                        </div>
+                        <div class="order-details" id="order-${order._id}">
+                            <div class="order-items">
+                                ${order.items.map(item => `
+                                    <div class="order-item">
+                                        <img src="${item.image}" alt="${item.name}">
+                                        <h6 class="mt-2">${item.name}</h6>
+                                        <p class="text-muted mb-1">Размер: ${item.size}</p>
+                                        <p class="mb-1">Цена: ${item.price} грн</p>
+                                        <p class="mb-0">Количество: ${item.quantity}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div class="mt-3">
+                                <h6>Информация о доставке:</h6>
+                                <p class="mb-1">Адрес: ${order.shipping.address}</p>
+                                <p class="mb-1">Город: ${order.shipping.city}</p>
+                                <p class="mb-0">Телефон: ${order.shipping.phone}</p>
+                            </div>
                         </div>
                     </div>
                 `).join('');
             } catch (error) {
                 console.error('Error loading orders:', error);
+                showToast('Ошибка загрузки заказов', 'error');
             }
+        }
+
+        function getStatusText(status) {
+            const statusMap = {
+                'PENDING': 'В обработке',
+                'PROCESSING': 'В процессе',
+                'SHIPPED': 'Отправлен',
+                'DELIVERED': 'Доставлен',
+                'CANCELLED': 'Отменен'
+            };
+            return statusMap[status] || status;
+        }
+
+        function toggleOrderDetails(orderId) {
+            const detailsElement = document.getElementById(`order-${orderId}`);
+            const isVisible = detailsElement.style.display === 'block';
+            detailsElement.style.display = isVisible ? 'none' : 'block';
         }
 
         // Обработчики форм
         document.getElementById('profile-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            const username = document.getElementById('username').value;
-            const email = document.getElementById('email').value;
+            
+            const name = document.getElementById('name').value.trim();
+            const username = document.getElementById('username').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const address = document.getElementById('address').value.trim();
+            const city = document.getElementById('city').value.trim();
+
+            // Валидация данных
+            if (!name || !username || !email) {
+                showToast('Пожалуйста, заполните все обязательные поля', 'error');
+                return;
+            }
+
+            if (!email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+                showToast('Пожалуйста, введите корректный email', 'error');
+                return;
+            }
 
             try {
+                showToast('Обновление профиля...', 'info');
+                
+                const body = {
+                    name,
+                    username,
+                    email,
+                    phone,
+                    address,
+                    city
+                };
                 const response = await fetch('/api/auth/update-profile', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${token}`
                     },
-                    body: JSON.stringify({ username, email })
+                    body: JSON.stringify(body)
                 });
 
                 const data = await response.json();
+                
                 if (response.ok) {
                     showToast('Профиль успешно обновлен');
                     // Перезагружаем данные профиля после обновления
@@ -517,45 +661,125 @@
             const toastContainer = document.querySelector('.toast-container');
             const toast = document.createElement('div');
             toast.className = `toast show`;
+            
+            // Определяем цвет и иконку в зависимости от типа
+            let bgColor, icon;
+            switch(type) {
+                case 'success':
+                    bgColor = 'bg-success';
+                    icon = 'bi-check-circle-fill';
+                    break;
+                case 'error':
+                    bgColor = 'bg-danger';
+                    icon = 'bi-x-circle-fill';
+                    break;
+                case 'info':
+                    bgColor = 'bg-info';
+                    icon = 'bi-info-circle-fill';
+                    break;
+                case 'warning':
+                    bgColor = 'bg-warning';
+                    icon = 'bi-exclamation-circle-fill';
+                    break;
+                default:
+                    bgColor = 'bg-success';
+                    icon = 'bi-check-circle-fill';
+            }
+
             toast.innerHTML = `
-                <div class="toast-body ${type === 'success' ? 'bg-success' : 'bg-danger'} text-white">
+                <div class="toast-body ${bgColor} text-white d-flex align-items-center">
+                    <i class="bi ${icon} me-2"></i>
                     ${message}
                 </div>
             `;
+
+            // Добавляем анимацию появления
+            toast.style.opacity = '0';
+            toast.style.transform = 'translateY(-20px)';
+            toast.style.transition = 'all 0.3s ease';
+
             toastContainer.appendChild(toast);
+
+            // Запускаем анимацию
             setTimeout(() => {
-                toast.remove();
+                toast.style.opacity = '1';
+                toast.style.transform = 'translateY(0)';
+            }, 10);
+
+            // Удаляем уведомление через 3 секунды
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(-20px)';
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
             }, 3000);
         }
 
         // Загрузка аватара
         document.getElementById('avatar-upload').addEventListener('change', async (e) => {
-            const file = e.target.files[0];
-            if (!file) return;
+    const file = e.target.files[0];
+    if (!file) return;
 
-            const formData = new FormData();
-            formData.append('avatar', file);
+    // Проверка типа файла
+    if (!file.type.startsWith('image/')) {
+        showToast('Пожалуйста, выберите изображение', 'error');
+        return;
+    }
 
-            try {
-                const response = await fetch('/api/auth/upload-avatar', {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: formData
-                });
+    // Проверка размера файла (максимум 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+        showToast('Размер файла не должен превышать 5MB', 'error');
+        return;
+    }
 
-                const data = await response.json();
-                if (response.ok) {
-                    document.getElementById('user-avatar').src = data.avatarUrl;
-                    showToast('Аватар успешно обновлен');
-                } else {
-                    throw new Error(data.error);
-                }
-            } catch (error) {
-                showToast(error.message, 'error');
-            }
+    // Создаем предпросмотр
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const img = document.getElementById('user-avatar');
+        img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+
+    const formData = new FormData();
+    formData.append('image', file);
+
+    try {
+        showToast('Загрузка аватара...', 'info');
+        const response = await fetch('/upload', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+            body: formData
         });
+
+        const data = await response.json();
+        if (response.ok && data.url) {
+            // 1. Сохраняем ссылку на аватар в профиле пользователя
+            const saveResponse = await fetch('/api/auth/update-profile', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ avatar: data.url })
+            });
+            if (saveResponse.ok) {
+                document.getElementById('user-avatar').src = data.url;
+                showToast('Аватар успешно обновлен');
+                loadProfile();
+            } else {
+                showToast('Ошибка при сохранении аватара в профиле', 'error');
+            }
+        } else {
+            throw new Error(data.error || 'Ошибка загрузки аватара');
+        }
+    } catch (error) {
+        showToast(error.message, 'error');
+        loadProfile();
+    }
+});
 
         // Загрузка избранных товаров
         async function loadFavorites() {
@@ -568,14 +792,26 @@
                 const favorites = await response.json();
                 
                 const favoritesList = document.getElementById('favorites-list');
+                if (favorites.length === 0) {
+                    favoritesList.innerHTML = `
+                        <div class="col-12 text-center">
+                            <p class="text-muted">У вас пока нет избранных товаров</p>
+                            <a href="/w" class="btn btn-primary">Перейти в каталог</a>
+                        </div>
+                    `;
+                    return;
+                }
+
                 favoritesList.innerHTML = favorites.map(item => `
-                    <div class="col-md-4">
+                    <div class="col-md-4 mb-4">
                         <div class="favorite-item">
-                            <img src="${item.image}" alt="${item.name}">
-                            <h5>${item.name}</h5>
-                            <p class="text-muted">${item.price} грн</p>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn btn-sm btn-primary">В корзину</button>
+                            <img src="${item.image}" alt="${item.name}" class="img-fluid">
+                            <h5 class="mt-3">${item.name}</h5>
+                            <p class="text-muted mb-2">${item.price} грн</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <button class="btn btn-sm btn-primary" onclick="addToCart('${item._id}')">
+                                    В корзину
+                                </button>
                                 <button class="btn btn-sm btn-outline-danger" onclick="removeFavorite('${item._id}')">
                                     <i class="bi bi-heart-fill"></i>
                                 </button>
@@ -585,10 +821,31 @@
                 `).join('');
             } catch (error) {
                 console.error('Error loading favorites:', error);
+                showToast('Ошибка загрузки избранных товаров', 'error');
             }
         }
 
-        // Удаление из избранного
+        async function addToCart(itemId) {
+            try {
+                const response = await fetch('/api/cart/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ itemId, quantity: 1 })
+                });
+
+                if (response.ok) {
+                    showToast('Товар добавлен в корзину');
+                } else {
+                    throw new Error('Ошибка при добавлении в корзину');
+                }
+            } catch (error) {
+                showToast(error.message, 'error');
+            }
+        }
+
         async function removeFavorite(itemId) {
             try {
                 const response = await fetch(`/api/favorites/${itemId}`, {
@@ -600,7 +857,7 @@
 
                 if (response.ok) {
                     showToast('Товар удален из избранного');
-                    loadFavorites();
+                    loadFavorites(); // Перезагружаем список избранных
                 } else {
                     throw new Error('Ошибка при удалении из избранного');
                 }
