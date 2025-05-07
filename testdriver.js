@@ -7,7 +7,7 @@ require('dotenv').config();
 const config = {
   mongoUri: process.env.MONGO_URI || 'mongodb://localhost:27017/shop',
   minKeywordFrequency: 5,
-  stopWords: ['nike', 'the', 'and', 'with', 'men', 'women', 'for', 'in', 'of', 'to', 'by', 'on'],
+  stopWords: ['nike', 'the', 'and', 'with', 'men', 'women', 'for'],
   outputFile: 'seo_keywords_tree2.json'
 };
 
@@ -29,66 +29,36 @@ async function connectToDatabase() {
 const productSchema = new mongoose.Schema({}, { strict: false });
 const Product = mongoose.model('Product', productSchema);
 
-// Категории и подкатегории для классификации
-const categoryMap = {
-  APPAREL: {
-    subcategories: {
-      TOPS: ['shirt', 'hoodie', 'jacket', 'sweater', 'tank', 'jersey', 'pullover', 'sweatshirt'],
-      BOTTOMS: ['shorts', 'pants', 'leggings', 'skirt', 'joggers', 'tights'],
-      OUTERWEAR: ['jacket', 'coat', 'vest', 'windbreaker', 'parka'],
-      ATHLETIC_WEAR: ['jersey', 'uniform', 'training', 'performance'],
-      ACCESSORIES: ['hat', 'cap', 'beanie', 'scarf', 'gloves', 'socks']
-    }
-  },
-  FOOTWEAR: {
-    subcategories: {
-      RUNNING: ['running', 'trail', 'race', 'marathon'],
-      BASKETBALL: ['basketball', 'court', 'hoops'],
-      SOCCER: ['soccer', 'cleats', 'football'],
-      LIFESTYLE: ['casual', 'retro', 'classic', 'heritage'],
-      TRAINING: ['training', 'gym', 'workout', 'fitness']
-    }
-  },
-  EQUIPMENT: {
-    subcategories: {
-      BAGS: ['bag', 'backpack', 'duffel', 'tote'],
-      BALLS: ['ball', 'basketball', 'soccer', 'football'],
-      PROTECTION: ['guard', 'pad', 'helmet', 'protection'],
-      ACCESSORIES: ['bottle', 'band', 'tape', 'equipment']
-    }
-  }
-};
+// Кэш для токенизации
+const tokenCache = new Map();
 
 function tokenize(text) {
   if (!text) return [];
   
+  // Проверяем кэш
+  if (tokenCache.has(text)) {
+    return tokenCache.get(text);
+  }
+
   const tokens = text
     .toLowerCase()
     .split(/[\s\-–/.,():;]+/)
     .map(word => word.trim())
     .filter(word => 
       word && 
-      word.length > 1 && 
+      word.length > 1 && // Игнорируем однобуквенные слова
       !config.stopWords.includes(word)
     );
 
+  // Сохраняем в кэш
+  tokenCache.set(text, tokens);
   return tokens;
-}
-
-function categorizeKeyword(keyword, count) {
-  for (const [mainCategory, data] of Object.entries(categoryMap)) {
-    for (const [subCategory, keywords] of Object.entries(data.subcategories)) {
-      if (keywords.some(k => keyword.includes(k))) {
-        return { mainCategory, subCategory };
-      }
-    }
-  }
-  return { mainCategory: 'UNCATEGORIZED', subCategory: 'OTHER' };
 }
 
 async function buildSEOTree() {
   console.log('Starting SEO tree building...');
   
+  // Получаем общее количество продуктов
   const totalProducts = await Product.countDocuments();
   console.log(`Found ${totalProducts} products to process`);
 
@@ -109,6 +79,7 @@ async function buildSEOTree() {
     .lean();
 
     for (const product of products) {
+      const category = product?.data?.productType || 'UNKNOWN';
       const text = [
         product?.info?.name || '',
         product?.info?.subtitle || '',
@@ -117,18 +88,10 @@ async function buildSEOTree() {
 
       const tokens = tokenize(text);
 
+      if (!tree[category]) tree[category] = {};
+
       for (const token of tokens) {
-        const { mainCategory, subCategory } = categorizeKeyword(token);
-        
-        if (!tree[mainCategory]) {
-          tree[mainCategory] = { subcategories: {} };
-        }
-        if (!tree[mainCategory].subcategories[subCategory]) {
-          tree[mainCategory].subcategories[subCategory] = {};
-        }
-        
-        tree[mainCategory].subcategories[subCategory][token] = 
-          (tree[mainCategory].subcategories[subCategory][token] || 0) + 1;
+        tree[category][token] = (tree[category][token] || 0) + 1;
       }
     }
 
@@ -138,15 +101,12 @@ async function buildSEOTree() {
   }
 
   // Построение финальной структуры
-  const result = Object.entries(tree).map(([category, categoryData]) => ({
+  const result = Object.entries(tree).map(([category, keywords]) => ({
     category,
-    subcategories: Object.entries(categoryData.subcategories).map(([subCategory, keywords]) => ({
-      name: subCategory,
-      keywords: Object.entries(keywords)
-        .filter(([_, count]) => count >= config.minKeywordFrequency)
-        .sort((a, b) => b[1] - a[1])
-        .map(([keyword, count]) => ({ keyword, count }))
-    }))
+    children: Object.entries(keywords)
+      .filter(([_, count]) => count >= config.minKeywordFrequency)
+      .sort((a, b) => b[1] - a[1])
+      .map(([keyword, count]) => ({ keyword, count }))
   }));
 
   // Сохраняем в файл
@@ -154,11 +114,15 @@ async function buildSEOTree() {
   fs.writeFileSync(outPath, JSON.stringify(result, null, 2), 'utf-8');
   console.log(`SEO tree saved to ${outPath}`);
 
+  // Очищаем кэш
+  tokenCache.clear();
+  
   await mongoose.disconnect();
   console.log('Database connection closed');
 }
 
 connectToDatabase().then(() => buildSEOTree().catch(err => {
-  console.error('Error building SEO tree:', err);
+  console.error('Ошибка при построении дерева:', err);
   mongoose.disconnect();
 }));
+
