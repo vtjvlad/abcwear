@@ -8,7 +8,7 @@ const config = {
   mongoUri: process.env.MONGO_URI || 'mongodb://localhost:27017/shop',
   minKeywordFrequency: 5,
   stopWords: ['nike', 'the', 'and', 'with', 'men', 'women', 'for', 'in', 'of', 'to', 'by', 'on'],
-  outputFile: 'seo_keywords_tree2.json'
+  outputFile: 'seo_keywords_tree3.json'
 };
 
 // Улучшенное подключение к MongoDB
@@ -29,32 +29,190 @@ async function connectToDatabase() {
 const productSchema = new mongoose.Schema({}, { strict: false });
 const Product = mongoose.model('Product', productSchema);
 
-// Категории и подкатегории для классификации
+// Обновленная структура категорий
 const categoryMap = {
-  APPAREL: {
-    subcategories: {
-      TOPS: ['shirt', 'hoodie', 'jacket', 'sweater', 'tank', 'jersey', 'pullover', 'sweatshirt'],
-      BOTTOMS: ['shorts', 'pants', 'leggings', 'skirt', 'joggers', 'tights'],
-      OUTERWEAR: ['jacket', 'coat', 'vest', 'windbreaker', 'parka'],
-      ATHLETIC_WEAR: ['jersey', 'uniform', 'training', 'performance'],
-      ACCESSORIES: ['hat', 'cap', 'beanie', 'scarf', 'gloves', 'socks']
+  NEW: {
+    categories: {
+      APPAREL: {
+        subcategories: {
+          TOPS: ['shirt', 'hoodie', 'jacket', 'sweater', 'tank', 'jersey', 'pullover', 'sweatshirt'],
+          BOTTOMS: ['shorts', 'pants', 'leggings', 'skirt', 'joggers', 'tights'],
+          OUTERWEAR: ['jacket', 'coat', 'vest', 'windbreaker', 'parka'],
+          ATHLETIC_WEAR: ['jersey', 'uniform', 'training', 'performance']
+        }
+      },
+      FOOTWEAR: {
+        subcategories: {
+          RUNNING: ['running', 'trail', 'race', 'marathon'],
+          BASKETBALL: ['basketball', 'court', 'hoops'],
+          SOCCER: ['soccer', 'cleats', 'football'],
+          LIFESTYLE: ['casual', 'retro', 'classic', 'heritage'],
+          TRAINING: ['training', 'gym', 'workout', 'fitness']
+        }
+      },
+      EQUIPMENT: {
+        subcategories: {
+          BAGS: ['bag', 'backpack', 'duffel', 'tote'],
+          BALLS: ['ball', 'basketball', 'soccer', 'football'],
+          PROTECTION: ['guard', 'pad', 'helmet', 'protection']
+        }
+      },
+      ACCESSORIES: {
+        subcategories: {
+          HATS: ['hat', 'cap', 'beanie'],
+          GLOVES: ['gloves', 'mittens'],
+          SOCKS: ['socks', 'stockings'],
+          OTHER: ['scarf', 'bandana', 'headband']
+        }
+      }
     }
   },
-  FOOTWEAR: {
-    subcategories: {
-      RUNNING: ['running', 'trail', 'race', 'marathon'],
-      BASKETBALL: ['basketball', 'court', 'hoops'],
-      SOCCER: ['soccer', 'cleats', 'football'],
-      LIFESTYLE: ['casual', 'retro', 'classic', 'heritage'],
-      TRAINING: ['training', 'gym', 'workout', 'fitness']
+  MEN: {
+    categories: {
+      APPAREL: {
+        subcategories: {
+          TOPS: ['shirt', 'hoodie', 'jacket', 'sweater', 'tank', 'jersey', 'pullover', 'sweatshirt'],
+          BOTTOMS: ['shorts', 'pants', 'leggings', 'joggers'],
+          OUTERWEAR: ['jacket', 'coat', 'vest', 'windbreaker', 'parka'],
+          ATHLETIC_WEAR: ['jersey', 'uniform', 'training', 'performance']
+        }
+      },
+      FOOTWEAR: {
+        subcategories: {
+          RUNNING: ['running', 'trail', 'race', 'marathon'],
+          BASKETBALL: ['basketball', 'court', 'hoops'],
+          SOCCER: ['soccer', 'cleats', 'football'],
+          LIFESTYLE: ['casual', 'retro', 'classic', 'heritage'],
+          TRAINING: ['training', 'gym', 'workout', 'fitness']
+        }
+      },
+      EQUIPMENT: {
+        subcategories: {
+          BAGS: ['bag', 'backpack', 'duffel', 'tote'],
+          BALLS: ['ball', 'basketball', 'soccer', 'football'],
+          PROTECTION: ['guard', 'pad', 'helmet', 'protection']
+        }
+      },
+      ACCESSORIES: {
+        subcategories: {
+          HATS: ['hat', 'cap', 'beanie'],
+          GLOVES: ['gloves', 'mittens'],
+          SOCKS: ['socks', 'stockings'],
+          OTHER: ['scarf', 'bandana', 'headband']
+        }
+      }
     }
   },
-  EQUIPMENT: {
-    subcategories: {
-      BAGS: ['bag', 'backpack', 'duffel', 'tote'],
-      BALLS: ['ball', 'basketball', 'soccer', 'football'],
-      PROTECTION: ['guard', 'pad', 'helmet', 'protection'],
-      ACCESSORIES: ['bottle', 'band', 'tape', 'equipment']
+  WOMEN: {
+    categories: {
+      APPAREL: {
+        subcategories: {
+          TOPS: ['shirt', 'hoodie', 'jacket', 'sweater', 'tank', 'jersey', 'pullover', 'sweatshirt'],
+          BOTTOMS: ['shorts', 'pants', 'leggings', 'skirt', 'joggers', 'tights'],
+          OUTERWEAR: ['jacket', 'coat', 'vest', 'windbreaker', 'parka'],
+          ATHLETIC_WEAR: ['jersey', 'uniform', 'training', 'performance']
+        }
+      },
+      FOOTWEAR: {
+        subcategories: {
+          RUNNING: ['running', 'trail', 'race', 'marathon'],
+          BASKETBALL: ['basketball', 'court', 'hoops'],
+          SOCCER: ['soccer', 'cleats', 'football'],
+          LIFESTYLE: ['casual', 'retro', 'classic', 'heritage'],
+          TRAINING: ['training', 'gym', 'workout', 'fitness']
+        }
+      },
+      EQUIPMENT: {
+        subcategories: {
+          BAGS: ['bag', 'backpack', 'duffel', 'tote'],
+          BALLS: ['ball', 'basketball', 'soccer', 'football'],
+          PROTECTION: ['guard', 'pad', 'helmet', 'protection']
+        }
+      },
+      ACCESSORIES: {
+        subcategories: {
+          HATS: ['hat', 'cap', 'beanie'],
+          GLOVES: ['gloves', 'mittens'],
+          SOCKS: ['socks', 'stockings'],
+          OTHER: ['scarf', 'bandana', 'headband']
+        }
+      }
+    }
+  },
+  KIDS: {
+    categories: {
+      APPAREL: {
+        subcategories: {
+          TOPS: ['shirt', 'hoodie', 'jacket', 'sweater', 'tank', 'jersey', 'pullover', 'sweatshirt'],
+          BOTTOMS: ['shorts', 'pants', 'leggings', 'skirt', 'joggers', 'tights'],
+          OUTERWEAR: ['jacket', 'coat', 'vest', 'windbreaker', 'parka'],
+          ATHLETIC_WEAR: ['jersey', 'uniform', 'training', 'performance']
+        }
+      },
+      FOOTWEAR: {
+        subcategories: {
+          RUNNING: ['running', 'trail', 'race', 'marathon'],
+          BASKETBALL: ['basketball', 'court', 'hoops'],
+          SOCCER: ['soccer', 'cleats', 'football'],
+          LIFESTYLE: ['casual', 'retro', 'classic', 'heritage'],
+          TRAINING: ['training', 'gym', 'workout', 'fitness']
+        }
+      },
+      EQUIPMENT: {
+        subcategories: {
+          BAGS: ['bag', 'backpack', 'duffel', 'tote'],
+          BALLS: ['ball', 'basketball', 'soccer', 'football'],
+          PROTECTION: ['guard', 'pad', 'helmet', 'protection']
+        }
+      },
+      ACCESSORIES: {
+        subcategories: {
+          HATS: ['hat', 'cap', 'beanie'],
+          GLOVES: ['gloves', 'mittens'],
+          SOCKS: ['socks', 'stockings'],
+          OTHER: ['scarf', 'bandana', 'headband']
+        }
+      }
+    }
+  },
+  BRANDS: {
+    categories: {
+      APPAREL: {
+        subcategories: {
+          NIKE: ['nike'],
+          ADIDAS: ['adidas'],
+          PUMA: ['puma'],
+          UNDER_ARMOUR: ['under armour', 'underarmour'],
+          OTHER: []
+        }
+      },
+      FOOTWEAR: {
+        subcategories: {
+          NIKE: ['nike'],
+          ADIDAS: ['adidas'],
+          PUMA: ['puma'],
+          UNDER_ARMOUR: ['under armour', 'underarmour'],
+          OTHER: []
+        }
+      },
+      EQUIPMENT: {
+        subcategories: {
+          NIKE: ['nike'],
+          ADIDAS: ['adidas'],
+          PUMA: ['puma'],
+          UNDER_ARMOUR: ['under armour', 'underarmour'],
+          OTHER: []
+        }
+      },
+      ACCESSORIES: {
+        subcategories: {
+          NIKE: ['nike'],
+          ADIDAS: ['adidas'],
+          PUMA: ['puma'],
+          UNDER_ARMOUR: ['under armour', 'underarmour'],
+          OTHER: []
+        }
+      }
     }
   }
 };
@@ -75,15 +233,44 @@ function tokenize(text) {
   return tokens;
 }
 
-function categorizeKeyword(keyword, count) {
-  for (const [mainCategory, data] of Object.entries(categoryMap)) {
-    for (const [subCategory, keywords] of Object.entries(data.subcategories)) {
-      if (keywords.some(k => keyword.includes(k))) {
-        return { mainCategory, subCategory };
+function categorizeKeyword(keyword, productData) {
+  const isNew = !!productData?.someAdditionalData?.isNewUntil;
+  const gender = productData?.info?.gender || '';
+  const brand = productData?.info?.brand || '';
+  const color = productData?.info?.color?.labelColor || '';
+
+  // Определяем основную секцию
+  let mainSection;
+  if (isNew) {
+    mainSection = 'NEW';
+  } else if (brand) {
+    mainSection = 'BRANDS';
+  } else if (gender) {
+    mainSection = gender.toUpperCase();
+  } else {
+    mainSection = 'UNCATEGORIZED';
+  }
+
+  // Определяем категорию и подкатегорию
+  for (const [category, categoryData] of Object.entries(categoryMap[mainSection]?.categories || {})) {
+    for (const [subCategory, keywords] of Object.entries(categoryData.subcategories)) {
+      if (keywords.some(k => keyword.toLowerCase().includes(k.toLowerCase()))) {
+        return {
+          mainSection,
+          category,
+          subCategory,
+          color
+        };
       }
     }
   }
-  return { mainCategory: 'UNCATEGORIZED', subCategory: 'OTHER' };
+
+  return {
+    mainSection,
+    category: 'UNCATEGORIZED',
+    subCategory: 'OTHER',
+    color
+  };
 }
 
 async function buildSEOTree() {
@@ -96,13 +283,15 @@ async function buildSEOTree() {
   const batchSize = 1000;
   let processed = 0;
 
-  // Обработка пакетами
   for (let skip = 0; skip < totalProducts; skip += batchSize) {
     const products = await Product.find({}, {
       'data.productType': 1,
       'info.name': 1,
       'info.subtitle': 1,
       'info.color.labelColor': 1,
+      'info.gender': 1,
+      'info.brand': 1,
+      'someAdditionalData.isNewUntil': 1
     })
     .skip(skip)
     .limit(batchSize)
@@ -118,17 +307,27 @@ async function buildSEOTree() {
       const tokens = tokenize(text);
 
       for (const token of tokens) {
-        const { mainCategory, subCategory } = categorizeKeyword(token);
+        const { mainSection, category, subCategory, color } = categorizeKeyword(token, product);
         
-        if (!tree[mainCategory]) {
-          tree[mainCategory] = { subcategories: {} };
+        if (!tree[mainSection]) {
+          tree[mainSection] = { categories: {} };
         }
-        if (!tree[mainCategory].subcategories[subCategory]) {
-          tree[mainCategory].subcategories[subCategory] = {};
+        if (!tree[mainSection].categories[category]) {
+          tree[mainSection].categories[category] = { subcategories: {} };
+        }
+        if (!tree[mainSection].categories[category].subcategories[subCategory]) {
+          tree[mainSection].categories[category].subcategories[subCategory] = { keywords: {}, colors: {} };
         }
         
-        tree[mainCategory].subcategories[subCategory][token] = 
-          (tree[mainCategory].subcategories[subCategory][token] || 0) + 1;
+        // Добавляем ключевое слово
+        tree[mainSection].categories[category].subcategories[subCategory].keywords[token] = 
+          (tree[mainSection].categories[category].subcategories[subCategory].keywords[token] || 0) + 1;
+        
+        // Добавляем цвет
+        if (color) {
+          tree[mainSection].categories[category].subcategories[subCategory].colors[color] = 
+            (tree[mainSection].categories[category].subcategories[subCategory].colors[color] || 0) + 1;
+        }
       }
     }
 
@@ -138,14 +337,20 @@ async function buildSEOTree() {
   }
 
   // Построение финальной структуры
-  const result = Object.entries(tree).map(([category, categoryData]) => ({
-    category,
-    subcategories: Object.entries(categoryData.subcategories).map(([subCategory, keywords]) => ({
-      name: subCategory,
-      keywords: Object.entries(keywords)
-        .filter(([_, count]) => count >= config.minKeywordFrequency)
-        .sort((a, b) => b[1] - a[1])
-        .map(([keyword, count]) => ({ keyword, count }))
+  const result = Object.entries(tree).map(([mainSection, sectionData]) => ({
+    section: mainSection,
+    categories: Object.entries(sectionData.categories).map(([category, categoryData]) => ({
+      name: category,
+      subcategories: Object.entries(categoryData.subcategories).map(([subCategory, data]) => ({
+        name: subCategory,
+        keywords: Object.entries(data.keywords)
+          .filter(([_, count]) => count >= config.minKeywordFrequency)
+          .sort((a, b) => b[1] - a[1])
+          .map(([keyword, count]) => ({ keyword, count })),
+        colors: Object.entries(data.colors)
+          .sort((a, b) => b[1] - a[1])
+          .map(([color, count]) => ({ color, count }))
+      }))
     }))
   }));
 

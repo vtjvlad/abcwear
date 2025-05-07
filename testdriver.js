@@ -8,7 +8,7 @@ const config = {
   mongoUri: process.env.MONGO_URI || 'mongodb://localhost:27017/shop',
   minKeywordFrequency: 5,
   stopWords: ['nike', 'the', 'and', 'with', 'men', 'women', 'for'],
-  outputFile: 'seo_keywords_tree2.json'
+  outputFile: 'seo_keywords_tree3.json'
 };
 
 // Улучшенное подключение к MongoDB
