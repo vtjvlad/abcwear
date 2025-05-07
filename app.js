@@ -385,7 +385,7 @@ app.post('/api/auth/register', async (req, res) => {
             username,
             email,
             password,
-            name: username // Use username as name initially
+            name: '' // Use username as name initially
         });
 
         await user.save();
@@ -469,7 +469,8 @@ app.get('/api/auth/me', auth, async (req, res) => {
                 address: req.user.address,
                 city: req.user.city,
                 createdAt: req.user.createdAt,
-                role: req.user.role
+                role: req.user.role,
+                gender: req.user.gender
             }
         });
     } catch (error) {
@@ -479,7 +480,7 @@ app.get('/api/auth/me', auth, async (req, res) => {
 
 app.post('/api/auth/update-profile', auth, async (req, res) => {
     try {
-        const { name, email, avatar, phone, address, city, username } = req.body;
+        const { name, email, avatar, phone, address, city, username, gender } = req.body;
 
         if (email && email !== req.user.email) {
             const existingUser = await User.findOne({ email });
@@ -494,6 +495,7 @@ app.post('/api/auth/update-profile', auth, async (req, res) => {
         if (phone !== undefined) req.user.phone = phone;
         if (address !== undefined) req.user.address = address;
         if (city !== undefined) req.user.city = city;
+        if (gender !== undefined) req.user.gender = gender;
 
         await req.user.save();
 
@@ -507,6 +509,7 @@ app.post('/api/auth/update-profile', auth, async (req, res) => {
                 address: req.user.address,
                 city: req.user.city,
                 username: req.user.username,
+                gender: req.user.gender,
                 role: req.user.role
             }
         });
@@ -608,7 +611,15 @@ app.get('/w', (req, res) => {
                 https://vtjvlad.ddns.net/uploads/${req.file.filename}`);
         });
 
-
+// Удаление аккаунта пользователя
+app.delete('/api/auth/delete-account', auth, async (req, res) => {
+    try {
+        await req.user.deleteOne();
+        res.json({ message: 'Аккаунт успешно удалён' });
+    } catch (error) {
+        res.status(500).json({ error: 'Ошибка при удалении аккаунта' });
+    }
+});
 
 // Start server
 app.listen(PORT, () => {

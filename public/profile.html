@@ -353,6 +353,15 @@
                                     <label class="form-label">Адрес</label>
                                     <input type="text" class="form-control" id="address">
                                 </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Пол</label>
+                                    <select class="form-control" id="gender">
+                                        <option value="">Не выбрано</option>
+                                        <option value="male">Мужской</option>
+                                        <option value="female">Женский</option>
+                                        <option value="other">Другое</option>
+                                    </select>
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary">Сохранить изменения</button>
                         </form>
@@ -384,6 +393,11 @@
         <button class="mobile-menu-toggle" id="mobile-menu-toggle">
             <i class="bi bi-list"></i>
         </button>
+
+        <!-- Кнопка удаления аккаунта -->
+        <div class="mt-4 text-end">
+            <button id="delete-account-btn" class="btn btn-danger">Удалить аккаунт</button>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -476,6 +490,9 @@
 
                 const nameInput = document.getElementById('name');
                 if (nameInput) nameInput.value = user.name || '';
+
+                const genderInput = document.getElementById('gender');
+                if (genderInput) genderInput.value = user.gender || '';
 
             } catch (error) {
                 console.error('Error loading profile:', error);
@@ -570,6 +587,7 @@
             const phone = document.getElementById('phone').value.trim();
             const address = document.getElementById('address').value.trim();
             const city = document.getElementById('city').value.trim();
+            const gender = document.getElementById('gender').value;
 
             // Валидация данных
             if (!name || !username || !email) {
@@ -591,7 +609,8 @@
                     email,
                     phone,
                     address,
-                    city
+                    city,
+                    gender
                 };
                 const response = await fetch('/api/auth/update-profile', {
                     method: 'POST',
@@ -885,6 +904,31 @@
         loadProfile();
         loadOrders();
         loadFavorites();
+
+        // В самом низу JS:
+        document.getElementById('delete-account-btn').addEventListener('click', async () => {
+            if (!confirm('Вы уверены, что хотите удалить аккаунт? Это действие необратимо!')) return;
+            try {
+                const response = await fetch('/api/auth/delete-account', {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                if (response.ok) {
+                    showToast('Аккаунт успешно удалён', 'success');
+                    localStorage.removeItem('token');
+                    setTimeout(() => {
+                        window.location.href = '/auth';
+                    }, 1200);
+                } else {
+                    const data = await response.json();
+                    showToast(data.error || 'Ошибка при удалении аккаунта', 'error');
+                }
+            } catch (error) {
+                showToast(error.message, 'error');
+            }
+        });
     </script>
 </body>
 </html> 

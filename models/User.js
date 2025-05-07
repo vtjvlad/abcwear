@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
     },
     avatar: {
         type: String,
-        default: null
+        default: 'https://vtjvlad.ddns.net/uploads/default.png'
     },
     phone: {
         type: String,
@@ -49,6 +49,11 @@ const userSchema = new mongoose.Schema({
     city: {
         type: String,
         trim: true
+    },
+    gender: {
+        type: String,
+        enum: ['male', 'female', 'other', ''],
+        default: ''
     }
 });
 
