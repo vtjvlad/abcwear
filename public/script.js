@@ -118,18 +118,42 @@ document.addEventListener('DOMContentLoaded', () => {
                 fetch('/api/filters/categories').then(res => res.json())
             ]);
 
-            // Заполняем фильтр цветов
-            colorFilter.innerHTML = '<option value="">Все цвета</option>' +
-                colors.map(color => `<option value="${color}">${color}</option>`).join('');
+            // Заполняем чекбоксы цветов
+            const colorCheckboxes = document.getElementById('color-checkboxes');
+            colorCheckboxes.innerHTML = colors.map(color => `
+                <label class="color-checkbox-label">
+                    <input type="checkbox" class="color-checkbox" value="${color}">
+                    <span class="color-checkbox-custom" style="background:${color};"></span>
+                    <span>${color}</span>
+                </label>
+            `).join('');
 
-            // Заполняем фильтр категорий
-            categoryFilter.innerHTML = '<option value="">Все категории</option>' +
-                categories.map(category => `<option value="${category}">${category}</option>`).join('');
+            // Заполняем чекбоксы категорий
+            const categoryCheckboxes = document.getElementById('category-checkboxes');
+            categoryCheckboxes.innerHTML = categories.map(category => `
+                <label class="category-checkbox-label">
+                    <input type="checkbox" class="category-checkbox" value="${category}">
+                    <span class="category-checkbox-custom"></span>
+                    <span>${category}</span>
+                </label>
+            `).join('');
+
+            // Заполняем чекбоксы названий
+            const nameCheckboxes = document.getElementById('name-checkboxes');
+            fetch('/api/filters/names').then(res => res.json()).then(names => {
+                nameCheckboxes.innerHTML = names.map(name => `
+                    <label class="name-checkbox-label">
+                        <input type="checkbox" class="name-checkbox" value="${name}">
+                        <span class="name-checkbox-custom"></span>
+                        <span>${name}</span>
+                    </label>
+                `).join('');
+                document.getElementById('name-count').textContent = `(${names.length} названий)`;
+            });
 
             // Обновляем счетчики
             document.getElementById('color-count').textContent = `(${colors.length} цветов)`;
             document.getElementById('category-count').textContent = `(${categories.length} категорий)`;
-
         } catch (error) {
             console.error('Error loading filters:', error);
             alert('Ошибка загрузки фильтров. Пожалуйста, обновите страницу.');
@@ -544,12 +568,37 @@ document.addEventListener('DOMContentLoaded', () => {
         handleFilterChange('search', searchInput.value);
     }, 500));
 
-    colorFilter.addEventListener('change', () => {
-        handleFilterChange('color', colorFilter.value);
+    // Обработка выбора цветов через чекбоксы
+    document.addEventListener('change', function(e) {
+        if (e.target.classList.contains('color-checkbox')) {
+            const checked = Array.from(document.querySelectorAll('.color-checkbox:checked')).map(cb => cb.value);
+            currentFilters.color = checked.join(','); // або масив, якщо бекенд підтримує
+            updateURL();
+            updateActiveFilters();
+            fetchProducts(1);
+        }
     });
 
-    categoryFilter.addEventListener('change', () => {
-        handleFilterChange('category', categoryFilter.value);
+    // Обработка выбора категорий через чекбоксы
+    document.addEventListener('change', function(e) {
+        if (e.target.classList.contains('category-checkbox')) {
+            const checked = Array.from(document.querySelectorAll('.category-checkbox:checked')).map(cb => cb.value);
+            currentFilters.category = checked.join(','); // або масив, якщо бекенд підтримує
+            updateURL();
+            updateActiveFilters();
+            fetchProducts(1);
+        }
+    });
+
+    // Обработка выбора названий через чекбоксы
+    document.addEventListener('change', function(e) {
+        if (e.target.classList.contains('name-checkbox')) {
+            const checked = Array.from(document.querySelectorAll('.name-checkbox:checked')).map(cb => cb.value);
+            currentFilters.name = checked.join(','); // або масив, якщо бекенд підтримує
+            updateURL();
+            updateActiveFilters();
+            fetchProducts(1);
+        }
     });
 
     nameFilter.addEventListener('change', () => {
