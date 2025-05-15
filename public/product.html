@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UMAMI - Название товара</title>
+    <meta name="description" content="Описание товара">
+    <meta name="keywords" content="одежда, мода, аксессуары">
+    <meta property="og:title" content="UMAMI - Товар">
+    <meta property="og:description" content="Описание товара">
+    <meta property="og:type" content="product">
+    <link rel="canonical" href="/product">
     <link rel="icon" type="image/png" href="/u.png">
     <link rel="apple-touch-icon" href="/u.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/u.png">
@@ -15,6 +21,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="UMAMI">
 
+    <script src="/js/seo-filters.js" defer></script>
     <script src="/js/header-loader.js" defer></script>
     <script src="/js/footer-loader.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -642,6 +649,28 @@
         window.addEventListener('DOMContentLoaded', () => {
             rotateSearchPlaceholder();
             setInterval(rotateSearchPlaceholder, 3500);
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Получаем ID продукта из URL
+            const productId = window.location.pathname.split('/').pop();
+            
+            // Получаем и обновляем SEO метаданные для продукта
+            const metadata = await seoFilters.getProductMetadata(productId);
+            
+            if (metadata) {
+                // Обновляем Open Graph изображение
+                if (metadata.ogImage) {
+                    seoFilters.updateMetaTag('og:image', metadata.ogImage);
+                }
+                
+                // Обновляем canonical URL
+                const canonicalLink = document.querySelector('link[rel="canonical"]');
+                if (canonicalLink) {
+                    canonicalLink.href = window.location.origin + metadata.canonicalUrl;
+                }
+            }
         });
     </script>
 </body>

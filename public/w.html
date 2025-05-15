@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UMAMI - Интернет магазин</title>
+    <meta name="description" content="Интернет-магазин модной одежды и аксессуаров">
+    <meta name="keywords" content="одежда, мода, аксессуары, интернет-магазин">
+    <meta property="og:title" content="UMAMI - Интернет магазин">
+    <meta property="og:description" content="Интернет-магазин модной одежды и аксессуаров">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="/w">
     <link rel="icon" type="image/png" href="/u.png">
     <link rel="apple-touch-icon" href="/u.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/u.png">
@@ -17,6 +23,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css">
     <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
+    <script src="/js/seo-filters.js" defer></script>
     <script src="/js/header-loader.js" defer></script>
     <script src="/js/footer-loader.js" defer></script>
     <link rel="stylesheet" href="/styles/w.css">
@@ -180,6 +187,84 @@
         window.addEventListener('DOMContentLoaded', () => {
             rotateSearchPlaceholder();
             setInterval(rotateSearchPlaceholder, 3500);
+        });
+
+        // Инициализация SEO-фильтров
+        document.addEventListener('DOMContentLoaded', async function() {
+            // Получаем текущие параметры фильтров из URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const filters = {
+                color: urlParams.get('color'),
+                category: urlParams.get('category'),
+                minPrice: urlParams.get('minPrice'),
+                maxPrice: urlParams.get('maxPrice'),
+                search: urlParams.get('search')
+            };
+
+            // Обновляем SEO метаданные
+            await seoFilters.getFiltersMetadata(filters);
+
+            // Обработчик изменения фильтров
+            const filterInputs = document.querySelectorAll('#color-filter, #category-filter, #name-filter, #min-price, #max-price, #search');
+            filterInputs.forEach(input => {
+                input.addEventListener('change', async function() {
+                    const currentFilters = {
+                        color: document.getElementById('color-filter').value,
+                        category: document.getElementById('category-filter').value,
+                        minPrice: document.getElementById('min-price').value,
+                        maxPrice: document.getElementById('max-price').value,
+                        search: document.getElementById('search').value
+                    };
+
+                    // Обновляем URL с новыми параметрами
+                    const newUrl = new URL(window.location.href);
+                    Object.entries(currentFilters).forEach(([key, value]) => {
+                        if (value) {
+                            newUrl.searchParams.set(key, value);
+                        } else {
+                            newUrl.searchParams.delete(key);
+                        }
+                    });
+                    window.history.pushState({}, '', newUrl);
+
+                    // Обновляем SEO метаданные
+                    await seoFilters.getFiltersMetadata(currentFilters);
+                });
+            });
+
+            // Обработчик кнопки "Применить фильтры"
+            document.getElementById('apply-filters').addEventListener('click', async function() {
+                const currentFilters = {
+                    color: document.getElementById('color-filter').value,
+                    category: document.getElementById('category-filter').value,
+                    minPrice: document.getElementById('min-price').value,
+                    maxPrice: document.getElementById('max-price').value,
+                    search: document.getElementById('search').value
+                };
+
+                // Обновляем URL с новыми параметрами
+                const newUrl = new URL(window.location.href);
+                Object.entries(currentFilters).forEach(([key, value]) => {
+                    if (value) {
+                        newUrl.searchParams.set(key, value);
+                    } else {
+                        newUrl.searchParams.delete(key);
+                    }
+                });
+                window.history.pushState({}, '', newUrl);
+
+                // Обновляем SEO метаданные
+                await seoFilters.getFiltersMetadata(currentFilters);
+            });
+
+            // Обработчик кнопки "Очистить все"
+            document.getElementById('clear-filters').addEventListener('click', async function() {
+                // Очищаем URL
+                window.history.pushState({}, '', '/w');
+                
+                // Обновляем SEO метаданные с пустыми фильтрами
+                await seoFilters.getFiltersMetadata({});
+            });
         });
     </script>
 </body>

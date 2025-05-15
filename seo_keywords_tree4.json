@@ -1,0 +1,168 @@
+[
+  {
+    "category": "STATISTICS",
+    "totalProducts": 19898,
+    "newProducts": 1851,
+    "newProductsPercentage": "9.30%",
+    "filters": {
+      "minKeywordFrequency": 5,
+      "minKeywordScore": 0.5,
+      "minWordLength": 3,
+      "maxWordLength": 20
+    }
+  },
+  {
+    "category": "UNCATEGORIZED",
+    "subcategories": [
+      {
+        "name": "OTHER",
+        "keywords": [
+          {
+            "keyword": "victory primary logo",
+            "count": 7,
+            "newCount": 7,
+            "score": "0.500",
+            "sources": {
+              "name": 7,
+              "subtitle": 0,
+              "color": 0,
+              "description": 0
+            }
+          },
+          {
+            "keyword": "marlins city connect",
+            "count": 6,
+            "newCount": 6,
+            "score": "0.500",
+            "sources": {
+              "name": 6,
+              "subtitle": 0,
+              "color": 0,
+              "description": 0
+            }
+          },
+          {
+            "keyword": "cooperstown knockout",
+            "count": 6,
+            "newCount": 6,
+            "score": "0.500",
+            "sources": {
+              "name": 6,
+              "subtitle": 0,
+              "color": 0,
+              "description": 0
+            }
+          },
+          {
+            "keyword": "west virginia legacy",
+            "count": 5,
+            "newCount": 5,
+            "score": "0.500",
+            "sources": {
+              "name": 5,
+              "subtitle": 0,
+              "color": 0,
+              "description": 0
+            }
+          },
+          {
+            "keyword": "baby 24m wild flower",
+            "count": 5,
+            "newCount": 5,
+            "score": "0.500",
+            "sources": {
+              "name": 0,
+              "subtitle": 5,
+              "color": 0,
+              "description": 0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "APPAREL",
+    "subcategories": [
+      {
+        "name": "TOPS",
+        "keywords": [
+          {
+            "keyword": "fit mlb hooded shirt",
+            "count": 15,
+            "newCount": 15,
+            "score": "0.500",
+            "sources": {
+              "name": 0,
+              "subtitle": 15,
+              "color": 0,
+              "description": 0
+            }
+          }
+        ]
+      },
+      {
+        "name": "BOTTOMS",
+        "keywords": []
+      },
+      {
+        "name": "ACCESSORIES",
+        "keywords": []
+      },
+      {
+        "name": "ATHLETIC_WEAR",
+        "keywords": []
+      },
+      {
+        "name": "OUTERWEAR",
+        "keywords": []
+      }
+    ]
+  },
+  {
+    "category": "FOOTWEAR",
+    "subcategories": [
+      {
+        "name": "BASKETBALL",
+        "keywords": []
+      },
+      {
+        "name": "RUNNING",
+        "keywords": []
+      },
+      {
+        "name": "SOCCER",
+        "keywords": []
+      },
+      {
+        "name": "TRAINING",
+        "keywords": []
+      },
+      {
+        "name": "LIFESTYLE",
+        "keywords": []
+      }
+    ]
+  },
+  {
+    "category": "EQUIPMENT",
+    "subcategories": [
+      {
+        "name": "BAGS",
+        "keywords": []
+      },
+      {
+        "name": "PROTECTION",
+        "keywords": []
+      },
+      {
+        "name": "ACCESSORIES",
+        "keywords": []
+      },
+      {
+        "name": "BALLS",
+        "keywords": []
+      }
+    ]
+  }
+]

@@ -621,6 +621,468 @@ app.delete('/api/auth/delete-account', auth, async (req, res) => {
     }
 });
 
+/**
+ * Эндпоинт для получения SEO ключевых слов
+ * Анализирует все продукты и извлекает ключевые слова из названий, подзаголовков и цветов
+ * Группирует ключевые слова по категориям и подсчитывает их частоту
+ */
+app.get('/api/filters/seo', async (req, res, next) => {
+    try {
+        // Агрегация для извлечения и анализа ключевых слов
+        const seoKeywords = await Product.aggregate([
+            // Проекция: объединяем название, подзаголовок и цвет в одну строку
+            {
+                $project: {
+                    keywords: {
+                        $concat: [
+                            { $ifNull: ['$info.name', ''] },
+                            ' ',
+                            { $ifNull: ['$info.subtitle', ''] },
+                            ' ',
+                            { $ifNull: ['$info.color.labelColor', ''] }
+                        ]
+                    },
+                    category: '$data.productType'
+                }
+            },
+            // Группировка по категориям и разбиение ключевых слов на массив
+            {
+                $group: {
+                    _id: '$category',
+                    keywords: {
+                        $push: {
+                            $split: ['$keywords', ' ']
+                        }
+                    }
+                }
+            },
+            // Преобразование вложенных массивов в один плоский массив
+            {
+                $project: {
+                    category: '$_id',
+                    keywords: {
+                        $reduce: {
+                            input: '$keywords',
+                            initialValue: [],
+                            in: { $concatArrays: ['$$value', '$$this'] }
+                        }
+                    }
+                }
+            },
+            // Подсчет частоты каждого ключевого слова
+            {
+                $project: {
+                    category: 1,
+                    keywordCounts: {
+                        $reduce: {
+                            input: '$keywords',
+                            initialValue: {},
+                            in: {
+                                $mergeObjects: [
+                                    '$$value',
+                                    {
+                                        $cond: {
+                                            if: { $in: ['$$this', { $objectToArray: '$$value' }.k] },
+                                            then: { $add: [{ $arrayElemAt: [{ $objectToArray: '$$value' }.v, { $indexOfArray: [{ $objectToArray: '$$value' }.k, '$$this'] }] }, 1] },
+                                            else: { $literal: 1 }
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        ]);
+
+        // Форматирование результатов
+        const formattedResults = seoKeywords.map(category => ({
+            category: category.category || 'UNCATEGORIZED',
+            keywords: Object.entries(category.keywordCounts)
+                .map(([keyword, count]) => ({ keyword, count }))
+                .filter(item => item.keyword.length > 2) // Фильтрация коротких слов
+                .sort((a, b) => b.count - a.count) // Сортировка по частоте
+                .slice(0, 100) // Ограничение до 100 ключевых слов на категорию
+        }));
+
+        res.json(formattedResults);
+    } catch (error) {
+        next(error);
+    }
+});
+
+/**
+ * Эндпоинт для получения SEO метаданных продукта
+ * Генерирует метаданные для отдельного продукта, включая:
+ * - Заголовок и описание
+ * - Ключевые слова
+ * - Open Graph теги
+ * - Структурированные данные
+ */
+app.get('/api/products/:id/seo', async (req, res, next) => {
+    try {
+        const product = await Product.findById(req.params.id);
+        
+        if (!product) {
+            return res.status(404).json({ error: 'Product not found' });
+        }
+
+        // Генерация SEO метаданных
+        const seoMetadata = {
+            // Основные метаданные
+            title: `${product.info.name} - ${product.info.subtitle}`,
+            description: product.info.discription || product.info.subtitle,
+            keywords: [
+                product.info.name,
+                product.info.subtitle,
+                product.info.color.labelColor,
+                product.data.productType
+            ].filter(Boolean).join(', '),
+
+            // Open Graph метаданные для соцсетей
+            ogTitle: `${product.info.name} - ${product.info.subtitle}`,
+            ogDescription: product.info.discription || product.info.subtitle,
+            ogImage: product.imageData.imgMain,
+            canonicalUrl: `/products/${product._id}`,
+
+            // Структурированные данные для поисковых систем
+            structuredData: {
+                '@context': 'https://schema.org',
+                '@type': 'Product',
+                name: product.info.name,
+                description: product.info.discription || product.info.subtitle,
+                image: product.imageData.imgMain,
+                sku: product.pid?.groupKey || product._id.toString(),
+                brand: {
+                    '@type': 'Brand',
+                    name: 'ABC Wear'
+                },
+                offers: {
+                    '@type': 'Offer',
+                    price: product.price.self.UAH.currentPrice,
+                    priceCurrency: 'UAH',
+                    availability: product.inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock'
+                }
+            }
+        };
+
+        res.json(seoMetadata);
+    } catch (error) {
+        next(error);
+    }
+});
+
+/**
+ * Эндпоинт для получения SEO метаданных категории
+ * Генерирует метаданные для страницы категории, включая:
+ * - Статистику по продуктам
+ * - Топ ключевых слов
+ * - Структурированные данные
+ */
+app.get('/api/categories/:category/seo', async (req, res, next) => {
+    try {
+        const category = req.params.category;
+        
+        // Получение статистики по категории
+        const stats = await Product.aggregate([
+            {
+                $match: {
+                    'data.productType': category
+                }
+            },
+            {
+                $group: {
+                    _id: null,
+                    totalProducts: { $sum: 1 },
+                    avgPrice: { $avg: '$price.self.UAH.currentPrice' },
+                    minPrice: { $min: '$price.self.UAH.currentPrice' },
+                    maxPrice: { $max: '$price.self.UAH.currentPrice' }
+                }
+            }
+        ]);
+
+        // Получение ключевых слов для категории
+        const keywords = await Product.aggregate([
+            {
+                $match: {
+                    'data.productType': category
+                }
+            },
+            {
+                $project: {
+                    keywords: {
+                        $concat: [
+                            { $ifNull: ['$info.name', ''] },
+                            ' ',
+                            { $ifNull: ['$info.subtitle', ''] },
+                            ' ',
+                            { $ifNull: ['$info.color.labelColor', ''] }
+                        ]
+                    }
+                }
+            },
+            {
+                $group: {
+                    _id: null,
+                    allKeywords: { $push: { $split: ['$keywords', ' '] } }
+                }
+            },
+            {
+                $project: {
+                    keywords: {
+                        $reduce: {
+                            input: '$allKeywords',
+                            initialValue: [],
+                            in: { $concatArrays: ['$$value', '$$this'] }
+                        }
+                    }
+                }
+            }
+        ]);
+
+        // Обработка ключевых слов
+        const keywordCounts = {};
+        if (keywords.length > 0 && keywords[0].keywords) {
+            keywords[0].keywords.forEach(keyword => {
+                if (keyword.length > 2) {
+                    keywordCounts[keyword] = (keywordCounts[keyword] || 0) + 1;
+                }
+            });
+        }
+
+        // Получение топ-10 ключевых слов
+        const topKeywords = Object.entries(keywordCounts)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 10)
+            .map(([keyword]) => keyword);
+
+        // Генерация SEO метаданных
+        const seoMetadata = {
+            title: `${category} - ABC Wear`,
+            description: `Browse our collection of ${category.toLowerCase()} at ABC Wear. ${stats[0]?.totalProducts || 0} products available from ${stats[0]?.minPrice || 0} to ${stats[0]?.maxPrice || 0} UAH.`,
+            keywords: topKeywords.join(', '),
+            ogTitle: `${category} - ABC Wear`,
+            ogDescription: `Browse our collection of ${category.toLowerCase()} at ABC Wear. ${stats[0]?.totalProducts || 0} products available.`,
+            canonicalUrl: `/categories/${category}`,
+            structuredData: {
+                '@context': 'https://schema.org',
+                '@type': 'CollectionPage',
+                name: `${category} - ABC Wear`,
+                description: `Browse our collection of ${category.toLowerCase()} at ABC Wear.`,
+                numberOfItems: stats[0]?.totalProducts || 0,
+                offers: {
+                    '@type': 'AggregateOffer',
+                    priceCurrency: 'UAH',
+                    lowPrice: stats[0]?.minPrice || 0,
+                    highPrice: stats[0]?.maxPrice || 0,
+                    offerCount: stats[0]?.totalProducts || 0
+                }
+            }
+        };
+
+        res.json(seoMetadata);
+    } catch (error) {
+        next(error);
+    }
+});
+
+/**
+ * Эндпоинт для получения SEO метаданных страницы с фильтрами
+ * Генерирует метаданные для страницы с примененными фильтрами, включая:
+ * - Статистику по отфильтрованным продуктам
+ * - Топ ключевых слов
+ * - Хлебные крошки
+ * - Структурированные данные
+ */
+app.get('/api/filters/seo/metadata', async (req, res, next) => {
+    try {
+        const { color, category, minPrice, maxPrice, search } = req.query;
+        
+        // Построение объекта фильтра
+        const filter = {
+            'pid.groupKey': { $exists: true }
+        };
+
+        if (color) {
+            filter['info.color.labelColor'] = color;
+        }
+
+        if (category) {
+            filter['data.productType'] = category;
+        }
+
+        if (search) {
+            filter.$or = [
+                { 'info.name': { $regex: search, $options: 'i' } },
+                { 'info.discription': { $regex: search, $options: 'i' } }
+            ];
+        }
+
+        if (minPrice || maxPrice) {
+            filter['price.self.UAH.currentPrice'] = {};
+            if (minPrice) {
+                filter['price.self.UAH.currentPrice'].$gte = parseFloat(minPrice);
+            }
+            if (maxPrice) {
+                filter['price.self.UAH.currentPrice'].$lte = parseFloat(maxPrice);
+            }
+        }
+
+        // Получение статистики по отфильтрованным продуктам
+        const stats = await Product.aggregate([
+            { $match: filter },
+            {
+                $group: {
+                    _id: null,
+                    totalProducts: { $sum: 1 },
+                    avgPrice: { $avg: '$price.self.UAH.currentPrice' },
+                    minPrice: { $min: '$price.self.UAH.currentPrice' },
+                    maxPrice: { $max: '$price.self.UAH.currentPrice' },
+                    categories: { $addToSet: '$data.productType' },
+                    colors: { $addToSet: '$info.color.labelColor' }
+                }
+            }
+        ]);
+
+        // Получение ключевых слов для отфильтрованных продуктов
+        const keywords = await Product.aggregate([
+            { $match: filter },
+            {
+                $project: {
+                    keywords: {
+                        $concat: [
+                            { $ifNull: ['$info.name', ''] },
+                            ' ',
+                            { $ifNull: ['$info.subtitle', ''] },
+                            ' ',
+                            { $ifNull: ['$info.color.labelColor', ''] }
+                        ]
+                    }
+                }
+            },
+            {
+                $group: {
+                    _id: null,
+                    allKeywords: { $push: { $split: ['$keywords', ' '] } }
+                }
+            },
+            {
+                $project: {
+                    keywords: {
+                        $reduce: {
+                            input: '$allKeywords',
+                            initialValue: [],
+                            in: { $concatArrays: ['$$value', '$$this'] }
+                        }
+                    }
+                }
+            }
+        ]);
+
+        // Обработка ключевых слов
+        const keywordCounts = {};
+        if (keywords.length > 0 && keywords[0].keywords) {
+            keywords[0].keywords.forEach(keyword => {
+                if (keyword.length > 2) {
+                    keywordCounts[keyword] = (keywordCounts[keyword] || 0) + 1;
+                }
+            });
+        }
+
+        // Получение топ-10 ключевых слов
+        const topKeywords = Object.entries(keywordCounts)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 10)
+            .map(([keyword]) => keyword);
+
+        // Формирование частей заголовка и описания
+        let titleParts = [];
+        let descriptionParts = [];
+
+        if (category) {
+            titleParts.push(category);
+            descriptionParts.push(category.toLowerCase());
+        }
+
+        if (color) {
+            titleParts.push(color);
+            descriptionParts.push(color.toLowerCase());
+        }
+
+        if (search) {
+            titleParts.push(`"${search}"`);
+            descriptionParts.push(`matching "${search}"`);
+        }
+
+        if (minPrice || maxPrice) {
+            const priceRange = [];
+            if (minPrice) priceRange.push(`from ${minPrice}`);
+            if (maxPrice) priceRange.push(`to ${maxPrice}`);
+            if (priceRange.length > 0) {
+                descriptionParts.push(`priced ${priceRange.join(' ')} UAH`);
+            }
+        }
+
+        // Генерация SEO метаданных
+        const seoMetadata = {
+            title: `${titleParts.join(' ')} - ABC Wear`,
+            description: `Browse our collection of ${descriptionParts.join(' ')} at ABC Wear. ${stats[0]?.totalProducts || 0} products available.`,
+            keywords: topKeywords.join(', '),
+            ogTitle: `${titleParts.join(' ')} - ABC Wear`,
+            ogDescription: `Browse our collection of ${descriptionParts.join(' ')} at ABC Wear. ${stats[0]?.totalProducts || 0} products available.`,
+            canonicalUrl: `/filters?${new URLSearchParams(req.query).toString()}`,
+            structuredData: {
+                '@context': 'https://schema.org',
+                '@type': 'CollectionPage',
+                name: `${titleParts.join(' ')} - ABC Wear`,
+                description: `Browse our collection of ${descriptionParts.join(' ')} at ABC Wear.`,
+                numberOfItems: stats[0]?.totalProducts || 0,
+                offers: {
+                    '@type': 'AggregateOffer',
+                    priceCurrency: 'UAH',
+                    lowPrice: stats[0]?.minPrice || 0,
+                    highPrice: stats[0]?.maxPrice || 0,
+                    offerCount: stats[0]?.totalProducts || 0
+                }
+            },
+            breadcrumbs: {
+                '@context': 'https://schema.org',
+                '@type': 'BreadcrumbList',
+                itemListElement: [
+                    {
+                        '@type': 'ListItem',
+                        position: 1,
+                        name: 'Home',
+                        item: '/'
+                    }
+                ]
+            }
+        };
+
+        // Добавление категории в хлебные крошки
+        if (category) {
+            seoMetadata.breadcrumbs.itemListElement.push({
+                '@type': 'ListItem',
+                position: 2,
+                name: category,
+                item: `/categories/${category}`
+            });
+        }
+
+        // Добавление текущего фильтра в хлебные крошки
+        seoMetadata.breadcrumbs.itemListElement.push({
+            '@type': 'ListItem',
+            position: seoMetadata.breadcrumbs.itemListElement.length + 1,
+            name: titleParts.join(' '),
+            item: `/filters?${new URLSearchParams(req.query).toString()}`
+        });
+
+        res.json(seoMetadata);
+    } catch (error) {
+        next(error);
+    }
+});
+
 // Start server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
