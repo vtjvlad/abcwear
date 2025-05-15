@@ -8,7 +8,7 @@ const config = {
   mongoUri: process.env.MONGO_URI || 'mongodb://localhost:27017/shop',
   minKeywordFrequency: 5,
   stopWords: ['nike', 'the', 'and', 'with', 'men', 'women', 'for', 'in', 'of', 'to', 'by', 'on'],
-  outputFile: 'seo_keywords_tree2.json'
+  outputFile: 'seo_keywords_tree3.json'
 };
 
 // Улучшенное подключение к MongoDB
@@ -95,6 +95,7 @@ async function buildSEOTree() {
   const tree = {};
   const batchSize = 1000;
   let processed = 0;
+  let newProductsCount = 0;
 
   // Обработка пакетами
   for (let skip = 0; skip < totalProducts; skip += batchSize) {
@@ -103,12 +104,18 @@ async function buildSEOTree() {
       'info.name': 1,
       'info.subtitle': 1,
       'info.color.labelColor': 1,
+      'someAdditionalData.isNewUntil': 1
     })
     .skip(skip)
     .limit(batchSize)
     .lean();
 
     for (const product of products) {
+      const isNew = product?.someAdditionalData?.isNewUntil ? true : false;
+      if (isNew) {
+        newProductsCount++;
+      }
+
       const text = [
         product?.info?.name || '',
         product?.info?.subtitle || '',
@@ -127,8 +134,17 @@ async function buildSEOTree() {
           tree[mainCategory].subcategories[subCategory] = {};
         }
         
-        tree[mainCategory].subcategories[subCategory][token] = 
-          (tree[mainCategory].subcategories[subCategory][token] || 0) + 1;
+        if (!tree[mainCategory].subcategories[subCategory][token]) {
+          tree[mainCategory].subcategories[subCategory][token] = {
+            count: 0,
+            newCount: 0
+          };
+        }
+        
+        tree[mainCategory].subcategories[subCategory][token].count++;
+        if (isNew) {
+          tree[mainCategory].subcategories[subCategory][token].newCount++;
+        }
       }
     }
 
@@ -143,16 +159,29 @@ async function buildSEOTree() {
     subcategories: Object.entries(categoryData.subcategories).map(([subCategory, keywords]) => ({
       name: subCategory,
       keywords: Object.entries(keywords)
-        .filter(([_, count]) => count >= config.minKeywordFrequency)
-        .sort((a, b) => b[1] - a[1])
-        .map(([keyword, count]) => ({ keyword, count }))
+        .filter(([_, data]) => data.count >= config.minKeywordFrequency)
+        .sort((a, b) => b[1].count - a[1].count)
+        .map(([keyword, data]) => ({ 
+          keyword, 
+          count: data.count,
+          newCount: data.newCount
+        }))
     }))
   }));
+
+  // Добавляем общую статистику
+  result.unshift({
+    category: 'STATISTICS',
+    totalProducts,
+    newProducts: newProductsCount,
+    newProductsPercentage: ((newProductsCount / totalProducts) * 100).toFixed(2) + '%'
+  });
 
   // Сохраняем в файл
   const outPath = path.join(__dirname, config.outputFile);
   fs.writeFileSync(outPath, JSON.stringify(result, null, 2), 'utf-8');
   console.log(`SEO tree saved to ${outPath}`);
+  console.log(`Total new products: ${newProductsCount} (${((newProductsCount / totalProducts) * 100).toFixed(2)}%)`);
 
   await mongoose.disconnect();
   console.log('Database connection closed');

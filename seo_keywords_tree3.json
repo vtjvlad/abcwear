@@ -1,0 +1,7533 @@
+[
+  {
+    "category": "STATISTICS",
+    "totalProducts": 19898,
+    "newProducts": 1851,
+    "newProductsPercentage": "9.30%"
+  },
+  {
+    "category": "UNCATEGORIZED",
+    "subcategories": [
+      {
+        "name": "OTHER",
+        "keywords": [
+          {
+            "keyword": "men's",
+            "count": 8318,
+            "newCount": 1068
+          },
+          {
+            "keyword": "fit",
+            "count": 5277,
+            "newCount": 572
+          },
+          {
+            "keyword": "dri",
+            "count": 5066,
+            "newCount": 572
+          },
+          {
+            "keyword": "black",
+            "count": 4626,
+            "newCount": 339
+          },
+          {
+            "keyword": "women's",
+            "count": 3990,
+            "newCount": 294
+          },
+          {
+            "keyword": "blue",
+            "count": 3621,
+            "newCount": 421
+          },
+          {
+            "keyword": "white",
+            "count": 3435,
+            "newCount": 312
+          },
+          {
+            "keyword": "shoes",
+            "count": 3433,
+            "newCount": 330
+          },
+          {
+            "keyword": "kids'",
+            "count": 3059,
+            "newCount": 204
+          },
+          {
+            "keyword": "big",
+            "count": 2310,
+            "newCount": 155
+          },
+          {
+            "keyword": "jordan",
+            "count": 2168,
+            "newCount": 204
+          },
+          {
+            "keyword": "grey",
+            "count": 2044,
+            "newCount": 176
+          },
+          {
+            "keyword": "mlb",
+            "count": 1841,
+            "newCount": 594
+          },
+          {
+            "keyword": "sportswear",
+            "count": 1726,
+            "newCount": 43
+          },
+          {
+            "keyword": "club",
+            "count": 1695,
+            "newCount": 137
+          },
+          {
+            "keyword": "fleece",
+            "count": 1527,
+            "newCount": 59
+          },
+          {
+            "keyword": "top",
+            "count": 1513,
+            "newCount": 97
+          },
+          {
+            "keyword": "red",
+            "count": 1498,
+            "newCount": 154
+          },
+          {
+            "keyword": "college",
+            "count": 1495,
+            "newCount": 284
+          },
+          {
+            "keyword": "sleeve",
+            "count": 1350,
+            "newCount": 116
+          },
+          {
+            "keyword": "brown",
+            "count": 1337,
+            "newCount": 152
+          },
+          {
+            "keyword": "nfl",
+            "count": 1283,
+            "newCount": 113
+          },
+          {
+            "keyword": "green",
+            "count": 1205,
+            "newCount": 101
+          },
+          {
+            "keyword": "air",
+            "count": 1104,
+            "newCount": 95
+          },
+          {
+            "keyword": "nba",
+            "count": 1032,
+            "newCount": 12
+          },
+          {
+            "keyword": "long",
+            "count": 826,
+            "newCount": 72
+          },
+          {
+            "keyword": "purple",
+            "count": 811,
+            "newCount": 101
+          },
+          {
+            "keyword": "little",
+            "count": 800,
+            "newCount": 53
+          },
+          {
+            "keyword": "zip",
+            "count": 787,
+            "newCount": 68
+          },
+          {
+            "keyword": "city",
+            "count": 777,
+            "newCount": 138
+          },
+          {
+            "keyword": "authentic",
+            "count": 711,
+            "newCount": 149
+          },
+          {
+            "keyword": "pink",
+            "count": 701,
+            "newCount": 77
+          },
+          {
+            "keyword": "collection",
+            "count": 691,
+            "newCount": 148
+          },
+          {
+            "keyword": "low",
+            "count": 646,
+            "newCount": 74
+          },
+          {
+            "keyword": "crew",
+            "count": 619,
+            "newCount": 38
+          },
+          {
+            "keyword": "sideline",
+            "count": 589,
+            "newCount": 148
+          },
+          {
+            "keyword": "edition",
+            "count": 573,
+            "newCount": 4
+          },
+          {
+            "keyword": "high",
+            "count": 569,
+            "newCount": 25
+          },
+          {
+            "keyword": "max",
+            "count": 557,
+            "newCount": 38
+          },
+          {
+            "keyword": "adv",
+            "count": 557,
+            "newCount": 73
+          },
+          {
+            "keyword": "pro",
+            "count": 552,
+            "newCount": 55
+          },
+          {
+            "keyword": "essential",
+            "count": 547,
+            "newCount": 12
+          },
+          {
+            "keyword": "short",
+            "count": 543,
+            "newCount": 44
+          },
+          {
+            "keyword": "baby",
+            "count": 535,
+            "newCount": 48
+          },
+          {
+            "keyword": "golf",
+            "count": 526,
+            "newCount": 24
+          },
+          {
+            "keyword": "toddler",
+            "count": 516,
+            "newCount": 37
+          },
+          {
+            "keyword": "orange",
+            "count": 508,
+            "newCount": 66
+          },
+          {
+            "keyword": "full",
+            "count": 498,
+            "newCount": 38
+          },
+          {
+            "keyword": "road",
+            "count": 497,
+            "newCount": 28
+          },
+          {
+            "keyword": "set",
+            "count": 480,
+            "newCount": 30
+          },
+          {
+            "keyword": "limited",
+            "count": 464,
+            "newCount": 58
+          },
+          {
+            "keyword": "custom",
+            "count": 454,
+            "newCount": 29
+          },
+          {
+            "keyword": "you",
+            "count": 446,
+            "newCount": 28
+          },
+          {
+            "keyword": "game",
+            "count": 433,
+            "newCount": 1
+          },
+          {
+            "keyword": "rise",
+            "count": 420,
+            "newCount": 53
+          },
+          {
+            "keyword": "mid",
+            "count": 408,
+            "newCount": 37
+          },
+          {
+            "keyword": "new",
+            "count": 402,
+            "newCount": 52
+          },
+          {
+            "keyword": "swoosh",
+            "count": 398,
+            "newCount": 12
+          },
+          {
+            "keyword": "state",
+            "count": 394,
+            "newCount": 61
+          },
+          {
+            "keyword": "piece",
+            "count": 386,
+            "newCount": 20
+          },
+          {
+            "keyword": "academy",
+            "count": 385,
+            "newCount": 28
+          },
+          {
+            "keyword": "plus",
+            "count": 378,
+            "newCount": 9
+          },
+          {
+            "keyword": "adjustable",
+            "count": 376,
+            "newCount": 134
+          },
+          {
+            "keyword": "woven",
+            "count": 370,
+            "newCount": 16
+          },
+          {
+            "keyword": "logo",
+            "count": 357,
+            "newCount": 82
+          },
+          {
+            "keyword": "oversized",
+            "count": 356,
+            "newCount": 28
+          },
+          {
+            "keyword": "one",
+            "count": 353,
+            "newCount": 19
+          },
+          {
+            "keyword": "2024",
+            "count": 339,
+            "newCount": 2
+          },
+          {
+            "keyword": "tennis",
+            "count": 337,
+            "newCount": 15
+          },
+          {
+            "keyword": "waisted",
+            "count": 336,
+            "newCount": 14
+          },
+          {
+            "keyword": "phoenix",
+            "count": 331,
+            "newCount": 14
+          },
+          {
+            "keyword": "polo",
+            "count": 329,
+            "newCount": 20
+          },
+          {
+            "keyword": "therma",
+            "count": 328,
+            "newCount": 23
+          },
+          {
+            "keyword": "tech",
+            "count": 326,
+            "newCount": 14
+          },
+          {
+            "keyword": "york",
+            "count": 321,
+            "newCount": 48
+          },
+          {
+            "keyword": "essentials",
+            "count": 316,
+            "newCount": 17
+          },
+          {
+            "keyword": "team",
+            "count": 312,
+            "newCount": 43
+          },
+          {
+            "keyword": "connect",
+            "count": 311,
+            "newCount": 118
+          },
+          {
+            "keyword": "yellow",
+            "count": 310,
+            "newCount": 19
+          },
+          {
+            "keyword": "victory",
+            "count": 303,
+            "newCount": 34
+          },
+          {
+            "keyword": "primetime",
+            "count": 302,
+            "newCount": 28
+          },
+          {
+            "keyword": "size",
+            "count": 301,
+            "newCount": 11
+          },
+          {
+            "keyword": "girls'",
+            "count": 299,
+            "newCount": 10
+          },
+          {
+            "keyword": "elite",
+            "count": 299,
+            "newCount": 18
+          },
+          {
+            "keyword": "vapor",
+            "count": 298,
+            "newCount": 16
+          },
+          {
+            "keyword": "terry",
+            "count": 296,
+            "newCount": 15
+          },
+          {
+            "keyword": "neck",
+            "count": 289,
+            "newCount": 15
+          },
+          {
+            "keyword": "chicago",
+            "count": 287,
+            "newCount": 65
+          },
+          {
+            "keyword": "sport",
+            "count": 284,
+            "newCount": 18
+          },
+          {
+            "keyword": "men’s",
+            "count": 283,
+            "newCount": 56
+          },
+          {
+            "keyword": "multi",
+            "count": 273,
+            "newCount": 11
+          },
+          {
+            "keyword": "swingman",
+            "count": 265,
+            "newCount": 2
+          },
+          {
+            "keyword": "25",
+            "count": 263,
+            "newCount": 2
+          },
+          {
+            "keyword": "pegasus",
+            "count": 262,
+            "newCount": 9
+          },
+          {
+            "keyword": "los",
+            "count": 261,
+            "newCount": 44
+          },
+          {
+            "keyword": "angeles",
+            "count": 261,
+            "newCount": 44
+          },
+          {
+            "keyword": "max90",
+            "count": 256,
+            "newCount": 24
+          },
+          {
+            "keyword": "issue",
+            "count": 255,
+            "newCount": 13
+          },
+          {
+            "keyword": "replica",
+            "count": 252,
+            "newCount": 14
+          },
+          {
+            "keyword": "force",
+            "count": 251,
+            "newCount": 15
+          },
+          {
+            "keyword": "san",
+            "count": 238,
+            "newCount": 50
+          },
+          {
+            "keyword": "knit",
+            "count": 237,
+            "newCount": 7
+          },
+          {
+            "keyword": "french",
+            "count": 235,
+            "newCount": 12
+          },
+          {
+            "keyword": "flight",
+            "count": 230,
+            "newCount": 22
+          },
+          {
+            "keyword": "tour",
+            "count": 226,
+            "newCount": 11
+          },
+          {
+            "keyword": "icon",
+            "count": 226,
+            "newCount": 12
+          },
+          {
+            "keyword": "philadelphia",
+            "count": 220,
+            "newCount": 25
+          },
+          {
+            "keyword": "legend",
+            "count": 217,
+            "newCount": 82
+          },
+          {
+            "keyword": "boxy",
+            "count": 213,
+            "newCount": 35
+          },
+          {
+            "keyword": "support",
+            "count": 210,
+            "newCount": 8
+          },
+          {
+            "keyword": "hooded",
+            "count": 207,
+            "newCount": 31
+          },
+          {
+            "keyword": "sb",
+            "count": 206,
+            "newCount": 25
+          },
+          {
+            "keyword": "acg",
+            "count": 204,
+            "newCount": 12
+          },
+          {
+            "keyword": "boys'",
+            "count": 200,
+            "newCount": 3
+          },
+          {
+            "keyword": "cropped",
+            "count": 193,
+            "newCount": 20
+          },
+          {
+            "keyword": "velocity",
+            "count": 193,
+            "newCount": 59
+          },
+          {
+            "keyword": "brooklyn",
+            "count": 191,
+            "newCount": 21
+          },
+          {
+            "keyword": "fc",
+            "count": 191,
+            "newCount": 5
+          },
+          {
+            "keyword": "pairs",
+            "count": 183,
+            "newCount": 6
+          },
+          {
+            "keyword": "cooperstown",
+            "count": 183,
+            "newCount": 75
+          },
+          {
+            "keyword": "bra",
+            "count": 179,
+            "newCount": 6
+          },
+          {
+            "keyword": "mercurial",
+            "count": 178,
+            "newCount": 19
+          },
+          {
+            "keyword": "5\"",
+            "count": 176,
+            "newCount": 12
+          },
+          {
+            "keyword": "zoom",
+            "count": 174,
+            "newCount": 18
+          },
+          {
+            "keyword": "sports",
+            "count": 171,
+            "newCount": 5
+          },
+          {
+            "keyword": "pack",
+            "count": 170,
+            "newCount": 9
+          },
+          {
+            "keyword": "swim",
+            "count": 169,
+            "newCount": 10
+          },
+          {
+            "keyword": "houston",
+            "count": 169,
+            "newCount": 19
+          },
+          {
+            "keyword": "jr",
+            "count": 166,
+            "newCount": 15
+          },
+          {
+            "keyword": "graphic",
+            "count": 165,
+            "newCount": 5
+          },
+          {
+            "keyword": "trucker",
+            "count": 165,
+            "newCount": 10
+          },
+          {
+            "keyword": "player",
+            "count": 164,
+            "newCount": 19
+          },
+          {
+            "keyword": "skate",
+            "count": 162,
+            "newCount": 23
+          },
+          {
+            "keyword": "stadium",
+            "count": 162,
+            "newCount": 18
+          },
+          {
+            "keyword": "nwsl",
+            "count": 160,
+            "newCount": 4
+          },
+          {
+            "keyword": "atlanta",
+            "count": 158,
+            "newCount": 29
+          },
+          {
+            "keyword": "alpha",
+            "count": 158,
+            "newCount": 8
+          },
+          {
+            "keyword": "legacy",
+            "count": 156,
+            "newCount": 60
+          },
+          {
+            "keyword": "41",
+            "count": 153,
+            "newCount": 1
+          },
+          {
+            "keyword": "seattle",
+            "count": 152,
+            "newCount": 26
+          },
+          {
+            "keyword": "lined",
+            "count": 151,
+            "newCount": 10
+          },
+          {
+            "keyword": "12",
+            "count": 148,
+            "newCount": 42
+          },
+          {
+            "keyword": "michigan",
+            "count": 147,
+            "newCount": 29
+          },
+          {
+            "keyword": "wnba",
+            "count": 146,
+            "newCount": 15
+          },
+          {
+            "keyword": "wordmark",
+            "count": 146,
+            "newCount": 10
+          },
+          {
+            "keyword": "florida",
+            "count": 145,
+            "newCount": 30
+          },
+          {
+            "keyword": "24",
+            "count": 144,
+            "newCount": 11
+          },
+          {
+            "keyword": "10",
+            "count": 143,
+            "newCount": 9
+          },
+          {
+            "keyword": "dunk",
+            "count": 140,
+            "newCount": 11
+          },
+          {
+            "keyword": "premium",
+            "count": 136,
+            "newCount": 7
+          },
+          {
+            "keyword": "minnesota",
+            "count": 136,
+            "newCount": 26
+          },
+          {
+            "keyword": "23",
+            "count": 135,
+            "newCount": 3
+          },
+          {
+            "keyword": "slides",
+            "count": 134,
+            "newCount": 9
+          },
+          {
+            "keyword": "miami",
+            "count": 134,
+            "newCount": 27
+          },
+          {
+            "keyword": "wide",
+            "count": 133,
+            "newCount": 5
+          },
+          {
+            "keyword": "bay",
+            "count": 129,
+            "newCount": 28
+          },
+          {
+            "keyword": "detroit",
+            "count": 127,
+            "newCount": 28
+          },
+          {
+            "keyword": "sox",
+            "count": 127,
+            "newCount": 47
+          },
+          {
+            "keyword": "tigers",
+            "count": 127,
+            "newCount": 21
+          },
+          {
+            "keyword": "unstructured",
+            "count": 126,
+            "newCount": 12
+          },
+          {
+            "keyword": "boston",
+            "count": 126,
+            "newCount": 18
+          },
+          {
+            "keyword": "francisco",
+            "count": 126,
+            "newCount": 31
+          },
+          {
+            "keyword": "mesh",
+            "count": 125,
+            "newCount": 5
+          },
+          {
+            "keyword": "uv",
+            "count": 123,
+            "newCount": 4
+          },
+          {
+            "keyword": "coach",
+            "count": 123,
+            "newCount": 5
+          },
+          {
+            "keyword": "color",
+            "count": 122,
+            "newCount": 8
+          },
+          {
+            "keyword": "everyday",
+            "count": 120,
+            "newCount": 5
+          },
+          {
+            "keyword": "slim",
+            "count": 120,
+            "newCount": 0
+          },
+          {
+            "keyword": "brief",
+            "count": 120,
+            "newCount": 6
+          },
+          {
+            "keyword": "chill",
+            "count": 119,
+            "newCount": 3
+          },
+          {
+            "keyword": "easyon",
+            "count": 118,
+            "newCount": 5
+          },
+          {
+            "keyword": "jumpman",
+            "count": 118,
+            "newCount": 2
+          },
+          {
+            "keyword": "primary",
+            "count": 117,
+            "newCount": 10
+          },
+          {
+            "keyword": "washington",
+            "count": 117,
+            "newCount": 17
+          },
+          {
+            "keyword": "phantom",
+            "count": 114,
+            "newCount": 3
+          },
+          {
+            "keyword": "arizona",
+            "count": 114,
+            "newCount": 26
+          },
+          {
+            "keyword": "milwaukee",
+            "count": 113,
+            "newCount": 21
+          },
+          {
+            "keyword": "sunglasses",
+            "count": 112,
+            "newCount": 9
+          },
+          {
+            "keyword": "fly",
+            "count": 111,
+            "newCount": 4
+          },
+          {
+            "keyword": "windrunner",
+            "count": 110,
+            "newCount": 4
+          },
+          {
+            "keyword": "loose",
+            "count": 110,
+            "newCount": 10
+          },
+          {
+            "keyword": "dallas",
+            "count": 109,
+            "newCount": 1
+          },
+          {
+            "keyword": "cincinnati",
+            "count": 109,
+            "newCount": 27
+          },
+          {
+            "keyword": "zenvy",
+            "count": 108,
+            "newCount": 0
+          },
+          {
+            "keyword": "field",
+            "count": 108,
+            "newCount": 2
+          },
+          {
+            "keyword": "se",
+            "count": 107,
+            "newCount": 15
+          },
+          {
+            "keyword": "light",
+            "count": 106,
+            "newCount": 3
+          },
+          {
+            "keyword": "diamond",
+            "count": 106,
+            "newCount": 3
+          },
+          {
+            "keyword": "7\"",
+            "count": 105,
+            "newCount": 2
+          },
+          {
+            "keyword": "giants",
+            "count": 105,
+            "newCount": 29
+          },
+          {
+            "keyword": "match",
+            "count": 105,
+            "newCount": 1
+          },
+          {
+            "keyword": "printed",
+            "count": 104,
+            "newCount": 6
+          },
+          {
+            "keyword": "cleveland",
+            "count": 104,
+            "newCount": 20
+          },
+          {
+            "keyword": "cardinals",
+            "count": 104,
+            "newCount": 24
+          },
+          {
+            "keyword": "arch",
+            "count": 103,
+            "newCount": 85
+          },
+          {
+            "keyword": "pair",
+            "count": 102,
+            "newCount": 1
+          },
+          {
+            "keyword": "run",
+            "count": 102,
+            "newCount": 8
+          },
+          {
+            "keyword": "diego",
+            "count": 100,
+            "newCount": 21
+          },
+          {
+            "keyword": "kansas",
+            "count": 99,
+            "newCount": 20
+          },
+          {
+            "keyword": "eagles",
+            "count": 99,
+            "newCount": 4
+          },
+          {
+            "keyword": "texas",
+            "count": 98,
+            "newCount": 34
+          },
+          {
+            "keyword": "versatile",
+            "count": 98,
+            "newCount": 4
+          },
+          {
+            "keyword": "carolina",
+            "count": 98,
+            "newCount": 14
+          },
+          {
+            "keyword": "paris",
+            "count": 98,
+            "newCount": 1
+          },
+          {
+            "keyword": "bucket",
+            "count": 98,
+            "newCount": 4
+          },
+          {
+            "keyword": "practice",
+            "count": 98,
+            "newCount": 0
+          },
+          {
+            "keyword": "tampa",
+            "count": 98,
+            "newCount": 21
+          },
+          {
+            "keyword": "90",
+            "count": 97,
+            "newCount": 4
+          },
+          {
+            "keyword": "saint",
+            "count": 97,
+            "newCount": 1
+          },
+          {
+            "keyword": "germain",
+            "count": 97,
+            "newCount": 1
+          },
+          {
+            "keyword": "16",
+            "count": 96,
+            "newCount": 10
+          },
+          {
+            "keyword": "oklahoma",
+            "count": 95,
+            "newCount": 11
+          },
+          {
+            "keyword": "pittsburgh",
+            "count": 95,
+            "newCount": 24
+          },
+          {
+            "keyword": "cargo",
+            "count": 94,
+            "newCount": 7
+          },
+          {
+            "keyword": "futura",
+            "count": 94,
+            "newCount": 7
+          },
+          {
+            "keyword": "repel",
+            "count": 94,
+            "newCount": 6
+          },
+          {
+            "keyword": "strike",
+            "count": 93,
+            "newCount": 8
+          },
+          {
+            "keyword": "standard",
+            "count": 92,
+            "newCount": 0
+          },
+          {
+            "keyword": "fg",
+            "count": 92,
+            "newCount": 4
+          },
+          {
+            "keyword": "tennessee",
+            "count": 91,
+            "newCount": 17
+          },
+          {
+            "keyword": "sleeveless",
+            "count": 91,
+            "newCount": 6
+          },
+          {
+            "keyword": "jets",
+            "count": 91,
+            "newCount": 4
+          },
+          {
+            "keyword": "vomero",
+            "count": 90,
+            "newCount": 8
+          },
+          {
+            "keyword": "track",
+            "count": 89,
+            "newCount": 0
+          },
+          {
+            "keyword": "runner",
+            "count": 89,
+            "newCount": 1
+          },
+          {
+            "keyword": "golden",
+            "count": 88,
+            "newCount": 2
+          },
+          {
+            "keyword": "braves",
+            "count": 88,
+            "newCount": 26
+          },
+          {
+            "keyword": "brand",
+            "count": 87,
+            "newCount": 40
+          },
+          {
+            "keyword": "warriors",
+            "count": 87,
+            "newCount": 2
+          },
+          {
+            "keyword": "boxer",
+            "count": 86,
+            "newCount": 5
+          },
+          {
+            "keyword": "star",
+            "count": 86,
+            "newCount": 0
+          },
+          {
+            "keyword": "flow",
+            "count": 85,
+            "newCount": 2
+          },
+          {
+            "keyword": "2022",
+            "count": 84,
+            "newCount": 1
+          },
+          {
+            "keyword": "leg",
+            "count": 83,
+            "newCount": 6
+          },
+          {
+            "keyword": "mariners",
+            "count": 83,
+            "newCount": 22
+          },
+          {
+            "keyword": "astros",
+            "count": 83,
+            "newCount": 15
+          },
+          {
+            "keyword": "briefs",
+            "count": 82,
+            "newCount": 4
+          },
+          {
+            "keyword": "medium",
+            "count": 82,
+            "newCount": 4
+          },
+          {
+            "keyword": "dress",
+            "count": 82,
+            "newCount": 13
+          },
+          {
+            "keyword": "baltimore",
+            "count": 82,
+            "newCount": 24
+          },
+          {
+            "keyword": "st",
+            "count": 82,
+            "newCount": 23
+          },
+          {
+            "keyword": "lions",
+            "count": 82,
+            "newCount": 8
+          },
+          {
+            "keyword": "select",
+            "count": 81,
+            "newCount": 6
+          },
+          {
+            "keyword": "lakers",
+            "count": 81,
+            "newCount": 3
+          },
+          {
+            "keyword": "2025",
+            "count": 80,
+            "newCount": 5
+          },
+          {
+            "keyword": "24m",
+            "count": 80,
+            "newCount": 13
+          },
+          {
+            "keyword": "pre",
+            "count": 80,
+            "newCount": 0
+          },
+          {
+            "keyword": "women’s",
+            "count": 79,
+            "newCount": 26
+          },
+          {
+            "keyword": "phillies",
+            "count": 79,
+            "newCount": 20
+          },
+          {
+            "keyword": "north",
+            "count": 78,
+            "newCount": 12
+          },
+          {
+            "keyword": "superfly",
+            "count": 77,
+            "newCount": 9
+          },
+          {
+            "keyword": "belt",
+            "count": 77,
+            "newCount": 0
+          },
+          {
+            "keyword": "yankees",
+            "count": 77,
+            "newCount": 20
+          },
+          {
+            "keyword": "all",
+            "count": 76,
+            "newCount": 1
+          },
+          {
+            "keyword": "huarache",
+            "count": 76,
+            "newCount": 0
+          },
+          {
+            "keyword": "kobe",
+            "count": 75,
+            "newCount": 5
+          },
+          {
+            "keyword": "toronto",
+            "count": 75,
+            "newCount": 21
+          },
+          {
+            "keyword": "mvp",
+            "count": 75,
+            "newCount": 1
+          },
+          {
+            "keyword": "3\"",
+            "count": 74,
+            "newCount": 3
+          },
+          {
+            "keyword": "shoe",
+            "count": 74,
+            "newCount": 1
+          },
+          {
+            "keyword": "structured",
+            "count": 74,
+            "newCount": 7
+          },
+          {
+            "keyword": "hem",
+            "count": 74,
+            "newCount": 1
+          },
+          {
+            "keyword": "cushioned",
+            "count": 74,
+            "newCount": 1
+          },
+          {
+            "keyword": "ohio",
+            "count": 73,
+            "newCount": 18
+          },
+          {
+            "keyword": "ankle",
+            "count": 72,
+            "newCount": 2
+          },
+          {
+            "keyword": "home",
+            "count": 72,
+            "newCount": 0
+          },
+          {
+            "keyword": "hard",
+            "count": 72,
+            "newCount": 3
+          },
+          {
+            "keyword": "fitted",
+            "count": 71,
+            "newCount": 3
+          },
+          {
+            "keyword": "open",
+            "count": 71,
+            "newCount": 1
+          },
+          {
+            "keyword": "bomber",
+            "count": 71,
+            "newCount": 14
+          },
+          {
+            "keyword": "louis",
+            "count": 71,
+            "newCount": 23
+          },
+          {
+            "keyword": "2023",
+            "count": 70,
+            "newCount": 0
+          },
+          {
+            "keyword": "9m",
+            "count": 70,
+            "newCount": 2
+          },
+          {
+            "keyword": "mg",
+            "count": 70,
+            "newCount": 7
+          },
+          {
+            "keyword": "cubs",
+            "count": 70,
+            "newCount": 25
+          },
+          {
+            "keyword": "dodgers",
+            "count": 70,
+            "newCount": 25
+          },
+          {
+            "keyword": "over",
+            "count": 68,
+            "newCount": 3
+          },
+          {
+            "keyword": "striped",
+            "count": 68,
+            "newCount": 5
+          },
+          {
+            "keyword": "advantage",
+            "count": 68,
+            "newCount": 3
+          },
+          {
+            "keyword": "metcon",
+            "count": 68,
+            "newCount": 5
+          },
+          {
+            "keyword": "pirates",
+            "count": 67,
+            "newCount": 19
+          },
+          {
+            "keyword": "flex",
+            "count": 66,
+            "newCount": 3
+          },
+          {
+            "keyword": "away",
+            "count": 66,
+            "newCount": 2
+          },
+          {
+            "keyword": "blazer",
+            "count": 65,
+            "newCount": 15
+          },
+          {
+            "keyword": "borough",
+            "count": 65,
+            "newCount": 9
+          },
+          {
+            "keyword": "cortez",
+            "count": 65,
+            "newCount": 4
+          },
+          {
+            "keyword": "crossbody",
+            "count": 65,
+            "newCount": 1
+          },
+          {
+            "keyword": "racing",
+            "count": 65,
+            "newCount": 13
+          },
+          {
+            "keyword": "statement",
+            "count": 65,
+            "newCount": 3
+          },
+          {
+            "keyword": "twins",
+            "count": 65,
+            "newCount": 19
+          },
+          {
+            "keyword": "blitz",
+            "count": 65,
+            "newCount": 0
+          },
+          {
+            "keyword": "6\"",
+            "count": 64,
+            "newCount": 6
+          },
+          {
+            "keyword": "pockets",
+            "count": 64,
+            "newCount": 3
+          },
+          {
+            "keyword": "suns",
+            "count": 64,
+            "newCount": 1
+          },
+          {
+            "keyword": "cowboys",
+            "count": 64,
+            "newCount": 0
+          },
+          {
+            "keyword": "brewers",
+            "count": 64,
+            "newCount": 20
+          },
+          {
+            "keyword": "tf",
+            "count": 63,
+            "newCount": 6
+          },
+          {
+            "keyword": "lebron",
+            "count": 63,
+            "newCount": 7
+          },
+          {
+            "keyword": "portland",
+            "count": 62,
+            "newCount": 1
+          },
+          {
+            "keyword": "apex",
+            "count": 62,
+            "newCount": 4
+          },
+          {
+            "keyword": "denver",
+            "count": 62,
+            "newCount": 2
+          },
+          {
+            "keyword": "celtics",
+            "count": 62,
+            "newCount": 0
+          },
+          {
+            "keyword": "dna",
+            "count": 61,
+            "newCount": 1
+          },
+          {
+            "keyword": "solo",
+            "count": 61,
+            "newCount": 0
+          },
+          {
+            "keyword": "free",
+            "count": 61,
+            "newCount": 5
+          },
+          {
+            "keyword": "jays",
+            "count": 61,
+            "newCount": 21
+          },
+          {
+            "keyword": "extended",
+            "count": 60,
+            "newCount": 4
+          },
+          {
+            "keyword": "reds",
+            "count": 60,
+            "newCount": 22
+          },
+          {
+            "keyword": "fuse",
+            "count": 60,
+            "newCount": 14
+          },
+          {
+            "keyword": "13",
+            "count": 59,
+            "newCount": 0
+          },
+          {
+            "keyword": "sabrina",
+            "count": 59,
+            "newCount": 2
+          },
+          {
+            "keyword": "swift",
+            "count": 59,
+            "newCount": 1
+          },
+          {
+            "keyword": "stride",
+            "count": 59,
+            "newCount": 4
+          },
+          {
+            "keyword": "wolverines",
+            "count": 59,
+            "newCount": 0
+          },
+          {
+            "keyword": "unlined",
+            "count": 58,
+            "newCount": 1
+          },
+          {
+            "keyword": "biker",
+            "count": 58,
+            "newCount": 3
+          },
+          {
+            "keyword": "virginia",
+            "count": 58,
+            "newCount": 19
+          },
+          {
+            "keyword": "peak",
+            "count": 58,
+            "newCount": 1
+          },
+          {
+            "keyword": "usc",
+            "count": 58,
+            "newCount": 12
+          },
+          {
+            "keyword": "converse",
+            "count": 58,
+            "newCount": 0
+          },
+          {
+            "keyword": "rewind",
+            "count": 58,
+            "newCount": 0
+          },
+          {
+            "keyword": "colorado",
+            "count": 57,
+            "newCount": 22
+          },
+          {
+            "keyword": "time",
+            "count": 57,
+            "newCount": 0
+          },
+          {
+            "keyword": "270",
+            "count": 56,
+            "newCount": 6
+          },
+          {
+            "keyword": "tiempo",
+            "count": 56,
+            "newCount": 0
+          },
+          {
+            "keyword": "heat",
+            "count": 56,
+            "newCount": 0
+          },
+          {
+            "keyword": "orioles",
+            "count": 56,
+            "newCount": 20
+          },
+          {
+            "keyword": "royals",
+            "count": 56,
+            "newCount": 16
+          },
+          {
+            "keyword": "core",
+            "count": 55,
+            "newCount": 1
+          },
+          {
+            "keyword": "gx",
+            "count": 55,
+            "newCount": 2
+          },
+          {
+            "keyword": "8\"",
+            "count": 55,
+            "newCount": 4
+          },
+          {
+            "keyword": "4\"",
+            "count": 55,
+            "newCount": 2
+          },
+          {
+            "keyword": "mets",
+            "count": 55,
+            "newCount": 17
+          },
+          {
+            "keyword": "ja",
+            "count": 54,
+            "newCount": 3
+          },
+          {
+            "keyword": "memphis",
+            "count": 54,
+            "newCount": 1
+          },
+          {
+            "keyword": "spikes",
+            "count": 54,
+            "newCount": 0
+          },
+          {
+            "keyword": "giannis",
+            "count": 54,
+            "newCount": 5
+          },
+          {
+            "keyword": "angels",
+            "count": 54,
+            "newCount": 12
+          },
+          {
+            "keyword": "sooners",
+            "count": 54,
+            "newCount": 0
+          },
+          {
+            "keyword": "reversible",
+            "count": 53,
+            "newCount": 15
+          },
+          {
+            "keyword": "las",
+            "count": 53,
+            "newCount": 6
+          },
+          {
+            "keyword": "vegas",
+            "count": 53,
+            "newCount": 6
+          },
+          {
+            "keyword": "oregon",
+            "count": 53,
+            "newCount": 16
+          },
+          {
+            "keyword": "rockies",
+            "count": 53,
+            "newCount": 22
+          },
+          {
+            "keyword": "rib",
+            "count": 52,
+            "newCount": 1
+          },
+          {
+            "keyword": "bulls",
+            "count": 52,
+            "newCount": 0
+          },
+          {
+            "keyword": "west",
+            "count": 52,
+            "newCount": 19
+          },
+          {
+            "keyword": "rangers",
+            "count": 52,
+            "newCount": 18
+          },
+          {
+            "keyword": "wilson",
+            "count": 51,
+            "newCount": 23
+          },
+          {
+            "keyword": "alabama",
+            "count": 51,
+            "newCount": 11
+          },
+          {
+            "keyword": "luna",
+            "count": 51,
+            "newCount": 1
+          },
+          {
+            "keyword": "indy",
+            "count": 51,
+            "newCount": 3
+          },
+          {
+            "keyword": "buccaneers",
+            "count": 51,
+            "newCount": 2
+          },
+          {
+            "keyword": "nationals",
+            "count": 51,
+            "newCount": 14
+          },
+          {
+            "keyword": "wildcats",
+            "count": 51,
+            "newCount": 0
+          },
+          {
+            "keyword": "mini",
+            "count": 50,
+            "newCount": 3
+          },
+          {
+            "keyword": "bucks",
+            "count": 50,
+            "newCount": 1
+          },
+          {
+            "keyword": "dn",
+            "count": 50,
+            "newCount": 2
+          },
+          {
+            "keyword": "knicks",
+            "count": 50,
+            "newCount": 1
+          },
+          {
+            "keyword": "coverall",
+            "count": 49,
+            "newCount": 0
+          },
+          {
+            "keyword": "georgia",
+            "count": 49,
+            "newCount": 14
+          },
+          {
+            "keyword": "liverpool",
+            "count": 49,
+            "newCount": 1
+          },
+          {
+            "keyword": "clemson",
+            "count": 49,
+            "newCount": 8
+          },
+          {
+            "keyword": "lsu",
+            "count": 49,
+            "newCount": 10
+          },
+          {
+            "keyword": "texans",
+            "count": 49,
+            "newCount": 3
+          },
+          {
+            "keyword": "script",
+            "count": 49,
+            "newCount": 26
+          },
+          {
+            "keyword": "seminoles",
+            "count": 49,
+            "newCount": 0
+          },
+          {
+            "keyword": "6000",
+            "count": 48,
+            "newCount": 4
+          },
+          {
+            "keyword": "'07",
+            "count": 48,
+            "newCount": 3
+          },
+          {
+            "keyword": "sandals",
+            "count": 48,
+            "newCount": 4
+          },
+          {
+            "keyword": "grizzlies",
+            "count": 48,
+            "newCount": 1
+          },
+          {
+            "keyword": "gore",
+            "count": 48,
+            "newCount": 0
+          },
+          {
+            "keyword": "tex",
+            "count": 48,
+            "newCount": 0
+          },
+          {
+            "keyword": "stretch",
+            "count": 48,
+            "newCount": 1
+          },
+          {
+            "keyword": "campus",
+            "count": 48,
+            "newCount": 0
+          },
+          {
+            "keyword": "49ers",
+            "count": 48,
+            "newCount": 4
+          },
+          {
+            "keyword": "bears",
+            "count": 48,
+            "newCount": 4
+          },
+          {
+            "keyword": "bengals",
+            "count": 48,
+            "newCount": 5
+          },
+          {
+            "keyword": "buffalo",
+            "count": 48,
+            "newCount": 4
+          },
+          {
+            "keyword": "bills",
+            "count": 48,
+            "newCount": 4
+          },
+          {
+            "keyword": "chuck",
+            "count": 48,
+            "newCount": 1
+          },
+          {
+            "keyword": "buckeyes",
+            "count": 48,
+            "newCount": 0
+          },
+          {
+            "keyword": "chino",
+            "count": 47,
+            "newCount": 4
+          },
+          {
+            "keyword": "duke",
+            "count": 47,
+            "newCount": 9
+          },
+          {
+            "keyword": "mcs",
+            "count": 47,
+            "newCount": 1
+          },
+          {
+            "keyword": "seahawks",
+            "count": 47,
+            "newCount": 3
+          },
+          {
+            "keyword": "rays",
+            "count": 47,
+            "newCount": 19
+          },
+          {
+            "keyword": "spartans",
+            "count": 47,
+            "newCount": 0
+          },
+          {
+            "keyword": "romper",
+            "count": 47,
+            "newCount": 5
+          },
+          {
+            "keyword": "perfectstretch",
+            "count": 47,
+            "newCount": 4
+          },
+          {
+            "keyword": "pocket",
+            "count": 46,
+            "newCount": 1
+          },
+          {
+            "keyword": "bodysuit",
+            "count": 45,
+            "newCount": 2
+          },
+          {
+            "keyword": "unlimited",
+            "count": 45,
+            "newCount": 0
+          },
+          {
+            "keyword": "trout",
+            "count": 45,
+            "newCount": 0
+          },
+          {
+            "keyword": "hit",
+            "count": 45,
+            "newCount": 25
+          },
+          {
+            "keyword": "lacrosse",
+            "count": 45,
+            "newCount": 0
+          },
+          {
+            "keyword": "true",
+            "count": 45,
+            "newCount": 3
+          },
+          {
+            "keyword": "brasilia",
+            "count": 44,
+            "newCount": 1
+          },
+          {
+            "keyword": "tight",
+            "count": 44,
+            "newCount": 3
+          },
+          {
+            "keyword": "usmnt",
+            "count": 44,
+            "newCount": 0
+          },
+          {
+            "keyword": "terra",
+            "count": 44,
+            "newCount": 0
+          },
+          {
+            "keyword": "orleans",
+            "count": 44,
+            "newCount": 2
+          },
+          {
+            "keyword": "storm",
+            "count": 44,
+            "newCount": 0
+          },
+          {
+            "keyword": "hyperdiamond",
+            "count": 44,
+            "newCount": 0
+          },
+          {
+            "keyword": "aeroswift",
+            "count": 44,
+            "newCount": 0
+          },
+          {
+            "keyword": "glory",
+            "count": 44,
+            "newCount": 43
+          },
+          {
+            "keyword": "lv8",
+            "count": 43,
+            "newCount": 4
+          },
+          {
+            "keyword": "iowa",
+            "count": 43,
+            "newCount": 10
+          },
+          {
+            "keyword": "shox",
+            "count": 43,
+            "newCount": 3
+          },
+          {
+            "keyword": "cosmic",
+            "count": 43,
+            "newCount": 1
+          },
+          {
+            "keyword": "chelsea",
+            "count": 42,
+            "newCount": 3
+          },
+          {
+            "keyword": "blazers",
+            "count": 42,
+            "newCount": 0
+          },
+          {
+            "keyword": "76ers",
+            "count": 42,
+            "newCount": 1
+          },
+          {
+            "keyword": "wool",
+            "count": 42,
+            "newCount": 0
+          },
+          {
+            "keyword": "jacksonville",
+            "count": 42,
+            "newCount": 5
+          },
+          {
+            "keyword": "jaguars",
+            "count": 42,
+            "newCount": 5
+          },
+          {
+            "keyword": "menace",
+            "count": 42,
+            "newCount": 6
+          },
+          {
+            "keyword": "extra",
+            "count": 41,
+            "newCount": 1
+          },
+          {
+            "keyword": "vision",
+            "count": 41,
+            "newCount": 4
+          },
+          {
+            "keyword": "crossover",
+            "count": 41,
+            "newCount": 0
+          },
+          {
+            "keyword": "prep",
+            "count": 41,
+            "newCount": 39
+          },
+          {
+            "keyword": "sc",
+            "count": 41,
+            "newCount": 7
+          },
+          {
+            "keyword": "lite",
+            "count": 41,
+            "newCount": 2
+          },
+          {
+            "keyword": "calm",
+            "count": 41,
+            "newCount": 3
+          },
+          {
+            "keyword": "browns",
+            "count": 41,
+            "newCount": 4
+          },
+          {
+            "keyword": "taylor",
+            "count": 41,
+            "newCount": 0
+          },
+          {
+            "keyword": "england",
+            "count": 40,
+            "newCount": 2
+          },
+          {
+            "keyword": "kentucky",
+            "count": 40,
+            "newCount": 13
+          },
+          {
+            "keyword": "dolphins",
+            "count": 40,
+            "newCount": 4
+          },
+          {
+            "keyword": "raiders",
+            "count": 40,
+            "newCount": 4
+          },
+          {
+            "keyword": "work",
+            "count": 40,
+            "newCount": 2
+          },
+          {
+            "keyword": "life",
+            "count": 39,
+            "newCount": 0
+          },
+          {
+            "keyword": "penn",
+            "count": 39,
+            "newCount": 13
+          },
+          {
+            "keyword": "varsity",
+            "count": 39,
+            "newCount": 1
+          },
+          {
+            "keyword": "next",
+            "count": 39,
+            "newCount": 1
+          },
+          {
+            "keyword": "nature",
+            "count": 39,
+            "newCount": 1
+          },
+          {
+            "keyword": "diamondbacks",
+            "count": 39,
+            "newCount": 15
+          },
+          {
+            "keyword": "challenger",
+            "count": 39,
+            "newCount": 3
+          },
+          {
+            "keyword": "vikings",
+            "count": 39,
+            "newCount": 6
+          },
+          {
+            "keyword": "broncos",
+            "count": 39,
+            "newCount": 2
+          },
+          {
+            "keyword": "chiefs",
+            "count": 39,
+            "newCount": 4
+          },
+          {
+            "keyword": "marlins",
+            "count": 39,
+            "newCount": 24
+          },
+          {
+            "keyword": "athletic",
+            "count": 39,
+            "newCount": 39
+          },
+          {
+            "keyword": "tide",
+            "count": 39,
+            "newCount": 0
+          },
+          {
+            "keyword": "evergreen",
+            "count": 39,
+            "newCount": 0
+          },
+          {
+            "keyword": "third",
+            "count": 39,
+            "newCount": 0
+          },
+          {
+            "keyword": "recraft",
+            "count": 38,
+            "newCount": 7
+          },
+          {
+            "keyword": "gentle",
+            "count": 38,
+            "newCount": 0
+          },
+          {
+            "keyword": "waterproof",
+            "count": 38,
+            "newCount": 0
+          },
+          {
+            "keyword": "ag",
+            "count": 38,
+            "newCount": 2
+          },
+          {
+            "keyword": "wovens",
+            "count": 38,
+            "newCount": 1
+          },
+          {
+            "keyword": "winterized",
+            "count": 38,
+            "newCount": 0
+          },
+          {
+            "keyword": "gators",
+            "count": 38,
+            "newCount": 0
+          },
+          {
+            "keyword": "trojans",
+            "count": 38,
+            "newCount": 0
+          },
+          {
+            "keyword": "early",
+            "count": 38,
+            "newCount": 2
+          },
+          {
+            "keyword": "utility",
+            "count": 37,
+            "newCount": 0
+          },
+          {
+            "keyword": "keystone",
+            "count": 37,
+            "newCount": 0
+          },
+          {
+            "keyword": "williams",
+            "count": 37,
+            "newCount": 0
+          },
+          {
+            "keyword": "cut",
+            "count": 36,
+            "newCount": 1
+          },
+          {
+            "keyword": "lightweight",
+            "count": 36,
+            "newCount": 2
+          },
+          {
+            "keyword": "orlando",
+            "count": 36,
+            "newCount": 0
+          },
+          {
+            "keyword": "ucla",
+            "count": 36,
+            "newCount": 6
+          },
+          {
+            "keyword": "walking",
+            "count": 36,
+            "newCount": 0
+          },
+          {
+            "keyword": "killshot",
+            "count": 36,
+            "newCount": 3
+          },
+          {
+            "keyword": "impossiblysoft",
+            "count": 36,
+            "newCount": 7
+          },
+          {
+            "keyword": "local",
+            "count": 36,
+            "newCount": 19
+          },
+          {
+            "keyword": "turf",
+            "count": 35,
+            "newCount": 1
+          },
+          {
+            "keyword": "challenge",
+            "count": 35,
+            "newCount": 4
+          },
+          {
+            "keyword": "janoski",
+            "count": 35,
+            "newCount": 9
+          },
+          {
+            "keyword": "mavericks",
+            "count": 35,
+            "newCount": 0
+          },
+          {
+            "keyword": "shark",
+            "count": 35,
+            "newCount": 2
+          },
+          {
+            "keyword": "athletics",
+            "count": 35,
+            "newCount": 7
+          },
+          {
+            "keyword": "nocta",
+            "count": 34,
+            "newCount": 0
+          },
+          {
+            "keyword": "explorer",
+            "count": 34,
+            "newCount": 0
+          },
+          {
+            "keyword": "stanford",
+            "count": 34,
+            "newCount": 6
+          },
+          {
+            "keyword": "rm",
+            "count": 34,
+            "newCount": 7
+          },
+          {
+            "keyword": "tempo",
+            "count": 34,
+            "newCount": 4
+          },
+          {
+            "keyword": "jacquard",
+            "count": 34,
+            "newCount": 1
+          },
+          {
+            "keyword": "wave",
+            "count": 34,
+            "newCount": 3
+          },
+          {
+            "keyword": "small",
+            "count": 34,
+            "newCount": 25
+          },
+          {
+            "keyword": "mascot",
+            "count": 34,
+            "newCount": 0
+          },
+          {
+            "keyword": "'77",
+            "count": 33,
+            "newCount": 0
+          },
+          {
+            "keyword": "revolution",
+            "count": 33,
+            "newCount": 1
+          },
+          {
+            "keyword": "series",
+            "count": 33,
+            "newCount": 7
+          },
+          {
+            "keyword": "nets",
+            "count": 33,
+            "newCount": 0
+          },
+          {
+            "keyword": "tee",
+            "count": 33,
+            "newCount": 0
+          },
+          {
+            "keyword": "volunteers",
+            "count": 33,
+            "newCount": 0
+          },
+          {
+            "keyword": "mj",
+            "count": 32,
+            "newCount": 0
+          },
+          {
+            "keyword": "a'ja",
+            "count": 32,
+            "newCount": 23
+          },
+          {
+            "keyword": "drill",
+            "count": 32,
+            "newCount": 0
+          },
+          {
+            "keyword": "ground",
+            "count": 32,
+            "newCount": 0
+          },
+          {
+            "keyword": "ribbed",
+            "count": 32,
+            "newCount": 0
+          },
+          {
+            "keyword": "sacramento",
+            "count": 32,
+            "newCount": 0
+          },
+          {
+            "keyword": "kings",
+            "count": 32,
+            "newCount": 0
+          },
+          {
+            "keyword": "waffle",
+            "count": 32,
+            "newCount": 2
+          },
+          {
+            "keyword": "miler",
+            "count": 32,
+            "newCount": 0
+          },
+          {
+            "keyword": "chargers",
+            "count": 32,
+            "newCount": 3
+          },
+          {
+            "keyword": "patriots",
+            "count": 32,
+            "newCount": 2
+          },
+          {
+            "keyword": "rival",
+            "count": 32,
+            "newCount": 0
+          },
+          {
+            "keyword": "card",
+            "count": 32,
+            "newCount": 1
+          },
+          {
+            "keyword": "tar",
+            "count": 32,
+            "newCount": 0
+          },
+          {
+            "keyword": "heels",
+            "count": 32,
+            "newCount": 0
+          },
+          {
+            "keyword": "towel",
+            "count": 32,
+            "newCount": 1
+          },
+          {
+            "keyword": "general",
+            "count": 32,
+            "newCount": 2
+          },
+          {
+            "keyword": "everything",
+            "count": 31,
+            "newCount": 1
+          },
+          {
+            "keyword": "tottenham",
+            "count": 31,
+            "newCount": 0
+          },
+          {
+            "keyword": "hotspur",
+            "count": 31,
+            "newCount": 0
+          },
+          {
+            "keyword": "goalkeeper",
+            "count": 31,
+            "newCount": 0
+          },
+          {
+            "keyword": "rams",
+            "count": 31,
+            "newCount": 4
+          },
+          {
+            "keyword": "titans",
+            "count": 31,
+            "newCount": 5
+          },
+          {
+            "keyword": "dn8",
+            "count": 31,
+            "newCount": 0
+          },
+          {
+            "keyword": "devils",
+            "count": 31,
+            "newCount": 0
+          },
+          {
+            "keyword": "crimson",
+            "count": 31,
+            "newCount": 0
+          },
+          {
+            "keyword": "fourth",
+            "count": 31,
+            "newCount": 0
+          },
+          {
+            "keyword": "cotton",
+            "count": 30,
+            "newCount": 0
+          },
+          {
+            "keyword": "glove",
+            "count": 30,
+            "newCount": 2
+          },
+          {
+            "keyword": "show",
+            "count": 30,
+            "newCount": 1
+          },
+          {
+            "keyword": "length",
+            "count": 30,
+            "newCount": 0
+          },
+          {
+            "keyword": "mirrored",
+            "count": 30,
+            "newCount": 5
+          },
+          {
+            "keyword": "leather",
+            "count": 30,
+            "newCount": 2
+          },
+          {
+            "keyword": "water",
+            "count": 30,
+            "newCount": 4
+          },
+          {
+            "keyword": "downshifter",
+            "count": 30,
+            "newCount": 0
+          },
+          {
+            "keyword": "falcons",
+            "count": 30,
+            "newCount": 2
+          },
+          {
+            "keyword": "bulldogs",
+            "count": 30,
+            "newCount": 0
+          },
+          {
+            "keyword": "mountaineers",
+            "count": 30,
+            "newCount": 0
+          },
+          {
+            "keyword": "oz",
+            "count": 30,
+            "newCount": 0
+          },
+          {
+            "keyword": "dugout",
+            "count": 30,
+            "newCount": 0
+          },
+          {
+            "keyword": "indiana",
+            "count": 29,
+            "newCount": 2
+          },
+          {
+            "keyword": "invincible",
+            "count": 29,
+            "newCount": 0
+          },
+          {
+            "keyword": "no",
+            "count": 29,
+            "newCount": 1
+          },
+          {
+            "keyword": "relaxed",
+            "count": 29,
+            "newCount": 2
+          },
+          {
+            "keyword": "gp",
+            "count": 29,
+            "newCount": 2
+          },
+          {
+            "keyword": "solid",
+            "count": 29,
+            "newCount": 0
+          },
+          {
+            "keyword": "wrestling",
+            "count": 29,
+            "newCount": 0
+          },
+          {
+            "keyword": "e1d1",
+            "count": 29,
+            "newCount": 0
+          },
+          {
+            "keyword": "cardinal",
+            "count": 29,
+            "newCount": 0
+          },
+          {
+            "keyword": "national",
+            "count": 29,
+            "newCount": 1
+          },
+          {
+            "keyword": "nika",
+            "count": 29,
+            "newCount": 0
+          },
+          {
+            "keyword": "aqua",
+            "count": 28,
+            "newCount": 5
+          },
+          {
+            "keyword": "jet",
+            "count": 28,
+            "newCount": 0
+          },
+          {
+            "keyword": "og",
+            "count": 28,
+            "newCount": 4
+          },
+          {
+            "keyword": "25l",
+            "count": 28,
+            "newCount": 3
+          },
+          {
+            "keyword": "edge",
+            "count": 28,
+            "newCount": 1
+          },
+          {
+            "keyword": "hustle",
+            "count": 28,
+            "newCount": 24
+          },
+          {
+            "keyword": "steelers",
+            "count": 28,
+            "newCount": 5
+          },
+          {
+            "keyword": "tracksuit",
+            "count": 28,
+            "newCount": 3
+          },
+          {
+            "keyword": "alma",
+            "count": 28,
+            "newCount": 27
+          },
+          {
+            "keyword": "mater",
+            "count": 28,
+            "newCount": 27
+          },
+          {
+            "keyword": "travel",
+            "count": 28,
+            "newCount": 0
+          },
+          {
+            "keyword": "trainer",
+            "count": 27,
+            "newCount": 0
+          },
+          {
+            "keyword": "brazil",
+            "count": 27,
+            "newCount": 0
+          },
+          {
+            "keyword": "américa",
+            "count": 27,
+            "newCount": 5
+          },
+          {
+            "keyword": "4l",
+            "count": 27,
+            "newCount": 1
+          },
+          {
+            "keyword": "micro",
+            "count": 27,
+            "newCount": 2
+          },
+          {
+            "keyword": "skort",
+            "count": 27,
+            "newCount": 1
+          },
+          {
+            "keyword": "baseline",
+            "count": 27,
+            "newCount": 0
+          },
+          {
+            "keyword": "commanders",
+            "count": 27,
+            "newCount": 3
+          },
+          {
+            "keyword": "lockup",
+            "count": 27,
+            "newCount": 0
+          },
+          {
+            "keyword": "spirit",
+            "count": 27,
+            "newCount": 0
+          },
+          {
+            "keyword": "motion",
+            "count": 27,
+            "newCount": 1
+          },
+          {
+            "keyword": "wash",
+            "count": 26,
+            "newCount": 3
+          },
+          {
+            "keyword": "aura",
+            "count": 26,
+            "newCount": 0
+          },
+          {
+            "keyword": "hawks",
+            "count": 26,
+            "newCount": 0
+          },
+          {
+            "keyword": "volley",
+            "count": 26,
+            "newCount": 3
+          },
+          {
+            "keyword": "move",
+            "count": 26,
+            "newCount": 0
+          },
+          {
+            "keyword": "tatum",
+            "count": 26,
+            "newCount": 3
+          },
+          {
+            "keyword": "indianapolis",
+            "count": 26,
+            "newCount": 1
+          },
+          {
+            "keyword": "ravens",
+            "count": 26,
+            "newCount": 4
+          },
+          {
+            "keyword": "victory+",
+            "count": 26,
+            "newCount": 0
+          },
+          {
+            "keyword": "5l",
+            "count": 26,
+            "newCount": 3
+          },
+          {
+            "keyword": "anthem",
+            "count": 26,
+            "newCount": 0
+          },
+          {
+            "keyword": "eras",
+            "count": 26,
+            "newCount": 26
+          },
+          {
+            "keyword": "infinity",
+            "count": 25,
+            "newCount": 0
+          },
+          {
+            "keyword": "timberwolves",
+            "count": 25,
+            "newCount": 1
+          },
+          {
+            "keyword": "stacked",
+            "count": 25,
+            "newCount": 22
+          },
+          {
+            "keyword": "packers",
+            "count": 25,
+            "newCount": 6
+          },
+          {
+            "keyword": "saints",
+            "count": 25,
+            "newCount": 2
+          },
+          {
+            "keyword": "colts",
+            "count": 25,
+            "newCount": 1
+          },
+          {
+            "keyword": "hawkeyes",
+            "count": 25,
+            "newCount": 0
+          },
+          {
+            "keyword": "jalen",
+            "count": 25,
+            "newCount": 0
+          },
+          {
+            "keyword": "fashion",
+            "count": 25,
+            "newCount": 2
+          },
+          {
+            "keyword": "wild",
+            "count": 24,
+            "newCount": 10
+          },
+          {
+            "keyword": "united",
+            "count": 24,
+            "newCount": 0
+          },
+          {
+            "keyword": "puffer",
+            "count": 24,
+            "newCount": 0
+          },
+          {
+            "keyword": "boots",
+            "count": 24,
+            "newCount": 0
+          },
+          {
+            "keyword": "ace",
+            "count": 24,
+            "newCount": 2
+          },
+          {
+            "keyword": "canada",
+            "count": 24,
+            "newCount": 0
+          },
+          {
+            "keyword": "corduroy",
+            "count": 24,
+            "newCount": 0
+          },
+          {
+            "keyword": "spotlight",
+            "count": 24,
+            "newCount": 0
+          },
+          {
+            "keyword": "hardwood",
+            "count": 24,
+            "newCount": 0
+          },
+          {
+            "keyword": "motiva",
+            "count": 24,
+            "newCount": 0
+          },
+          {
+            "keyword": "bike",
+            "count": 24,
+            "newCount": 2
+          },
+          {
+            "keyword": "camo",
+            "count": 24,
+            "newCount": 23
+          },
+          {
+            "keyword": "11",
+            "count": 23,
+            "newCount": 2
+          },
+          {
+            "keyword": "18",
+            "count": 23,
+            "newCount": 4
+          },
+          {
+            "keyword": "ic",
+            "count": 23,
+            "newCount": 2
+          },
+          {
+            "keyword": "nuggets",
+            "count": 23,
+            "newCount": 0
+          },
+          {
+            "keyword": "immortality",
+            "count": 23,
+            "newCount": 2
+          },
+          {
+            "keyword": "r4",
+            "count": 23,
+            "newCount": 0
+          },
+          {
+            "keyword": "bruins",
+            "count": 23,
+            "newCount": 0
+          },
+          {
+            "keyword": "piped",
+            "count": 23,
+            "newCount": 0
+          },
+          {
+            "keyword": "clark",
+            "count": 22,
+            "newCount": 2
+          },
+          {
+            "keyword": "gift",
+            "count": 22,
+            "newCount": 1
+          },
+          {
+            "keyword": "day",
+            "count": 22,
+            "newCount": 0
+          },
+          {
+            "keyword": "flared",
+            "count": 22,
+            "newCount": 2
+          },
+          {
+            "keyword": "20l",
+            "count": 22,
+            "newCount": 6
+          },
+          {
+            "keyword": "fff",
+            "count": 22,
+            "newCount": 0
+          },
+          {
+            "keyword": "regular",
+            "count": 22,
+            "newCount": 1
+          },
+          {
+            "keyword": "right",
+            "count": 22,
+            "newCount": 2
+          },
+          {
+            "keyword": "monogram",
+            "count": 22,
+            "newCount": 6
+          },
+          {
+            "keyword": "swimsuit",
+            "count": 22,
+            "newCount": 1
+          },
+          {
+            "keyword": "ultra",
+            "count": 22,
+            "newCount": 2
+          },
+          {
+            "keyword": "play",
+            "count": 22,
+            "newCount": 0
+          },
+          {
+            "keyword": "slam",
+            "count": 22,
+            "newCount": 0
+          },
+          {
+            "keyword": "super",
+            "count": 22,
+            "newCount": 1
+          },
+          {
+            "keyword": "basics",
+            "count": 22,
+            "newCount": 0
+          },
+          {
+            "keyword": "unisex",
+            "count": 22,
+            "newCount": 1
+          },
+          {
+            "keyword": "24l",
+            "count": 22,
+            "newCount": 0
+          },
+          {
+            "keyword": "americana",
+            "count": 22,
+            "newCount": 22
+          },
+          {
+            "keyword": "batter's",
+            "count": 22,
+            "newCount": 2
+          },
+          {
+            "keyword": "utah",
+            "count": 22,
+            "newCount": 0
+          },
+          {
+            "keyword": "flower",
+            "count": 22,
+            "newCount": 10
+          },
+          {
+            "keyword": "longline",
+            "count": 21,
+            "newCount": 0
+          },
+          {
+            "keyword": "structure",
+            "count": 21,
+            "newCount": 0
+          },
+          {
+            "keyword": "usa",
+            "count": 21,
+            "newCount": 0
+          },
+          {
+            "keyword": "left",
+            "count": 21,
+            "newCount": 0
+          },
+          {
+            "keyword": "shield",
+            "count": 21,
+            "newCount": 0
+          },
+          {
+            "keyword": "tr",
+            "count": 21,
+            "newCount": 0
+          },
+          {
+            "keyword": "roam",
+            "count": 21,
+            "newCount": 0
+          },
+          {
+            "keyword": "large",
+            "count": 21,
+            "newCount": 0
+          },
+          {
+            "keyword": "experience",
+            "count": 21,
+            "newCount": 3
+          },
+          {
+            "keyword": "association",
+            "count": 21,
+            "newCount": 0
+          },
+          {
+            "keyword": "repellent",
+            "count": 21,
+            "newCount": 1
+          },
+          {
+            "keyword": "freak",
+            "count": 21,
+            "newCount": 2
+          },
+          {
+            "keyword": "isofly",
+            "count": 21,
+            "newCount": 0
+          },
+          {
+            "keyword": "c1ty",
+            "count": 21,
+            "newCount": 4
+          },
+          {
+            "keyword": "longhorns",
+            "count": 21,
+            "newCount": 0
+          },
+          {
+            "keyword": "knockout",
+            "count": 21,
+            "newCount": 6
+          },
+          {
+            "keyword": "joe",
+            "count": 21,
+            "newCount": 2
+          },
+          {
+            "keyword": "louisville",
+            "count": 21,
+            "newCount": 0
+          },
+          {
+            "keyword": "vault",
+            "count": 21,
+            "newCount": 1
+          },
+          {
+            "keyword": "premier",
+            "count": 21,
+            "newCount": 4
+          },
+          {
+            "keyword": "reign",
+            "count": 21,
+            "newCount": 1
+          },
+          {
+            "keyword": "universa",
+            "count": 21,
+            "newCount": 2
+          },
+          {
+            "keyword": "distance",
+            "count": 21,
+            "newCount": 0
+          },
+          {
+            "keyword": "365",
+            "count": 20,
+            "newCount": 2
+          },
+          {
+            "keyword": "a&m",
+            "count": 20,
+            "newCount": 0
+          },
+          {
+            "keyword": "batting",
+            "count": 20,
+            "newCount": 0
+          },
+          {
+            "keyword": "heathered",
+            "count": 20,
+            "newCount": 0
+          },
+          {
+            "keyword": "web",
+            "count": 20,
+            "newCount": 0
+          },
+          {
+            "keyword": "panthers",
+            "count": 20,
+            "newCount": 2
+          },
+          {
+            "keyword": "anorak",
+            "count": 20,
+            "newCount": 1
+          },
+          {
+            "keyword": "pregame",
+            "count": 20,
+            "newCount": 15
+          },
+          {
+            "keyword": "nittany",
+            "count": 20,
+            "newCount": 1
+          },
+          {
+            "keyword": "rockets",
+            "count": 20,
+            "newCount": 1
+          },
+          {
+            "keyword": "leotard",
+            "count": 20,
+            "newCount": 8
+          },
+          {
+            "keyword": "31",
+            "count": 19,
+            "newCount": 0
+          },
+          {
+            "keyword": "1000",
+            "count": 19,
+            "newCount": 3
+          },
+          {
+            "keyword": "flyknit",
+            "count": 19,
+            "newCount": 0
+          },
+          {
+            "keyword": "jackson",
+            "count": 19,
+            "newCount": 1
+          },
+          {
+            "keyword": "indoor",
+            "count": 19,
+            "newCount": 0
+          },
+          {
+            "keyword": "nn",
+            "count": 19,
+            "newCount": 1
+          },
+          {
+            "keyword": "magic",
+            "count": 19,
+            "newCount": 0
+          },
+          {
+            "keyword": "champs",
+            "count": 19,
+            "newCount": 1
+          },
+          {
+            "keyword": "cuffed",
+            "count": 19,
+            "newCount": 2
+          },
+          {
+            "keyword": "ral",
+            "count": 19,
+            "newCount": 0
+          },
+          {
+            "keyword": "spizike",
+            "count": 19,
+            "newCount": 4
+          },
+          {
+            "keyword": "v2k",
+            "count": 19,
+            "newCount": 1
+          },
+          {
+            "keyword": "poolside",
+            "count": 19,
+            "newCount": 2
+          },
+          {
+            "keyword": "shadow",
+            "count": 19,
+            "newCount": 19
+          },
+          {
+            "keyword": "handed",
+            "count": 19,
+            "newCount": 1
+          },
+          {
+            "keyword": "garrett",
+            "count": 19,
+            "newCount": 0
+          },
+          {
+            "keyword": "pride",
+            "count": 19,
+            "newCount": 0
+          },
+          {
+            "keyword": "thunder",
+            "count": 19,
+            "newCount": 0
+          },
+          {
+            "keyword": "ld",
+            "count": 19,
+            "newCount": 3
+          },
+          {
+            "keyword": "courage",
+            "count": 19,
+            "newCount": 0
+          },
+          {
+            "keyword": "thorns",
+            "count": 19,
+            "newCount": 1
+          },
+          {
+            "keyword": "tl",
+            "count": 19,
+            "newCount": 3
+          },
+          {
+            "keyword": "sunny",
+            "count": 19,
+            "newCount": 1
+          },
+          {
+            "keyword": "10\"",
+            "count": 18,
+            "newCount": 1
+          },
+          {
+            "keyword": "sky",
+            "count": 18,
+            "newCount": 2
+          },
+          {
+            "keyword": "devin",
+            "count": 18,
+            "newCount": 0
+          },
+          {
+            "keyword": "speed",
+            "count": 18,
+            "newCount": 2
+          },
+          {
+            "keyword": "ii",
+            "count": 18,
+            "newCount": 0
+          },
+          {
+            "keyword": "antonio",
+            "count": 18,
+            "newCount": 0
+          },
+          {
+            "keyword": "spurs",
+            "count": 18,
+            "newCount": 0
+          },
+          {
+            "keyword": "winflo",
+            "count": 18,
+            "newCount": 1
+          },
+          {
+            "keyword": "slip",
+            "count": 18,
+            "newCount": 8
+          },
+          {
+            "keyword": "knee",
+            "count": 18,
+            "newCount": 0
+          },
+          {
+            "keyword": "rare",
+            "count": 18,
+            "newCount": 1
+          },
+          {
+            "keyword": "wallet",
+            "count": 18,
+            "newCount": 0
+          },
+          {
+            "keyword": "1l",
+            "count": 18,
+            "newCount": 3
+          },
+          {
+            "keyword": "ducks",
+            "count": 18,
+            "newCount": 0
+          },
+          {
+            "keyword": "hurts",
+            "count": 18,
+            "newCount": 0
+          },
+          {
+            "keyword": "32",
+            "count": 17,
+            "newCount": 1
+          },
+          {
+            "keyword": "hoop",
+            "count": 17,
+            "newCount": 0
+          },
+          {
+            "keyword": "form",
+            "count": 17,
+            "newCount": 0
+          },
+          {
+            "keyword": "bodysuits",
+            "count": 17,
+            "newCount": 0
+          },
+          {
+            "keyword": "drift",
+            "count": 17,
+            "newCount": 0
+          },
+          {
+            "keyword": "elemental",
+            "count": 17,
+            "newCount": 5
+          },
+          {
+            "keyword": "satin",
+            "count": 17,
+            "newCount": 3
+          },
+          {
+            "keyword": "energy",
+            "count": 17,
+            "newCount": 1
+          },
+          {
+            "keyword": "duffle",
+            "count": 17,
+            "newCount": 1
+          },
+          {
+            "keyword": "la",
+            "count": 17,
+            "newCount": 0
+          },
+          {
+            "keyword": "clippers",
+            "count": 17,
+            "newCount": 0
+          },
+          {
+            "keyword": "td",
+            "count": 17,
+            "newCount": 3
+          },
+          {
+            "keyword": "react",
+            "count": 17,
+            "newCount": 0
+          },
+          {
+            "keyword": "shin",
+            "count": 17,
+            "newCount": 1
+          },
+          {
+            "keyword": "jump",
+            "count": 17,
+            "newCount": 0
+          },
+          {
+            "keyword": "malor",
+            "count": 17,
+            "newCount": 6
+          },
+          {
+            "keyword": "liberty",
+            "count": 17,
+            "newCount": 2
+          },
+          {
+            "keyword": "quarter",
+            "count": 17,
+            "newCount": 0
+          },
+          {
+            "keyword": "christian",
+            "count": 17,
+            "newCount": 2
+          },
+          {
+            "keyword": "overlap",
+            "count": 17,
+            "newCount": 0
+          },
+          {
+            "keyword": "boonie",
+            "count": 17,
+            "newCount": 0
+          },
+          {
+            "keyword": "aaron",
+            "count": 17,
+            "newCount": 2
+          },
+          {
+            "keyword": "faded",
+            "count": 17,
+            "newCount": 0
+          },
+          {
+            "keyword": "bowl",
+            "count": 17,
+            "newCount": 0
+          },
+          {
+            "keyword": "lix",
+            "count": 17,
+            "newCount": 0
+          },
+          {
+            "keyword": "3l",
+            "count": 16,
+            "newCount": 1
+          },
+          {
+            "keyword": "26l",
+            "count": 16,
+            "newCount": 0
+          },
+          {
+            "keyword": "poly",
+            "count": 16,
+            "newCount": 0
+          },
+          {
+            "keyword": "up",
+            "count": 16,
+            "newCount": 0
+          },
+          {
+            "keyword": "boxed",
+            "count": 16,
+            "newCount": 1
+          },
+          {
+            "keyword": "alate",
+            "count": 16,
+            "newCount": 1
+          },
+          {
+            "keyword": "bikini",
+            "count": 16,
+            "newCount": 5
+          },
+          {
+            "keyword": "booker",
+            "count": 16,
+            "newCount": 0
+          },
+          {
+            "keyword": "pelicans",
+            "count": 16,
+            "newCount": 0
+          },
+          {
+            "keyword": "cardigan",
+            "count": 16,
+            "newCount": 2
+          },
+          {
+            "keyword": "brim",
+            "count": 16,
+            "newCount": 1
+          },
+          {
+            "keyword": "pom",
+            "count": 16,
+            "newCount": 1
+          },
+          {
+            "keyword": "cheer",
+            "count": 16,
+            "newCount": 0
+          },
+          {
+            "keyword": "excee",
+            "count": 16,
+            "newCount": 0
+          },
+          {
+            "keyword": "convertible",
+            "count": 16,
+            "newCount": 0
+          },
+          {
+            "keyword": "camp",
+            "count": 16,
+            "newCount": 0
+          },
+          {
+            "keyword": "box",
+            "count": 16,
+            "newCount": 0
+          },
+          {
+            "keyword": "kawa",
+            "count": 16,
+            "newCount": 0
+          },
+          {
+            "keyword": "sleeves",
+            "count": 16,
+            "newCount": 1
+          },
+          {
+            "keyword": "pleated",
+            "count": 16,
+            "newCount": 2
+          },
+          {
+            "keyword": "hitter",
+            "count": 16,
+            "newCount": 1
+          },
+          {
+            "keyword": "gardner",
+            "count": 16,
+            "newCount": 0
+          },
+          {
+            "keyword": "will",
+            "count": 16,
+            "newCount": 3
+          },
+          {
+            "keyword": "smith",
+            "count": 16,
+            "newCount": 1
+          },
+          {
+            "keyword": "nova",
+            "count": 16,
+            "newCount": 0
+          },
+          {
+            "keyword": "\"outside",
+            "count": 16,
+            "newCount": 0
+          },
+          {
+            "keyword": "lines\"",
+            "count": 16,
+            "newCount": 0
+          },
+          {
+            "keyword": "58",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "95",
+            "count": 15,
+            "newCount": 5
+          },
+          {
+            "keyword": "97",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "taping",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "barcelona",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "\"kylian",
+            "count": 15,
+            "newCount": 13
+          },
+          {
+            "keyword": "mbappé\"",
+            "count": 15,
+            "newCount": 13
+          },
+          {
+            "keyword": "journey",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "bottom",
+            "count": 15,
+            "newCount": 4
+          },
+          {
+            "keyword": "down",
+            "count": 15,
+            "newCount": 1
+          },
+          {
+            "keyword": "anthony",
+            "count": 15,
+            "newCount": 1
+          },
+          {
+            "keyword": "pacers",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "james",
+            "count": 15,
+            "newCount": 3
+          },
+          {
+            "keyword": "blade",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "uconn",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "charlotte",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "hornets",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "embroidered",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "crescent",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "patch",
+            "count": 15,
+            "newCount": 1
+          },
+          {
+            "keyword": "readyset",
+            "count": 15,
+            "newCount": 2
+          },
+          {
+            "keyword": "rings",
+            "count": 15,
+            "newCount": 3
+          },
+          {
+            "keyword": "gamma",
+            "count": 15,
+            "newCount": 1
+          },
+          {
+            "keyword": "textile",
+            "count": 15,
+            "newCount": 2
+          },
+          {
+            "keyword": "mules",
+            "count": 15,
+            "newCount": 1
+          },
+          {
+            "keyword": "metal",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "xxii",
+            "count": 15,
+            "newCount": 1
+          },
+          {
+            "keyword": "caleb",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "9\"",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "goggles",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "sauce",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "gotham",
+            "count": 15,
+            "newCount": 1
+          },
+          {
+            "keyword": "bryce",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "gato",
+            "count": 15,
+            "newCount": 1
+          },
+          {
+            "keyword": "\"so",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "win\"",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "vital",
+            "count": 15,
+            "newCount": 0
+          },
+          {
+            "keyword": "vintage",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "maternity",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "angel",
+            "count": 14,
+            "newCount": 1
+          },
+          {
+            "keyword": "fever",
+            "count": 14,
+            "newCount": 2
+          },
+          {
+            "keyword": "spelman",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "southern",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "strappy",
+            "count": 14,
+            "newCount": 2
+          },
+          {
+            "keyword": "lightly",
+            "count": 14,
+            "newCount": 1
+          },
+          {
+            "keyword": "visor",
+            "count": 14,
+            "newCount": 2
+          },
+          {
+            "keyword": "mc",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "button",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "print",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "shine",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "rafa",
+            "count": 14,
+            "newCount": 2
+          },
+          {
+            "keyword": "glasses",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "raptors",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "curved",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "legends",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "burrow",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "quest",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "sleeved",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "solar",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "chase",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "kylian",
+            "count": 14,
+            "newCount": 11
+          },
+          {
+            "keyword": "mbappé",
+            "count": 14,
+            "newCount": 11
+          },
+          {
+            "keyword": "recharge",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "crop",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "jdi",
+            "count": 14,
+            "newCount": 2
+          },
+          {
+            "keyword": "cleat",
+            "count": 14,
+            "newCount": 3
+          },
+          {
+            "keyword": "aidan",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "hutchinson",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "patrick",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "saquon",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "barkley",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "current",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "jazz",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "swooshfetti",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "league",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "hyperstrong",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "established",
+            "count": 14,
+            "newCount": 7
+          },
+          {
+            "keyword": "reactx",
+            "count": 14,
+            "newCount": 11
+          },
+          {
+            "keyword": "rejuven8",
+            "count": 14,
+            "newCount": 11
+          },
+          {
+            "keyword": "project",
+            "count": 14,
+            "newCount": 1
+          },
+          {
+            "keyword": "uplift",
+            "count": 14,
+            "newCount": 2
+          },
+          {
+            "keyword": "canvas",
+            "count": 13,
+            "newCount": 2
+          },
+          {
+            "keyword": "non",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "aces",
+            "count": 13,
+            "newCount": 2
+          },
+          {
+            "keyword": "uswnt",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "asymmetrical",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "mock",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "cs",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "primaloft®",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "nuaxis",
+            "count": 13,
+            "newCount": 2
+          },
+          {
+            "keyword": "murray",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "tree\"",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "sanders",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "victori",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "infant",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "hand",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "singlet",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "bo",
+            "count": 13,
+            "newCount": 1
+          },
+          {
+            "keyword": "refuel",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "hall",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "dash",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "stars",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "acuña",
+            "count": 13,
+            "newCount": 4
+          },
+          {
+            "keyword": "academy+",
+            "count": 13,
+            "newCount": 2
+          },
+          {
+            "keyword": "traveler",
+            "count": 13,
+            "newCount": 4
+          },
+          {
+            "keyword": "match!",
+            "count": 13,
+            "newCount": 0
+          },
+          {
+            "keyword": "vapormax",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "a&t",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "stephen",
+            "count": 12,
+            "newCount": 1
+          },
+          {
+            "keyword": "kids",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "bill",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "jam",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "debut",
+            "count": 12,
+            "newCount": 2
+          },
+          {
+            "keyword": "zion",
+            "count": 12,
+            "newCount": 1
+          },
+          {
+            "keyword": "lunar",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "warm",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "footed",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "scooter",
+            "count": 12,
+            "newCount": 1
+          },
+          {
+            "keyword": "femme",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "colorblocked",
+            "count": 12,
+            "newCount": 7
+          },
+          {
+            "keyword": "flouncy",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "jogger",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "promina",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "windproof",
+            "count": 12,
+            "newCount": 1
+          },
+          {
+            "keyword": "8l",
+            "count": 12,
+            "newCount": 3
+          },
+          {
+            "keyword": "sp",
+            "count": 12,
+            "newCount": 2
+          },
+          {
+            "keyword": "comfort",
+            "count": 12,
+            "newCount": 1
+          },
+          {
+            "keyword": "alphafly",
+            "count": 12,
+            "newCount": 1
+          },
+          {
+            "keyword": "gripper",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "arm",
+            "count": 12,
+            "newCount": 1
+          },
+          {
+            "keyword": "travis",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "kelce",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "jumping",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "alternate",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "polarized",
+            "count": 12,
+            "newCount": 2
+          },
+          {
+            "keyword": "lip",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "v5",
+            "count": 12,
+            "newCount": 1
+          },
+          {
+            "keyword": "rnr",
+            "count": 12,
+            "newCount": 1
+          },
+          {
+            "keyword": "special",
+            "count": 12,
+            "newCount": 2
+          },
+          {
+            "keyword": "military",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "bold",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "rn",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "sprinting",
+            "count": 12,
+            "newCount": 0
+          },
+          {
+            "keyword": "70",
+            "count": 11,
+            "newCount": 1
+          },
+          {
+            "keyword": "2005",
+            "count": 11,
+            "newCount": 3
+          },
+          {
+            "keyword": "lock",
+            "count": 11,
+            "newCount": 1
+          },
+          {
+            "keyword": "caitlin",
+            "count": 11,
+            "newCount": 2
+          },
+          {
+            "keyword": "prairie",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "view",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "morehouse",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "leak",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "period",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "clay",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "cross",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "country",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "kevin",
+            "count": 11,
+            "newCount": 1
+          },
+          {
+            "keyword": "durant",
+            "count": 11,
+            "newCount": 1
+          },
+          {
+            "keyword": "\"smith",
+            "count": 11,
+            "newCount": 1
+          },
+          {
+            "keyword": "summit\"",
+            "count": 11,
+            "newCount": 1
+          },
+          {
+            "keyword": "flat",
+            "count": 11,
+            "newCount": 1
+          },
+          {
+            "keyword": "double",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "precision",
+            "count": 11,
+            "newCount": 1
+          },
+          {
+            "keyword": "sculpt",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "howard",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "elevated",
+            "count": 11,
+            "newCount": 2
+          },
+          {
+            "keyword": "shot",
+            "count": 11,
+            "newCount": 1
+          },
+          {
+            "keyword": "naomi",
+            "count": 11,
+            "newCount": 2
+          },
+          {
+            "keyword": "layer",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "half",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "washed",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "outdoor",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "\"wolf",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "iridescent",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "erling",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "haaland",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "strike+",
+            "count": 11,
+            "newCount": 4
+          },
+          {
+            "keyword": "iv",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "adult",
+            "count": 11,
+            "newCount": 1
+          },
+          {
+            "keyword": "cushion",
+            "count": 11,
+            "newCount": 1
+          },
+          {
+            "keyword": "lunch",
+            "count": 11,
+            "newCount": 1
+          },
+          {
+            "keyword": "calf",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "hydrastrong",
+            "count": 11,
+            "newCount": 3
+          },
+          {
+            "keyword": "barry",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "amon",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "ra",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "surtain",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "breece",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "fuel",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "stroud",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "nj",
+            "count": 11,
+            "newCount": 1
+          },
+          {
+            "keyword": "ny",
+            "count": 11,
+            "newCount": 1
+          },
+          {
+            "keyword": "mens",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "university",
+            "count": 11,
+            "newCount": 4
+          },
+          {
+            "keyword": "harper",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "robinson",
+            "count": 11,
+            "newCount": 3
+          },
+          {
+            "keyword": "bryant",
+            "count": 11,
+            "newCount": 2
+          },
+          {
+            "keyword": "fielding",
+            "count": 11,
+            "newCount": 1
+          },
+          {
+            "keyword": "cmft",
+            "count": 11,
+            "newCount": 4
+          },
+          {
+            "keyword": "era",
+            "count": 11,
+            "newCount": 4
+          },
+          {
+            "keyword": "appreciation",
+            "count": 11,
+            "newCount": 0
+          },
+          {
+            "keyword": "2l",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "23l",
+            "count": 10,
+            "newCount": 1
+          },
+          {
+            "keyword": "curry",
+            "count": 10,
+            "newCount": 1
+          },
+          {
+            "keyword": "heavyweight",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "yoga",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "dragonfly",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "france",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "phone",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "bella",
+            "count": 10,
+            "newCount": 1
+          },
+          {
+            "keyword": "cavaliers",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "fire",
+            "count": 10,
+            "newCount": 4
+          },
+          {
+            "keyword": "luka",
+            "count": 10,
+            "newCount": 2
+          },
+          {
+            "keyword": "'91",
+            "count": 10,
+            "newCount": 2
+          },
+          {
+            "keyword": "32l",
+            "count": 10,
+            "newCount": 1
+          },
+          {
+            "keyword": "osaka",
+            "count": 10,
+            "newCount": 2
+          },
+          {
+            "keyword": "culture",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "portal",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "initiator",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "sack",
+            "count": 10,
+            "newCount": 2
+          },
+          {
+            "keyword": "collectors",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "trophy23",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "multiplier",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "nxt",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "spark",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "lax",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "brian",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "devonta",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "anderson",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "inter",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "milan",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "kyler",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "sunray",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "protect",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "jayden",
+            "count": 10,
+            "newCount": 2
+          },
+          {
+            "keyword": "daniels",
+            "count": 10,
+            "newCount": 2
+          },
+          {
+            "keyword": "nolan",
+            "count": 10,
+            "newCount": 1
+          },
+          {
+            "keyword": "yelich",
+            "count": 10,
+            "newCount": 2
+          },
+          {
+            "keyword": "customized",
+            "count": 10,
+            "newCount": 1
+          },
+          {
+            "keyword": "unlocked",
+            "count": 10,
+            "newCount": 1
+          },
+          {
+            "keyword": "sonic",
+            "count": 10,
+            "newCount": 1
+          },
+          {
+            "keyword": "rhythm",
+            "count": 10,
+            "newCount": 1
+          },
+          {
+            "keyword": "loop",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "hayward",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "head",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "hampton",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "winston",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "salem",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "minimalist",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "2\"",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "prm",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "kd",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "antetokounmpo",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "season",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "paige",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "bueckers",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "wristlet",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "fury",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "1st",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "zegama",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "straight",
+            "count": 9,
+            "newCount": 2
+          },
+          {
+            "keyword": "hiking",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "suede",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "dream",
+            "count": 9,
+            "newCount": 2
+          },
+          {
+            "keyword": "base",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "kids’",
+            "count": 9,
+            "newCount": 2
+          },
+          {
+            "keyword": "nxxt",
+            "count": 9,
+            "newCount": 2
+          },
+          {
+            "keyword": "genisus",
+            "count": 9,
+            "newCount": 2
+          },
+          {
+            "keyword": "flash",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "40l",
+            "count": 9,
+            "newCount": 2
+          },
+          {
+            "keyword": "9l",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "hip",
+            "count": 9,
+            "newCount": 2
+          },
+          {
+            "keyword": "sfb",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "30l",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "stainless",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "steel",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "micah",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "parsons",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "11l",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "alumni",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "weightlifting",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "viii",
+            "count": 9,
+            "newCount": 2
+          },
+          {
+            "keyword": "josé",
+            "count": 9,
+            "newCount": 2
+          },
+          {
+            "keyword": "justin",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "lawrence",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "digital",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "emailed",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "approximately",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "hours",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "or",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "less",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "pistons",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "upf",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "40+",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "silicone",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "baker",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "altuve",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "outline",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "trevor",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "flowy",
+            "count": 9,
+            "newCount": 2
+          },
+          {
+            "keyword": "vaporfly",
+            "count": 9,
+            "newCount": 8
+          },
+          {
+            "keyword": "julio",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "protecting",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "carlos",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "correa",
+            "count": 9,
+            "newCount": 1
+          },
+          {
+            "keyword": "breathe",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "everyone",
+            "count": 9,
+            "newCount": 2
+          },
+          {
+            "keyword": "watches",
+            "count": 9,
+            "newCount": 2
+          },
+          {
+            "keyword": "sports™",
+            "count": 9,
+            "newCount": 2
+          },
+          {
+            "keyword": "togethxr",
+            "count": 9,
+            "newCount": 2
+          },
+          {
+            "keyword": "playoff",
+            "count": 9,
+            "newCount": 4
+          },
+          {
+            "keyword": "summer",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "runsie",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "slider",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "elevate",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "champions",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "propus",
+            "count": 9,
+            "newCount": 0
+          },
+          {
+            "keyword": "26",
+            "count": 8,
+            "newCount": 1
+          },
+          {
+            "keyword": "fanny",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "morant",
+            "count": 8,
+            "newCount": 1
+          },
+          {
+            "keyword": "27l",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "franchise",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "rpm",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "manoa",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "totality",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "tanjun",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "juniper",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "power",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "cuff",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "75l",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "floral",
+            "count": 8,
+            "newCount": 1
+          },
+          {
+            "keyword": "sparks",
+            "count": 8,
+            "newCount": 3
+          },
+          {
+            "keyword": "your",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "firm",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "insulated",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "wrap",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "mystics",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "crafted",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "mixed",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "basic",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "alt",
+            "count": 8,
+            "newCount": 1
+          },
+          {
+            "keyword": "swooshflex",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "og+",
+            "count": 8,
+            "newCount": 1
+          },
+          {
+            "keyword": "\"delta",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "river\"",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "\"canwell",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "glacier\"",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "split",
+            "count": 8,
+            "newCount": 1
+          },
+          {
+            "keyword": "twill",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "serena",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "design",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "sunrise",
+            "count": 8,
+            "newCount": 2
+          },
+          {
+            "keyword": "lanyard",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "camera",
+            "count": 8,
+            "newCount": 2
+          },
+          {
+            "keyword": "unicorn",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "platform",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "mantra",
+            "count": 8,
+            "newCount": 7
+          },
+          {
+            "keyword": "ionescu",
+            "count": 8,
+            "newCount": 2
+          },
+          {
+            "keyword": "alex",
+            "count": 8,
+            "newCount": 4
+          },
+          {
+            "keyword": "chug",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "ceedee",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "lamb",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "60l",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "bat",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "division",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "david",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "squeezable",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "flyfree",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "mailed",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "shoebox",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "ol",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "mike",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "oakland",
+            "count": 8,
+            "newCount": 1
+          },
+          {
+            "keyword": "ronald",
+            "count": 8,
+            "newCount": 1
+          },
+          {
+            "keyword": "stripe",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "\"let's",
+            "count": 8,
+            "newCount": 1
+          },
+          {
+            "keyword": "roll\"",
+            "count": 8,
+            "newCount": 1
+          },
+          {
+            "keyword": "wildhorse",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "\"hidden",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "plain",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "sight\"",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "gold",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "presto",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "brandmark",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "throwing",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "42mm",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "2017",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "cadet",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "prima",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "famu",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "tint",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "exploraid",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "mercury",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "oxford",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "xc",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "young",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "tyrese",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "m90",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "waist",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "square",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "henley",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "veil",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "hyperset",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "cj",
+            "count": 7,
+            "newCount": 1
+          },
+          {
+            "keyword": "foam",
+            "count": 7,
+            "newCount": 1
+          },
+          {
+            "keyword": "fadeaway",
+            "count": 7,
+            "newCount": 2
+          },
+          {
+            "keyword": "board",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "trunks",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "wizards",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "nep",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "rain",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "17l",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "festival",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "jayson",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "easy",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "interact",
+            "count": 7,
+            "newCount": 2
+          },
+          {
+            "keyword": "vertebrae",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "book",
+            "count": 7,
+            "newCount": 2
+          },
+          {
+            "keyword": "heir",
+            "count": 7,
+            "newCount": 1
+          },
+          {
+            "keyword": "fatigue",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "\"lunar",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "lake\"",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "holiday",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "booties",
+            "count": 7,
+            "newCount": 1
+          },
+          {
+            "keyword": "maxi",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "\"tuff",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "fleece\"",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "kearny",
+            "count": 7,
+            "newCount": 1
+          },
+          {
+            "keyword": "single",
+            "count": 7,
+            "newCount": 4
+          },
+          {
+            "keyword": "electric",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "hydrip",
+            "count": 7,
+            "newCount": 1
+          },
+          {
+            "keyword": "fast",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "31l",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "josh",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "omni",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "jug",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "streetgato",
+            "count": 7,
+            "newCount": 1
+          },
+          {
+            "keyword": "protector",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "voyage",
+            "count": 7,
+            "newCount": 1
+          },
+          {
+            "keyword": "pumas",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "unam",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "ringer",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "namath",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "quinnen",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "unstrung",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "jose",
+            "count": 7,
+            "newCount": 2
+          },
+          {
+            "keyword": "griffey",
+            "count": 7,
+            "newCount": 1
+          },
+          {
+            "keyword": "swanson",
+            "count": 7,
+            "newCount": 2
+          },
+          {
+            "keyword": "ryan",
+            "count": 7,
+            "newCount": 2
+          },
+          {
+            "keyword": "\"black",
+            "count": 7,
+            "newCount": 2
+          },
+          {
+            "keyword": "rodríguez",
+            "count": 7,
+            "newCount": 1
+          },
+          {
+            "keyword": "upturn",
+            "count": 7,
+            "newCount": 2
+          },
+          {
+            "keyword": "trend",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "poplin",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "46mm",
+            "count": 7,
+            "newCount": 0
+          },
+          {
+            "keyword": "14",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "62",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "85",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "2013",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "echo",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "'86",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "eugene",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "marquette",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "woodside",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "moc",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "reflective",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "jacquemus",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "panel",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "29l",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "coaches'",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "featherlight",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "back",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "de'aaron",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "fox",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "do",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "wings",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "hockey",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "y2k",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "ring",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "stack",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "photo",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "school",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "charge",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "slippers",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "off",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "amp",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "ishod",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "winter",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "janoski+",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "\"chena",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "vortex\"",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "'87",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "sndr",
+            "count": 6,
+            "newCount": 2
+          },
+          {
+            "keyword": "stain",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "second",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "grip3",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "nyc",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "'89",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "6l",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "pacific",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "monarch",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "sock",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "roshe",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "dak",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "prescott",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "shooter",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "brock",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "mccaffrey",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "tawa",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "locker",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "cart",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "ramírez",
+            "count": 6,
+            "newCount": 2
+          },
+          {
+            "keyword": "perforated",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "collins",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "judge",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "carbon",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "elbow",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "lamar",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "derek",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "le",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "fastback",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "velour",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "packable",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "fernando",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "randy",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "jahmyr",
+            "count": 6,
+            "newCount": 2
+          },
+          {
+            "keyword": "gibbs",
+            "count": 6,
+            "newCount": 2
+          },
+          {
+            "keyword": "way",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "michael",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "richardson",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "mitt",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "arenado",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "textured",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "ken",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "matt",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "montreal",
+            "count": 6,
+            "newCount": 2
+          },
+          {
+            "keyword": "expos",
+            "count": 6,
+            "newCount": 2
+          },
+          {
+            "keyword": "parachute",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "breaker",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "paul",
+            "count": 6,
+            "newCount": 2
+          },
+          {
+            "keyword": "nu",
+            "count": 6,
+            "newCount": 1
+          },
+          {
+            "keyword": "jackie",
+            "count": 6,
+            "newCount": 2
+          },
+          {
+            "keyword": "pointelle",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "halter",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "internationalist",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "kd16",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "zeus",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "arched",
+            "count": 6,
+            "newCount": 0
+          },
+          {
+            "keyword": "2020",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "showtime",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "38l",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "35l",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "\"erling",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "haaland\"",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "rep",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "victor",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "wembanyama",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "unc",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "synthetic",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "fill",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "trousers",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "boise",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "patrol",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "baylor",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "intrlk",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "\"just",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "it\"",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "arkansas",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "metro",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "carpenter",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "28l",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "plaid",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "pop",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "40th",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "anniversary",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "roadtrip",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "ray",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "sneaker",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "signature",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "paneled",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "gt",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "warrior",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "\"white",
+            "count": 5,
+            "newCount": 4
+          },
+          {
+            "keyword": "renegade",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "de",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "a'one",
+            "count": 5,
+            "newCount": 3
+          },
+          {
+            "keyword": "dynamic",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "\"lny\"",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "modal",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "deion",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "\"p21me\"",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "smu",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "case",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "13l",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "cheerleading",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "reax",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "11\"",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "lindor",
+            "count": 5,
+            "newCount": 2
+          },
+          {
+            "keyword": "trea",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "turner",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "connecticut",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "sun",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "abrams",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "hyperspeed",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "12m",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "underwear",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "purdy",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "flip",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "flops",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "allen",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "just",
+            "count": 5,
+            "newCount": 4
+          },
+          {
+            "keyword": "branch",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "iii",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "jason",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "nico",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "jefferson",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "lungs",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "cole",
+            "count": 5,
+            "newCount": 3
+          },
+          {
+            "keyword": "foundational",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "gray",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "46l",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "rodgers",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "addison",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "george",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "slogan",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "mayfield",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "joel",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "embiid",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "carter",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "etienne",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "xander",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "bogaerts",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "bobby",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "rugby",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "roberto",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "clemente",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "riley",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "youth",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "kris",
+            "count": 5,
+            "newCount": 2
+          },
+          {
+            "keyword": "dansby",
+            "count": 5,
+            "newCount": 2
+          },
+          {
+            "keyword": "olson",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "adley",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "rutschman",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "suzuki",
+            "count": 5,
+            "newCount": 2
+          },
+          {
+            "keyword": "throw",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "witness",
+            "count": 5,
+            "newCount": 2
+          },
+          {
+            "keyword": "crystal",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "snap",
+            "count": 5,
+            "newCount": 1
+          },
+          {
+            "keyword": "\"ronald",
+            "count": 5,
+            "newCount": 3
+          },
+          {
+            "keyword": "cream",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "pe",
+            "count": 5,
+            "newCount": 2
+          },
+          {
+            "keyword": "boa",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "mom",
+            "count": 5,
+            "newCount": 2
+          },
+          {
+            "keyword": "texture",
+            "count": 5,
+            "newCount": 3
+          },
+          {
+            "keyword": "world",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "kc",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "salute",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "service",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "irak",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "daily",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "paper",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "impressions",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "corinthians",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "funnel",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "sprint",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "charged",
+            "count": 5,
+            "newCount": 0
+          },
+          {
+            "keyword": "midnight",
+            "count": 5,
+            "newCount": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "APPAREL",
+    "subcategories": [
+      {
+        "name": "TOPS",
+        "keywords": [
+          {
+            "keyword": "shirt",
+            "count": 3439,
+            "newCount": 644
+          },
+          {
+            "keyword": "jersey",
+            "count": 1567,
+            "newCount": 97
+          },
+          {
+            "keyword": "hoodie",
+            "count": 1450,
+            "newCount": 77
+          },
+          {
+            "keyword": "pullover",
+            "count": 1132,
+            "newCount": 75
+          },
+          {
+            "keyword": "jacket",
+            "count": 578,
+            "newCount": 47
+          },
+          {
+            "keyword": "sweatshirt",
+            "count": 292,
+            "newCount": 10
+          },
+          {
+            "keyword": "tank",
+            "count": 256,
+            "newCount": 26
+          },
+          {
+            "keyword": "windshirt",
+            "count": 33,
+            "newCount": 11
+          },
+          {
+            "keyword": "sweater",
+            "count": 21,
+            "newCount": 0
+          },
+          {
+            "keyword": "undershirt",
+            "count": 8,
+            "newCount": 1
+          },
+          {
+            "keyword": "shirts",
+            "count": 5,
+            "newCount": 1
+          }
+        ]
+      },
+      {
+        "name": "BOTTOMS",
+        "keywords": [
+          {
+            "keyword": "shorts",
+            "count": 1657,
+            "newCount": 167
+          },
+          {
+            "keyword": "pants",
+            "count": 792,
+            "newCount": 22
+          },
+          {
+            "keyword": "joggers",
+            "count": 231,
+            "newCount": 6
+          },
+          {
+            "keyword": "leggings",
+            "count": 201,
+            "newCount": 5
+          },
+          {
+            "keyword": "sweatpants",
+            "count": 93,
+            "newCount": 5
+          },
+          {
+            "keyword": "skirt",
+            "count": 72,
+            "newCount": 6
+          },
+          {
+            "keyword": "tights",
+            "count": 36,
+            "newCount": 0
+          }
+        ]
+      },
+      {
+        "name": "ACCESSORIES",
+        "keywords": [
+          {
+            "keyword": "hat",
+            "count": 556,
+            "newCount": 143
+          },
+          {
+            "keyword": "cap",
+            "count": 445,
+            "newCount": 18
+          },
+          {
+            "keyword": "socks",
+            "count": 245,
+            "newCount": 6
+          },
+          {
+            "keyword": "gloves",
+            "count": 130,
+            "newCount": 2
+          },
+          {
+            "keyword": "beanie",
+            "count": 121,
+            "newCount": 1
+          },
+          {
+            "keyword": "scarf",
+            "count": 44,
+            "newCount": 0
+          }
+        ]
+      },
+      {
+        "name": "ATHLETIC_WEAR",
+        "keywords": [
+          {
+            "keyword": "training",
+            "count": 158,
+            "newCount": 3
+          },
+          {
+            "keyword": "performance",
+            "count": 98,
+            "newCount": 8
+          }
+        ]
+      },
+      {
+        "name": "OUTERWEAR",
+        "keywords": [
+          {
+            "keyword": "vest",
+            "count": 37,
+            "newCount": 0
+          },
+          {
+            "keyword": "parka",
+            "count": 6,
+            "newCount": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "FOOTWEAR",
+    "subcategories": [
+      {
+        "name": "BASKETBALL",
+        "keywords": [
+          {
+            "keyword": "basketball",
+            "count": 664,
+            "newCount": 60
+          },
+          {
+            "keyword": "court",
+            "count": 297,
+            "newCount": 21
+          },
+          {
+            "keyword": "nikecourt",
+            "count": 199,
+            "newCount": 6
+          },
+          {
+            "keyword": "courtside",
+            "count": 187,
+            "newCount": 0
+          },
+          {
+            "keyword": "offcourt",
+            "count": 123,
+            "newCount": 0
+          }
+        ]
+      },
+      {
+        "name": "RUNNING",
+        "keywords": [
+          {
+            "keyword": "running",
+            "count": 866,
+            "newCount": 27
+          },
+          {
+            "keyword": "trail",
+            "count": 214,
+            "newCount": 9
+          },
+          {
+            "keyword": "racerback",
+            "count": 33,
+            "newCount": 21
+          }
+        ]
+      },
+      {
+        "name": "SOCCER",
+        "keywords": [
+          {
+            "keyword": "soccer",
+            "count": 1107,
+            "newCount": 61
+          },
+          {
+            "keyword": "football",
+            "count": 566,
+            "newCount": 19
+          },
+          {
+            "keyword": "cleats",
+            "count": 458,
+            "newCount": 25
+          }
+        ]
+      },
+      {
+        "name": "TRAINING",
+        "keywords": [
+          {
+            "keyword": "workout",
+            "count": 127,
+            "newCount": 6
+          },
+          {
+            "keyword": "fitness",
+            "count": 117,
+            "newCount": 2
+          },
+          {
+            "keyword": "gymnastics",
+            "count": 27,
+            "newCount": 8
+          },
+          {
+            "keyword": "gym",
+            "count": 18,
+            "newCount": 3
+          }
+        ]
+      },
+      {
+        "name": "LIFESTYLE",
+        "keywords": [
+          {
+            "keyword": "retro",
+            "count": 130,
+            "newCount": 38
+          },
+          {
+            "keyword": "heritage86",
+            "count": 99,
+            "newCount": 0
+          },
+          {
+            "keyword": "classic",
+            "count": 95,
+            "newCount": 3
+          },
+          {
+            "keyword": "heritage",
+            "count": 79,
+            "newCount": 5
+          },
+          {
+            "keyword": "classics",
+            "count": 63,
+            "newCount": 0
+          },
+          {
+            "keyword": "classic99",
+            "count": 8,
+            "newCount": 0
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "EQUIPMENT",
+    "subcategories": [
+      {
+        "name": "BAGS",
+        "keywords": [
+          {
+            "keyword": "bag",
+            "count": 207,
+            "newCount": 11
+          },
+          {
+            "keyword": "backpack",
+            "count": 158,
+            "newCount": 12
+          },
+          {
+            "keyword": "duffel",
+            "count": 39,
+            "newCount": 2
+          },
+          {
+            "keyword": "tote",
+            "count": 35,
+            "newCount": 3
+          }
+        ]
+      },
+      {
+        "name": "PROTECTION",
+        "keywords": [
+          {
+            "keyword": "padded",
+            "count": 134,
+            "newCount": 5
+          },
+          {
+            "keyword": "padres",
+            "count": 84,
+            "newCount": 21
+          },
+          {
+            "keyword": "guardians",
+            "count": 53,
+            "newCount": 16
+          },
+          {
+            "keyword": "hydroguard",
+            "count": 46,
+            "newCount": 0
+          },
+          {
+            "keyword": "guard",
+            "count": 31,
+            "newCount": 2
+          },
+          {
+            "keyword": "protection",
+            "count": 27,
+            "newCount": 1
+          },
+          {
+            "keyword": "guards",
+            "count": 21,
+            "newCount": 1
+          },
+          {
+            "keyword": "mouthguard",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "helmet",
+            "count": 10,
+            "newCount": 0
+          },
+          {
+            "keyword": "pads",
+            "count": 8,
+            "newCount": 0
+          },
+          {
+            "keyword": "pad",
+            "count": 8,
+            "newCount": 0
+          }
+        ]
+      },
+      {
+        "name": "ACCESSORIES",
+        "keywords": [
+          {
+            "keyword": "bottle",
+            "count": 30,
+            "newCount": 0
+          },
+          {
+            "keyword": "headband",
+            "count": 22,
+            "newCount": 0
+          },
+          {
+            "keyword": "tapered",
+            "count": 20,
+            "newCount": 0
+          },
+          {
+            "keyword": "wristbands",
+            "count": 14,
+            "newCount": 0
+          },
+          {
+            "keyword": "band",
+            "count": 10,
+            "newCount": 0
+          }
+        ]
+      },
+      {
+        "name": "BALLS",
+        "keywords": [
+          {
+            "keyword": "baseball",
+            "count": 308,
+            "newCount": 8
+          },
+          {
+            "keyword": "softball",
+            "count": 79,
+            "newCount": 0
+          },
+          {
+            "keyword": "volleyball",
+            "count": 45,
+            "newCount": 0
+          },
+          {
+            "keyword": "ball",
+            "count": 33,
+            "newCount": 1
+          },
+          {
+            "keyword": "pickleball",
+            "count": 20,
+            "newCount": 11
+          }
+        ]
+      }
+    ]
+  }
+]
