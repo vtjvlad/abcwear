@@ -9,6 +9,118 @@ class SEOFilters {
         this.currentFilters = {};
         // Хранит текущие метаданные страницы
         this.metadata = null;
+        // Словарь для транслитерации
+        this.transliterationMap = {
+            'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ё': 'yo',
+            'ж': 'zh', 'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm',
+            'н': 'n', 'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't', 'у': 'u',
+            'ф': 'f', 'х': 'h', 'ц': 'ts', 'ч': 'ch', 'ш': 'sh', 'щ': 'sch', 'ъ': '',
+            'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'
+        };
+    }
+
+    /**
+     * Транслитерирует русский текст в латиницу
+     * @param {string} text - Текст для транслитерации
+     * @returns {string} Транслитерированный текст
+     */
+    transliterate(text) {
+        return text.toLowerCase().split('').map(char => 
+            this.transliterationMap[char] || char
+        ).join('');
+    }
+
+    /**
+     * Создает ЧПУ из параметров фильтра
+     * @param {Object} filters - Объект с параметрами фильтрации
+     * @returns {string} ЧПУ строка
+     */
+    createSlug(filters) {
+        const parts = [];
+
+        if (filters.category) {
+            parts.push(this.transliterate(filters.category));
+        }
+
+        if (filters.color) {
+            parts.push(this.transliterate(filters.color));
+        }
+
+        if (filters.search) {
+            parts.push(this.transliterate(filters.search));
+        }
+
+        if (filters.minPrice || filters.maxPrice) {
+            const priceRange = [];
+            if (filters.minPrice) priceRange.push(`from-${filters.minPrice}`);
+            if (filters.maxPrice) priceRange.push(`to-${filters.maxPrice}`);
+            if (priceRange.length > 0) {
+                parts.push(priceRange.join('-'));
+            }
+        }
+
+        return parts.join('/');
+    }
+
+    /**
+     * Парсит ЧПУ в объект фильтров
+     * @param {string} slug - ЧПУ строка
+     * @returns {Object} Объект с параметрами фильтрации
+     */
+    parseSlug(slug) {
+        const filters = {};
+        const parts = slug.split('/');
+
+        parts.forEach(part => {
+            if (part.startsWith('from-')) {
+                filters.minPrice = part.replace('from-', '');
+            } else if (part.startsWith('to-')) {
+                filters.maxPrice = part.replace('to-', '');
+            } else {
+                // Проверяем, является ли часть категорией или цветом
+                if (!filters.category) {
+                    filters.category = part;
+                } else if (!filters.color) {
+                    filters.color = part;
+                } else {
+                    filters.search = part;
+                }
+            }
+        });
+
+        return filters;
+    }
+
+    /**
+     * Обновляет URL с ЧПУ
+     * @param {Object} filters - Объект с параметрами фильтрации
+     */
+    updateURL(filters) {
+        const slug = this.createSlug(filters);
+        const newUrl = `/catalog/${slug}`;
+        window.history.pushState({ filters }, '', newUrl);
+    }
+
+    /**
+     * Инициализирует обработчики для ЧПУ
+     */
+    initURLHandlers() {
+        // Обработка изменения URL
+        window.addEventListener('popstate', (event) => {
+            if (event.state && event.state.filters) {
+                this.currentFilters = event.state.filters;
+                this.getFiltersMetadata(this.currentFilters);
+            }
+        });
+
+        // Обработка начального URL
+        const path = window.location.pathname;
+        if (path.startsWith('/catalog/')) {
+            const slug = path.replace('/catalog/', '');
+            const filters = this.parseSlug(slug);
+            this.currentFilters = filters;
+            this.getFiltersMetadata(filters);
+        }
     }
 
     /**
@@ -51,7 +163,11 @@ class SEOFilters {
             canonicalLink.rel = 'canonical';
             document.head.appendChild(canonicalLink);
         }
-        canonicalLink.href = window.location.origin + metadata.canonicalUrl;
+
+        // Генерируем каноническую ссылку на основе текущих фильтров
+        const slug = this.createSlug(this.currentFilters);
+        const canonicalUrl = slug ? `/catalog/${slug}` : '/catalog';
+        canonicalLink.href = window.location.origin + canonicalUrl;
 
         // Добавление структурированных данных для поисковых систем
         this.updateStructuredData(metadata.structuredData);
@@ -120,6 +236,10 @@ class SEOFilters {
             const metadata = await response.json();
             this.metadata = metadata;
             this.updatePageMetadata(metadata);
+            
+            // Обновляем URL с ЧПУ
+            this.updateURL(filters);
+            
             return metadata;
         } catch (error) {
             console.error('Error fetching SEO metadata:', error);
@@ -187,6 +307,9 @@ class SEOFilters {
 
 // Создание глобального экземпляра SEOFilters
 const seoFilters = new SEOFilters();
+
+// Инициализация обработчиков URL
+seoFilters.initURLHandlers();
 
 // Экспорт для использования в других модулях
 window.seoFilters = seoFilters;

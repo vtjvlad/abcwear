@@ -556,27 +556,27 @@ app.get('/auth', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'auth.html'));
 });
 
-// Serve home.html for all non-API routes first
-// app.get('*', (req, res, next) => {
-//     if (req.url.startsWith('/api/')) {
-//         return next();
-//     }
-//     if (req.url === '/w') {
-//         return next();
-//     }
-//     if (req.url === '/auth') {
-//         return next();
-//     }
-//     console.log(`Serving home.html for route: ${req.url}`);
-//     res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
-//     res.setHeader('Pragma', 'no-cache');
-//     res.setHeader('Expires', '0');
-//     res.sendFile(path.join(__dirname, 'public', 'index.html'));
-// });
-
 // Serve index.html for the catalog route
 app.get('/w', (req, res) => {
     console.log('Serving index.html for /w route');
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    res.sendFile(path.join(__dirname, 'public', 'w.html'));
+});
+
+// Обработка ЧПУ для каталога
+app.get('/catalog/*', (req, res) => {
+    console.log('Serving catalog page with slug');
+    res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
+    res.sendFile(path.join(__dirname, 'public', 'w.html'));
+});
+
+// Обработка базового URL каталога
+app.get('/catalog', (req, res) => {
+    console.log('Serving catalog page');
     res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
     res.setHeader('Pragma', 'no-cache');
     res.setHeader('Expires', '0');
@@ -1030,7 +1030,7 @@ app.get('/api/filters/seo/metadata', async (req, res, next) => {
             keywords: topKeywords.join(', '),
             ogTitle: `${titleParts.join(' ')} - ABC Wear`,
             ogDescription: `Browse our collection of ${descriptionParts.join(' ')} at ABC Wear. ${stats[0]?.totalProducts || 0} products available.`,
-            canonicalUrl: `/filters?${new URLSearchParams(req.query).toString()}`,
+            canonicalUrl: `/catalog/${category ? category.toLowerCase() : ''}${color ? '/' + color.toLowerCase() : ''}${search ? '/' + search.toLowerCase() : ''}${minPrice || maxPrice ? '/from-' + (minPrice || '0') + '-to-' + (maxPrice || '999999') : ''}`,
             structuredData: {
                 '@context': 'https://schema.org',
                 '@type': 'CollectionPage',
