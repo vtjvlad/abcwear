@@ -20,8 +20,8 @@ const { productValidators, cartValidators } = require('./middleware/validators')
 const auth = require('./middleware/auth');
 
 const app = express();
-// const PORT = process.env.PORT || 3000;
-const PORT = 1137;
+const PORT = process.env.PORT || 3000;
+// const PORT = 1137;
 
 // Middleware
 app.use(cors());

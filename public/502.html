@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>502 - Сервер недоступен</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        h1 {
+            font-size: 8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            animation: pulse 2s infinite;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6);
+        }
+
+        .button:active {
+            transform: translateY(1px);
+        }
+
+        .button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+
+        .button:hover::after {
+            left: 100%;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                left: -50%;
+            }
+            100% {
+                left: 150%;
+            }
+        }
+
+        .error-details {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        .retry-button {
+            margin-top: 1rem;
+            background: transparent;
+            border: 2px solid #ff6b6b;
+            color: #ff6b6b;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .retry-button:hover {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .server-status {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 15px;
+            display: inline-block;
+            font-size: 0.9rem;
+            color: #ff6b6b;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 6rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>502</h1>
+        <h2>Сервер недоступен</h2>
+        <p>Сервер временно не отвечает. Пожалуйста, попробуйте позже.</p>
+        <div class="server-status">
+            Статус: Сервер выключен или перезагружается
+        </div>
+        <a href="/e" class="button">Вернуться на главную</a>
+        <div class="error-details">
+            <p>Что могло произойти:</p>
+            <ul style="list-style: none; margin-top: 0.5rem;">
+                <li>• Сервер выключен или перезагружается</li>
+                <li>• Проблемы с подключением к базе данных</li>
+                <li>• Временные технические работы</li>
+            </ul>
+        </div>
+        <button class="retry-button" onclick="window.location.reload()">Попробовать снова</button>
+    </div>
+</body>
+</html> 

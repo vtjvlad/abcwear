@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Страница не найдена</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            text-align: center;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.1),
+                transparent
+            );
+            transform: rotate(45deg);
+            animation: shine 3s infinite;
+        }
+
+        h1 {
+            font-size: 8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        p {
+            color: #4a5568;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .button:active {
+            transform: translateY(1px);
+        }
+
+        .button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            transform: rotate(45deg);
+            transition: 0.5s;
+        }
+
+        .button:hover::after {
+            left: 100%;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                left: -50%;
+            }
+            100% {
+                left: 150%;
+            }
+        }
+
+        .error-details {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 0.9rem;
+            color: #718096;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 6rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>404</h1>
+        <h2>Страница не найдена</h2>
+        <p>Извините, запрашиваемая страница не существует или была перемещена.</p>
+        <a href="/" class="button">Вернуться на главную</a>
+        <div class="error-details">
+            Возможно, вы ввели неправильный адрес или страница была удалена
+        </div>
+    </div>
+</body>
+</html> 
