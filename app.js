@@ -21,6 +21,7 @@ const auth = require('./middleware/auth');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+// const PORT = 5000;
 
 // Middleware
 app.use(cors());
@@ -217,7 +218,7 @@ app.get('/api/products', productValidators.getProducts, async (req, res, next) =
 
         const products = await Product.find({
             'pid.groupKey': { $in: groupKeys }
-        }).select('info.name info.subtitle info.color price.self.UAH.currentPrice price.self.UAH.initialPrice imageData.imgMain imageData.images links.url sizes pid.groupKey');
+        }).select('+*');
 
         const groupedProducts = groupKeys.map(groupKey => {
             return products.filter(p => p.pid && p.pid.groupKey === groupKey);
