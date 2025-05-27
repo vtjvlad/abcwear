@@ -14,6 +14,7 @@ const { rec, productsApi, productApiById, pageP, pageE, handlerError, error404, 
 // Import models
 // const productSchema = require('./model.js');
 // const Product = mongoose.model('Products', productSchema);
+
 const Cart = require('./models/Cart');
 const User = require('./models/User');
 
@@ -27,6 +28,8 @@ const PORT = process.env.PORT || 3000;
 
 const MONGO_URI = process.env.MONGO_URI;
 // const PORT = 1137;
+
+
 
 // Middleware
 app.use(cors());
@@ -105,8 +108,8 @@ app.post('/api/cart', cartValidators.addToCart, async (req, res, next) => {
 
 
 
-// Authentication routes
-app.post('/api/auth/register', async (req, res) => {
+            // Authentication routes
+        app.post('/api/auth/register', async (req, res) => {
     try {
         const { username, email, password } = req.body;
 
@@ -151,9 +154,9 @@ app.post('/api/auth/register', async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Ошибка при регистрации', details: error.message });
     }
-});
+            });
 
-app.post('/api/auth/login', async (req, res) => {
+        app.post('/api/auth/login', async (req, res) => {
     try {
         const { login, password } = req.body; // login can be either email or username
 
@@ -195,9 +198,9 @@ app.post('/api/auth/login', async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Ошибка при входе', details: error.message });
     }
-});
+            });
 
-app.get('/api/auth/me', auth, async (req, res) => {
+        app.get('/api/auth/me', auth, async (req, res) => {
     try {
         res.json({
             user: {
@@ -217,9 +220,9 @@ app.get('/api/auth/me', auth, async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Ошибка при получении данных пользователя' });
     }
-});
+            });
 
-app.post('/api/auth/update-profile', auth, async (req, res) => {
+        app.post('/api/auth/update-profile', auth, async (req, res) => {
     try {
         const { name, email, avatar, phone, address, city, username, gender } = req.body;
 
@@ -257,9 +260,9 @@ app.post('/api/auth/update-profile', auth, async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Ошибка при обновлении профиля' });
     }
-});
+            });
 
-app.post('/api/auth/change-password', auth, async (req, res) => {
+        app.post('/api/auth/change-password', auth, async (req, res) => {
     try {
         const { currentPassword, newPassword } = req.body;
 
@@ -277,12 +280,12 @@ app.post('/api/auth/change-password', auth, async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Ошибка при изменении пароля' });
     }
-});
+            });
 
-// Serve profile page
-app.get('/profile', (req, res) => {
+            // Serve profile page
+        app.get('/profile', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'profile.html'));
-});
+            });
 
 // Error handling middleware
 app.use(errorHandler);
@@ -322,20 +325,20 @@ app.get('/catalog', (req, res) => {
 });
 
     // Указываем папку для хранения загруженных файлов
-    const storage = multer.diskStorage({
+const storage = multer.diskStorage({
         destination: 'uploads/',
         filename: (req, file, cb) => {
             cb(null, Date.now() + path.extname(file.originalname)); // Уникальное имя файла
         }
     });
 
-    const upload = multer({ storage });
+const upload = multer({ storage });
 
         // Разрешаем отдавать статические файлы из папки "uploads"
-        app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static('./uploads'));
 
         // Маршрут для загрузки файла
-        app.post('/upload', upload.single('image'), (req, res) => {
+app.post('/upload', upload.single('image'), (req, res) => {
             console.log("Попытка загрузки файлов");
             if (!req.file) {
                 return res.status(400).json({
@@ -624,14 +627,6 @@ app.get('/api/categories/:category/seo', async (req, res, next) => {
     }
 });
 
-/**
- * Эндпоинт для получения SEO метаданных страницы с фильтрами
- * Генерирует метаданные для страницы с примененными фильтрами, включая:
- * - Статистику по отфильтрованным продуктам
- * - Топ ключевых слов
- * - Хлебные крошки
- * - Структурированные данные
- */
 app.get('/api/filters/seo/metadata', async (req, res, next) => {
     try {
         const { color, category, minPrice, maxPrice, search } = req.query;
@@ -820,6 +815,11 @@ app.get('/api/filters/seo/metadata', async (req, res, next) => {
         next(error);
     }
 });
+// Serve product.html for product routes
+app.get('/product/:id', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'product.html'));
+});
+
 
 app.get("/api/recommendations", rec);
 app.get("/api/products", productsApi);

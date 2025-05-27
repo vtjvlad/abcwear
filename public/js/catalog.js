@@ -45,7 +45,7 @@ function hideLoading() {
 function createProductCard(product) {
     // Получаем URL изображения из различных возможных источников
     const imageUrl = 
-    // product.imageData?.imgMain ||
+    product.imageData?.imgMain ||
                    product.imageData?.portraitURL || 
                    product.imageData?.squarishURL || 
                    'https://via.placeholder.com/300x400';
@@ -139,7 +139,9 @@ function createProductCard(product) {
                     <div class="product-actions">
     <button class="addToCart" id="addToCart">В корзину</button>
     <button class="fastBuy" id="fastBuy">${price}₴</button>
-    <button class="moreInfo" id="moreInfo">Подробнее</button>
+    <button class="moreInfo" id="moreInfo"
+    onclick="window.location.href = '/product/${product._id}'"
+    >Подробнее</button>
     </div>
                 </div>
             </div>
@@ -245,7 +247,7 @@ function updateSiteBackground(color) {
         
 
         body {
-            background-color: ${color}99 !important; /* 99 в hex = 60% непрозрачности */
+            background-color: ${color}b3 !important; /* 99 в hex = 60% непрозрачности */
             transition: background-color 0.3s ease;
         }
         .product-card {
@@ -302,7 +304,7 @@ function updateColorFilters(colors) {
         'black': '#000000',
         'grey': '#808080',
         'red': '#e11010',
-        'blue': 'blue',
+        'blue': '#114fd5',
         'green': '#28b72f',
         'purple': '#5f0885',
         'pink': '#ff0156',
