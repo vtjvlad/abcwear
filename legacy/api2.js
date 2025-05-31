@@ -2,7 +2,7 @@ require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const path = require('path');
 const { validationResult } = require('express-validator');
-const Product = require('./models/Product');
+const Product = require('./model2');
 const Cart = require('./models/Cart');
 const User = require('./models/User');
 const mongoose = require('mongoose');

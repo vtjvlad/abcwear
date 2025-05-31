@@ -1,6 +1,6 @@
 const path = require("path");
 require("dotenv").config();
-const Product = require("./models/Product");
+const Product = require("./model2");
 
 const rec = async (req, res) => {
     try {
