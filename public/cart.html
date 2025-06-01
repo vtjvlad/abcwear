@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина - ABC Wear</title>
+    <link rel="stylesheet" href="./css/cart.css">
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/loader.css">
+    <script src="/js/header-loader.js" defer></script>
+    <script src="/js/footer-loader.js" defer></script>
+    <script src="/js/universal-loader.js" defer></script>
+    <script src="/js/cart-badge.js" defer></script>
+    <script src="/js/cart.js" defer></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="cart-container">
+        <div class="cart-header">
+            <h1 class="cart-title">Корзина</h1>
+            <button id="clearCart" class="btn btn-outline-danger" style="display: none;">
+                Очистить корзину
+            </button>
+        </div>
+
+        <div id="cartContent">
+            <!-- Здесь будет содержимое корзины -->
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- <script>
+        // Загрузка header и footer
+        fetch('/header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+
+        fetch('/footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script> -->
+</body>
+</html> 

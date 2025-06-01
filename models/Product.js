@@ -9,7 +9,6 @@ mongoose.connect(MONGO_URI)
 
 // Определение схемы для товара
 const productSchema = new mongoose.Schema({
-
     links: {
         url: { type: String },
         path: { type: String }
@@ -39,7 +38,7 @@ const productSchema = new mongoose.Schema({
         portraitURL: { type: String },
         squarishURL: { type: String },
         imgMain: { type: String },
-        images: { type: [String] },
+        images: { type: [String] }
     },
     price: {
         origin: {
@@ -48,44 +47,33 @@ const productSchema = new mongoose.Schema({
             currentPrice: { type: Number },
             self: {
                 initial20: { type: Number },
-                current20: { type: Number },
+                current20: { type: Number }
             }
         },
         self: {
             currency: { type: String, default: 'UAH' },
-                UAH: {
-                    initialPrice: { type: Number },
-                    currentPrice: { type: Number },
-                },
-
-                selfUAH: {
-                    initial20: { type: Number },
-                    current20: { type: Number },
-                }
+            UAH: {
+                initialPrice: { type: Number },
+                currentPrice: { type: Number }
             },
-        },
-        sizes: { type: String },
-        someAdditionalData: { isNewUntil: { type: Object, default: {} },
-            promotions: {
-                promotionId: { type: Object, default: {} },
-                visibilities: { type: [Object], default: [] },
-            },
-            // customization: {
-            //   type: Schema.Types.Mixed,
-            //   default: {}
-            // },
-            badgeAttribute: { type: Object, default: {} },
-
-            badgeLabel: { type: Object, default: {} },
+            selfUAH: {
+                initial20: { type: Number },
+                current20: { type: Number }
+            }
         }
     },
-    { timestamps: true });
-    // Создание модели товара
-    // const Products = mongoose.model('Products', productSchema);
+    sizes: { type: String },
+    someAdditionalData: {
+        isNewUntil: { type: Object, default: {} },
+        promotions: {
+            promotionId: { type: Object, default: {} },
+            visibilities: { type: [Object], default: [] }
+        },
+        badgeAttribute: { type: Object, default: {} },
+        badgeLabel: { type: Object, default: {} }
+    }
+}, { timestamps: true });
 
+const Product = mongoose.model('Products', productSchema);
 
-    // module.exports = productSchema;
-    // module.exports = Products;
-
-    const Product = mongoose.model('Product', productSchema);
 module.exports = Product;

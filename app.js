@@ -12,7 +12,11 @@ const { rec,
         statusApi,
         productsApi,
         productApiById,
+        getCartApi,
         addToCartApi,
+        updateCartItemApi,
+        removeFromCartApi,
+        clearCartApi,
         registerApi,
         loginApi,
         profileApi,
@@ -32,11 +36,8 @@ const { handlerError,
         catalogRoutes 
     } = require('./utils/router');   
 
-
 // Import models
-// const productSchema = require('./model.js');
-// const Product = mongoose.model('Products', productSchema);
-
+const Product = require('./models/Product');
 const Cart = require('./models/Cart');
 const User = require('./models/User');
 
@@ -73,8 +74,16 @@ mongoose.connect(MONGO_URI)
 
 app.get('/api/status', statusApi);
 
-// Cart routes with validation
-app.post('/api/cart', addToCartApi);
+// Cart routes
+app.get('/cart', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'cart.html'));
+});
+
+app.get('/api/cart', auth, getCartApi);
+app.post('/api/cart', auth, cartValidators.addToCart, addToCartApi);
+app.put('/api/cart', auth, cartValidators.updateCartItem, updateCartItemApi);
+app.delete('/api/cart/item', auth, cartValidators.removeFromCart, removeFromCartApi);
+app.delete('/api/cart', auth, clearCartApi);
 
 // Authentication routes
 app.post('/api/auth/register', registerApi);

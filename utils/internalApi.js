@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const Cart = require('../models/Cart');
 const User = require('../models/User');
+const { validationResult } = require('express-validator');
 require("dotenv").config();
 
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -297,7 +298,24 @@ try {
 
 // Cart routes with validation
 
-// cartValidators.addToCart, 
+// Получение корзины пользователя
+const getCartApi = async (req, res, next) => {
+    try {
+        const userId = req.user.id;
+        let cart = await Cart.findOne({ userId }).populate('items.productId');
+        
+        if (!cart) {
+            cart = new Cart({ userId, items: [] });
+            await cart.save();
+        }
+        
+        res.json(cart);
+    } catch (error) {
+        next(error);
+    }
+};
+
+// Добавление товара в корзину
 const addToCartApi = async (req, res, next) => {
     try {
         const errors = validationResult(req);
@@ -306,7 +324,7 @@ const addToCartApi = async (req, res, next) => {
         }
 
         const { productId, quantity, selectedSize } = req.body;
-        const userId = req.user?.id; // Assuming user is authenticated
+        const userId = req.user.id;
 
         let cart = await Cart.findOne({ userId });
         if (!cart) {
@@ -324,6 +342,85 @@ const addToCartApi = async (req, res, next) => {
             cart.items.push({ productId, quantity, selectedSize });
         }
 
+        await cart.save();
+        res.json(cart);
+    } catch (error) {
+        next(error);
+    }
+};
+
+// Обновление количества товара в корзине
+const updateCartItemApi = async (req, res, next) => {
+    try {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+        const { productId, quantity, selectedSize } = req.body;
+        const userId = req.user.id;
+
+        const cart = await Cart.findOne({ userId });
+        if (!cart) {
+            return res.status(404).json({ message: 'Корзина не найдена' });
+        }
+
+        const itemIndex = cart.items.findIndex(item => 
+            item.productId.toString() === productId && 
+            item.selectedSize === selectedSize
+        );
+
+        if (itemIndex === -1) {
+            return res.status(404).json({ message: 'Товар не найден в корзине' });
+        }
+
+        if (quantity <= 0) {
+            cart.items.splice(itemIndex, 1);
+        } else {
+            cart.items[itemIndex].quantity = quantity;
+        }
+
+        await cart.save();
+        await cart.populate('items.productId');
+        res.json(cart);
+    } catch (error) {
+        next(error);
+    }
+};
+
+// Удаление товара из корзины
+const removeFromCartApi = async (req, res, next) => {
+    try {
+        const { productId, selectedSize } = req.body;
+        const userId = req.user.id;
+
+        const cart = await Cart.findOne({ userId });
+        if (!cart) {
+            return res.status(404).json({ message: 'Корзина не найдена' });
+        }
+
+        cart.items = cart.items.filter(item => 
+            !(item.productId.toString() === productId && item.selectedSize === selectedSize)
+        );
+
+        await cart.save();
+        res.json(cart);
+    } catch (error) {
+        next(error);
+    }
+};
+
+// Очистка корзины
+const clearCartApi = async (req, res, next) => {
+    try {
+        const userId = req.user.id;
+        const cart = await Cart.findOne({ userId });
+        
+        if (!cart) {
+            return res.status(404).json({ message: 'Корзина не найдена' });
+        }
+
+        cart.items = [];
         await cart.save();
         res.json(cart);
     } catch (error) {
@@ -526,7 +623,11 @@ module.exports = {
     statusApi,
     productsApi,
     productApiById,
+    getCartApi,
     addToCartApi,
+    updateCartItemApi,
+    removeFromCartApi,
+    clearCartApi,
     registerApi,
     loginApi,
     profileApi,

@@ -10,7 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/cart.css">
+    <script src="/js/cart-badge.js" defer></script>
     <style>
+
         :root {
             --primary-color: #2196F3;
             --primary-dark: #1976D2;
@@ -836,6 +839,7 @@
                 to { opacity: 1; }
             }
         }
+        
     </style>
 </head>
 <body>
@@ -847,13 +851,16 @@
                     <i class="fa-solid fa-bars-staggered"></i>
                 </button>
                 <a href="/" class="logo-link">
-                    <img src="/u.png" alt="ABCWEAR" class="mobile-logo-img" />
+                    <img src="./images/u.png" alt="ABCWEAR" class="mobile-logo-img" />
                 </a>
             </div>
             <div class="mobile-header-actions">
                 <a href="#" class="icon-btn"><i class="fa-regular fa-circle-user"></i></a>
                 <a href="#" class="icon-btn"><i class="fa-regular fa-heart"></i></a>
-                <a href="#" class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></a>
+                <a href="/cart" class="icon-btn cart-icon-wrapper">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="cart-badge">0</span>
+                </a>
             </div>
         </div>
 
@@ -881,14 +888,17 @@
                 </nav>
                 <div class="header-logo">
                     <a href="/" class="logo-link">
-                        <img src="/umami.png" alt="ABCWEAR logo" class="logo-svg logo-svg-main">
+                        <img src="./images/umami.png" alt="ABCWEAR logo" class="logo-svg logo-svg-main">
                     </a>
                 </div>
                 <div class="header-actions">
                     <div class="header-icons">
                         <a href="#" class="icon-btn"><i class="fa-regular fa-circle-user"></i></a>
                         <a href="#" class="icon-btn"><i class="fa-regular fa-heart"></i></a>
-                        <a href="#" class="icon-btn"><i class="fa-solid fa-bag-shopping"></i></a>
+                        <a href="/cart" class="icon-btn cart-icon-wrapper">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span class="cart-badge">0</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -913,7 +923,11 @@
         <a href="#" class="bottom-nav-btn"><i class="fa-regular fa-circle-user"></i><span>Профиль</span></a>
         <a href="#" class="bottom-nav-btn"><i class="fa-regular fa-heart"></i><span>Избранное</span></a>
         <a href="/w" class="bottom-nav-btn catalog-btn"><i class="fa-solid fa-grip-horizontal"></i><span>Каталог</span></a>
-        <a href="#" class="bottom-nav-btn"><i class="fa-solid fa-bag-shopping"></i><span>Корзина</span></a>
+        <a href="/cart" class="bottom-nav-btn cart-icon-wrapper">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge">0</span>
+            <span>Корзина</span>
+        </a>
     </div>
 
     <!-- Мобильное оффканвас меню -->

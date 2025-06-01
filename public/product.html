@@ -24,6 +24,7 @@
     <script src="/js/seo-filters.js" defer></script>
     <script src="/js/header-loader.js" defer></script>
     <script src="/js/footer-loader.js" defer></script>
+    <script src="/js/cart-badge.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -467,13 +468,23 @@
             });
 
             // Add to cart button
-            document.getElementById('add-to-cart').addEventListener('click', () => {
-                const selectedSize = document.querySelector('.size-option.selected');
+            document.getElementById('add-to-cart').addEventListener('click', async function() {
+                console.log('Add to cart clicked');
+                console.log('Selected size:', selectedSize);
+                console.log('Product ID:', productId);
+
                 if (!selectedSize) {
-                    alert('Пожалуйста, выберите размер');
+                    showNotification('Пожалуйста, выберите размер', 'error');
                     return;
                 }
-                // Add to cart logic here
+
+                try {
+                    const result = await addToCart(productId, 1, selectedSize);
+                    console.log('Add to cart result:', result);
+                } catch (error) {
+                    console.error('Ошибка при добавлении в корзину:', error);
+                    showNotification('Ошибка при добавлении товара в корзину', 'error');
+                }
             });
 
             // Add to favorites button
@@ -528,6 +539,7 @@
                     sizeOptions.forEach(opt => opt.classList.remove('selected'));
                     // Добавляем выделение выбранному размеру
                     option.classList.add('selected');
+                    selectedSize = option.dataset.size;
                 });
             });
         }
@@ -673,5 +685,6 @@
             }
         });
     </script>
+    <script src="/js/cart.js"></script>
 </body>
 </html> 

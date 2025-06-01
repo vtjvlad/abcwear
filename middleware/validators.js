@@ -32,7 +32,14 @@ const cartValidators = {
     ],
     
     updateCartItem: [
-        body('quantity').isInt({ min: 1 }).withMessage('Quantity must be at least 1')
+        body('productId').isMongoId().withMessage('Invalid product ID'),
+        body('quantity').isInt({ min: 0 }).withMessage('Quantity must be 0 or greater'),
+        body('selectedSize').notEmpty().withMessage('Size is required')
+    ],
+    
+    removeFromCart: [
+        body('productId').isMongoId().withMessage('Invalid product ID'),
+        body('selectedSize').notEmpty().withMessage('Size is required')
     ]
 };
 
