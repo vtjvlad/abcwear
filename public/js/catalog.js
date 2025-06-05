@@ -429,11 +429,114 @@ function buildQueryString() {
     }
     
     // Добавляем параметр сортировки
-    if (currentFilters.sort) {
+    if (currentFilters.sort && currentFilters.sort !== 'none') {
         params.append('sort', currentFilters.sort);
     }
+
+    // Добавляем параметры новинок и скидок
+    if (currentFilters.isNew) params.append('isNew', 'true');
+    if (currentFilters.isDiscount) params.append('isDiscount', 'true');
+    
+    // Обновляем URL с новыми параметрами
+    const newUrl = window.location.pathname + (params.toString() ? `?${params.toString()}` : '');
+    window.history.pushState({}, '', newUrl);
     
     return params.toString();
+}
+
+/**
+ * Парсит параметры из URL и применяет их к фильтрам
+ */
+function parseUrlParameters() {
+    const params = new URLSearchParams(window.location.search);
+    
+    // Применяем параметры поиска
+    const search = params.get('search');
+    if (search) {
+        currentFilters.search = search;
+        const searchInputs = [
+            document.getElementById('search'),
+            document.getElementById('search-sidebar')
+        ];
+        searchInputs.forEach(input => {
+            if (input) input.value = search;
+        });
+    }
+    
+    // Применяем параметры цены
+    const minPrice = params.get('minPrice');
+    const maxPrice = params.get('maxPrice');
+    if (minPrice) {
+        currentFilters.minPrice = minPrice;
+        const minPriceInputs = [
+            document.getElementById('minPrice'),
+            document.getElementById('minPrice-sidebar')
+        ];
+        minPriceInputs.forEach(input => {
+            if (input) input.value = minPrice;
+        });
+    }
+    if (maxPrice) {
+        currentFilters.maxPrice = maxPrice;
+        const maxPriceInputs = [
+            document.getElementById('maxPrice'),
+            document.getElementById('maxPrice-sidebar')
+        ];
+        maxPriceInputs.forEach(input => {
+            if (input) input.value = maxPrice;
+        });
+    }
+    
+    // Применяем параметр цвета
+    const color = params.get('color');
+    if (color) {
+        currentFilters.color = color;
+        document.querySelectorAll('.color-option').forEach(el => {
+            if (el.dataset.color === color) {
+                el.classList.add('selected');
+            }
+        });
+    }
+    
+    // Применяем ключевые слова
+    const keywords = params.getAll('keywords');
+    if (keywords.length > 0) {
+        currentFilters.keywords = keywords;
+        const keywordInputs = [
+            ...document.querySelectorAll('#filter-form input[name="keywords"]'),
+            ...document.querySelectorAll('#filter-form-sidebar input[name="keywords"]')
+        ];
+        keywordInputs.forEach(input => {
+            input.checked = keywords.includes(input.value);
+        });
+    }
+    
+    // Применяем параметр сортировки
+    const sort = params.get('sort');
+    if (sort) {
+        currentFilters.sort = sort;
+        const sortSelect = document.querySelector('.sort-options select');
+        if (sortSelect) {
+            sortSelect.value = sort;
+        }
+    }
+    
+    // Применяем параметры новинок и скидок
+    const isNew = params.get('isNew');
+    if (isNew === 'true') {
+        currentFilters.isNew = true;
+        document.querySelectorAll('input[name="special"][value="new"]').forEach(cb => {
+            cb.checked = true;
+        });
+    }
+    
+    const isDiscount = params.get('isDiscount');
+    if (isDiscount === 'true') {
+        currentFilters.isDiscount = true;
+        document.querySelectorAll('input[name="special"][value="discount"]').forEach(cb => {
+            cb.checked = true;
+        });
+    }
 }
 
 /**
@@ -844,6 +947,9 @@ function syncFilterForms(sourceFormId, targetFormId) {
 
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', () => {
+    // Парсим параметры из URL при загрузке страницы
+    parseUrlParameters();
+
     // Инициализация ползунка цен для десктопной версии
     const priceSlider = document.getElementById('price-slider');
     if (priceSlider) {
