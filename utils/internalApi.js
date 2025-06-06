@@ -71,6 +71,14 @@ const productsApi = async (req, res) => {
             filter['info.color.labelColor'] = req.query.color;
         }
 
+        // Filter by product type (category)
+        if (req.query.productType) {
+            const productTypes = Array.isArray(req.query.productType) 
+                ? req.query.productType 
+                : [req.query.productType];
+            filter['data.productType'] = { $in: productTypes };
+        }
+
         // Filter by price range
         if (req.query.minPrice || req.query.maxPrice) {
             filter['price.self.UAH.currentPrice'] = {};

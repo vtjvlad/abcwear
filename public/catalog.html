@@ -55,6 +55,31 @@
                     
                     <form id="filter-form-sidebar">
                         <div class="filter-group">
+                            <label class="form-label">Категории</label>
+                            <div class="keyword-filters-sidebar">
+                                <div class="accordion" id="productTypeAccordion">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header">
+                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseProductType">
+                                                Категории товаров
+                                            </button>
+                                        </h2>
+                                        <div id="collapseProductType" class="accordion-collapse collapse" data-bs-parent="#productTypeAccordion">
+                                            <div class="accordion-body">
+                                                <div class="keyword-options">
+                                                    <label class="keyword-option"><input type="checkbox" name="productType" value="APPAREL"> Одежда</label>
+                                                    <label class="keyword-option"><input type="checkbox" name="productType" value="FOOTWEAR"> Обувь</label>
+                                                    <label class="keyword-option"><input type="checkbox" name="productType" value="EQUIPMENT"> Аксессуары</label>
+                                                    <!-- <label class="keyword-option"><input type="checkbox" name="productType" value="ACCESSORIES"> Аксессуары</label> -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
                             <label class="form-label">Цена</label>
                             <div class="price-range-slider">
                                 <div id="price-slider"></div>
@@ -605,6 +630,20 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Фильтр по категориям -->
+                            <div class="filter-group">
+                                <label class="form-label">Категории</label>
+                                <div class="keyword-category">
+                                    <h6 class="keyword-header">Категории товаров</h6>
+                                    <div class="keyword-options">
+                                        <label class="keyword-option"><input type="checkbox" name="productType" value="APPAREL"> Одежда</label>
+                                        <label class="keyword-option"><input type="checkbox" name="productType" value="FOOTWEAR"> Обувь</label>
+                                        <label class="keyword-option"><input type="checkbox" name="productType" value="ACCESSORIES"> Аксессуары</label>
+                                        <label class="keyword-option"><input type="checkbox" name="productType" value="EQUIPMENT"> Оборудование</label>
                                     </div>
                                 </div>
                             </div>

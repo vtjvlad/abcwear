@@ -14,6 +14,7 @@ let currentFilters = {    // Текущие активные фильтры
     maxPrice: '',        // Максимальная цена
     color: '',           // Выбранный цвет
     keywords: [],        // Выбранные ключевые слова
+    productType: [],     // Выбранные категории
     sort: 'none',        // Без сортировки по умолчанию
     isNew: false,        // Фильтр новинок
     isDiscount: false    // Фильтр скидок
@@ -415,16 +416,23 @@ function buildQueryString() {
     // Добавляем базовые фильтры
     if (currentFilters.search) {
         params.append('search', currentFilters.search);
-        params.append('searchFields', 'name,subtitle,category,keywords,description');
+        params.append('searchFields', 'name,subtitle,category,keywords,description,productType');
     }
     if (currentFilters.minPrice !== '') params.append('minPrice', currentFilters.minPrice);
     if (currentFilters.maxPrice !== '') params.append('maxPrice', currentFilters.maxPrice);
     if (currentFilters.color) params.append('color', currentFilters.color);
     
     // Добавляем выбранные ключевые слова
-    if (currentFilters.keywords.length > 0) {
+    if (currentFilters.keywords && currentFilters.keywords.length > 0) {
         currentFilters.keywords.forEach(keyword => {
             params.append('keywords', keyword);
+        });
+    }
+
+    // Добавляем выбранные категории
+    if (currentFilters.productType && currentFilters.productType.length > 0) {
+        currentFilters.productType.forEach(type => {
+            params.append('productType', type);
         });
     }
     
@@ -511,6 +519,19 @@ function parseUrlParameters() {
         });
     }
     
+    // Применяем категории
+    const productTypes = params.getAll('productType');
+    if (productTypes.length > 0) {
+        currentFilters.productType = productTypes;
+        const productTypeInputs = [
+            ...document.querySelectorAll('#filter-form input[name="productType"]'),
+            ...document.querySelectorAll('#filter-form-sidebar input[name="productType"]')
+        ];
+        productTypeInputs.forEach(input => {
+            input.checked = productTypes.includes(input.value);
+        });
+    }
+    
     // Применяем параметр сортировки
     const sort = params.get('sort');
     if (sort) {
@@ -584,6 +605,18 @@ function renderActiveFilters() {
             filters.push(`<span class="filter-chip">#${keyword} <button type="button" class="remove-filter" data-filter="keyword" data-value="${keyword}">&times;</button></span>`);
         });
     }
+    // Категории
+    if (currentFilters.productType && currentFilters.productType.length > 0) {
+        const categoryLabels = {
+            'APPAREL': 'Одежда',
+            'FOOTWEAR': 'Обувь',
+            'EQUIPMENT': 'Аксессуары'
+        };
+        currentFilters.productType.forEach(type => {
+            const label = categoryLabels[type] || type;
+            filters.push(`<span class="filter-chip">Категория: ${label} <button type="button" class="remove-filter" data-filter="productType" data-value="${type}">&times;</button></span>`);
+        });
+    }
     // Сортировка (если не по умолчанию)
     if (currentFilters.sort && currentFilters.sort !== 'none') {
         let sortLabel = '';
@@ -612,6 +645,7 @@ function renderActiveFilters() {
     container.querySelectorAll('.remove-filter').forEach(btn => {
         btn.addEventListener('click', (e) => {
             const type = btn.dataset.filter;
+            const value = btn.dataset.value;
             if (type === 'search') {
                 currentFilters.search = '';
                 // Сбрасываем поле поиска в обеих формах
@@ -653,14 +687,14 @@ function renderActiveFilters() {
                 updateSiteBackground('#ffffff');
             }
             if (type === 'keyword') {
-                currentFilters.keywords = currentFilters.keywords.filter(k => k !== btn.dataset.value);
+                currentFilters.keywords = currentFilters.keywords.filter(k => k !== value);
                 // Отключаем соответствующий чекбокс в обеих формах
                 const checkboxes = [
                     ...document.querySelectorAll('#filter-form input[name="keywords"]'),
                     ...document.querySelectorAll('#filter-form-sidebar input[name="keywords"]')
                 ];
                 checkboxes.forEach(checkbox => {
-                    if (checkbox.value === btn.dataset.value) {
+                    if (checkbox.value === value) {
                         checkbox.checked = false;
                     }
                 });
@@ -681,6 +715,23 @@ function renderActiveFilters() {
             if (type === 'isDiscount') {
                 currentFilters.isDiscount = false;
                 document.querySelectorAll('input[name="special"][value="discount"]').forEach(cb => cb.checked = false);
+            }
+            if (type === 'productType') {
+                currentFilters.productType = currentFilters.productType.filter(t => t !== value);
+                // Отключаем соответствующий чекбокс в обеих формах
+                const checkboxes = [
+                    ...document.querySelectorAll('#filter-form input[name="productType"]'),
+                    ...document.querySelectorAll('#filter-form-sidebar input[name="productType"]')
+                ];
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.value === value) {
+                        checkbox.checked = false;
+                    }
+                });
+                
+                // Обновляем URL и загружаем продукты
+                const queryString = buildQueryString();
+                loadProducts(1);
             }
 
             // Обновляем отображение активных фильтров сразу
@@ -703,6 +754,7 @@ async function loadProducts(page = 1) {
     showLoading();
     try {
         const queryString = buildQueryString();
+        console.log('Current filters:', currentFilters);
         console.log('Loading products with query:', queryString);
         
         // Запрашиваем данные с сервера
@@ -943,6 +995,23 @@ function syncFilterForms(sourceFormId, targetFormId) {
             }
         });
     }
+
+    // Синхронизируем чекбоксы для категорий
+    const productTypeSource = sourceForm.querySelectorAll('input[name="productType"]:checked');
+    if (productTypeSource.length > 0) {
+        // Сначала снимаем все чекбоксы в целевой форме
+        targetForm.querySelectorAll('input[name="productType"]').forEach(checkbox => {
+            checkbox.checked = false;
+        });
+        
+        // Затем устанавливаем нужные
+        productTypeSource.forEach(checkbox => {
+            const targetCheckbox = targetForm.querySelector(`input[name="productType"][value="${checkbox.value}"]`);
+            if (targetCheckbox) {
+                targetCheckbox.checked = true;
+            }
+        });
+    }
 }
 
 // Инициализация при загрузке страницы
@@ -1072,6 +1141,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
+    // Добавляем обработчики для чекбоксов категорий
+    document.querySelectorAll('input[name="productType"]').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            // Обновляем текущие фильтры
+            currentFilters.productType = Array.from(document.querySelectorAll('input[name="productType"]:checked'))
+                .map(cb => cb.value);
+            
+            // Сбрасываем текущую страницу
+            currentPage = 1;
+            
+            // Обновляем URL и загружаем продукты
+            const queryString = buildQueryString();
+            
+            // Обновляем отображение активных фильтров
+            renderActiveFilters();
+            
+            // Загружаем продукты
+            loadProducts();
+            
+            // Синхронизируем чекбоксы между формами
+            syncFilterForms('filter-form', 'filter-form-sidebar');
+        });
+    });
+    
     // Обработчик кнопки переключения фильтров
     const filterToggle = document.getElementById('filterToggle');
     const filterSidebar = document.querySelector('.filter-sidebar');
@@ -1132,8 +1225,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 search: document.getElementById('search').value.trim(),
                 minPrice: document.getElementById('minPrice').value.trim(),
                 maxPrice: document.getElementById('maxPrice').value.trim(),
-                color: currentFilters.color, // Сохраняем текущий выбранный цвет
+                color: currentFilters.color,
                 keywords: Array.from(mobileFilterForm.querySelectorAll('input[name="keywords"]:checked')).map(input => input.value),
+                productType: Array.from(mobileFilterForm.querySelectorAll('input[name="productType"]:checked')).map(input => input.value),
                 sort: currentFilters.sort,
                 isNew: !!mobileFilterForm.querySelector('input[name="special"][value="new"]:checked'),
                 isDiscount: !!mobileFilterForm.querySelector('input[name="special"][value="discount"]:checked')
@@ -1174,6 +1268,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 maxPrice: document.getElementById('maxPrice-sidebar').value.trim(),
                 color: currentFilters.color, // Сохраняем текущий выбранный цвет
                 keywords: Array.from(sidebarFilterForm.querySelectorAll('input[name="keywords"]:checked')).map(input => input.value),
+                productType: Array.from(sidebarFilterForm.querySelectorAll('input[name="productType"]:checked')).map(input => input.value),
                 sort: currentFilters.sort,
                 isNew: !!sidebarFilterForm.querySelector('input[name="special"][value="new"]:checked'),
                 isDiscount: !!sidebarFilterForm.querySelector('input[name="special"][value="discount"]:checked')
@@ -1207,6 +1302,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 maxPrice: '',
                 color: '',
                 keywords: [],
+                productType: [],
                 sort: 'none', // Без сортировки по умолчанию
                 isNew: false,
                 isDiscount: false
@@ -1242,7 +1338,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Возвращаем белый фон
             updateSiteBackground('#ffffff');
-
+            updateSiteAccent('rgb(123, 87, 228)');
             // Обновляем отображение активных фильтров сразу
             renderActiveFilters();
 
@@ -1461,6 +1557,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 currentFilters.isDiscount = false;
                 document.querySelectorAll('input[name="special"][value="discount"]').forEach(cb => cb.checked = false);
             }
+            if (type === 'productType') {
+                currentFilters.productType = currentFilters.productType.filter(t => t !== value);
+                // Отключаем соответствующий чекбокс в обеих формах
+                const checkboxes = [
+                    ...document.querySelectorAll('#filter-form input[name="productType"]'),
+                    ...document.querySelectorAll('#filter-form-sidebar input[name="productType"]')
+                ];
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.value === value) {
+                        checkbox.checked = false;
+                    }
+                });
+                
+                // Обновляем URL и загружаем продукты
+                const queryString = buildQueryString();
+                loadProducts(1);
+            }
 
             // Обновляем отображение активных фильтров сразу
             renderActiveFilters();
@@ -1515,6 +1628,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 maxPrice: '',
                 color: '',
                 keywords: [],
+                productType: [],
                 sort: 'none', // Без сортировки по умолчанию
                 isNew: false,
                 isDiscount: false

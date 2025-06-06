@@ -23,8 +23,11 @@ const prdapi = async (req, res, next) => {
             filter['info.color.labelColor'] = req.query.color;
         }
 
-        if (req.query.category) {
-            filter['data.productType'] = req.query.category;
+        if (req.query.productType) {
+            const productTypes = Array.isArray(req.query.productType) 
+                ? req.query.productType 
+                : [req.query.productType];
+            filter['data.productType'] = { $in: productTypes };
         }
 
         if (req.query.search) {
