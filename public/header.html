@@ -69,6 +69,7 @@
             border-bottom: 1px solid #ececec;
         }
         .header-row-bottom {
+            height: 69px;
             padding: 8px 32px 0 32px;
         }
         .header-categories {
@@ -840,6 +841,144 @@
             }
         }
         
+        /* Добавляем стили для мега-меню */
+        .mega-menu {
+            display: flex;
+            gap: 32px;
+            position: relative;
+        }
+
+        .mega-menu-item {
+            position: relative;
+        }
+
+        .mega-menu-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #fff;
+            box-shadow: var(--shadow-lg);
+            border-radius: 8px;
+            padding: 24px;
+            min-width: 600px;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .mega-menu-wide {
+            min-width: 800px;
+        }
+
+        .mega-menu-item:hover .mega-menu-content {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mega-menu-column {
+            flex: 1;
+            padding: 0 16px;
+            min-width: 180px;
+        }
+
+        .mega-menu-column h3 {
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ececec;
+        }
+
+        .mega-menu-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mega-menu-column ul li {
+            margin-bottom: 8px;
+        }
+
+        .mega-menu-column ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+
+        .mega-menu-column ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Стили для цветовой сетки */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+        }
+
+        .color-item {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 4px 0;
+            transition: color 0.2s ease;
+        }
+
+        .color-item:hover {
+            color: var(--primary-color);
+        }
+
+        /* Мобильные стили для мега-меню */
+        @media (max-width: 768px) {
+            .mega-menu {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .mega-menu-content {
+                position: static;
+                box-shadow: none;
+                padding: 16px;
+                min-width: 100%;
+                display: none;
+            }
+
+            .mega-menu-wide {
+                min-width: 100%;
+            }
+
+            .mega-menu-item.active .mega-menu-content {
+                display: block;
+            }
+
+            .mega-menu-column {
+                padding: 0;
+                margin-bottom: 20px;
+            }
+
+            .mega-menu-column h3 {
+                font-size: 15px;
+                margin-bottom: 12px;
+            }
+
+            .mega-menu-column ul li {
+                margin-bottom: 8px;
+            }
+
+            .mega-menu-column ul li a {
+                font-size: 14px;
+            }
+
+            .color-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -882,9 +1021,9 @@
         <div class="desktop-header">
             <div class="header-row header-row-top">
                 <nav class="header-categories">
-                    <a href="#" class="category">Взуття</a>
-                    <a href="#" class="category">Одяг</a>
-                    <a href="#" class="category">Аксесуары</a>
+                    <a href="/w?productType=FOOTWEAR" class="category">Взуття</a>
+                    <a href="/w?productType=APPAREL" class="category">Одяг</a>
+                    <a href="/w?productType=EQUIPMENT" class="category">Аксесуары</a>
                 </nav>
                 <div class="header-logo">
                     <a href="/" class="logo-link">
@@ -903,13 +1042,266 @@
                 </div>
             </div>
             <div class="header-row header-row-bottom">
+                <div class="header-menu-container">
                 <nav class="header-menu">
-                    <a href="#" class="menu-link">Новинки</a>
-                    <a href="#" class="menu-link">Спорт</a>
-                    <a href="#" class="menu-link">Премиум</a>
-                    <a href="#" class="menu-link">Бренды</a>
-                    <a href="#" class="menu-link sale">Распродажа</a>
+                    <div class="mega-menu">
+                        <!-- Новинки -->
+                        <div class="mega-menu-item">
+                            <a href="/w?isNew=true" class="menu-link">Новинки</a>
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-column">
+                                    <h3>Нове</h3>
+                                    <ul>
+                                        <li><a href="#">Одяг</a></li>
+                                        <li><a href="#">Взуття</a></li>
+                                        <li><a href="#">Аксесуары</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Топ</h3>
+                                    <ul>
+                                        <li><a href="#">Топ Проджу</a></li>
+                                        <li><a href="#">Щойно додане</a></li>
+                                        <li><a href="#">Все</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Він -->
+                        <div class="mega-menu-item">
+                            <a href="/w?gender=MALE" class="menu-link">Він</a>
+                            <div class="mega-menu-content mega-menu-wide">
+                                <div class="mega-menu-column">
+                                    <h3>Одяг</h3>
+                                    <ul>
+                                        <li><a href="#">Куртки</a></li>
+                                        <li><a href="#">Худи</a></li>
+                                        <li><a href="#">Пуловеры</a></li>
+                                        <li><a href="#">Свитшоты</a></li>
+                                        <li><a href="#">Флис</a></li>
+                                        <li><a href="#">Футболки</a></li>
+                                        <li><a href="#">Лонгсливы</a></li>
+                                        <li><a href="#">Короткий рукав</a></li>
+                                        <li><a href="#">Jersey</a></li>
+                                        <li><a href="#">Топы</a></li>
+                                        <li><a href="#">Без рукавов</a></li>
+                                        <li><a href="#">Поло</a></li>
+                                        <li><a href="#">Брюки</a></li>
+                                        <li><a href="#">Шорты</a></li>
+                                        <li><a href="#">Джоггеры</a></li>
+                                        <li><a href="#">Спортивные штаны</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Взуття</h3>
+                                    <ul>
+                                        <li><a href="#">Кроссовки</a></li>
+                                        <li><a href="#">Бутсы</a></li>
+                                        <li><a href="#">Сланцы</a></li>
+                                        <li><a href="#">Сандалии</a></li>
+                                        <li><a href="#">Шлепанцы</a></li>
+                                        <li><a href="#">Сникерсы</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Аксесуары</h3>
+                                    <ul>
+                                        <li><a href="#">Шапки</a></li>
+                                        <li><a href="#">Кепки</a></li>
+                                        <li><a href="#">Бини</a></li>
+                                        <li><a href="#">Солнечные очки</a></li>
+                                        <li><a href="#">Перчатки</a></li>
+                                        <li><a href="#">Шарфы</a></li>
+                                        <li><a href="#">Ремни</a></li>
+                                        <li><a href="#">Носки</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Сумки</h3>
+                                    <ul>
+                                        <li><a href="#">Сумки</a></li>
+                                        <li><a href="#">Рюкзаки</a></li>
+                                        <li><a href="#">Спортивные сумки</a></li>
+                                        <li><a href="#">Шопперы</a></li>
+                                        <li><a href="#">Поясные сумки</a></li>
+                                        <li><a href="#">Кроссбоди</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Вона -->
+                        <div class="mega-menu-item">
+                            <a href="/w?gender=FEMALE" class="menu-link">Вона</a>
+                            <div class="mega-menu-content mega-menu-wide">
+                                <div class="mega-menu-column">
+                                    <h3>Вибір за кольором</h3>
+                                    <div class="color-grid">
+                                        <a href="#" class="color-item">Чорний</a>
+                                        <a href="#" class="color-item">Кричневий</a>
+                                        <a href="#" class="color-item">Сірий</a>
+                                        <a href="#" class="color-item">Срібний</a>
+                                        <a href="#" class="color-item">Білий</a>
+                                        <a href="#" class="color-item">Фіолетовий</a>
+                                        <a href="#" class="color-item">Жовтий</a>
+                                        <a href="#" class="color-item">Зелений</a>
+                                        <a href="#" class="color-item">Блакитний</a>
+                                        <a href="#" class="color-item">Червоний</a>
+                                        <a href="#" class="color-item">Помаранчовий</a>
+                                        <a href="#" class="color-item">Рожевий</a>
+                                        <a href="#" class="color-item">Різнокольорове</a>
+                                    </div>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Одяг</h3>
+                                    <ul>
+                                        <li><a href="#">Футболки</a></li>
+                                        <li><a href="#">Лонгсливы</a></li>
+                                        <li><a href="#">Короткий рукав</a></li>
+                                        <li><a href="#">Топы</a></li>
+                                        <li><a href="#">Без рукавов</a></li>
+                                        <li><a href="#">Поло</a></li>
+                                        <li><a href="#">Хенли</a></li>
+                                        <li><a href="#">Шорты</a></li>
+                                        <li><a href="#">Джоггеры</a></li>
+                                        <li><a href="#">Спортивные штаны</a></li>
+                                        <li><a href="#">Карго</a></li>
+                                        <li><a href="#">Чино</a></li>
+                                        <li><a href="#">Леггинсы</a></li>
+                                        <li><a href="#">Все</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Взуття</h3>
+                                    <ul>
+                                        <li><a href="#">Кроссовки</a></li>
+                                        <li><a href="#">Бутсы</a></li>
+                                        <li><a href="#">Сланцы</a></li>
+                                        <li><a href="#">Сандалии</a></li>
+                                        <li><a href="#">Шлепанцы</a></li>
+                                        <li><a href="#">Сникерсы</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Аксесуары</h3>
+                                    <ul>
+                                        <li><a href="#">Шапки</a></li>
+                                        <li><a href="#">Кепки</a></li>
+                                        <li><a href="#">Бини</a></li>
+                                        <li><a href="#">Солнечные очки</a></li>
+                                        <li><a href="#">Перчатки</a></li>
+                                        <li><a href="#">Шарфы</a></li>
+                                        <li><a href="#">Ремни</a></li>
+                                        <li><a href="#">Носки</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Діти -->
+                        <div class="mega-menu-item">
+                            <a href="/w?ageGroup=CHILDREN" class="menu-link">Діти</a>
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-column">
+                                    <h3>Підлітки</h3>
+                                    <ul>
+                                        <li><a href="#">Одяг</a></li>
+                                        <li><a href="#">Взуття</a></li>
+                                        <li><a href="#">Аксесуары</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Молдші</h3>
+                                    <ul>
+                                        <li><a href="#">Одяг</a></li>
+                                        <li><a href="#">Взуття</a></li>
+                                        <li><a href="#">Аксесуары</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Діти</h3>
+                                    <ul>
+                                        <li><a href="#">Одяг</a></li>
+                                        <li><a href="#">Взуття</a></li>
+                                        <li><a href="#">Аксесуары</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Немовлята</h3>
+                                    <ul>
+                                        <li><a href="#">Одяг</a></li>
+                                        <li><a href="#">Взуття</a></li>
+                                        <li><a href="#">Аксесуары</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Спорт -->
+                        <div class="mega-menu-item">
+                            <a href="/w?category=SPORT" class="menu-link">Спорт</a>
+                            <div class="mega-menu-content mega-menu-wide">
+                                <div class="mega-menu-column">
+                                    <h3>Одяг для Спорту</h3>
+                                    <ul>
+                                        <li><a href="#">Dri-Fit</a></li>
+                                        <li><a href="#">Тренировочная</a></li>
+                                        <li><a href="#">Для тренировок</a></li>
+                                        <li><a href="#">Фитнес</a></li>
+                                        <li><a href="#">Профессиональная</a></li>
+                                        <li><a href="#">Спортивная</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Види спорту</h3>
+                                    <ul>
+                                        <li><a href="#">Баскетбол</a></li>
+                                        <li><a href="#">Футбол</a></li>
+                                        <li><a href="#">Соккер</a></li>
+                                        <li><a href="#">Бейсбол/Софтбол</a></li>
+                                        <li><a href="#">Волейбол</a></li>
+                                        <li><a href="#">Хоккей</a></li>
+                                        <li><a href="#">Регби</a></li>
+                                        <li><a href="#">Теннис</a></li>
+                                        <li><a href="#">Гольф</a></li>
+                                        <li><a href="#">Бег</a></li>
+                                        <li><a href="#">Тренировки</a></li>
+                                        <li><a href="#">Йога</a></li>
+                                        <li><a href="#">Гимнастика</a></li>
+                                    </ul>
+                                </div>
+                                <div class="mega-menu-column">
+                                    <h3>Лиги та Змашання</h3>
+                                    <ul>
+                                        <li><a href="#">NBA</a></li>
+                                        <li><a href="#">NFL</a></li>
+                                        <li><a href="#">MLB</a></li>
+                                        <li><a href="#">NWSL</a></li>
+                                        <li><a href="#">WNBA</a></li>
+                                        <li><a href="#">Колледж</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Распродажа -->
+                        <div class="mega-menu-item">
+                            <a href="/w?sort=price_desc&isDiscount=true" class="menu-link sale">Распродажа</a>
+                            <div class="mega-menu-content">
+                                <div class="mega-menu-column">
+                                    <h3>Скидки</h3>
+                                    <ul>
+                                        <li><a href="#">До -50%</a></li>
+                                        <li><a href="#">До -70%</a></li>
+                                        <li><a href="#">До -90%</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </nav>
+                </div>
                 <form class="header-search">
                     <input type="text" id="desktop-search-input" />
                     <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
