@@ -66,7 +66,7 @@
             margin-bottom: 32px;
             border-radius: 0 0 16px 16px;
             padding: 0 0 12px 0;
-            position: relative;
+            position: fixed;
             z-index: 1000;
             transition: transform 0.3s ease;
         }
@@ -941,7 +941,7 @@
             }
         }
         
-        /* Обновленные стили для мега-меню */
+        /* Добавляем стили для мега-меню */
         .mega-menu {
             display: flex;
             gap: 32px;
@@ -957,22 +957,22 @@
             position: absolute;
             top: 100%;
             left: 0;
-            background: var(--white);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             box-shadow: var(--glass-shadow);
-            border-radius: 16px;
-            padding: 32px;
-            min-width: 800px;
+            border-radius: 8px;
+            padding: 24px;
+            min-width: 600px;
             z-index: 1000;
             opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(10px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         .mega-menu-wide {
-            min-width: 1000px;
+            min-width: 800px;
         }
 
         .mega-menu-item:hover .mega-menu-content {
@@ -983,44 +983,17 @@
 
         .mega-menu-column {
             flex: 1;
-            padding: 0 24px;
-            min-width: 200px;
-            position: relative;
-        }
-
-        .mega-menu-column:not(:last-child)::after {
-            content: '';
-            position: absolute;
-            right: 0;
-            top: 10%;
-            height: 80%;
-            width: 1px;
-            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.1), transparent);
+            padding: 0 16px;
+            min-width: 180px;
         }
 
         .mega-menu-column h3 {
             color: var(--text-dark);
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
-            margin-bottom: 20px;
-            padding-bottom: 12px;
-            border-bottom: 2px solid var(--primary-color);
-            position: relative;
-        }
-
-        .mega-menu-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-
-        .mega-menu-column:hover h3::after {
-            width: 100%;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #ececec;
         }
 
         .mega-menu-column ul {
@@ -1030,91 +1003,37 @@
         }
 
         .mega-menu-column ul li {
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
 
         .mega-menu-column ul li a {
             color: var(--text-light);
             text-decoration: none;
-            font-size: 15px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .mega-menu-column ul li a::before {
-            content: '→';
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: all 0.3s ease;
+            font-size: 14px;
+            transition: color 0.2s ease;
         }
 
         .mega-menu-column ul li a:hover {
             color: var(--primary-color);
-            transform: translateX(8px);
-        }
-
-        .mega-menu-column ul li a:hover::before {
-            opacity: 1;
-            transform: translateX(0);
         }
 
         /* Стили для цветовой сетки */
         .color-grid {
             display: grid;
-            grid-template-columns: repeat(1, 1fr);
-            gap: 12px;
-            padding: 8px 0;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
         }
 
         .color-item {
             color: var(--text-light);
             text-decoration: none;
             font-size: 14px;
-            padding: 8px 12px;
-            border-radius: 8px;
-            background: var(--background-light);
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .color-item::before {
-            content: '';
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: currentColor;
-            opacity: 0.5;
-            transition: all 0.3s ease;
+            padding: 4px 0;
+            transition: color 0.2s ease;
         }
 
         .color-item:hover {
             color: var(--primary-color);
-            background: rgba(37, 99, 235, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .color-item:hover::before {
-            opacity: 1;
-            transform: scale(1.2);
-        }
-
-        /* Стили для изображений в мега-меню */
-        .mega-menu-image {
-            width: 100%;
-            height: 200px;
-            border-radius: 12px;
-            object-fit: cover;
-            margin-bottom: 16px;
-            transition: all 0.3s ease;
-        }
-
-        .mega-menu-image:hover {
-            transform: scale(1.02);
-            box-shadow: var(--shadow-md);
         }
 
         /* Мобильные стили для мега-меню */
@@ -1130,7 +1049,6 @@
                 padding: 16px;
                 min-width: 100%;
                 display: none;
-                transform: none;
             }
 
             .mega-menu-wide {
@@ -1143,20 +1061,16 @@
 
             .mega-menu-column {
                 padding: 0;
-                margin-bottom: 24px;
-            }
-
-            .mega-menu-column:not(:last-child)::after {
-                display: none;
+                margin-bottom: 20px;
             }
 
             .mega-menu-column h3 {
-                font-size: 16px;
-                margin-bottom: 16px;
+                font-size: 15px;
+                margin-bottom: 12px;
             }
 
             .mega-menu-column ul li {
-                margin-bottom: 10px;
+                margin-bottom: 8px;
             }
 
             .mega-menu-column ul li a {
@@ -1164,12 +1078,8 @@
             }
 
             .color-grid {
-                grid-template-columns: repeat(1, 1fr);
-                gap: 8px;
-            }
-
-            .mega-menu-image {
-                height: 150px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 6px;
             }
         }
     </style>
@@ -1266,7 +1176,6 @@
                             <a href="/w?gender=MALE" class="menu-link">Він</a>
                             <div class="mega-menu-content mega-menu-wide">
                                 <div class="mega-menu-column">
-                                    <img src="./images/men-category.jpg" alt="Мужская одежда" class="mega-menu-image">
                                     <h3>Одяг</h3>
                                     <ul>
                                         <li><a href="#">Куртки</a></li>
@@ -1288,7 +1197,6 @@
                                     </ul>
                                 </div>
                                 <div class="mega-menu-column">
-                                    <img src="./images/men-shoes.jpg" alt="Мужская обувь" class="mega-menu-image">
                                     <h3>Взуття</h3>
                                     <ul>
                                         <li><a href="#">Кроссовки</a></li>
@@ -1300,7 +1208,6 @@
                                     </ul>
                                 </div>
                                 <div class="mega-menu-column">
-                                    <img src="./images/men-accessories.jpg" alt="Мужские аксессуары" class="mega-menu-image">
                                     <h3>Аксесуары</h3>
                                     <ul>
                                         <li><a href="#">Шапки</a></li>
@@ -1314,7 +1221,6 @@
                                     </ul>
                                 </div>
                                 <div class="mega-menu-column">
-                                    <img src="./images/men-bags.jpg" alt="Мужские сумки" class="mega-menu-image">
                                     <h3>Сумки</h3>
                                     <ul>
                                         <li><a href="#">Сумки</a></li>
