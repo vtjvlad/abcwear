@@ -3,12 +3,12 @@
     "short_name": "UMAMI",
     "icons": [
         {
-            "src": "/u.png",
+            "src": "/images/u.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/u.png",
+            "src": "/images/u.png",
             "sizes": "512x512",
             "type": "image/png"
         }

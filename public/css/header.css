@@ -178,7 +178,8 @@ body {
     left: 50%;
     width: 0;
     height: 0;
-    background: var(--primary-color);
+    /* background: var(--primary-color); */
+    background: var(--text-dark);
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transition: width 0.3s ease, height 0.3s ease;
@@ -296,7 +297,7 @@ body {
 /* Мобильная версия */
 @media (max-width: 768px) {
     .main-header {
-        position: fixed;
+        position: relative;
         top: 0;
         left: 0;
         right: 0;

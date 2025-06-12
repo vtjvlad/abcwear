@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                     if (img && !images.includes(img)) images.push(img);
                 });
             }
-            if (images.length === 0) images.push('placeholder.jpg');
+            if (images.length === 0) images.push('./images/placeholder.jpg');
 
             // Генерируем HTML с data-атрибутами для изображений
             slide.innerHTML = `

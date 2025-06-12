@@ -10,7 +10,7 @@
     --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
     --shadow-lg: 0 8px 16px rgba(0,0,0,0.1);
     --transition: all 0.3s ease;
-}
+} 
 
 * {
     margin: 0;
@@ -32,7 +32,7 @@ body {
 }
 
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1200x600?text=Welcome+to+ABC+Wear');
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5));
     background-size: cover;
     background-position: center;
     height: 500px;

@@ -55,7 +55,7 @@ const catalogRoutes = (req, res) => {
 
 
 const error404 = async (req, res) => {
-    res.status(404).sendFile(path.join(__dirname, '../public', '404.html'));
+    res.status(404).sendFile(path.join(__dirname, '../public', './404.html'));
 
 }
 
