@@ -33,9 +33,8 @@ const { handlerError,
         authRoutes,
         ctgPageRoutes,
         ctgRoutes,
-        catalogRoutes,
-        mainPage
-    } = require('./utils/router');   
+        catalogRoutes
+        } = require('./utils/router');   
 
 // Import models
 const Product = require('./models/Product');
@@ -113,7 +112,7 @@ app.get('/catalog/*', ctgRoutes);
 // Обработка базового URL каталога
 app.get('/catalog', catalogRoutes);
 
-app.get('/', mainPage);
+// app.get('/', mainPage);
 
 // Serve index.html for the catalog route
 app.get('/ww', ctgPageRoutes);

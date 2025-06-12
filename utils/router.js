@@ -55,7 +55,7 @@ const catalogRoutes = (req, res) => {
 
 
 const error404 = async (req, res) => {
-    res.status(404).sendFile(path.join(__dirname, '../public', './404.html'));
+    res.status(404).sendFile(path.join(__dirname, '../public', '404.html'));
 
 }
 
@@ -75,9 +75,7 @@ const pageE = async (req, res) => {
 
 }
 
-const mainPage = async (req, res) => {
-    res.sendFile(path.join(__dirname, "../public", "index.html"));
-}
+
 
 module.exports = {
     handlerError,
@@ -89,6 +87,5 @@ module.exports = {
     authRoutes,
     ctgPageRoutes,
     ctgRoutes,  
-    catalogRoutes,
-    mainPage
+    catalogRoutes
 }
