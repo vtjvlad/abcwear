@@ -33,7 +33,8 @@ const { handlerError,
         authRoutes,
         ctgPageRoutes,
         ctgRoutes,
-        catalogRoutes 
+        catalogRoutes,
+        mainPage
     } = require('./utils/router');   
 
 // Import models
@@ -111,6 +112,9 @@ app.get('/catalog/*', ctgRoutes);
 
 // Обработка базового URL каталога
 app.get('/catalog', catalogRoutes);
+
+app.get('/', mainPage);
+
 // Serve index.html for the catalog route
 app.get('/ww', ctgPageRoutes);
 app.get("/w", pageP);
