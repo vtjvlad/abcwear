@@ -83,7 +83,7 @@ body {
     color: var(--text-light);
     font-size: 18px;
     font-weight: 500;
-    text-decoration: none;
+    text-decoration: none !important;
     padding-bottom: 4px;
     border-bottom: 2px solid transparent;
     transition: var(--transition);
@@ -151,6 +151,10 @@ body {
     min-width: 60px;
     text-align: right;
     margin-right: 0;
+}
+
+a:-webkit-any-link {
+    text-decoration: none !important;
 }
 
 .icon-btn {
@@ -804,7 +808,7 @@ body {
     .mobile-main-categories .category {
         font-size: 16px;
         color: #222;
-        text-decoration: none;
+        text-decoration: none !important;
         font-weight: 500;
         padding: 8px 16px;
         border-radius: 20px;
