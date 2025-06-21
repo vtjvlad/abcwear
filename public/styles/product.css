@@ -75,23 +75,23 @@ body {
 }
 
 /* Header */
-header {
+/* header {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
     color: var(--white);
     padding: 20px 0;
     box-shadow: var(--shadow-md);
     position: relative;
     overflow: hidden;
-}
+} */
 
-.header-container {
+/* .header-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
+} */
 
 .back-to-catalog {
     display: flex;
