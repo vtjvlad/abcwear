@@ -1,7 +1,7 @@
 {
     "editor.fontFamily": "'OpenDyslexicM Nerd Font', monoscape",
     "terminal.integrated.fontFamily": "'OpenDyslexicM Nerd Font', monoscape",
-    "terminal.integrated.fontSize": 10,
+    "terminal.integrated.fontSize": 18,
     "editor.fontSize": 15,
     "chat.editor.fontSize": 17,
     "editor.minimap.scale": 1,
