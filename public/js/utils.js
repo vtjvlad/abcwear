@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     };
 
     // Обновляем SEO метаданные
-    await seoFilters.getFiltersMetadata(filters);
+    // await seoFilters.getFiltersMetadata(filters);
 
     // Обработчик изменения фильтров
     const filterInputs = document.querySelectorAll('#color-filter, #category-filter, #name-filter, #min-price, #max-price, #search');
