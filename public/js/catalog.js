@@ -869,7 +869,8 @@ async function loadProducts(page = 1) {
                             colorLabel: mainProduct.info?.color?.labelColor || '',
                             image: mainProduct.imageData?.squarishURL || '',
                             additionalBadge: mainProduct.someAdditionalData?.badgeLabel || '',
-                            isSelected: true // Основной продукт выбран по умолчанию
+                            isSelected: true, // Основной продукт выбран по умолчанию
+                            url: `/product/${mainProduct._id}` // <-- добавляем url!
                         },
                         // Добавляем остальные варианты
                         ...productGroup.slice(1).map(variant => ({
@@ -879,7 +880,8 @@ async function loadProducts(page = 1) {
                             colorLabel: variant.info?.color?.labelColor || '',
                             image:  variant.imageData?.squarishURL || '',
                             additionalBadge: variant.someAdditionalData?.badgeLabel || '',
-                            isSelected: false
+                            isSelected: false,
+                            url: `/product/${variant._id}` // <-- добавляем url!
                         }))
                     ]
                 };
