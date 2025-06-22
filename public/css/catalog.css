@@ -435,13 +435,22 @@ a:hover {
 }
 
 .product-image {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
+    height: 300px;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    border-radius: 8px 8px 0 0;
+    transition: transform 0.3s ease;
+}
+
+.product-image-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-image-link:hover {
+    text-decoration: none;
+    color: inherit;
 }
 
 .product-card:hover .product-image {
@@ -1244,6 +1253,31 @@ a:hover {
 .moreInfo:hover {
     background: #e0e0e0;
     color: var(--accent-color);
+}
+
+.addToWishlist {
+    background: #fff;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.addToWishlist:hover {
+    background: #dc3545;
+    color: #fff;
+}
+
+.addToWishlist.added {
+    background: #dc3545;
+    color: #fff;
+}
+
+.addToWishlist.added:hover {
+    background: #c82333;
+    color: #fff;
 }
 
 @media (max-width: 768px) {

@@ -125,7 +125,9 @@ function createProductCard(product) {
                 <div class="product-image-container">
                     ${hasDiscount ? `<div class="discount-badge">-${discountPercent}%</div>` : ''}
                     ${isNew ? `<div class="new-badge">Новинка</div>` : ''}
-                    <img src="${imageUrl}" class="product-image" alt="${product.info?.name || 'Товар'}">
+                    <a href="/product/${product._id}" class="product-image-link">
+                        <img src="${imageUrl}" class="product-image" alt="${product.info?.name || 'Товар'}">
+                    </a>
                 </div>
                 <div class="product-body">
                     <h5 class="pb ${sustainable} ${justin} ${bestslr} ${custom} ${soldout}">${product.someAdditionalData.badgeLabel || ''}</h5>
@@ -140,9 +142,9 @@ function createProductCard(product) {
                     <div class="product-actions">
     <button class="addToCart" id="addToCart">В корзину</button>
     <button class="fastBuy" id="fastBuy">${price}₴</button>
-    <button class="moreInfo" id="moreInfo"
-    onclick="window.location.href = '/product/${product._id}'"
-    >Подробнее</button>
+    <button class="addToWishlist" id="addToWishlist" onclick="addToWishlist('${product._id}')">
+        <i class="far fa-heart"></i> В избранное
+    </button>
     </div>
                 </div>
             </div>
@@ -1691,3 +1693,83 @@ function handleScroll() {
 
 
 window.addEventListener('scroll', handleScroll); 
+
+// Функция для добавления товара в избранное
+async function addToWishlist(productId) {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = '/auth?redirect=' + encodeURIComponent(window.location.pathname);
+        return;
+    }
+
+    try {
+        const response = await fetch('/api/wishlist', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
+            body: JSON.stringify({ productId })
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || 'Не удалось добавить в избранное');
+        }
+
+        // Показываем уведомление об успешном добавлении
+        showNotification('Товар добавлен в избранное', 'success');
+        
+        // Обновляем счетчик в хедере
+        if (window.updateWishlistBadge) {
+            const wishlist = await response.json();
+            window.updateWishlistBadge(wishlist.items ? wishlist.items.length : 0);
+        }
+
+        // Изменяем иконку кнопки на заполненное сердце
+        const button = document.querySelector(`button[onclick="addToWishlist('${productId}')"]`);
+        if (button) {
+            button.innerHTML = '<i class="fas fa-heart"></i> В избранном';
+            button.classList.add('added');
+        }
+
+    } catch (error) {
+        console.error('Ошибка при добавлении в избранное:', error);
+        showNotification(error.message, 'error');
+    }
+}
+
+// Функция для показа уведомлений
+function showNotification(message, type = 'success') {
+    let container = document.querySelector('.notification-container');
+    if (!container) {
+        container = document.createElement('div');
+        container.className = 'notification-container';
+        document.body.appendChild(container);
+
+        const style = document.createElement('style');
+        style.textContent = `
+        .notification-container { position: fixed; top: 20px; right: 20px; z-index: 1050; }
+        .notification { background: #fff; padding: 15px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); margin-bottom: 10px; opacity: 0; transition: all 0.3s ease; transform: translateX(100%); border-left: 5px solid #28a745; }
+        .notification.error { border-left-color: #dc3545; }
+        .notification.show { opacity: 1; transform: translateX(0); }
+        `;
+        document.head.appendChild(style);
+    }
+
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    container.appendChild(notification);
+
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            container.removeChild(notification);
+        }, 300);
+    }, 3000);
+} 
