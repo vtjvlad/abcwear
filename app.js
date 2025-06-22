@@ -171,6 +171,10 @@ app.get("/api/products", productsApi);
 app.get("/api/products/:id", productApiById);
 app.get("/api/recommendations", rec);
 
+app.get('/favorites', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'wishlist.html'));
+});
+
 
 
 // Error handling middleware

@@ -19,6 +19,7 @@ let currentFilters = {    // Текущие активные фильтры
     isNew: false,        // Фильтр новинок
     isDiscount: false    // Фильтр скидок
 };
+let wishlistProductIds = [];
 
 /**
  * Показывает индикатор загрузки и скрывает кнопку "Загрузить еще"
@@ -43,7 +44,7 @@ function hideLoading() {
  * @param {Object} product - Объект с данными товара
  * @returns {string} HTML-разметка карточки товара
  */
-function createProductCard(product) {
+function createProductCard(product, isWishlisted = false) {
     // Получаем URL изображения из различных возможных источников
     const imageUrl = 
     // product.imageData?.imgMain ||
@@ -128,6 +129,9 @@ function createProductCard(product) {
                     <a href="/product/${product._id}" class="product-image-link">
                         <img src="${imageUrl}" class="product-image" alt="${product.info?.name || 'Товар'}">
                     </a>
+                    <div class="wishlist-badge${isWishlisted ? ' active' : ''}" id="wishlist-badge-${product._id}" style="${isWishlisted ? 'display:block;' : 'display:none;'}" onclick="toggleWishlist('${product._id}')">
+                        <i class="fas fa-heart"></i>
+                    </div>
                 </div>
                 <div class="product-body">
                     <h5 class="pb ${sustainable} ${justin} ${bestslr} ${custom} ${soldout}">${product.someAdditionalData.badgeLabel || ''}</h5>
@@ -142,8 +146,8 @@ function createProductCard(product) {
                     <div class="product-actions">
     <button class="addToCart" id="addToCart">В корзину</button>
     <button class="fastBuy" id="fastBuy">${price}₴</button>
-    <button class="addToWishlist" id="addToWishlist" onclick="addToWishlist('${product._id}')">
-        <i class="far fa-heart"></i> В избранное
+    <button class="addToWishlist${isWishlisted ? ' added' : ''}" id="addToWishlist" onclick="toggleWishlist('${product._id}')">
+        <i class="${isWishlisted ? 'fas' : 'far'} fa-heart"></i> ${isWishlisted ? 'В избранном' : 'В избранное'}
     </button>
     </div>
                 </div>
@@ -755,6 +759,20 @@ async function loadProducts(page = 1) {
     
     showLoading();
     try {
+        // Получаем список избранного
+        const token = localStorage.getItem('token');
+        wishlistProductIds = [];
+        if (token) {
+            try {
+                const wishlistRes = await fetch('/api/wishlist', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (wishlistRes.ok) {
+                    const wishlist = await wishlistRes.json();
+                    wishlistProductIds = wishlist.items ? wishlist.items.map(p => (p._id || p)) : [];
+                }
+            } catch (e) { /* ignore */ }
+        }
         const queryString = buildQueryString();
         console.log('Current filters:', currentFilters);
         console.log('Loading products with query:', queryString);
@@ -899,7 +917,8 @@ async function loadProducts(page = 1) {
                     }
                 }
 
-                return createProductCard(productWithVariants);
+                const isWishlisted = wishlistProductIds.includes(productWithVariants._id);
+                return createProductCard(productWithVariants, isWishlisted);
             }).join('');
             
             if (page === 1) {
@@ -1732,6 +1751,11 @@ async function addToWishlist(productId) {
             button.innerHTML = '<i class="fas fa-heart"></i> В избранном';
             button.classList.add('added');
         }
+        // Показываем бейдж-сердце
+        const badge = document.getElementById(`wishlist-badge-${productId}`);
+        if (badge) {
+            badge.style.display = 'block';
+        }
 
     } catch (error) {
         console.error('Ошибка при добавлении в избранное:', error);
@@ -1773,3 +1797,65 @@ function showNotification(message, type = 'success') {
         }, 300);
     }, 3000);
 } 
+
+async function toggleWishlist(productId) {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        window.location.href = '/auth?redirect=' + encodeURIComponent(window.location.pathname);
+        return;
+    }
+    const isWishlisted = wishlistProductIds.includes(productId);
+    try {
+        if (isWishlisted) {
+            // Удалить из избранного
+            const response = await fetch('/api/wishlist', {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ productId })
+            });
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Не удалось удалить из избранного');
+            }
+            wishlistProductIds = wishlistProductIds.filter(id => id !== productId);
+            showNotification('Товар удален из избранного', 'success');
+        } else {
+            // Добавить в избранное
+            const response = await fetch('/api/wishlist', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                },
+                body: JSON.stringify({ productId })
+            });
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Не удалось добавить в избранное');
+            }
+            wishlistProductIds.push(productId);
+            showNotification('Товар добавлен в избранное', 'success');
+        }
+        // Обновить UI
+        const button = document.querySelector(`button[onclick="toggleWishlist('${productId}')"]`);
+        const badge = document.getElementById(`wishlist-badge-${productId}`);
+        if (button) {
+            if (isWishlisted) {
+                button.innerHTML = '<i class="far fa-heart"></i> В избранное';
+                button.classList.remove('added');
+            } else {
+                button.innerHTML = '<i class="fas fa-heart"></i> В избранном';
+                button.classList.add('added');
+            }
+        }
+        if (badge) {
+            badge.style.display = isWishlisted ? 'none' : 'block';
+            badge.classList.toggle('active', !isWishlisted);
+        }
+    } catch (error) {
+        showNotification(error.message, 'error');
+    }
+}
