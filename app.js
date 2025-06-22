@@ -22,7 +22,10 @@ const { rec,
         profileApi,
         updateProfileApi,
         changePasswordApi,
-        deleteAccountApi 
+        deleteAccountApi,
+        getWishlistApi,
+        addToWishlistApi,
+        removeFromWishlistApi
     } = require('./utils/internalApi');
 const { handlerError,
         error404,
@@ -40,10 +43,11 @@ const { handlerError,
 const Product = require('./models/Product');
 const Cart = require('./models/Cart');
 const User = require('./models/User');
+const Wishlist = require('./models/Wishlist');
 
 // Import middleware
 const errorHandler = require('./middleware/errorHandler');
-const { productValidators, cartValidators } = require('./middleware/validators');
+const { productValidators, cartValidators, wishlistValidators } = require('./middleware/validators');
 const auth = require('./middleware/auth');
 
 const app = express();
@@ -84,6 +88,11 @@ app.post('/api/cart', auth, cartValidators.addToCart, addToCartApi);
 app.put('/api/cart', auth, cartValidators.updateCartItem, updateCartItemApi);
 app.delete('/api/cart/item', auth, cartValidators.removeFromCart, removeFromCartApi);
 app.delete('/api/cart', auth, clearCartApi);
+
+// Wishlist routes
+app.get('/api/wishlist', auth, getWishlistApi);
+app.post('/api/wishlist', auth, wishlistValidators.addToWishlist, addToWishlistApi);
+app.delete('/api/wishlist', auth, wishlistValidators.removeFromWishlist, removeFromWishlistApi);
 
 // Authentication routes
 app.post('/api/auth/register', registerApi);

@@ -43,7 +43,17 @@ const cartValidators = {
     ]
 };
 
+const wishlistValidators = {
+    addToWishlist: [
+        body('productId').isMongoId().withMessage('Invalid product ID')
+    ],
+    removeFromWishlist: [
+        body('productId').isMongoId().withMessage('Invalid product ID')
+    ]
+};
+
 module.exports = {
     productValidators,
-    cartValidators
+    cartValidators,
+    wishlistValidators
 }; 

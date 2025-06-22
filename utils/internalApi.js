@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken');
 const Cart = require('../models/Cart');
 const User = require('../models/User');
+const Wishlist = require('../models/Wishlist');
 const { validationResult } = require('express-validator');
 require("dotenv").config();
 
@@ -618,13 +619,79 @@ const changePasswordApi = async (req, res) => {
 // auth, 
 const deleteAccountApi = async (req, res) => {
     try {
-        await req.user.deleteOne();
-        res.json({ message: 'Аккаунт успешно удалён' });
+        const userId = req.user.id;
+        await User.findByIdAndDelete(userId);
+        await Cart.deleteOne({ userId });
+        await Wishlist.deleteOne({ userId });
+        res.json({ message: 'Аккаунт успешно удален' });
     } catch (error) {
-        res.status(500).json({ error: 'Ошибка при удалении аккаунта' });
+        res.status(500).json({ message: 'Ошибка при удалении аккаунта', error: error.message });
     }
 };
 
+const getWishlistApi = async (req, res) => {
+    try {
+        const wishlist = await Wishlist.findOne({ userId: req.user.id }).populate('items');
+        if (!wishlist) {
+            return res.json({ items: [] });
+        }
+        res.json(wishlist);
+    } catch (error) {
+        res.status(500).json({ message: 'Ошибка при получении списка избранного', error: error.message });
+    }
+};
+
+const addToWishlistApi = async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { productId } = req.body;
+    const userId = req.user.id;
+
+    try {
+        let wishlist = await Wishlist.findOne({ userId });
+
+        if (!wishlist) {
+            wishlist = new Wishlist({ userId, items: [] });
+        }
+
+        if (wishlist.items.includes(productId)) {
+            return res.status(400).json({ message: 'Товар уже в избранном' });
+        }
+
+        wishlist.items.push(productId);
+        await wishlist.save();
+        res.json(wishlist);
+    } catch (error) {
+        res.status(500).json({ message: 'Ошибка при добавлении в избранное', error: error.message });
+    }
+};
+
+const removeFromWishlistApi = async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+    }
+
+    const { productId } = req.body;
+    const userId = req.user.id;
+
+    try {
+        const wishlist = await Wishlist.findOne({ userId });
+
+        if (!wishlist) {
+            return res.status(404).json({ message: 'Список избранного не найден' });
+        }
+
+        wishlist.items = wishlist.items.filter(item => item.toString() !== productId);
+        await wishlist.save();
+        res.json(wishlist);
+    } catch (error) {
+        res.status(500).json({ message: 'Ошибка при удалении из избранного', error: error.message });
+    }
+};
 
 module.exports = {
     rec,
@@ -641,5 +708,8 @@ module.exports = {
     profileApi,
     updateProfileApi,
     changePasswordApi,
-    deleteAccountApi
+    deleteAccountApi,
+    getWishlistApi,
+    addToWishlistApi,
+    removeFromWishlistApi
 };
