@@ -46,7 +46,7 @@ function hideLoading() {
 function createProductCard(product) {
     // Получаем URL изображения из различных возможных источников
     const imageUrl = 
-    product.imageData?.imgMain ||
+    // product.imageData?.imgMain ||
                    product.imageData?.portraitURL || 
                    product.imageData?.squarishURL || 
                    'https://via.placeholder.com/300x400';
