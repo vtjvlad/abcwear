@@ -778,7 +778,7 @@ async function loadProducts(page = 1) {
         console.log('Loading products with query:', queryString);
         
         // Запрашиваем данные с сервера
-        const response = await fetch(`https://vtjvlad.ddns.net/api/products?page=${page}&limit=12&${queryString}`);
+        const response = await fetch(`https://dzshop24.com/api/products?page=${page}&limit=12&${queryString}`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
